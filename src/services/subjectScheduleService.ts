@@ -69,6 +69,12 @@ export interface PlannedMeetingCapacityResult {
   totalExcludedOccurrences?: number;
 }
 
+/** Final Step 08 gate only. isReady itself continues to support estimate previews/drafts. */
+export function isActualPlannedCapacityReady(capacity: PlannedMeetingCapacityResult): boolean {
+  return capacity.capacitySource === 'ACTUAL_SLOTS' && capacity.isReady && capacity.isValid &&
+    capacity.isComplete && !capacity.isStale && Number.isFinite(capacity.totalJP) && capacity.totalJP > 0;
+}
+
 /**
  * Validates a SubjectWeeklySchedule against expected weekly JP.
  * Supports multi-session patterns (1-3+ sessions per week) with individual JP and deterministic order.

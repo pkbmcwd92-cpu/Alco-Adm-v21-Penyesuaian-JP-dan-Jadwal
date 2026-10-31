@@ -1,4 +1,12 @@
-import type { SubjectJPResult } from '../types';
+import type { AnnualJPReference, SubjectJPResult } from '../types';
+
+/** Compare only the annual official benchmark; the saved weekly value may be a school default. */
+export function compareAnnualJPReference(stored: AnnualJPReference | null | undefined, master: Pick<SubjectJPResult, 'isOfficial' | 'referenceAnnualJP'>) {
+  const masterJP = master.isOfficial && finite(master.referenceAnnualJP) ? master.referenceAnnualJP : null;
+  const storedJP = finite(stored?.officialAnnualJP) ? stored.officialAnnualJP : null;
+  return { masterJP, storedJP, status: masterJP === null ? 'UNVERIFIED' as const : 'VERIFIED' as const,
+    needsReview: masterJP !== null && storedJP !== masterJP };
+}
 
 export interface AnnualJPSemester {
   semester: 1 | 2;

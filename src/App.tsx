@@ -66,6 +66,7 @@ import {
   saveUnitExecutionPlanV5,
   saveAcademicCalendarV5,
   saveSemesterJPSettingV5,
+  reviewAnnualJPReferenceV5,
   deleteSemesterJPSettingV5,
   saveTimeAllocationV5,
   saveSubjectWeeklyScheduleV5,
@@ -1737,6 +1738,17 @@ export function App() {
               onSaveUnitExecutionPlan={handleSaveUnitExecutionPlan}
               onSaveSubjectWeeklySchedule={handleSaveSubjectWeeklySchedule}
               onSaveLearningMeetingSchedule={handleSaveLearningMeetingSchedule}
+              onReviewAnnualJPReference={(yearPlanId) => {
+                if (yearPlanId !== activeYearPlan?.id) return false;
+                try {
+                  reviewAnnualJPReferenceV5(yearPlanId);
+                  refreshV5();
+                  return true;
+                } catch (error) {
+                  setAppNotice({ type: 'error', message: error instanceof Error ? error.message : 'Acuan JP belum diperbarui.' });
+                  return false;
+                }
+              }}
               onNextStep={() => setCurrentStep('semester')}
               onBackToMapping={() => setCurrentStep('atp-mapping')}
             />

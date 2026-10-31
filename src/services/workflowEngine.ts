@@ -31,7 +31,7 @@ import { loadStorageV5, getSemesterDataV5 } from './storageV5';
 import { resolveSemesterCapacityV5 } from './jpEngine';
 import { validateUnitExecutionPlan } from './unitExecutionPlanService';
 import { resolveUnitSemesterPlacement } from './unitSemesterPlanningService';
-import { resolvePlannedMeetingCapacity } from './subjectScheduleService';
+import { resolvePlannedMeetingCapacity, isActualPlannedCapacityReady } from './subjectScheduleService';
 import { isLearningMeetingScheduleReady } from './learningMeetingScheduleService';
 
 export type WorkflowStatus = 'BLOCKED' | 'READY' | 'IN_PROGRESS' | 'COMPLETE' | 'STALE';
@@ -855,8 +855,8 @@ export function validateWorkflowDependencies(
         : [];
 
       // Check S1 and S2 time/calendar setup ready states (Waktu S1 & Waktu S2)
-      const isS1TimeReady = Boolean(s1Cap?.isReady && s1PlannedCapacity.isReady);
-      const isS2TimeReady = Boolean(s2Cap?.isReady && s2PlannedCapacity.isReady);
+      const isS1TimeReady = Boolean(s1Cap?.isReady && isActualPlannedCapacityReady(s1PlannedCapacity));
+      const isS2TimeReady = Boolean(s2Cap?.isReady && isActualPlannedCapacityReady(s2PlannedCapacity));
 
       // Check Unit Semester Placement completeness independently (Pembagian Bab)
       let isPlacementComplete = false;
@@ -983,9 +983,9 @@ export function validateWorkflowDependencies(
       if (!isMappingComplete) {
         annualPlanningReason = 'Memerlukan penyelesaian Pemetaan Unit/Bab & Lingkup Materi (07) terlebih dahulu';
       } else if (!isS1TimeReady) {
-        annualPlanningReason = 'Waktu Semester 1: Kalender, JP Mingguan, dan Pola Pertemuan Mingguan.';
+        annualPlanningReason = 'Waktu Semester 1: tetapkan kalender dan hari mengajar untuk slot aktual yang valid; estimasi hanya untuk draf.';
       } else if (!isS2TimeReady) {
-        annualPlanningReason = 'Waktu Semester 2: Kalender, JP Mingguan, dan Pola Pertemuan Mingguan.';
+        annualPlanningReason = 'Waktu Semester 2: tetapkan kalender dan hari mengajar untuk slot aktual yang valid; estimasi hanya untuk draf.';
       } else if (!isPlacementComplete) {
         annualPlanningReason = placementReason || 'Tetapkan pembagian Unit/Bab ke Semester 1 dan Semester 2.';
       } else if (!isMeetingComplete) {

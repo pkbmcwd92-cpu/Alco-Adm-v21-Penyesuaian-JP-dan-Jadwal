@@ -1,4 +1,4 @@
-import { assessAnnualJP, sumSemesterAllocatedJP } from '../services/annualJPAssessment';
+import { assessAnnualJP, sumSemesterAllocatedJP, compareAnnualJPReference } from '../services/annualJPAssessment';
 import React, { useState, useMemo, useEffect } from 'react';
 import {
   CalendarRange,
@@ -44,6 +44,7 @@ import {
 import { resolveUnitSemesterPlacement } from '../services/unitSemesterPlanningService';
 import {
   resolvePlannedMeetingCapacity,
+  isActualPlannedCapacityReady,
 } from '../services/subjectScheduleService';
 import { isLearningMeetingScheduleReady } from '../services/learningMeetingScheduleService';
 import { validateATPUnitMappingCanonical } from '../services/atpUnitMappingValidationService';
@@ -67,6 +68,7 @@ export interface AnnualPlanningManagerProps {
   onSaveSubjectWeeklySchedule?: (schedule: SubjectWeeklySchedule, explicitSemesterPlanId?: string) => boolean;
   onSaveLearningMeetingSchedule?: (schedule: LearningMeetingScheduleData, explicitSemesterPlanId?: string) => boolean;
   onNextStep: () => void;
+  onReviewAnnualJPReference?: (yearPlanId: string) => boolean;
   onBackToMapping: () => void;
 }
 
@@ -88,6 +90,7 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
   onSaveSubjectWeeklySchedule,
   onSaveLearningMeetingSchedule,
   onNextStep,
+  onReviewAnnualJPReference,
   onBackToMapping,
 }) => {
   // Identify Semester 1 and Semester 2 plans from the year hierarchy
@@ -114,20 +117,21 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
   // Official benchmark rule
   const officialRule = useMemo(() => {
     return getSubjectJP({
+      curriculumType: yearPlan?.curriculumType ?? academicSetting.curriculumType,
       curriculum: academicSetting.curriculum,
-      level: academicSetting.level,
-      grade: academicSetting.grade,
-      subject: academicSetting.subject,
-      academicYear: academicSetting.academicYear,
+      level: yearPlan?.level ?? academicSetting.level,
+      grade: yearPlan?.grade ?? academicSetting.grade,
+      subject: yearPlan?.subject ?? academicSetting.subject,
+      academicYear: yearPlan?.academicYear ?? academicSetting.academicYear,
     });
-  }, [academicSetting]);
+  }, [academicSetting, yearPlan]);
 
   // Resolve V5 storage state reactively
   const v5State = useMemo(() => {
     try {
       return loadStorageV5();
     } catch {
-      return { semesterPlans: [], semesterData: { academicCalendar: [], timeAllocation: [] }, semesterJPSettings: [] };
+      return { semesterPlans: [], semesterData: { academicCalendar: [], timeAllocation: [] }, semesterJPSettings: [], annualJPReferences: [] };
     }
   }, [semesterPlans, academicSetting]);
 
@@ -178,11 +182,14 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
   }, [s1Capacity, s2Capacity]);
 
   const annualJPAssessment = assessAnnualJP(officialRule, [
-    { semester: 1, capacityJP: s1Capacity?.availableJP ?? null, calendarLostJP: s1Capacity?.calendarLostJP,
+    { semester: 1, capacityJP: s1Capacity?.isCalendarConfirmed && s1Capacity.capacitySource === 'ACTUAL_SLOTS' ? s1Capacity.availableJP : null, calendarLostJP: s1Capacity?.calendarLostJP,
       allocatedJP: sumSemesterAllocatedJP(s1Data) },
-    { semester: 2, capacityJP: s2Capacity?.availableJP ?? null, calendarLostJP: s2Capacity?.calendarLostJP,
+    { semester: 2, capacityJP: s2Capacity?.isCalendarConfirmed && s2Capacity.capacitySource === 'ACTUAL_SLOTS' ? s2Capacity.availableJP : null, calendarLostJP: s2Capacity?.calendarLostJP,
       allocatedJP: sumSemesterAllocatedJP(s2Data) },
   ]);
+  const storedAnnualReference = v5State.annualJPReferences?.find(e => e.yearPlanId === yearPlan?.id)?.value;
+  const referenceReview = compareAnnualJPReference(storedAnnualReference, officialRule);
+  const [referenceReviewMessage, setReferenceReviewMessage] = useState('');
 
   const activeSelectedPlan = activeTabSemester === 1 ? sem1Plan : sem2Plan;
   const activeSelectedData = activeTabSemester === 1 ? s1Data : s2Data;
@@ -298,7 +305,7 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
   const isS2ExactScheduleReady = s2ScheduleReadiness.isReady;
 
   const isTask5Complete = !isK13Curriculum
-    ? (isS1ExactScheduleReady && isS2ExactScheduleReady)
+    ? (isS1ExactScheduleReady && isS2ExactScheduleReady && isActualPlannedCapacityReady(s1PlannedCapacity) && isActualPlannedCapacityReady(s2PlannedCapacity))
     : (hasS1SavedAllocation && hasS2SavedAllocation);
 
   const meetingCounts = useMemo(() => {
@@ -660,11 +667,26 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
         <div className="min-w-0 flex-1 space-y-6">
           {/* Annual Summary & Both Semesters Overview Bar */}
           <div className="text-xs p-3 border rounded-xl space-y-1" id="annual-jp-assessment">
-            <div>Acuan intrakurikuler resmi: {annualJPAssessment.officialJP ?? 'Belum terverifikasi'} JP/tahun. Pemeriksaan acuan: {annualJPAssessment.referenceCheck}.</div>
-            <div>Kapasitas S1 + S2: {annualJPAssessment.capacityJP ?? 'Belum lengkap'} JP. Sisa/defisit alokasi: {annualJPAssessment.unallocatedJP ?? 'Belum lengkap'} JP ({annualJPAssessment.capacityStatus || 'Belum lengkap'}).</div>
-            <div>JP berkurang karena hari nonpembelajaran: {annualJPAssessment.calendarLostJP ?? 'Belum lengkap'}. Selisih kapasitas di bawah acuan: {annualJPAssessment.capacityBelowReferenceJP ?? 'Belum lengkap'} JP.</div>
-            <div>Basis: S1 {s1Capacity?.capacitySource}; S2 {s2Capacity?.capacitySource}. Nilai estimasi hari efektif bukan slot mapel aktual.</div>
+            <div>Status acuan: <strong>{referenceReview.status}</strong>. JP intrakurikuler tahunan resmi: {annualJPAssessment.officialJP ?? 'Belum terverifikasi'}.</div>
+            <div>JP rencana/teralokasi S1 + S2: {annualJPAssessment.allocatedJP ?? 'UNRESOLVED'}. Kapasitas JP aktual: {annualJPAssessment.capacityJP ?? 'UNRESOLVED'}.</div>
+            <div>Selisih acuan − rencana: {annualJPAssessment.referenceDifferenceJP ?? 'UNRESOLVED'} JP. Selisih kapasitas − alokasi: {annualJPAssessment.unallocatedJP ?? 'UNRESOLVED'} JP.</div>
+            <div>{annualJPAssessment.capacityStatus === 'OVER_ALLOCATED' ? 'Kelebihan alokasi terhadap kapasitas.' : annualJPAssessment.capacityStatus === 'UNDER_ALLOCATED' ? 'Masih ada kapasitas yang belum dialokasikan.' : annualJPAssessment.capacityStatus === 'BALANCED' ? 'Alokasi sesuai kapasitas.' : 'Kapasitas aktual atau alokasi belum lengkap (UNRESOLVED).'}</div>
+            {annualJPAssessment.capacityBelowReferenceJP !== null && annualJPAssessment.capacityBelowReferenceJP > 0 && <div>Kekurangan kapasitas terhadap acuan: {annualJPAssessment.capacityBelowReferenceJP} JP.</div>}
+            <div>Selisih terhadap acuan adalah bahan tinjauan, bukan otomatis pelanggaran regulasi. Alokasi draf belum merupakan jadwal final.</div>
+            {storedAnnualReference && <div>Default mingguan tersimpan: {storedAnnualReference.referenceWeeklyEquivalentJP ?? 'belum tersedia'} JP; ekuivalen master: {officialRule.weeklyJP ?? 'belum terverifikasi'} JP. Jika berbeda, tinjau pola sekolah secara terpisah; ekuivalen bukan batas sesi.</div>}
+            <div>Basis S1: {s1Capacity?.capacitySource ?? 'UNRESOLVED'}; S2: {s2Capacity?.capacitySource ?? 'UNRESOLVED'}. Estimasi hanya untuk pratinjau/draf; finalisasi memerlukan slot aktual kedua semester.</div>
+            {annualJPAssessment.capacityJP === null && totalAnnualAvailableJP !== null && <div>Pratinjau kapasitas estimasi: {totalAnnualAvailableJP} JP.</div>}
             {annualJPAssessment.semesterImbalance && <div>Alokasi melebihi kapasitas pada salah satu semester; saldo tahunan tidak menghapus ketidakseimbangan ini.</div>}
+            {referenceReview.needsReview && <div className="p-2 border border-amber-300 rounded-lg" role="alert">
+              Acuan tahunan tersimpan {referenceReview.storedJP ?? 'belum tersedia'} JP berbeda dari master {referenceReview.masterJP} JP untuk {academicSetting.subject}, {academicSetting.grade}, {academicSetting.academicYear}.
+              <div>Ekuivalen mingguan master: {officialRule.weeklyJP ?? 'belum terverifikasi'}; nilai mingguan tersimpan: {storedAnnualReference?.referenceWeeklyEquivalentJP ?? 'belum tersedia'} (dipertahankan).</div>
+              <div>Tinjau referensi; pembaruan hanya mengubah acuan tahunan, tanpa mengubah jadwal, override semester, TP/ATP/Bab atau pertemuan.</div>
+              {onReviewAnnualJPReference && yearPlan && <button type="button" id="review-annual-jp-reference" className="underline font-semibold" onClick={() => {
+                const saved = onReviewAnnualJPReference(yearPlan.id);
+                setReferenceReviewMessage(saved ? 'Acuan tahunan diperbarui. Pola mingguan dan kedua semester tetap dipertahankan.' : 'Acuan belum diperbarui; data tetap dipertahankan.');
+              }}>Perbarui acuan tahunan saja ke {referenceReview.masterJP} JP</button>}
+            </div>}
+            {referenceReviewMessage && <div role="status">{referenceReviewMessage}</div>}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Semester 1 Overview Card */}
@@ -1115,7 +1137,7 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
             {activeTaskId === 'time-allocation' && (
               <div className="pt-4 border-t border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
                 <span className="text-slate-600 font-medium">
-                  {isTask5Complete ? (
+                  {isAnnualReady ? (
                     <span className="text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 font-bold flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       Seluruh rangkaian Perencanaan Tahunan (Step 08) telah selesai disusun!
@@ -1136,10 +1158,11 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                 </span>
                 <button
                   type="button"
-                  disabled={!isTask5Complete}
-                  onClick={onNextStep}
+                  id="finalize-step08"
+                  disabled={!isAnnualReady}
+                  onClick={() => { if (isAnnualReady) onNextStep(); }}
                   className={`px-5 py-2.5 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
-                    isTask5Complete
+                    isAnnualReady
                       ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs'
                       : 'bg-slate-200 text-slate-400 border border-slate-300 cursor-not-allowed'
                   }`}

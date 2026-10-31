@@ -41,6 +41,7 @@ import { resolveUnitSemesterPlacement } from './unitSemesterPlanningService';
 import { validateLearningMeetingScheduleData } from './learningMeetingScheduleService';
 import { resolveSemesterJPFromState } from './semesterJPResolver';
 import { validateATPUnitMappingCanonical } from './atpUnitMappingValidationService';
+import { resolveCurriculumContext } from '../data/curriculum/resolver';
 
 export { STORAGE_KEY_V5 };
 
@@ -1435,6 +1436,22 @@ export function saveAnnualJPReferenceV5(
   upsertAnnualScopedEntry(state.annualJPReferences, yearPlanId, value);
   saveStorageV5(state);
   return value;
+}
+
+/** Explicit review action: update the annual benchmark only, preserving every weekly default/override. */
+export function reviewAnnualJPReferenceV5(yearPlanId: string): AnnualJPReference {
+  const state = loadStorageV5();
+  assertYearPlanExists(state, yearPlanId);
+  const year = state.yearPlans.find(y => y.id === yearPlanId)!;
+  const grade = String(year.grade).trim().match(/^(?:kelas\s*)?(\d{1,2})$/i);
+  if (!grade || !year.academicYear || !year.curriculumType || !year.level) throw new Error('Identitas acuan JP tahunan belum lengkap.');
+  const master = resolveCurriculumContext({ curriculumType: year.curriculumType, academicYear: year.academicYear,
+    level: year.level, grade: Number(grade[1]), subjectInput: year.subject });
+  if (!master?.isOfficial || master.intrakurikulerAnnualJP === null) throw new Error('Master JP belum terverifikasi; referensi tidak diubah.');
+  const stored = state.annualJPReferences.find(e => e.yearPlanId === yearPlanId)?.value;
+  const value: AnnualJPReference = { ...stored, officialAnnualJP: master.intrakurikulerAnnualJP,
+    regulationReference: [...master.regulationSources].sort((a,b) => b.year-a.year)[0]?.title };
+  return saveAnnualJPReferenceV5(yearPlanId, value);
 }
 
 export function deleteCPV5(yearPlanId: string): void {
