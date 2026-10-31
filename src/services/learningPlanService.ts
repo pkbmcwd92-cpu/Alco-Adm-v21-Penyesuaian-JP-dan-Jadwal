@@ -22,7 +22,10 @@ import {
   ATPUnitMappingData,
   UnitExecutionPlanData,
   LearningMeetingScheduleData,
+  AcademicCalendar, CalendarDay, SubjectWeeklySchedule, SemesterJPSetting, AnnualJPReference,
 } from '../types';
+import { isLearningMeetingScheduleReady } from './learningMeetingScheduleService';
+import { resolveSemesterJPFromValues } from './semesterJPResolver';
 import { resolveATPItemTPReferences } from './cpWorkflowService';
 import {
   resolveScheduledLearningMeetings,
@@ -924,6 +927,7 @@ export function normalizeAIResources(raw: any): LearningPlan['resources'] {
 }
 
 export interface LearningPlanValidationResult {
+  needsReview?: boolean;
   valid: boolean;
   isValid: boolean;
   errors: string[];
@@ -939,6 +943,14 @@ export interface LearningPlanValidationResult {
     | 'CANONICAL_ATP'
     | 'LINKED_TIME_ALLOCATION'
     | 'UNRESOLVED';
+}
+
+export interface LearningPlanActualTimeContext {
+  calendar?: AcademicCalendar;
+  calendarDays?: CalendarDay[];
+  subjectWeeklySchedule?: SubjectWeeklySchedule;
+  semesterJPSetting?: SemesterJPSetting;
+  annualJPReference?: AnnualJPReference;
 }
 
 /**
@@ -968,7 +980,7 @@ export function validateLearningPlan(
     k13Analysis?: K13Analysis | null;
     timeAllocations?: TimeAllocation[] | null;
     assessmentCriteria?: AssessmentCriterion[] | null;
-  }
+  } & LearningPlanActualTimeContext
 ): LearningPlanValidationResult {
   const draftErrors: string[] = [];
   const finalizationErrors: string[] = [];
@@ -1122,8 +1134,20 @@ export function validateLearningPlan(
   const activityMeetingValidation = validateLearningPlanActivityMeetings(
     plan, plan.learningMeetingIds || [], false,
     semesterRows.filter(row => (plan.learningMeetingIds || []).includes(row.meetingId)),
+    context.academicSetting,
   );
   if (!activityMeetingValidation.isValid) errors.push(activityMeetingValidation.reason!);
+  let actualTimeNeedsReview = false;
+  if (isCanonicalPlan && (context.calendar || context.subjectWeeklySchedule || context.calendarDays)) {
+    const activeSchedule = context.learningMeetingSchedules?.find(s => s.semesterPlanId === activeSettingId);
+    const readiness = isLearningMeetingScheduleReady({ schedule: activeSchedule?.schedule,
+      semester: activeSchedule?.semester || 1, mapping: context.atpUnitMapping, unitExecutionPlan: context.unitExecutionPlan,
+      subjectWeeklySchedule: context.subjectWeeklySchedule,
+      expectedWeeklyJP: resolveSemesterJPFromValues(context.semesterJPSetting, context.annualJPReference).weeklyJP,
+      calendar: context.calendar, calendarDays: context.calendarDays });
+    actualTimeNeedsReview = !readiness.isReady || context.calendar?.workflowStatus !== 'CONFIRMED';
+    if (actualTimeNeedsReview) errors.push('Jadwal aktual perlu ditinjau sebelum memvalidasi durasi: ' + readiness.errors.join('; '));
+  }
 
   const semesterMeetingMap = new Map(semesterRows.map((r) => [r.meetingId, r]));
   let targetUnitId: string | null = plan.unitId || null;
@@ -1582,6 +1606,7 @@ export function validateLearningPlan(
 
   return {
     valid: allErrors.length === 0,
+    needsReview: !activityMeetingValidation.isValid || actualTimeNeedsReview,
     isValid: allErrors.length === 0,
     errors: allErrors,
     warnings,
@@ -1647,7 +1672,7 @@ export function validateLearningPlanForModulAjar(
     k13Analysis?: K13Analysis | null;
     timeAllocations?: TimeAllocation[] | null;
     assessmentCriteria?: AssessmentCriterion[] | null;
-  }
+  } & LearningPlanActualTimeContext
 ): LearningPlanValidationResult {
   const canonicalResult = validateLearningPlan(plan, context);
 
@@ -1788,7 +1813,7 @@ export function createAIDraftLearningPlan(params: {
     aiDraft,
     context,
   } = params;
-  const activityValidation = validateLearningPlanActivityMeetings(aiDraft, learningMeetingIds || [], Boolean(learningMeetingIds?.length), meetings || []);
+  const activityValidation = validateLearningPlanActivityMeetings(aiDraft, learningMeetingIds || [], Boolean(learningMeetingIds?.length), meetings || [], academicSetting);
   if (!activityValidation.isValid) throw new Error(activityValidation.reason);
   const now = new Date().toISOString();
 
@@ -1885,7 +1910,7 @@ export function confirmLearningPlan(
     k13Analysis?: K13Analysis | null;
     timeAllocations?: TimeAllocation[] | null;
     assessmentCriteria?: AssessmentCriterion[] | null;
-  }
+  } & LearningPlanActualTimeContext
 ): { success: boolean; plan: LearningPlan; validation: LearningPlanValidationResult } {
   // First evaluate validation without the status check
   const candidatePlan: LearningPlan = {

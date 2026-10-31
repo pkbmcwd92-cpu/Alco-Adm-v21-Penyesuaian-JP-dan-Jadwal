@@ -17,34 +17,35 @@ const backendExports: any = {};
 runInNewContext(ts.transpileModule(backendSource, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText,
   { exports: backendExports, Type, validateGraduateProfileDimensions, validateLearningPlanActivityMeetings });
 const { validateAILearningPlanPayload, learningPlanResponseSchema, buildLearningPlanRepairPrompt } = backendExports;
-assert(serverSource.includes('validateAILearningPlanPayload(parsed, meetings)'));
-assert(serverSource.includes('validateAILearningPlanPayload(repairedParsed, meetings)'));
+assert(serverSource.includes('validateAILearningPlanPayload(parsed, meetings, academicSetting)'));
+assert(serverSource.includes('validateAILearningPlanPayload(repairedParsed, meetings, academicSetting)'));
 const meetings = [3,1,2].map(order=>({meetingId:'meeting-'+order, order, title:'Same title', jp:2}));
 const ids=meetings.map(m=>m.meetingId);
+const academicSetting:any={id:'sem',curriculumType:'KURIKULUM_MERDEKA',grade:'7',level:'SMP',subject:'PJOK',academicYear:'2025/2026'};
 const payload: any = {
   title:'Unit', initialCompetency:'Prasyarat', graduateProfileDimensions:['Kemandirian'], resources:[{title:'Buku'}], learningModel:'Praktik',
   learningExperiences:['UNDERSTAND','APPLY','REFLECT'].map((phase,i)=>({id:'exp'+i,phase,description:'Aktivitas '+ids[i], learningMeetingId:ids[i]})),
   learningSteps:{
     opening:ids.map((id,i)=>({id:'open'+i,learningMeetingId:id,description:'Awal '+id,durationMinutes:10})),
-    core:ids.map(id=>({id:'step'+id.split('-')[1],learningMeetingId:id,description:'Praktik khusus '+id,durationMinutes:50})),
+    core:ids.map(id=>({id:'step'+id.split('-')[1],learningMeetingId:id,description:'Praktik khusus '+id,durationMinutes:60})),
     closing:ids.map((id,i)=>({id:'close'+i,learningMeetingId:id,description:'Akhir '+id,durationMinutes:10})),
   },
   assessmentPlan:Object.fromEntries(['initial','formative','summative'].map(type=>[type,[{type:type.toUpperCase(),description:'Asesmen '+type,linkedTpIds:['tp']}]])),
 };
-assert(validateAILearningPlanPayload(structuredClone(payload),meetings).isValid);
+assert(validateAILearningPlanPayload(structuredClone(payload),meetings,academicSetting).isValid);
 for(const value of ['dangling','meeting-1 ',1,null,undefined]) {
   const bad=structuredClone(payload);bad.learningExperiences[0].learningMeetingId=value;
-  assert(!validateAILearningPlanPayload(bad,meetings).isValid,String(value));
+  assert(!validateAILearningPlanPayload(bad,meetings,academicSetting).isValid,String(value));
 }
 const badStep=structuredClone(payload);badStep.learningSteps.core[0].learningMeetingId='other-unit';
-assert(!validateAILearningPlanPayload(badStep,meetings).isValid);
+assert(!validateAILearningPlanPayload(badStep,meetings,academicSetting).isValid);
 const missing=structuredClone(payload);missing.learningExperiences.splice(0,1);
 assert(!validateLearningPlanActivityMeetings(missing,ids,true).isValid);
 assert('learningMeetingId' in learningPlanResponseSchema.properties.learningExperiences.items.properties);
 for(const phase of ['opening','core','closing'] as const) assert('learningMeetingId' in learningPlanResponseSchema.properties.learningSteps.properties[phase].items.properties);
 const repair=buildLearningPlanRepairPrompt({parsed:payload,tps:[],failedGroups:[],meetings});
 assert(ids.every(id=>repair.includes(id)) && repair.includes('learningMeetingId EXACT'));
-const academicSetting:any={id:'sem',curriculumType:'KURIKULUM_MERDEKA',grade:'7',level:'SMP'};
+
 const create = (aiDraft:any, learningMeetingIds:string[]=ids)=>createAIDraftLearningPlan({academicSetting,curriculumType:'KURIKULUM_MERDEKA',unitId:'unit',learningMeetingIds,meetings:learningMeetingIds.length ? meetings : [],tpIds:['tp'],aiDraft});
 const savedFetch=globalThis.fetch;
 let responsePayload=payload;
@@ -52,7 +53,7 @@ let sent:any;
 globalThis.fetch=async (_url, options)=>{sent=JSON.parse(String(options?.body));return new Response(JSON.stringify({data:structuredClone(responsePayload)}),{status:200,headers:{'Content-Type':'application/json'}});};
 try {
   const result=await generateLearningPlanWithAI({academicSetting,tps:[{id:'tp'} as any],meetings});
-  assert.deepEqual(sent.meetings,meetings);
+  assert.deepEqual(sent.meetings,meetings.map(m=>({...m,minutesPerJP:40,durationMinutes:80})));
   const draft=create(JSON.parse(JSON.stringify(result)));
   assert.deepEqual(draft.learningExperiences!.map(e=>[e.description,e.learningMeetingId]),payload.learningExperiences.map((e:any)=>[e.description,e.learningMeetingId]));
   assert.equal(draft.learningSteps!.core![0].learningMeetingId,'meeting-3');

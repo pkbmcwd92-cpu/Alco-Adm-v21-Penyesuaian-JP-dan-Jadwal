@@ -2,7 +2,7 @@ import { serveCP4Analysis } from './server/cpAnalysisDeadline';
 import { CP4_BACKEND_SERVICE, CP4_BACKEND_PROTOCOL } from './src/services/cpAnalysisBackend';
 import { isCP4RequestId } from './src/services/cpAnalysisRun';
 import { assignGeneratedTPCodes, TP_CODE_FORMAT_DESCRIPTION } from './src/services/tpCodeContract';
-import { validateLearningPlanActivityMeetings } from './src/services/learningPlanActivityMeetingService';
+import { validateLearningPlanActivityMeetings, resolveLearningPlanMeetingBudgets } from './src/services/learningPlanActivityMeetingService';
 import express from 'express';
 import { validateATPUnitMappingCanonical } from './src/services/atpUnitMappingValidationService';
 import { assertMeetingSourceLineage, MeetingCoverageError, repairUnitMeetingCoverage } from './server/unitMeetingCoverageRepair';
@@ -3104,7 +3104,7 @@ export function isPedagogicalItemValid(item: any): boolean {
   );
 }
 
-export function validateAILearningPlanPayload(data: any, meetings: { meetingId: string; jp: number }[] = []): { isValid: boolean; reason?: string } {
+export function validateAILearningPlanPayload(data: any, meetings: { meetingId: string; jp: number }[] = [], academicSetting?: any): { isValid: boolean; reason?: string } {
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
     return { isValid: false, reason: 'Payload AI bukan berupa objek valid' };
   }
@@ -3132,7 +3132,7 @@ export function validateAILearningPlanPayload(data: any, meetings: { meetingId: 
   }
 
   const meetingIds = meetings.map(m => m.meetingId);
-  const activityValidation = validateLearningPlanActivityMeetings(data, meetingIds, meetingIds.length > 0, meetings);
+  const activityValidation = validateLearningPlanActivityMeetings(data, meetingIds, meetingIds.length > 0, meetings, academicSetting);
   if (!activityValidation.isValid) return activityValidation;
 
   const phaseSet = new Set<string>();
@@ -3263,7 +3263,7 @@ INSTRUKSI PERBAIKAN (WAJIB DIPATUHI SECARA MUTLAK):
    - Acuan KKTP jika tersedia
    - Pengalaman Belajar (UNDERSTAND, APPLY, REFLECT)
    - Alokasi waktu kanonikal: ${canonicalAllocatedJP ? `${canonicalAllocatedJP} JP` : 'tetap sesuai rancangan'}
-3. Jika scope meeting tersedia, setiap learningExperience/learningStep wajib memiliki learningMeetingId EXACT dari daftar: ${JSON.stringify((meetings || []).map(m => m.meetingId))}. Setiap meeting wajib memiliki learningSteps.opening + core + closing, deskripsi nonblank dan durationMinutes > 0; jumlah menit tiga fase harus tepat jp canonical × 35. learningExperiences hanya pendekatan kegiatan inti, bukan pengganti fase atau tambahan durasi. JP canonical: ${JSON.stringify(meetings || [])}. Jangan infer ID dari urutan, judul atau TP. Jika scope tidak tersedia, jangan buat learningMeetingId.
+3. Jika scope meeting tersedia, setiap learningExperience/learningStep wajib memiliki learningMeetingId EXACT dari daftar: ${JSON.stringify((meetings || []).map(m => m.meetingId))}. Setiap meeting wajib memiliki learningSteps.opening + core + closing, deskripsi nonblank dan durationMinutes > 0; jumlah menit tiga fase harus tepat durationMinutes pada anggaran meeting (jp × minutesPerJP dari konteks kurikulum). learningExperiences hanya pendekatan kegiatan inti, bukan pengganti fase atau tambahan durasi. Anggaran canonical: ${JSON.stringify(meetings || [])}. Jangan infer ID dari urutan, judul atau TP. Jika scope tidak tersedia, jangan buat learningMeetingId.
 3a. Opening ringkas mencakup salam, sapa, kabar/kesiapan, kehadiran, apersepsi materi sebelumnya, fokus materi hari ini, kaitan kehidupan sehari-hari, afirmasi/motivasi. Closing mencakup refleksi/cek pemahaman, simpulan, tindak lanjut bila relevan, apresiasi, salam; PJOK boleh pendinginan sesuai konteks.
 4. JANGAN menghasilkan asesmen fiktif, JANGAN mengosongkan kelompok asesmen '${failedGroups.join(', ') || 'apapun'}', dan JANGAN menggunakan placeholder generik.
 
@@ -3341,7 +3341,7 @@ export const learningPlanResponseSchema = {
               learningMeetingId: { type: Type.STRING, description: 'Exact canonical meetingId from the active meeting scope' },
               stepName: { type: Type.STRING },
               description: { type: Type.STRING, minLength: '1', description: 'Nonblank operational activity description' },
-              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal canonical jp * 35' },
+              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal its supplied durationMinutes budget (jp * minutesPerJP)' },
             },
           },
         },
@@ -3355,7 +3355,7 @@ export const learningPlanResponseSchema = {
               learningMeetingId: { type: Type.STRING, description: 'Exact canonical meetingId from the active meeting scope' },
               stepName: { type: Type.STRING },
               description: { type: Type.STRING, minLength: '1', description: 'Nonblank operational activity description' },
-              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal canonical jp * 35' },
+              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal its supplied durationMinutes budget (jp * minutesPerJP)' },
             },
           },
         },
@@ -3369,7 +3369,7 @@ export const learningPlanResponseSchema = {
               learningMeetingId: { type: Type.STRING, description: 'Exact canonical meetingId from the active meeting scope' },
               stepName: { type: Type.STRING },
               description: { type: Type.STRING, minLength: '1', description: 'Nonblank operational activity description' },
-              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal canonical jp * 35' },
+              durationMinutes: { type: Type.NUMBER, minimum: 1, description: 'Positive minutes; opening + core + closing per meeting must equal its supplied durationMinutes budget (jp * minutesPerJP)' },
             },
           },
         },
@@ -3453,17 +3453,19 @@ export const learningPlanResponseSchema = {
 // Endpoint: AI Generate Learning Plan (Modul Ajar DRAFT)
 app.post('/api/ai/generate-learning-plan', async (req, res) => {
   const requestId = `req-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
-  const { academicSetting, tps, atpItems, topic, allocatedJP, cognitiveAdaptation, meetings, kktpCriteria } = req.body || {};
+  const { academicSetting, tps, atpItems, topic, allocatedJP, cognitiveAdaptation, meetings: rawMeetings, kktpCriteria } = req.body || {};
 
   if (!tps || !Array.isArray(tps) || tps.length === 0) {
     return res.status(400).json({ error: 'Minimal satu Tujuan Pembelajaran (TP) diperlukan untuk menyusun Modul Ajar' });
   }
 
-  if (meetings !== undefined && (!Array.isArray(meetings) ||
-      meetings.some((m: any) => !m || typeof m.meetingId !== 'string' || !m.meetingId.trim()) ||
-      new Set(meetings.map((m: any) => m.meetingId)).size !== meetings.length)) {
+  if (rawMeetings !== undefined && !Array.isArray(rawMeetings)) {
     return res.status(400).json({ error: 'Scope meeting canonical tidak valid.' });
   }
+
+  const budgets = resolveLearningPlanMeetingBudgets(rawMeetings || [], academicSetting);
+  if (!budgets.isValid) return res.status(400).json({ error: budgets.reason });
+  const meetings = budgets.meetings;
 
   const apiKey = resolveApiKey(req);
   if (!apiKey) {
@@ -3511,6 +3513,7 @@ app.post('/api/ai/generate-learning-plan', async (req, res) => {
           parts.push(`Judul: ${m.title || '-'}`);
           if (m.date) parts.push(`Tanggal: ${m.date}`);
           parts.push(`JP: ${m.jp || '-'}`);
+          parts.push(`Menit per JP: ${m.minutesPerJP}; anggaran durasi: ${m.durationMinutes} menit`);
           const mats = m.materials || m.materialIds;
           if (mats && Array.isArray(mats)) {
             const matTitles = mats.map((mat: any) => typeof mat === 'string' ? mat : (mat.title || mat.id)).join(', ');
@@ -3558,7 +3561,7 @@ ${kktpContextStr}
 
 INSTRUKSI WAJIB MENGENAI STRUKTUR PERTEMUAN & KKTP:
 1. Pertahankan urutan, jumlah, dan lingkup pertemuan kanonikal yang diberikan di atas. Jangan memangkas, mengganti, atau menambah pertemuan.
-2. Jika pertemuan canonical tersedia, setiap learningExperience dan setiap learningStep WAJIB memiliki learningMeetingId yang disalin EXACT dari meetingId scope di atas. Untuk SETIAP meeting canonical, wajib isi learningSteps.opening, core, closing dengan description nonblank dan durationMinutes > 0. Total durasi opening + core + closing meeting tersebut harus tepat jp meeting × 35 menit (3 JP = 105; contoh 15 + 75 + 15). Jangan memakai total JP unit untuk satu meeting. Jangan infer ID dari urutan, judul, TP, atau membuat ID baru. learningExperiences UNDERSTAND, APPLY, REFLECT adalah pendekatan kegiatan inti/deep learning; tidak menggantikan opening/closing dan tidak dihitung sebagai tambahan durasi learningSteps. Jika scope pertemuan tidak tersedia, hilangkan learningMeetingId dan pertahankan aktivitas global; jangan mengarang pertemuan.
+2. Jika pertemuan canonical tersedia, setiap learningExperience dan setiap learningStep WAJIB memiliki learningMeetingId yang disalin EXACT dari meetingId scope di atas. Untuk SETIAP meeting canonical, wajib isi learningSteps.opening, core, closing dengan description nonblank dan durationMinutes > 0. Total durasi opening + core + closing meeting tersebut harus tepat anggaran durasi meeting yang diberikan (JP aktual × minutesPerJP dari konteks kurikulum). Setiap meeting dapat memiliki anggaran berbeda, termasuk pola 3+2 JP; gunakan anggaran masing-masing ID. Jangan memakai total JP unit untuk satu meeting. Jangan infer ID dari urutan, judul, TP, atau membuat ID baru. learningExperiences UNDERSTAND, APPLY, REFLECT adalah pendekatan kegiatan inti/deep learning; tidak menggantikan opening/closing dan tidak dihitung sebagai tambahan durasi learningSteps. Jika scope pertemuan tidak tersedia, hilangkan learningMeetingId dan pertahankan aktivitas global; jangan mengarang pertemuan.
 2a. Opening ringkas memuat salam, sapa, kabar/kesiapan, kehadiran, apersepsi materi sebelumnya, fokus materi hari ini, kaitan kehidupan sehari-hari, afirmasi/motivasi. Closing memuat refleksi/cek pemahaman, simpulan, tindak lanjut bila relevan, apresiasi, salam; PJOK boleh pendinginan sesuai konteks.
 3. Batasi topik pembahasan ketat hanya pada Unit, TP, ATP, dan struktur pertemuan kanonikal di atas. Jangan memperluas materi di luar batas-batas tersebut.
 4. Alokasi JP total tepat ${canonicalAllocatedJP ? `${canonicalAllocatedJP} JP` : 'sesuai jumlah JP pertemuan'} dan bersifat mutlak dari rancangan pertemuan kanonikal.
@@ -3620,7 +3623,7 @@ Kembalikan output JSON sesuai schema.`;
     });
 
     let parsed = cleanAndParseJSON(response.text, null);
-    let validation = validateAILearningPlanPayload(parsed, meetings);
+    let validation = validateAILearningPlanPayload(parsed, meetings, academicSetting);
 
     // AI Recovery: Jika validasi asesmen atau struktur gagal, jalankan MAKSIMAL SATU perbaikan AI
     if (!validation.isValid) {
@@ -3649,7 +3652,7 @@ Kembalikan output JSON sesuai schema.`;
         });
 
         const repairedParsed = cleanAndParseJSON(repairResponse.text, null);
-        const repairedValidation = validateAILearningPlanPayload(repairedParsed, meetings);
+        const repairedValidation = validateAILearningPlanPayload(repairedParsed, meetings, academicSetting);
 
         if (repairedValidation.isValid) {
           console.info(`[AI Service][learning-plan][${requestId}] Percobaan perbaikan AI berhasil!`);

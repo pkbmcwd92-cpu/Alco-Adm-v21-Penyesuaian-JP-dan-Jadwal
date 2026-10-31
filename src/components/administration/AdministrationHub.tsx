@@ -521,6 +521,8 @@ export const AdministrationHub: React.FC<AdministrationHubProps> = ({
 
         {activeTab === 'learning_plan' && (
           <LearningPlanManager
+            calendar={calendar} calendarDays={calendarDays} subjectWeeklySchedule={subjectWeeklySchedule}
+            semesterJPSetting={semesterJPSetting} annualJPReference={annualJPReference}
             school={school}
             profile={profile}
             academicSetting={academicSetting}

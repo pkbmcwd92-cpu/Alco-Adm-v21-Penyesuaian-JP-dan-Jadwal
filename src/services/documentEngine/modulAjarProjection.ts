@@ -2,6 +2,7 @@ import { AssessmentCriterion, AssessmentPlanItem } from '../../types';
 import { resolveScheduledLearningMeetings, ScheduledLearningMeetingProjection } from '../scheduledLearningMeetingProjectionService';
 import { LearningPlan, DocumentGenerationContext } from './types';
 import { validateLearningPlanForModulAjar, LearningPlanValidationResult } from '../learningPlanService';
+import { resolveLearningPlanMeetingBudgets } from '../learningPlanActivityMeetingService';
 
 export interface ModulAjarMeetingActivity {
   id: string;
@@ -13,6 +14,7 @@ export interface ModulAjarMeetingActivity {
 }
 export interface ModulAjarMeeting {
   id: string; order: number; title: string; date: string; jp: number;
+  minutesPerJP: number; durationMinutes: number;
   materials: ScheduledLearningMeetingProjection['materials'];
   linkedTpIds: string[]; linkedAtpItemIds: string[];
   resolvedTPs: ModulAjarProjection['resolvedTPs'];
@@ -121,6 +123,9 @@ export function buildModulAjarProjection(context: DocumentGenerationContext): Mo
     k13Analysis: context.k13Analysis,
     timeAllocations: context.timeAllocations,
     assessmentCriteria: context.assessmentCriteria,
+    calendar: context.calendar, calendarDays: context.calendarDays,
+    subjectWeeklySchedule: context.subjectWeeklySchedule,
+    semesterJPSetting: context.semesterJPSetting, annualJPReference: context.annualJPReference,
   });
 
   if (!validation.valid) {
@@ -153,6 +158,8 @@ export function buildModulAjarProjection(context: DocumentGenerationContext): Mo
   if (!scheduled.isValid) return invalid(scheduled.errors.join('; '));
   const ids = selectedPlan.learningMeetingIds;
   const rows = scheduled.rows.filter(r => r.semesterPlanId === context.academicSetting.id && ids.includes(r.meetingId));
+  const budgets = resolveLearningPlanMeetingBudgets(rows, context.academicSetting);
+  if (!budgets.isValid) return invalid(budgets.reason!);
   if (new Set(ids).size !== ids.length || rows.length !== ids.length ||
       new Set(rows.map(r => r.meetingId)).size !== ids.length ||
       new Set(rows.map(r => r.meetingOrder)).size !== ids.length ||
@@ -189,14 +196,17 @@ export function buildModulAjarProjection(context: DocumentGenerationContext): Mo
     const complete = meetingActivities.length > 0 && meetingActivities.every(a => a.description?.trim());
     const activityLines = meetingActivities.filter(a => a.description?.trim()).map(a => {
       const labels: Record<string, string> = { opening: 'Pendahuluan', core: 'Kegiatan Inti', closing: 'Penutup', UNDERSTAND: 'Memahami', APPLY: 'Mengaplikasi', REFLECT: 'Merefleksi' };
+      const isStep = ['opening', 'core', 'closing'].includes(a.phase);
       return (labels[a.phase] || a.phase) + ': ' + (a.title ? a.title + ' — ' : '') + a.description +
-        (a.durationMinutes ? ' (' + a.durationMinutes + ' Menit)' : '');
+        (isStep && a.durationMinutes ? ' (' + a.durationMinutes + ' Menit)' : isStep ? '' : ' (pendekatan kegiatan inti)');
     });
     if (!complete) activityLines.push('Belum lengkap: kegiatan pembelajaran pertemuan belum tersedia atau deskripsinya belum diisi.');
     const KKTP = criteria.filter(c => r.linkedTpIds.includes(c.tpId))
       .map(c => ({ id: c.id, tpId: c.tpId, description: c.description, indicators: c.indicators }));
     return {
       id: r.meetingId, order: r.meetingOrder, title: r.meetingTitle, date: r.date, jp: r.jp,
+      minutesPerJP: budgets.meetings.find(m => m.meetingId === r.meetingId)!.minutesPerJP,
+      durationMinutes: budgets.meetings.find(m => m.meetingId === r.meetingId)!.durationMinutes,
       materials: r.materials, linkedTpIds: r.linkedTpIds, linkedAtpItemIds: r.linkedAtpItemIds,
       resolvedTPs: validation.resolvedTPs.filter(t => r.linkedTpIds.includes(t.id)),
       assessments: assessments.filter(a => a.learningMeetingId === r.meetingId &&
@@ -244,7 +254,7 @@ function buildSections(plan: LearningPlan, meetings: ModulAjarMeeting[], tps: Mo
       'Pertanyaan Pemantik: ' + (plan.triggerQuestions || []).join('; '),
       ...Object.entries(plan.learningSteps || {}).flatMap(([phase, steps]) => (steps || []).filter(step => step.learningMeetingId === undefined).map(step => phase + ': ' + (step.title || '') + ' ' + step.description + (step.durationMinutes ? ' (' + step.durationMinutes + ' Menit)' : '')))] },
     { title: 'III. RENCANA PERTEMUAN', lines: meetings.flatMap(m => [
-      'Pertemuan ' + m.order + ': ' + m.title + ' | ' + m.date + ' | ' + m.jp + ' JP',
+      'Pertemuan ' + m.order + ': ' + m.title + ' | ' + m.date + ' | ' + m.jp + ' JP | ' + m.durationMinutes + ' Menit',
       'Materi: ' + m.materials.map(x => x.title).join('; '),
       'TP:', ...m.resolvedTPs.map(t => (t.code || t.id) + ': ' + t.statement),
       'Kegiatan Pembelajaran:', ...m.activityLines,

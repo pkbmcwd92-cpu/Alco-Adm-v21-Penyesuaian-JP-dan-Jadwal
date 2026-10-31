@@ -5,7 +5,7 @@ import { createDocumentSnapshot } from '../src/services/documentEngine/snapshot'
 const stamp = '2026-10-17T00:00:00Z';
 const tpIds = ['t1', 't2'];
 const atpIds = ['a1', 'a2'];
-const setting: any = { id: 'sem', curriculumType: 'KURIKULUM_MERDEKA', curriculum: 'Kurikulum Merdeka', semester: '1', subject: 'PJOK', grade: '7' };
+const setting: any = { id: 'sem', curriculumType: 'KURIKULUM_MERDEKA', curriculum: 'Kurikulum Merdeka', semester: '1', subject: 'PJOK', grade: '7', level: 'SMP' };
 const tp: any = { id: 'tp', academicSettingId: 'sem', workflowStatus: 'SIAP', updatedAt: stamp,
   items: tpIds.map((id,i) => ({ id, code: id, statement: 'Kompetensi '+id, order:i+1 })) };
 const atp: any = { id: 'atp', academicSettingId: 'sem', workflowStatus: 'SIAP', updatedAt: stamp, basedOnTpUpdatedAt: stamp,
@@ -27,7 +27,7 @@ const plan: any = { id:'lp', curriculumType:'KURIKULUM_MERDEKA', academicSetting
   learningExperiences:['UNDERSTAND','APPLY','REFLECT'].map((phase,i)=>({id:'e'+i,phase,description:'Kegiatan '+phase})),
   learningSteps: {
     opening: [3,1,2].map(order=>({id:'opening'+order,learningMeetingId:'m'+order,description:'Awal khusus '+order,durationMinutes:10})),
-    core: [3,1,2].map(order=>({id:'activity'+order,learningMeetingId:'m'+order,description:'Aktivitas khusus '+order,durationMinutes:50})),
+    core: [3,1,2].map(order=>({id:'activity'+order,learningMeetingId:'m'+order,description:'Aktivitas khusus '+order,durationMinutes:60})),
     closing: [3,1,2].map(order=>({id:'closing'+order,learningMeetingId:'m'+order,description:'Akhir khusus '+order,durationMinutes:10})),
   },
   assessmentPlan:{ initial:[assessment('INITIAL')], formative:[{...assessment('FORMATIVE'), learningMeetingId:'m1'}], summative:[assessment('SUMMATIVE')] },

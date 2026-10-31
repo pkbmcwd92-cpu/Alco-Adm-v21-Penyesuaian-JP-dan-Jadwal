@@ -12,6 +12,7 @@ import JSZip from 'jszip';
 const meetings=[3,1,2].map(order=>({meetingId:'m'+order,jp:3,order,title:'Meeting '+order}));
 const ids=meetings.map(m=>m.meetingId);
 const context=createModulAjarRuntimeFixture();
+Object.assign(context.academicSetting,{level:'SD',grade:'3',academicYear:'2025/2026'});
 const plan=context.learningPlans[0];
 plan.allocatedJP=9;context.learningMeetingSchedules[0].schedule.entries.forEach((entry:any)=>entry.jp=3);
 context.atp.totalJP=9;context.atp.items[0].jp=6;context.atp.items[1].jp=3;
@@ -20,16 +21,16 @@ for(const [phase,duration] of [['opening',15],['core',75],['closing',15]] as con
 }
 // Experiences approach the core; their optional durations do not add to the 105 minute step budget.
 plan.learningExperiences=meetings.map((m,i)=>({id:'exp'+m.meetingId,learningMeetingId:m.meetingId,phase:['UNDERSTAND','APPLY','REFLECT'][i],description:'Pendekatan khusus '+m.meetingId,durationMinutes:75}));
-assert(validateLearningPlanActivityMeetings(plan,ids,true,meetings).isValid);
+assert(validateLearningPlanActivityMeetings(plan,ids,true,meetings,context.academicSetting).isValid);
 assert(validateLearningPlan(plan,{...context}).valid);
 for(const phase of ['opening','core','closing'] as const) {
   const bad=structuredClone(plan);bad.learningSteps[phase]=bad.learningSteps[phase].filter((step:any)=>step.learningMeetingId!=='m2');
-  const result=validateLearningPlanActivityMeetings(bad,ids,true,meetings);
+  const result=validateLearningPlanActivityMeetings(bad,ids,true,meetings,context.academicSetting);
   assert(!result.isValid);assert(result.reason?.includes(phase) && result.reason.includes('m2'));
 }
 for(const value of [0,-1,NaN,Infinity,undefined,'15']) {
   const bad=structuredClone(plan);bad.learningSteps.opening[0].durationMinutes=value;
-  assert(!validateLearningPlanActivityMeetings(bad,ids,true,meetings).isValid);
+  assert(!validateLearningPlanActivityMeetings(bad,ids,true,meetings,context.academicSetting).isValid);
 }
 for(const mutation of [
   (bad:any)=>bad.learningSteps.opening[0].description=' ',
@@ -41,20 +42,20 @@ for(const mutation of [
   (bad:any)=>{delete bad.learningSteps;},
 ]) {
   const bad=structuredClone(plan);mutation(bad);
-  assert(!validateLearningPlanActivityMeetings(bad,ids,true,meetings).isValid);
+  assert(!validateLearningPlanActivityMeetings(bad,ids,true,meetings,context.academicSetting).isValid);
 }
 const twoSteps = structuredClone(plan);
 twoSteps.learningSteps.core[0].durationMinutes=105;
 twoSteps.learningSteps.closing=twoSteps.learningSteps.closing.filter((step:any)=>step.learningMeetingId!=='m3');
-assert(!validateLearningPlanActivityMeetings(twoSteps,ids,true,meetings).isValid,'15 + 105 cannot replace 15 + 75 + 15');
+assert(!validateLearningPlanActivityMeetings(twoSteps,ids,true,meetings,context.academicSetting).isValid,'15 + 105 cannot replace 15 + 75 + 15');
 assert(!validateLearningPlanActivityMeetings(plan,ids,true).isValid,'No JP inference');
 const noSteps=structuredClone(plan);delete noSteps.learningSteps;
-assert(!validateLearningPlanActivityMeetings(noSteps,ids,true,meetings).isValid,'Experiences never substitute for steps');
+assert(!validateLearningPlanActivityMeetings(noSteps,ids,true,meetings,context.academicSetting).isValid,'Experiences never substitute for steps');
 const short=structuredClone(plan);short.learningSteps.core[0].durationMinutes=70;
-assert(validateLearningPlanActivityMeetings(short,ids,true,meetings).reason?.includes('105 menit'));
+assert(validateLearningPlanActivityMeetings(short,ids,true,meetings,context.academicSetting).reason?.includes('105 menit'));
 // Unit-wide correct total cannot hide an incorrect individual meeting budget.
 const shifted=structuredClone(plan);shifted.learningSteps.core[0].durationMinutes=70;shifted.learningSteps.core[1].durationMinutes=80;
-assert(!validateLearningPlanActivityMeetings(shifted,ids,true,meetings).isValid);
+assert(!validateLearningPlanActivityMeetings(shifted,ids,true,meetings,context.academicSetting).isValid);
 const server=readFileSync('server.ts','utf8');const backend:any={};
 const chunk=server.slice(server.indexOf('function normalizeExperiencePhase('),server.indexOf("app.post('/api/ai/generate-learning-plan'"));
 runInNewContext(ts.transpileModule(chunk,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{
@@ -66,14 +67,14 @@ for(const phase of ['opening','core','closing']) {
  assert(schema.required.includes(phase));
  for(const field of ['learningMeetingId','description','durationMinutes']) assert(schema.properties[phase].items.required.includes(field));
 }
-assert(backend.validateAILearningPlanPayload(structuredClone(plan),meetings).isValid);
-assert(!backend.validateAILearningPlanPayload(noSteps,meetings).isValid);
+assert(backend.validateAILearningPlanPayload(structuredClone(plan),meetings,context.academicSetting).isValid);
+assert(!backend.validateAILearningPlanPayload(noSteps,meetings,context.academicSetting).isValid);
 const savedFetch=globalThis.fetch;let response=plan;
 globalThis.fetch=async()=>new Response(JSON.stringify({data:structuredClone(response)}),{headers:{'Content-Type':'application/json'}});
 try {
  const ai=await generateLearningPlanWithAI({academicSetting:context.academicSetting,tps:context.tp.items,meetings});
  const draft=createAIDraftLearningPlan({academicSetting:context.academicSetting,unitId:'unit',learningMeetingIds:ids,meetings,tpIds:plan.tpIds,aiDraft:ai});
- assert(validateLearningPlanActivityMeetings(draft,ids,true,meetings).isValid);
+ assert(validateLearningPlanActivityMeetings(draft,ids,true,meetings,context.academicSetting).isValid);
  response=short;
  await assert.rejects(()=>generateLearningPlanWithAI({academicSetting:context.academicSetting,tps:context.tp.items,meetings}),/105 menit/);
  assert.throws(()=>createAIDraftLearningPlan({academicSetting:context.academicSetting,learningMeetingIds:ids,meetings,tpIds:plan.tpIds,aiDraft:short}),/105 menit/);

@@ -45,7 +45,7 @@ assert(pwaOptions.workbox.navigateFallbackDenylist.some((rule:RegExp)=>rule.test
 
 const context=createModulAjarRuntimeFixture();
 const oldPlan={...structuredClone(context.learningPlans[0]),id:'lp-old',updatedAt:'2026-10-16T00:00:00Z'};
-context.learningPlans[0].learningSteps.core.find((step:any)=>step.learningMeetingId==='m1').durationMinutes=45;
+context.learningPlans[0].learningSteps.core.find((step:any)=>step.learningMeetingId==='m1').durationMinutes=55;
 context.learningPlans[0].learningSteps.core.push({id:'extra',learningMeetingId:'m1',description:'Aktivitas live terbaru',durationMinutes:5});
 context.learningPlans.push(oldPlan);
 const historical=createDocumentSnapshot({...context,activeLearningPlanId:'lp-old'},'docx','data','MODUL_AJAR');

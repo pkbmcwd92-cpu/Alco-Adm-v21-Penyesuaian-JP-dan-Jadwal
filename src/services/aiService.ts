@@ -5,7 +5,7 @@ import { CP4ResponseError, parseCP4JSON, responseMime, safeResponseInfo } from '
 import { CP4_RUN_POLICY, initialCP4Trace, newCP4RequestId, isCP4RequestId, sanitizeCP4Trace, type CP4Trace } from './cpAnalysisRun';
 import { validateAnalysisAI, type UnderstandingTarget, type AnalysisAIValidation } from './cpAnalysisAIContract';
 import { CPAnalysisAIError } from './cpAnalysisAIDiagnostics';
-import { validateLearningPlanActivityMeetings } from './learningPlanActivityMeetingService';
+import { validateLearningPlanActivityMeetings, resolveLearningPlanMeetingBudgets } from './learningPlanActivityMeetingService';
 import {
   CPElem,
   TPItem,
@@ -875,8 +875,11 @@ export interface GenerateLearningPlanParams {
 }
 
 export async function generateLearningPlanWithAI(params: GenerateLearningPlanParams): Promise<Partial<LearningPlan>> {
+  const budgets = resolveLearningPlanMeetingBudgets(params.meetings || [], params.academicSetting);
+  if (!budgets.isValid) throw new Error(budgets.reason);
   const paramsWithAdaptation = {
     ...params,
+    meetings: budgets.meetings,
     cognitiveAdaptation: params.cognitiveAdaptation || getCognitiveAdaptationProfile(params.academicSetting, params.academicSetting.grade)
   };
   try {
@@ -900,7 +903,7 @@ export async function generateLearningPlanWithAI(params: GenerateLearningPlanPar
     }
 
     const meetingIds = (params.meetings || []).map(m => m.meetingId);
-    const activityValidation = validateLearningPlanActivityMeetings(data.data, meetingIds, meetingIds.length > 0, params.meetings || []);
+    const activityValidation = validateLearningPlanActivityMeetings(data.data, meetingIds, meetingIds.length > 0, params.meetings || [], params.academicSetting);
     if (!activityValidation.isValid) throw new Error(activityValidation.reason);
 
     // Runtime validation and normalization for critical structure

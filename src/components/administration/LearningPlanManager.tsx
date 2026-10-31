@@ -54,6 +54,7 @@ import {
   resolveSemesterLearningScopes,
   resolveAvailableScopes,
   buildLearningPlanScopeUnits,
+  LearningPlanActualTimeContext,
   resolveAtpItemSemesterJP,
   resolveDirectTpSemesterJP,
   isAtpReadyForAIScope,
@@ -62,6 +63,8 @@ import {
 } from '../../services/learningPlanService';
 import { generateLearningPlanWithAI } from '../../services/aiService';
 import { getCurriculumTypeFromSetting } from '../../services/curriculumRouter';
+import { isLearningMeetingScheduleReady } from '../../services/learningMeetingScheduleService';
+import { resolveSemesterJPFromValues } from '../../services/semesterJPResolver';
 import { generateModulAjar } from '../../services/documentEngine/generators/modulAjarGenerator';
 import { generatePdfDocument } from '../../services/documentEngine/renderers/pdf/pdfDocGenerators';
 import { DocumentGenerationContext } from '../../services/documentEngine/types';
@@ -156,7 +159,7 @@ export const hasAssociatedPlan = (scope: LearningPlanScopeUnit, plans: LearningP
   });
 };
 
-interface LearningPlanManagerProps {
+interface LearningPlanManagerProps extends LearningPlanActualTimeContext {
   profile: TeacherProfile;
   school: SchoolData;
   academicSetting: AcademicSetting;
@@ -190,6 +193,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
   atpUnitMapping,
   unitExecutionPlan,
   learningMeetingSchedules = [],
+  calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
   students = [],
   timeAllocations = [],
   assessmentCriteria = [],
@@ -280,6 +284,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
   const validationResult = useMemo(() => {
     if (!activePlan) return null;
     return validateLearningPlan(activePlan, {
+      calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
       academicSetting,
       tp,
       atp,
@@ -291,6 +296,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
     });
   }, [
     activePlan,
+    calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
     academicSetting,
     tp,
     atp,
@@ -499,6 +505,14 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
   const [bulkProgress, setBulkProgress] = useState<{ current: number; total: number } | null>(null);
 
   const generateAIDraftPlanForScope = async (scope: LearningPlanScopeUnit): Promise<LearningPlan> => {
+    if (calendar || subjectWeeklySchedule || calendarDays) {
+      const activeSchedule = learningMeetingSchedules.find(s => s.semesterPlanId === academicSetting.id);
+      const readiness = isLearningMeetingScheduleReady({ schedule: activeSchedule?.schedule,
+        semester: activeSchedule?.semester || 1, mapping: atpUnitMapping, unitExecutionPlan,
+        subjectWeeklySchedule, calendar, calendarDays,
+        expectedWeeklyJP: resolveSemesterJPFromValues(semesterJPSetting, annualJPReference).weeklyJP });
+      if (!readiness.isReady || calendar?.workflowStatus !== 'CONFIRMED') throw new Error('Jadwal aktual perlu ditinjau sebelum AI: ' + readiness.errors.join('; '));
+    }
     const kktpCheck = checkScopeKKTPReadiness(scope, assessmentCriteria);
     if (!kktpCheck.isReady) {
       throw new Error(kktpCheck.message || 'KKTP belum siap');
@@ -1033,6 +1047,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
   const handleConfirmPlan = () => {
     if (!activePlan) return;
     const result = confirmLearningPlan(activePlan, {
+      calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
       academicSetting,
       tp,
       atp,
@@ -1066,6 +1081,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
     setIsExporting('docx');
     try {
       const docContext: DocumentGenerationContext = {
+        calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
         school,
         profile,
         academicSetting,
@@ -1104,6 +1120,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
     setIsExporting('pdf');
     try {
       const docContext: DocumentGenerationContext = {
+        calendar, calendarDays, subjectWeeklySchedule, semesterJPSetting, annualJPReference,
         school,
         profile,
         academicSetting,
@@ -1330,7 +1347,7 @@ export const LearningPlanManager: React.FC<LearningPlanManagerProps> = ({
                       : 'bg-amber-100 text-amber-800'
                   }`}
                 >
-                  {validationResult.isValid ? 'Valid' : 'Perlu Dilengkapi'}
+                  {validationResult.isValid ? 'Valid' : validationResult.needsReview ? 'Perlu Ditinjau' : 'Perlu Dilengkapi'}
                 </span>
               </div>
 

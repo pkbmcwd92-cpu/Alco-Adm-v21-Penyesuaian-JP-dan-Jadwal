@@ -1,6 +1,28 @@
-import type { LearningPlan } from '../types';
+import type { AcademicSetting, LearningPlan } from '../types';
+import { resolveCurriculumContext } from '../data/curriculum/resolver';
+import { getCurriculumTypeFromSetting } from './curriculumRouter';
 
 export interface ActivityMeetingScope { meetingId: string; jp: number }
+
+/** Transient budgets only: JP comes from actual slots, minutes/JP from the curriculum master. */
+export function resolveLearningPlanMeetingBudgets<T extends ActivityMeetingScope>(
+  meetings: readonly T[], academicSetting?: Partial<AcademicSetting> | null,
+): { isValid: boolean; reason?: string; meetings: (T & { minutesPerJP: number; durationMinutes: number })[] } {
+  const invalid = (reason: string) => ({ isValid: false, reason, meetings: [] as (T & { minutesPerJP: number; durationMinutes: number })[] });
+  if (!Array.isArray(meetings) || meetings.some(m => !m || typeof m.meetingId !== 'string' || !m.meetingId.trim() || !Number.isInteger(m.jp) || m.jp <= 0) ||
+      new Set(meetings.map(m => m.meetingId)).size !== meetings.length) return invalid('JP/ID slot aktual pertemuan tidak valid; durasi tidak boleh ditebak.');
+  if (!meetings.length) return { isValid: true, meetings: [] as (T & { minutesPerJP: number; durationMinutes: number })[] };
+  const level = typeof academicSetting?.level === 'string' ? academicSetting.level.trim().toUpperCase() : '';
+  const grade = String(academicSetting?.grade || '').trim().match(/^(?:kelas\s*)?(\d{1,2})$/i);
+  const curriculumType = academicSetting?.curriculum === undefined || typeof academicSetting.curriculum === 'string'
+    ? getCurriculumTypeFromSetting(academicSetting) : undefined;
+  if (!level || !['SD', 'SMP', 'SMA'].includes(level) || !grade || !curriculumType) return invalid('Konteks jenjang/kelas/kurikulum belum valid; menit per JP tidak boleh ditebak.');
+  const context = resolveCurriculumContext({ level, grade: Number(grade[1]), curriculumType,
+    subjectInput: academicSetting?.subject, academicYear: academicSetting?.academicYear });
+  const minutesPerJP = context?.minutesPerJP;
+  if (!minutesPerJP || !Number.isFinite(minutesPerJP) || minutesPerJP <= 0 || context?.isAmbiguous) return invalid('Menit per JP pada konteks kurikulum belum teresolusi; durasi tidak boleh ditebak.');
+  return { isValid: true, meetings: meetings.map(m => ({ ...m, minutesPerJP, durationMinutes: m.jp * minutesPerJP })) };
+}
 
 /** Exact linkage and per-meeting time budget; global legacy activities are not reassigned. */
 export function validateLearningPlanActivityMeetings(
@@ -8,6 +30,7 @@ export function validateLearningPlanActivityMeetings(
   meetingIds: readonly string[] = [],
   requireLinkage = false,
   meetings: readonly ActivityMeetingScope[] = [],
+  academicSetting?: Partial<AcademicSetting> | null,
 ): { isValid: boolean; reason?: string } {
   const invalid = (reason: string) => ({ isValid: false, reason });
   if (meetingIds.some(id => typeof id !== 'string' || !id.trim()) || new Set(meetingIds).size !== meetingIds.length) {
@@ -34,8 +57,10 @@ export function validateLearningPlanActivityMeetings(
     }
   }
   if (!requireLinkage && !hasLinkedActivities && !meetings.length) return { isValid: true };
+  const budgets = resolveLearningPlanMeetingBudgets(meetings, academicSetting);
+  if (!budgets.isValid) return invalid(budgets.reason!);
   for (const id of meetingIds) {
-    const scope = meetings.filter(m => m.meetingId === id);
+    const scope = budgets.meetings.filter(m => m.meetingId === id);
     if (scope.length !== 1 || !Number.isFinite(scope[0].jp) || scope[0].jp <= 0) {
       return invalid("JP canonical meeting '" + id + "' tidak tersedia atau tidak valid; durasi tidak boleh ditebak.");
     }
@@ -50,8 +75,8 @@ export function validateLearningPlanActivityMeetings(
         total += step.durationMinutes!;
       }
     }
-    const expected = scope[0].jp * 35;
-    if (total !== expected) return invalid("Durasi meeting '" + id + "' harus " + expected + ' menit (' + scope[0].jp + ' JP × 35), diterima ' + total + ' menit.');
+    const expected = scope[0].durationMinutes;
+    if (total !== expected) return invalid("Durasi meeting '" + id + "' harus " + expected + ' menit (' + scope[0].jp + ' JP × ' + scope[0].minutesPerJP + '), diterima ' + total + ' menit. Perlu ditinjau.');
   }
   // UNDERSTAND/APPLY/REFLECT describe the core approach; their durations are not an extra budget.
   return { isValid: true };

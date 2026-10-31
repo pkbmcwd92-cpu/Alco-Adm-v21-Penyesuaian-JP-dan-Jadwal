@@ -245,7 +245,7 @@ function createModulAjarMeetingTable(
   const cellMargin = { top: 100, bottom: 100, left: 140, right: 140 };
 
   const meetingTitle = cleanText(meeting.title) || `Pertemuan ${meeting.order}`;
-  const headerTitle = `PERTEMUAN ${meeting.order} — ${meetingTitle} — ${meeting.jp} JP`;
+  const headerTitle = `PERTEMUAN ${meeting.order} — ${meetingTitle} — ${meeting.jp} JP — ${meeting.durationMinutes} Menit`;
 
   const headerRow = new TableRow({
     cantSplit: true,
