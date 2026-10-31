@@ -64,11 +64,14 @@ export interface PlannedMeetingCapacityResult {
   effectiveWeekSlots: number;
   totalMeetingCapacity: number;
   totalJP: number;
+  capacitySource: 'ACTUAL_SLOTS' | 'ESTIMATE';
+  calendarLostJP?: number;
+  totalExcludedOccurrences?: number;
 }
 
 /**
  * Validates a SubjectWeeklySchedule against expected weekly JP.
- * DayOfWeek requirements (saturday, weekday check) are removed at this stage.
+ * Supports multi-session patterns (1-3+ sessions per week) with individual JP and deterministic order.
  */
 export function validateSubjectWeeklySchedule(
   schedule: SubjectWeeklySchedule | undefined,
@@ -114,6 +117,7 @@ export function validateSubjectWeeklySchedule(
   const sessionIds = new Set<string>();
   const orders = new Set<number>();
   let totalWeeklyJP = 0;
+  const maxDay = schoolDaysPerWeek === 6 ? 6 : 5;
 
   for (const s of sessions) {
     if (!s.id || !s.id.trim()) {
@@ -137,6 +141,12 @@ export function validateSubjectWeeklySchedule(
     } else {
       orders.add(s.order);
     }
+
+    if (s.dayOfWeek !== undefined && s.dayOfWeek !== null && (schoolDaysPerWeek === 5 || schoolDaysPerWeek === 6)) {
+      if (!Number.isInteger(s.dayOfWeek) || s.dayOfWeek < 1 || s.dayOfWeek > maxDay) {
+        errors.push(`Hari mengajar sesi ${s.id} (${s.dayOfWeek}) di luar batas hari sekolah (${maxDay} hari/minggu).`);
+      }
+    }
   }
 
   if (totalWeeklyJP !== expectedWeeklyJP) {
@@ -157,22 +167,107 @@ export function validateSubjectWeeklySchedule(
 }
 
 /**
- * Resolves planned meeting capacity based on schedule length, ignoring weekday allocations.
+ * Resolves planned meeting capacity.
+ * When calendar and teaching days (hari mengajar) are confirmed, it uses resolveEffectiveSubjectSlots
+ * as the final authoritative capacity (ACTUAL_SLOTS).
+ * Otherwise, it retains the effective weeks estimate (ESTIMATE).
  */
 export function resolvePlannedMeetingCapacity(params: {
   schedule?: SubjectWeeklySchedule;
   expectedWeeklyJP: number | null;
   calendarConfirmed: boolean;
   effectiveWeekSlots: number;
+  calendar?: AcademicCalendar;
+  calendarDays?: CalendarDay[];
+  semesterPlanId?: string;
+  schoolDaysPerWeek?: number | null;
 }): PlannedMeetingCapacityResult {
-  const { schedule, expectedWeeklyJP, calendarConfirmed, effectiveWeekSlots } = params;
+  const {
+    schedule,
+    expectedWeeklyJP,
+    calendarConfirmed,
+    effectiveWeekSlots,
+    calendar,
+    calendarDays,
+    semesterPlanId,
+    schoolDaysPerWeek,
+  } = params;
 
-  const validation = validateSubjectWeeklySchedule(schedule, expectedWeeklyJP, null);
+  const schoolDays = calendar?.schoolDaysPerWeek ?? schoolDaysPerWeek ?? null;
+  const validation = validateSubjectWeeklySchedule(schedule, expectedWeeklyJP, schoolDays);
 
   const meetingsPerWeek = schedule?.sessions ? schedule.sessions.length : 0;
-  const totalMeetingCapacity = effectiveWeekSlots * meetingsPerWeek;
-  const totalJP = effectiveWeekSlots * (expectedWeeklyJP || 0);
+  const estimatedMeetings = effectiveWeekSlots * meetingsPerWeek;
+  const estimatedJP = effectiveWeekSlots * (expectedWeeklyJP || 0);
 
+  const maxDay = schoolDays === 6 ? 6 : 5;
+  const hasConfirmedTeachingDays = Boolean(
+    schedule &&
+    schedule.sessions &&
+    schedule.sessions.length > 0 &&
+    schedule.sessions.every(
+      (s) => typeof s.dayOfWeek === 'number' && s.dayOfWeek >= 1 && s.dayOfWeek <= maxDay
+    )
+  );
+
+  const canUseActualSlots = Boolean(
+    hasConfirmedTeachingDays &&
+    calendarConfirmed &&
+    calendar &&
+    calendar.startDate &&
+    calendar.endDate &&
+    Array.isArray(calendarDays) &&
+    calendarDays.length > 0
+  );
+
+  if (canUseActualSlots) {
+    const effectivePlanId = semesterPlanId || schedule?.semesterPlanId || '';
+    const slotsResult = resolveEffectiveSubjectSlots({
+      semesterPlanId: effectivePlanId,
+      schedule,
+      expectedWeeklyJP,
+      calendar,
+      calendarDays,
+      schoolDaysPerWeek: schoolDays,
+    });
+
+    if (slotsResult.isReady) {
+      const calendarLostJP = slotsResult.excludedOccurrences.reduce((sum, o) => sum + (o.jp || 0), 0);
+      return {
+        isReady: true,
+        isValid: slotsResult.isValid,
+        isComplete: slotsResult.isComplete,
+        isStale: slotsResult.isStale,
+        errors: slotsResult.errors,
+        warnings: slotsResult.warnings,
+        meetingsPerWeek,
+        effectiveWeekSlots,
+        totalMeetingCapacity: slotsResult.totalMeetingSlots,
+        totalJP: slotsResult.totalJP,
+        capacitySource: 'ACTUAL_SLOTS',
+        calendarLostJP,
+        totalExcludedOccurrences: slotsResult.totalExcludedOccurrences,
+      };
+    }
+
+    return {
+      isReady: false,
+      isValid: slotsResult.isValid,
+      isComplete: false,
+      isStale: slotsResult.isStale,
+      errors: slotsResult.errors.length > 0 ? slotsResult.errors : ['Kalender pendidikan atau jadwal sesi belum siap untuk menghasilkan slot aktual.'],
+      warnings: slotsResult.warnings,
+      meetingsPerWeek,
+      effectiveWeekSlots,
+      totalMeetingCapacity: slotsResult.totalMeetingSlots,
+      totalJP: slotsResult.totalJP,
+      capacitySource: 'ACTUAL_SLOTS',
+      calendarLostJP: 0,
+      totalExcludedOccurrences: slotsResult.totalExcludedOccurrences,
+    };
+  }
+
+  // Fallback to ESTIMATE when teaching days are not yet allocated or calendar is unconfirmed
   const isReady = Boolean(
     validation.isComplete &&
     !validation.isStale &&
@@ -191,8 +286,11 @@ export function resolvePlannedMeetingCapacity(params: {
     warnings: validation.warnings,
     meetingsPerWeek,
     effectiveWeekSlots,
-    totalMeetingCapacity,
-    totalJP,
+    totalMeetingCapacity: estimatedMeetings,
+    totalJP: estimatedJP,
+    capacitySource: 'ESTIMATE',
+    calendarLostJP: 0,
+    totalExcludedOccurrences: 0,
   };
 }
 
@@ -225,7 +323,8 @@ export function resolveEffectiveSubjectSlots(params: {
     calendarDays.length > 0
   );
 
-  const hasInvalidDayOfWeek = !schedule || schedule.sessions.some(s => !s.dayOfWeek || ![1, 2, 3, 4, 5, 6].includes(s.dayOfWeek));
+  const maxDay = (calendar?.schoolDaysPerWeek === 6 || schoolDaysPerWeek === 6) ? 6 : 5;
+  const hasInvalidDayOfWeek = !schedule || schedule.sessions.some(s => !s.dayOfWeek || typeof s.dayOfWeek !== 'number' || s.dayOfWeek < 1 || s.dayOfWeek > maxDay);
 
   if (hasInvalidDayOfWeek) {
     return {
@@ -233,7 +332,7 @@ export function resolveEffectiveSubjectSlots(params: {
       isComplete: validation.isComplete,
       isReady: false,
       isStale: validation.isStale,
-      errors: [...validation.errors, 'Hari mengajar belum dialokasikan. Slot tanggal aktual ditentukan pada tahap Alokasi Waktu.'],
+      errors: [...validation.errors, `Hari mengajar belum dialokasikan untuk seluruh sesi sesuai kalender sekolah (${maxDay} hari/minggu). Slot tanggal aktual ditentukan pada tahap Alokasi Waktu.`],
       warnings: validation.warnings,
       slots: [],
       excludedOccurrences: [],
@@ -243,8 +342,16 @@ export function resolveEffectiveSubjectSlots(params: {
     };
   }
 
-  const calendarComplete = calendar ? validateCalendarCompleteness(calendar, calendarDays).complete : false;
-  const schoolWeekValid = !schedule?.sessions.some(s => s.dayOfWeek === 6 && calendar?.schoolDaysPerWeek === 5);
+  const completeness = calendar ? validateCalendarCompleteness(calendar, calendarDays) : null;
+  const calendarComplete = completeness ? completeness.complete : false;
+  const schoolWeekValid = !schedule?.sessions.some(s => s.dayOfWeek && s.dayOfWeek > maxDay);
+  const completenessErrors: string[] = [];
+  if (completeness && !completeness.complete) {
+    completenessErrors.push(completeness.diagnostic || 'Kalender pendidikan belum lengkap untuk seluruh hari sekolah.');
+  }
+  if (!schoolWeekValid) {
+    completenessErrors.push(`Terdapat sesi pada hari di luar jadwal sekolah (${maxDay} hari/minggu).`);
+  }
   const isReady = validation.isComplete && calendarReady && calendarComplete && schoolWeekValid;
 
   if (!isReady || !schedule || !calendar) {
@@ -253,7 +360,7 @@ export function resolveEffectiveSubjectSlots(params: {
       isComplete: validation.isComplete,
       isReady: false,
       isStale: validation.isStale,
-      errors: validation.errors,
+      errors: [...validation.errors, ...completenessErrors],
       warnings: validation.warnings,
       slots: [],
       excludedOccurrences: [],
@@ -268,10 +375,12 @@ export function resolveEffectiveSubjectSlots(params: {
     if (d && d.date) dayMap.set(d.date, d);
   });
 
-  const startDate = new Date(calendar.startDate);
-  const endDate = new Date(calendar.endDate);
+  const [sy, sm, sd] = calendar.startDate.split('-').map(Number);
+  const [ey, em, ed] = calendar.endDate.split('-').map(Number);
+  const currentDate = new Date(sy, sm - 1, sd, 12, 0, 0);
+  const endDateTime = new Date(ey, em - 1, ed, 12, 0, 0);
 
-  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+  if (isNaN(currentDate.getTime()) || isNaN(endDateTime.getTime())) {
     return {
       ...validation,
       isReady: false,
@@ -286,8 +395,7 @@ export function resolveEffectiveSubjectSlots(params: {
 
   const effectiveWeeks = getEffectiveWeeksList(calendar, calendarDays);
 
-  let currentDate = new Date(startDate);
-  while (currentDate <= endDate) {
+  while (currentDate <= endDateTime) {
     const yyyy = currentDate.getFullYear();
     const mm = String(currentDate.getMonth() + 1).padStart(2, '0');
     const dd = String(currentDate.getDate()).padStart(2, '0');
@@ -297,7 +405,9 @@ export function resolveEffectiveSubjectSlots(params: {
     const dayOfWeek: 1 | 2 | 3 | 4 | 5 | 6 = dayOfWeekJs === 0 ? 7 : (dayOfWeekJs as any);
 
     const sessionsOnThisDay = (dayOfWeek >= 1 && dayOfWeek <= 6)
-      ? schedule.sessions.filter((s) => s.dayOfWeek === dayOfWeek)
+      ? schedule.sessions
+          .filter((s) => s.dayOfWeek === dayOfWeek)
+          .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.id.localeCompare(b.id))
       : [];
 
     if (sessionsOnThisDay.length === 0) {

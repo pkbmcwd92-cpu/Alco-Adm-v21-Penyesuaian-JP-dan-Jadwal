@@ -62,11 +62,15 @@ export interface UnitExecutionPlanManagerProps {
       isReady: boolean;
       targetMeetingCount: number;
       totalJP: number;
+      capacitySource?: 'ACTUAL_SLOTS' | 'ESTIMATE';
+      calendarLostJP?: number;
     };
     semester2: {
       isReady: boolean;
       targetMeetingCount: number;
       totalJP: number;
+      capacitySource?: 'ACTUAL_SLOTS' | 'ESTIMATE';
+      calendarLostJP?: number;
     };
   };
 }
@@ -489,6 +493,52 @@ export const UnitExecutionPlanManager: React.FC<UnitExecutionPlanManagerProps> =
     return s1Existing <= targetS1 && s2Existing <= targetS2 && isCoverageComplete;
   }, [isCapacityReady, meetingCapacity, draft, mapping, validation.isComplete, isStale]);
 
+  const capacityOverflow = useMemo(() => {
+    if (!meetingCapacity) return null;
+    let candidatePlacement = draft.semesterPlacement;
+    if (!candidatePlacement || candidatePlacement.mode !== 'CONTIGUOUS_BOUNDARY') {
+      const boundary = suggestSemesterBoundaryByMeetingSlots(
+        draft,
+        mapping,
+        meetingCapacity.semester1.targetMeetingCount,
+        meetingCapacity.semester2.targetMeetingCount
+      );
+      if (boundary !== undefined) {
+        candidatePlacement = {
+          mode: 'CONTIGUOUS_BOUNDARY',
+          semester1LastUnitId: boundary,
+          updatedAt: new Date().toISOString(),
+        };
+      }
+    }
+    if (!candidatePlacement) return null;
+    const plac = resolveUnitSemesterPlacement({ ...draft, semesterPlacement: candidatePlacement }, mapping);
+    if (!plac.isValid) return null;
+
+    let s1Existing = 0;
+    let s2Existing = 0;
+    const s1UnitIds = new Set(plac.semester1UnitIds);
+    draft.units.forEach((u) => {
+      const count = u.meetings?.length || 0;
+      if (s1UnitIds.has(u.unitId)) s1Existing += count;
+      else s2Existing += count;
+    });
+
+    const s1Over = s1Existing - meetingCapacity.semester1.targetMeetingCount;
+    const s2Over = s2Existing - meetingCapacity.semester2.targetMeetingCount;
+    if (s1Over > 0 || s2Over > 0) {
+      return {
+        s1Over: Math.max(0, s1Over),
+        s2Over: Math.max(0, s2Over),
+        s1Existing,
+        s2Existing,
+        targetS1: meetingCapacity.semester1.targetMeetingCount,
+        targetS2: meetingCapacity.semester2.targetMeetingCount,
+      };
+    }
+    return null;
+  }, [meetingCapacity, draft, mapping]);
+
   // Fast lookup maps for ATP & TP items for display (Canonical ATPItem fields: stepNumber, focus)
   const atpItemsMap = useMemo(() => {
     const map = new Map<string, { stepNumber?: number; focus?: string }>();
@@ -899,22 +949,88 @@ export const UnitExecutionPlanManager: React.FC<UnitExecutionPlanManagerProps> =
 
       {meetingCapacity && (
         <div className="mx-5 mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs">
-          <div className="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
-            <Layers className="w-4 h-4 text-indigo-600" />
-            <span>Kapasitas Perencanaan Semester</span>
+          <div className="font-bold text-slate-800 mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+            <div className="flex items-center gap-1.5">
+              <Layers className="w-4 h-4 text-indigo-600" />
+              <span>Kapasitas Perencanaan Semester</span>
+            </div>
+            {meetingCapacity.semester1.capacitySource === 'ESTIMATE' || meetingCapacity.semester2.capacitySource === 'ESTIMATE' ? (
+              <span className="text-[11px] font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200 w-fit">
+                Estimasi — Hari mengajar belum ditetapkan
+              </span>
+            ) : (
+              <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 w-fit">
+                Slot Aktual Terkonfirmasi
+              </span>
+            )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3 bg-white rounded-lg border border-slate-200">
-              <span className="font-medium text-slate-500 block">Semester 1:</span>
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-slate-500">Semester 1:</span>
+                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                  meetingCapacity.semester1.capacitySource === 'ACTUAL_SLOTS'
+                    ? 'bg-emerald-50 text-emerald-700'
+                    : 'bg-amber-50 text-amber-700'
+                }`}>
+                  {meetingCapacity.semester1.capacitySource === 'ACTUAL_SLOTS' ? 'Aktual' : 'Estimasi'}
+                </span>
+              </div>
               <span className="font-bold text-slate-800 mt-1 block">
                 {meetingCapacity.semester1.targetMeetingCount} Pertemuan • {meetingCapacity.semester1.totalJP} JP
+                {meetingCapacity.semester1.capacitySource === 'ACTUAL_SLOTS' && typeof meetingCapacity.semester1.calendarLostJP === 'number' && meetingCapacity.semester1.calendarLostJP > 0 && (
+                  <span className="text-rose-600 text-[11px] font-semibold block mt-0.5">
+                    (Terdampak libur/kegiatan: -{meetingCapacity.semester1.calendarLostJP} JP)
+                  </span>
+                )}
               </span>
             </div>
             <div className="p-3 bg-white rounded-lg border border-slate-200">
-              <span className="font-medium text-slate-500 block">Semester 2:</span>
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-slate-500">Semester 2:</span>
+                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                  meetingCapacity.semester2.capacitySource === 'ACTUAL_SLOTS'
+                    ? 'bg-emerald-50 text-emerald-700'
+                    : 'bg-amber-50 text-amber-700'
+                }`}>
+                  {meetingCapacity.semester2.capacitySource === 'ACTUAL_SLOTS' ? 'Aktual' : 'Estimasi'}
+                </span>
+              </div>
               <span className="font-bold text-slate-800 mt-1 block">
                 {meetingCapacity.semester2.targetMeetingCount} Pertemuan • {meetingCapacity.semester2.totalJP} JP
+                {meetingCapacity.semester2.capacitySource === 'ACTUAL_SLOTS' && typeof meetingCapacity.semester2.calendarLostJP === 'number' && meetingCapacity.semester2.calendarLostJP > 0 && (
+                  <span className="text-rose-600 text-[11px] font-semibold block mt-0.5">
+                    (Terdampak libur/kegiatan: -{meetingCapacity.semester2.calendarLostJP} JP)
+                  </span>
+                )}
               </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Overflow Warning if capacity decreased without auto-deletion */}
+      {capacityOverflow && (
+        <div className="mx-5 mt-3 p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 text-xs">
+          <div className="flex items-start gap-2.5">
+            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <p className="font-bold">Penyesuaian Kapasitas Pertemuan Diperlukan</p>
+              <div className="space-y-0.5 text-amber-900">
+                {capacityOverflow.s1Over > 0 && (
+                  <p>
+                    • Semester 1 memiliki <strong>{capacityOverflow.s1Existing}</strong> pertemuan, melebihi kapasitas {meetingCapacity?.semester1.capacitySource === 'ACTUAL_SLOTS' ? 'aktual' : 'rencana'} <strong>{capacityOverflow.targetS1}</strong> pertemuan (kelebihan <strong>+{capacityOverflow.s1Over}</strong> pertemuan).
+                  </p>
+                )}
+                {capacityOverflow.s2Over > 0 && (
+                  <p>
+                    • Semester 2 memiliki <strong>{capacityOverflow.s2Existing}</strong> pertemuan, melebihi kapasitas {meetingCapacity?.semester2.capacitySource === 'ACTUAL_SLOTS' ? 'aktual' : 'rencana'} <strong>{capacityOverflow.targetS2}</strong> pertemuan (kelebihan <strong>+{capacityOverflow.s2Over}</strong> pertemuan).
+                  </p>
+                )}
+              </div>
+              <p className="text-[11px] text-amber-800 font-medium pt-0.5">
+                Struktur materi, TP, dan ATP tetap aman dan tidak dihapus otomatis. Silakan gabungkan atau sesuaikan pertemuan terdampak pada semester terkait secara manual.
+              </p>
             </div>
           </div>
         </div>

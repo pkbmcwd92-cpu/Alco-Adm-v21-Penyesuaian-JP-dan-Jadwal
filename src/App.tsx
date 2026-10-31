@@ -961,6 +961,16 @@ export function App() {
     days: CalendarDay[],
     explicitSemesterPlanId?: string
   ): boolean => {
+    if (!activeSemesterPlan || !activeYearPlan) {
+      if (!explicitSemesterPlanId) {
+        setAppNotice({
+          type: 'error',
+          message: 'Pilih Semester aktif atau tentukan target semester yang valid sebelum menyimpan kalender.',
+        });
+        return false;
+      }
+    }
+
     const targetSemesterPlanId = explicitSemesterPlanId || activeSemesterPlan?.id;
     const targetSemesterPlan = targetSemesterPlanId
       ? v5State.semesterPlans.find((sp) => sp.id === targetSemesterPlanId)
@@ -983,6 +993,7 @@ export function App() {
         ...cal,
         id: cal.id && cal.id.trim() ? cal.id : `cal-${targetSemesterPlan.id}`,
         academicSettingId: targetSemesterPlan.id,
+        // academicSettingId: activeSemesterPlan.id,
         academicYear: targetYearPlan.academicYear,
         semester: targetSemesterPlan.semester === 1 ? '1 (Ganjil)' : '2 (Genap)',
         workflowStatus: 'CONFIRMED',
@@ -993,10 +1004,17 @@ export function App() {
         academicCalendarId: canonicalCalendar.id,
       }));
 
-      saveAcademicCalendarV5(targetSemesterPlan.id, {
-        calendar: canonicalCalendar,
-        days: canonicalDays,
-      });
+      if (!explicitSemesterPlanId && activeSemesterPlan) {
+        saveAcademicCalendarV5(activeSemesterPlan.id, {
+          calendar: canonicalCalendar,
+          days: canonicalDays,
+        });
+      } else {
+        saveAcademicCalendarV5(targetSemesterPlan.id, {
+          calendar: canonicalCalendar,
+          days: canonicalDays,
+        });
+      }
 
       refreshV5();
       return true;

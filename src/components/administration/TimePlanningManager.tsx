@@ -406,6 +406,18 @@ export const TimePlanningManager: React.FC<TimePlanningManagerProps> = ({
     setDays(calendarDays || []);
   }, [calendar, calendarDays, calendarDraftDirty, effectiveSemesterPlanId]);
 
+  // Semester reset keyed by academicSetting.id
+  useEffect(() => {
+    if (!calendar) {
+      setStartDate('');
+      setEndDate('');
+      setSchoolDaysPerWeek(null);
+      setWorkflowStatus('UNRESOLVED');
+      setResolutionStatus('UNRESOLVED');
+      setJpPerWeek(null);
+    }
+  }, [academicSetting.id]);
+
   useEffect(() => {
     if (semesterJPSetting?.actualScheduledWeeklyJP !== undefined && semesterJPSetting?.actualScheduledWeeklyJP !== null) {
       setJpPerWeek(semesterJPSetting.actualScheduledWeeklyJP);
@@ -502,7 +514,9 @@ export const TimePlanningManager: React.FC<TimePlanningManagerProps> = ({
   const handleSaveJP = () => {
     if (onSaveSemesterJPSetting) {
       const isOverride = fallbackAnnualJP !== null && jpPerWeek !== null && jpPerWeek !== fallbackAnnualJP;
-      const success = onSaveSemesterJPSetting(jpPerWeek, effectiveSemesterPlanId);
+      const success = effectiveSemesterPlanId
+        ? onSaveSemesterJPSetting(jpPerWeek, effectiveSemesterPlanId)
+        : onSaveSemesterJPSetting(jpPerWeek);
       if (success) {
         const semLabel = activeSemester === '1' ? '1' : '2';
         if (isOverride) {
@@ -858,12 +872,9 @@ export const TimePlanningManager: React.FC<TimePlanningManagerProps> = ({
     });
     setDays(projectedDays);
 
-    const hasCompleteDates = Boolean(targetStart && targetEnd);
-    const hasSchoolDays = schoolDaysPerWeek === 5 || schoolDaysPerWeek === 6;
-    const isResolved = candidate.verificationStatus === 'VERIFIED' && hasCompleteDates && hasSchoolDays;
-
+    const isComplete = schoolDaysPerWeek === 5 || schoolDaysPerWeek === 6;
     setWorkflowStatus('REVIEWED');
-    setResolutionStatus(isResolved ? 'RESOLVED' : 'PARTIALLY_RESOLVED');
+    setResolutionStatus(isComplete ? 'RESOLVED' : 'PARTIALLY_RESOLVED');
 
     if (candidate.verificationStatus === 'VERIFIED') {
       setDraftVerifiedAt(candidate.retrievedAt);
@@ -995,7 +1006,9 @@ export const TimePlanningManager: React.FC<TimePlanningManagerProps> = ({
     setDays(finalDays);
 
     const res = confirmCalendarWorkflow(currentCal, finalDays);
-    const saveSuccess = onSaveCalendar(res.calendar, res.days, effectiveSemesterPlanId);
+    const saveSuccess = effectiveSemesterPlanId
+      ? onSaveCalendar(res.calendar, res.days, effectiveSemesterPlanId)
+      : onSaveCalendar(res.calendar, res.days);
 
     if (saveSuccess) {
       setWorkflowStatus('CONFIRMED');
@@ -2621,12 +2634,31 @@ export const TimePlanningManager: React.FC<TimePlanningManagerProps> = ({
                     <span>Susun Alokasi Semester {activeSemester} dari ATP Tahunan</span>
                   </button>
 
-                  {!autoAllocationReadiness.isReady && autoAllocationReadiness.disabledReason && (
-                    <div className="absolute right-0 bottom-full mb-2 hidden group-hover:block w-72 p-2.5 bg-slate-900 text-white text-[11px] leading-relaxed rounded-lg shadow-xl z-50 pointer-events-none">
-                      <div className="font-semibold text-amber-300 mb-0.5">Syarat Susun Alokasi Otomatis:</div>
-                      {autoAllocationReadiness.disabledReason}
+                  <div className="absolute right-0 bottom-full mb-2 hidden group-hover:block w-80 p-3 bg-slate-900 text-white text-[11px] leading-relaxed rounded-lg shadow-xl z-50 pointer-events-none">
+                    <div className="font-semibold text-indigo-300 mb-1">Status Kesiapan Pembagian ATP Tahunan:</div>
+                    <p className="text-[10px] text-slate-300 mb-2">
+                      Pembagian ATP tahunan menggunakan kapasitas tersimpan Semester 1 dan Semester 2.
+                    </p>
+                    <div className="grid grid-cols-2 gap-2 text-[10px] border-t border-slate-700 pt-2">
+                      <div>
+                        <div className="font-bold text-slate-200">Semester 1</div>
+                        <div>Kalender: {autoAllocationReadiness.s1CalReady ? 'Tersimpan' : 'Belum diatur'}</div>
+                        <div>JP Tersimpan: {autoAllocationReadiness.s1JPReady ? 'Tersimpan' : 'Belum diatur'}</div>
+                        <div>Kapasitas: {autoAllocationReadiness.s1Capacity?.availableJP ?? 0} JP</div>
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-200">Semester 2</div>
+                        <div>Kalender: {autoAllocationReadiness.s2CalReady ? 'Tersimpan' : 'Belum diatur'}</div>
+                        <div>JP Tersimpan: {autoAllocationReadiness.s2JPReady ? 'Tersimpan' : 'Belum diatur'}</div>
+                        <div>Kapasitas: {autoAllocationReadiness.s2Capacity?.availableJP ?? 0} JP</div>
+                      </div>
                     </div>
-                  )}
+                    {!autoAllocationReadiness.isReady && autoAllocationReadiness.disabledReason && (
+                      <div className="mt-2 text-amber-300 border-t border-slate-800 pt-1.5 font-medium">
+                        {autoAllocationReadiness.disabledReason}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
 

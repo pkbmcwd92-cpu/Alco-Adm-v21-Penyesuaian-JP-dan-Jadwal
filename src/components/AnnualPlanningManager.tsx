@@ -243,8 +243,12 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
       expectedWeeklyJP: s1Capacity?.actualScheduledWeeklyJP ?? null,
       calendarConfirmed,
       effectiveWeekSlots,
+      calendar: s1Data?.academicCalendar?.calendar,
+      calendarDays: s1Data?.academicCalendar?.days || [],
+      semesterPlanId: sem1Plan?.id,
+      schoolDaysPerWeek: s1Data?.academicCalendar?.calendar?.schoolDaysPerWeek,
     });
-  }, [s1Data, s1Capacity]);
+  }, [s1Data, s1Capacity, sem1Plan]);
 
   const s2PlannedCapacity = useMemo(() => {
     const calendarConfirmed = Boolean(s2Data?.academicCalendar?.calendar?.workflowStatus === 'CONFIRMED');
@@ -254,8 +258,12 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
       expectedWeeklyJP: s2Capacity?.actualScheduledWeeklyJP ?? null,
       calendarConfirmed,
       effectiveWeekSlots,
+      calendar: s2Data?.academicCalendar?.calendar,
+      calendarDays: s2Data?.academicCalendar?.days || [],
+      semesterPlanId: sem2Plan?.id,
+      schoolDaysPerWeek: s2Data?.academicCalendar?.calendar?.schoolDaysPerWeek,
     });
-  }, [s2Data, s2Capacity]);
+  }, [s2Data, s2Capacity, sem2Plan]);
 
   const isK13Curriculum = academicSetting.curriculumType === 'K13' || academicSetting.curriculum?.includes('2013');
 
@@ -374,7 +382,9 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
         status: t1Complete ? 'COMPLETE' : 'PENDING',
         isLocked: false,
         detail: s1PlannedCapacity.isReady
-          ? `${s1PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s1PlannedCapacity.totalJP} JP`
+          ? s1PlannedCapacity.capacitySource === 'ACTUAL_SLOTS'
+            ? `${s1PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s1PlannedCapacity.totalJP} JP (Aktual)`
+            : `${s1PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s1PlannedCapacity.totalJP} JP (Estimasi)`
           : 'Belum dihitung',
       },
       {
@@ -384,7 +394,9 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
         isLocked: t2Locked,
         lockReason: 'Lengkapi Waktu Semester 1 terlebih dahulu',
         detail: s2PlannedCapacity.isReady
-          ? `${s2PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s2PlannedCapacity.totalJP} JP`
+          ? s2PlannedCapacity.capacitySource === 'ACTUAL_SLOTS'
+            ? `${s2PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s2PlannedCapacity.totalJP} JP (Aktual)`
+            : `${s2PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s2PlannedCapacity.totalJP} JP (Estimasi)`
           : 'Belum dihitung',
       },
       {
@@ -685,7 +697,10 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                   <div className="font-bold text-blue-900 mt-0.5">
                     {!isK13Curriculum ? (
                       s1PlannedCapacity.isReady ? (
-                        <span>{s1PlannedCapacity.totalMeetingCapacity} Pertemuan • {s1PlannedCapacity.totalJP} JP Rencana</span>
+                        <span>
+                          {s1PlannedCapacity.totalMeetingCapacity} Pertemuan • {s1PlannedCapacity.totalJP} JP{' '}
+                          {s1PlannedCapacity.capacitySource === 'ACTUAL_SLOTS' ? 'Aktual' : 'Estimasi'}
+                        </span>
                       ) : (
                         <span>Belum dihitung</span>
                       )
@@ -727,7 +742,10 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                   <div className="font-bold text-blue-900 mt-0.5">
                     {!isK13Curriculum ? (
                       s2PlannedCapacity.isReady ? (
-                        <span>{s2PlannedCapacity.totalMeetingCapacity} Pertemuan • {s2PlannedCapacity.totalJP} JP Rencana</span>
+                        <span>
+                          {s2PlannedCapacity.totalMeetingCapacity} Pertemuan • {s2PlannedCapacity.totalJP} JP{' '}
+                          {s2PlannedCapacity.capacitySource === 'ACTUAL_SLOTS' ? 'Aktual' : 'Estimasi'}
+                        </span>
                       ) : (
                         <span>Belum dihitung</span>
                       )
@@ -837,7 +855,11 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                     {s1PlannedCapacity.isReady ? (
                       <span className="text-emerald-700 font-bold flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Kapasitas Pertemuan Perencanaan ({s1PlannedCapacity.totalMeetingCapacity} Pertemuan • {s1PlannedCapacity.totalJP} JP)</span>
+                        <span>
+                          {s1PlannedCapacity.capacitySource === 'ACTUAL_SLOTS'
+                            ? `Kapasitas Pertemuan Aktual (${s1PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s1PlannedCapacity.totalJP} JP)`
+                            : `Kapasitas Pertemuan Estimasi (${s1PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s1PlannedCapacity.totalJP} JP)`}
+                        </span>
                       </span>
                     ) : (
                       <span className="text-slate-400 flex items-center gap-1.5">
@@ -907,7 +929,11 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                     {s2PlannedCapacity.isReady ? (
                       <span className="text-emerald-700 font-bold flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Kapasitas Pertemuan Perencanaan ({s2PlannedCapacity.totalMeetingCapacity} Pertemuan • {s2PlannedCapacity.totalJP} JP)</span>
+                        <span>
+                          {s2PlannedCapacity.capacitySource === 'ACTUAL_SLOTS'
+                            ? `Kapasitas Pertemuan Aktual (${s2PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s2PlannedCapacity.totalJP} JP)`
+                            : `Kapasitas Pertemuan Estimasi (${s2PlannedCapacity.totalMeetingCapacity} Pertemuan • ${s2PlannedCapacity.totalJP} JP)`}
+                        </span>
                       </span>
                     ) : (
                       <span className="text-slate-400 flex items-center gap-1.5">
@@ -1032,11 +1058,15 @@ export const AnnualPlanningManager: React.FC<AnnualPlanningManagerProps> = ({
                       isReady: s1PlannedCapacity.isReady,
                       targetMeetingCount: s1PlannedCapacity.totalMeetingCapacity,
                       totalJP: s1PlannedCapacity.totalJP,
+                      capacitySource: s1PlannedCapacity.capacitySource,
+                      calendarLostJP: s1PlannedCapacity.calendarLostJP,
                     },
                     semester2: {
                       isReady: s2PlannedCapacity.isReady,
                       targetMeetingCount: s2PlannedCapacity.totalMeetingCapacity,
                       totalJP: s2PlannedCapacity.totalJP,
+                      capacitySource: s2PlannedCapacity.capacitySource,
+                      calendarLostJP: s2PlannedCapacity.calendarLostJP,
                     },
                   }}
                 />

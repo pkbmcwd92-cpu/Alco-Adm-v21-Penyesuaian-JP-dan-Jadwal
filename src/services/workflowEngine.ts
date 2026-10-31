@@ -830,6 +830,10 @@ export function validateWorkflowDependencies(
         expectedWeeklyJP: s1Cap?.actualScheduledWeeklyJP ?? null,
         calendarConfirmed: Boolean(s1Cap?.isCalendarConfirmed),
         effectiveWeekSlots: s1Cap?.effectiveWeekSlots ?? 0,
+        calendar: s1Data?.academicCalendar?.calendar,
+        calendarDays: s1Data?.academicCalendar?.days || [],
+        semesterPlanId: s1?.id,
+        schoolDaysPerWeek: s1Data?.academicCalendar?.calendar?.schoolDaysPerWeek,
       });
 
       const s2PlannedCapacity = resolvePlannedMeetingCapacity({
@@ -837,6 +841,10 @@ export function validateWorkflowDependencies(
         expectedWeeklyJP: s2Cap?.actualScheduledWeeklyJP ?? null,
         calendarConfirmed: Boolean(s2Cap?.isCalendarConfirmed),
         effectiveWeekSlots: s2Cap?.effectiveWeekSlots ?? 0,
+        calendar: s2Data?.academicCalendar?.calendar,
+        calendarDays: s2Data?.academicCalendar?.days || [],
+        semesterPlanId: s2?.id,
+        schoolDaysPerWeek: s2Data?.academicCalendar?.calendar?.schoolDaysPerWeek,
       });
 
       const s1Allocations = s1

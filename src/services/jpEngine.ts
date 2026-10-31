@@ -1100,6 +1100,8 @@ export function validateTeacherTeachingLoad(
 export interface SemesterCapacityInfo {
   capacitySource?: 'ACTUAL_SLOTS' | 'EFFECTIVE_DAY_ESTIMATE' | 'UNRESOLVED';
   calendarLostJP?: number | null;
+  totalMeetingCapacity?: number | null;
+  totalMeetingSlots?: number | null;
   semesterPlanId: string;
   semester: '1' | '2';
   isCalendarConfirmed: boolean;
@@ -1534,6 +1536,12 @@ export function resolveSemesterCapacityV5(
     availableJP > 0
   );
 
+  const totalMeetingCapacity = capacity.totalMeetingSlots ?? (
+    effectiveWeekSlots !== null && actualScheduledWeeklyJP !== null && state.semesterData?.subjectWeeklySchedules?.find(e => e.semesterPlanId === semesterPlanId)?.value?.sessions?.length
+      ? effectiveWeekSlots * state.semesterData.subjectWeeklySchedules.find(e => e.semesterPlanId === semesterPlanId)!.value.sessions.length
+      : null
+  );
+
   return {
     semesterPlanId,
     semester: semNumber,
@@ -1548,35 +1556,84 @@ export function resolveSemesterCapacityV5(
     availableJP,
     capacitySource: capacity.capacitySource,
     calendarLostJP: capacity.calendarLostJP,
+    totalMeetingSlots: capacity.totalMeetingSlots ?? null,
+    totalMeetingCapacity,
     isReady,
   };
 }
 
 /** One capacity authority: dated subject slots when available, otherwise an explicitly marked day estimate. */
 export function resolveCalendarSubjectCapacity(params: {
-  semesterPlanId: string; calendar?: AcademicCalendar; calendarDays?: CalendarDay[];
-  weeklyJP: number | null; schedule?: SubjectWeeklySchedule;
+  semesterPlanId: string;
+  calendar?: AcademicCalendar;
+  calendarDays?: CalendarDay[];
+  weeklyJP: number | null;
+  schedule?: SubjectWeeklySchedule;
 }) {
   const { semesterPlanId, calendar, calendarDays = [], weeklyJP, schedule } = params;
   const days = calendar ? calculateEffectiveDays(calendar, calendarDays) : null;
-  const estimate = calculateAvailableJP({ subjectWeeklyJP: weeklyJP, effectiveLearningDays: days?.effectiveLearningDays,
-    schoolDaysPerWeek: calendar?.schoolDaysPerWeek, calendarStatus: days?.status || 'UNRESOLVED',
-    effectiveDayStatus: days?.status || 'UNRESOLVED', weeklyJPSource: 'DEFAULT_ANNUAL' });
-  const unresolved = { ...estimate, status: 'UNRESOLVED' as const, availableJP: null,
-    capacitySource: 'UNRESOLVED' as const, calendarLostJP: null as number | null };
+  const estimate = calculateAvailableJP({
+    subjectWeeklyJP: weeklyJP,
+    effectiveLearningDays: days?.effectiveLearningDays,
+    schoolDaysPerWeek: calendar?.schoolDaysPerWeek,
+    calendarStatus: days?.status || 'UNRESOLVED',
+    effectiveDayStatus: days?.status || 'UNRESOLVED',
+    weeklyJPSource: 'DEFAULT_ANNUAL',
+  });
+  const unresolved = {
+    ...estimate,
+    status: 'UNRESOLVED' as const,
+    availableJP: null,
+    capacitySource: 'UNRESOLVED' as const,
+    calendarLostJP: null as number | null,
+    totalMeetingSlots: null as number | null,
+  };
   if (!calendar || days?.status !== 'RESOLVED' || estimate.availableJP === null) return unresolved;
-  const dated = schedule?.sessions.some(session => session.dayOfWeek !== undefined);
-  if (dated) {
-    const slots = resolveEffectiveSubjectSlots({ semesterPlanId, schedule, expectedWeeklyJP: weeklyJP, calendar, calendarDays });
-    if (!slots.isReady || schedule?.semesterPlanId !== semesterPlanId) return { ...unresolved, unresolvedReason: slots.errors.join('; ') || 'Jadwal mapel tidak cocok dengan semester.' };
-    return { ...estimate, availableJP: slots.totalJP, capacitySource: 'ACTUAL_SLOTS' as const,
+
+  const maxDay = calendar.schoolDaysPerWeek === 6 ? 6 : 5;
+  const allDated = Boolean(
+    schedule &&
+    schedule.sessions &&
+    schedule.sessions.length > 0 &&
+    schedule.sessions.every(
+      (session) => typeof session.dayOfWeek === 'number' && session.dayOfWeek >= 1 && session.dayOfWeek <= maxDay
+    )
+  );
+
+  if (allDated) {
+    const slots = resolveEffectiveSubjectSlots({
+      semesterPlanId,
+      schedule,
+      expectedWeeklyJP: weeklyJP,
+      calendar,
+      calendarDays,
+      schoolDaysPerWeek: calendar.schoolDaysPerWeek,
+    });
+    if (!slots.isReady || schedule?.semesterPlanId !== semesterPlanId) {
+      return {
+        ...unresolved,
+        unresolvedReason: slots.errors.join('; ') || 'Jadwal mapel tidak cocok dengan semester.',
+      };
+    }
+    return {
+      ...estimate,
+      availableJP: slots.totalJP,
+      capacitySource: 'ACTUAL_SLOTS' as const,
       calendarLostJP: slots.excludedOccurrences.reduce((sum, occurrence) => sum + occurrence.jp, 0),
-      formula: 'Jumlah JP slot mapel pada hari pembelajaran', formulaCalculation: `${slots.totalJP} JP` };
+      totalMeetingSlots: slots.totalMeetingSlots,
+      formula: 'Jumlah JP slot mapel pada hari pembelajaran',
+      formulaCalculation: `${slots.totalJP} JP`,
+    };
   }
+
   // Legacy session patterns without weekdays cannot identify actual dates; preserve the estimate.
-  const nominal = Math.round((weeklyJP || 0) * days.scheduledSchoolDays / calendar.schoolDaysPerWeek!);
-  return { ...estimate, capacitySource: 'EFFECTIVE_DAY_ESTIMATE' as const,
-    calendarLostJP: Math.max(0, nominal - estimate.availableJP) };
+  const nominal = Math.round(((weeklyJP || 0) * days.scheduledSchoolDays) / calendar.schoolDaysPerWeek!);
+  return {
+    ...estimate,
+    capacitySource: 'EFFECTIVE_DAY_ESTIMATE' as const,
+    calendarLostJP: Math.max(0, nominal - estimate.availableJP),
+    totalMeetingSlots: null,
+  };
 }
 
 /**

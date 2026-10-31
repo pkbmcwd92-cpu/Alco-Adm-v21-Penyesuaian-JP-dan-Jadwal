@@ -146,8 +146,12 @@ export const SubjectWeeklyScheduleManager: React.FC<SubjectWeeklyScheduleManager
       expectedWeeklyJP,
       calendarConfirmed,
       effectiveWeekSlots: effectiveWeeks,
+      calendar,
+      calendarDays,
+      semesterPlanId: candidateSchedule.semesterPlanId,
+      schoolDaysPerWeek,
     });
-  }, [candidateSchedule, expectedWeeklyJP, calendar, effectiveWeeks]);
+  }, [candidateSchedule, expectedWeeklyJP, calendar, effectiveWeeks, calendarDays, schoolDaysPerWeek]);
 
   // Dirty state calculation
   const isDirty = useMemo(() => {
@@ -461,17 +465,30 @@ export const SubjectWeeklyScheduleManager: React.FC<SubjectWeeklyScheduleManager
                 <p className="text-base font-extrabold text-emerald-600">{plannedResult.meetingsPerWeek} Pertemuan</p>
               </div>
               <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
-                <span className="text-[10px] text-slate-500 font-bold uppercase">Pertemuan Rencana</span>
+                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                  {plannedResult.capacitySource === 'ACTUAL_SLOTS' ? 'Pertemuan Aktual' : 'Pertemuan Rencana'}
+                </span>
                 <p className="text-base font-extrabold text-indigo-600">{plannedResult.totalMeetingCapacity} Pertemuan</p>
               </div>
               <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
-                <span className="text-[10px] text-slate-500 font-bold uppercase">JP Rencana</span>
+                <span className="text-[10px] text-slate-500 font-bold uppercase">
+                  {plannedResult.capacitySource === 'ACTUAL_SLOTS' ? 'JP Aktual' : 'JP Rencana'}
+                </span>
                 <p className="text-base font-extrabold text-amber-600">{plannedResult.totalJP} JP</p>
               </div>
             </div>
 
             <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-950 text-[11px] font-medium leading-relaxed">
-              💡 <strong>Catatan:</strong> Hari dan tanggal aktual ditetapkan pada Alokasi Waktu.
+              {plannedResult.capacitySource === 'ACTUAL_SLOTS' ? (
+                <span>
+                  ✓ <strong>Terkonfirmasi:</strong> Kapasitas dihitung dari slot tanggal efektif pembelajaran pada Kalender Pendidikan.
+                  {typeof plannedResult.calendarLostJP === 'number' && plannedResult.calendarLostJP > 0 && ` Terdampak libur: -${plannedResult.calendarLostJP} JP.`}
+                </span>
+              ) : (
+                <span>
+                  💡 <strong>Catatan:</strong> Kapasitas di atas adalah estimasi sementara ({plannedResult.effectiveWeekSlots} pekan × {plannedResult.meetingsPerWeek} pertemuan). Slot tanggal aktual ditetapkan setelah hari mengajar dialokasikan pada Alokasi Waktu.
+                </span>
+              )}
             </div>
           </div>
         )}
