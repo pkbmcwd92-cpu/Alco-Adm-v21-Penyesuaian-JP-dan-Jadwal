@@ -49,6 +49,8 @@ function createTwoWeekCalendarDays(
 const baseCal: AcademicCalendar = {
   id: 'cal-test',
   academicSettingId: 'sp-1',
+  academicYear: '2026/2027',
+  semester: '1 (Ganjil)',
   startDate: '2026-10-19', // Monday
   endDate: '2026-11-01',   // Sunday (2 weeks = 10 weekdays)
   schoolDaysPerWeek: 5,
@@ -557,6 +559,167 @@ console.log('--- Skenario 10: Semester 1 dan 2 dengan kapasitas berbeda ---');
   console.log('✅ Skenario 10 passed: S1 dan S2 kapasitas berbeda independen tanpa crosstalk.');
 }
 
+// --- Skenario 11: Transisi ESTIMATE -> ACTUAL_SLOTS ---
+console.log('--- Skenario 11: Transisi ESTIMATE -> ACTUAL_SLOTS ---');
+{
+  const draftSched: SubjectWeeklySchedule = {
+    semesterPlanId: 'sp-1',
+    basedOnWeeklyJP: 5,
+    sessions: [
+      { id: 's-1', order: 1, jp: 5 }, // Hari mengajar belum ditentukan (no dayOfWeek)
+    ],
+    updatedAt: '2026-10-19T00:00:00Z',
+  };
+
+  const days = createTwoWeekCalendarDays('2026-10-19');
+
+  // Draft stage: unconfirmed teaching days -> ESTIMATE
+  const draftPlanned = resolvePlannedMeetingCapacity({
+    schedule: draftSched,
+    expectedWeeklyJP: 5,
+    calendarConfirmed: true,
+    effectiveWeekSlots: 2,
+    calendar: baseCal,
+    calendarDays: days,
+    semesterPlanId: 'sp-1',
+  });
+
+  assert.equal(draftPlanned.capacitySource, 'ESTIMATE');
+  assert.equal(draftPlanned.isReady, true);
+  assert.equal(draftPlanned.totalMeetingCapacity, 2);
+
+  // Transition stage: teaching days assigned -> ACTUAL_SLOTS
+  const finalSched: SubjectWeeklySchedule = {
+    ...draftSched,
+    sessions: [
+      { id: 's-1', order: 1, jp: 5, dayOfWeek: 1 }, // Monday 5 JP
+    ],
+    updatedAt: '2026-10-19T00:05:00Z',
+  };
+
+  const finalPlanned = resolvePlannedMeetingCapacity({
+    schedule: finalSched,
+    expectedWeeklyJP: 5,
+    calendarConfirmed: true,
+    effectiveWeekSlots: 2,
+    calendar: baseCal,
+    calendarDays: days,
+    semesterPlanId: 'sp-1',
+  });
+
+  assert.equal(finalPlanned.capacitySource, 'ACTUAL_SLOTS');
+  assert.equal(finalPlanned.isReady, true);
+  assert.equal(finalPlanned.totalMeetingCapacity, 2);
+  assert.equal(finalPlanned.totalJP, 10);
+  console.log('✅ Skenario 11 passed: Transisi ESTIMATE -> ACTUAL_SLOTS berhasil dan konsisten.');
+}
+
+// --- Skenario 12: Perubahan Hari Mengajar & Evaluasi Kapasitas Aktual ---
+console.log('--- Skenario 12: Perubahan Hari Mengajar & Evaluasi Kapasitas Aktual ---');
+{
+  const initialSched: SubjectWeeklySchedule = {
+    semesterPlanId: 'sp-1',
+    basedOnWeeklyJP: 5,
+    sessions: [
+      { id: 'sess-mon', order: 1, jp: 3, dayOfWeek: 1 }, // Mon
+      { id: 'sess-thu', order: 2, jp: 2, dayOfWeek: 4 }, // Thu
+    ],
+    updatedAt: '2026-10-19T00:00:00Z',
+  };
+
+  const days = createTwoWeekCalendarDays('2026-10-19');
+  const initialSlots = resolveEffectiveSubjectSlots({
+    semesterPlanId: 'sp-1',
+    schedule: initialSched,
+    expectedWeeklyJP: 5,
+    calendar: baseCal,
+    calendarDays: days,
+    schoolDaysPerWeek: 5,
+  });
+
+  assert.equal(initialSlots.slots.filter(s => s.dayOfWeek === 4).length, 2); // 2 Thursdays
+
+  // Update schedule: move Thursday session to Wednesday
+  const updatedSched: SubjectWeeklySchedule = {
+    semesterPlanId: 'sp-1',
+    basedOnWeeklyJP: 5,
+    sessions: [
+      { id: 'sess-mon', order: 1, jp: 3, dayOfWeek: 1 }, // Mon
+      { id: 'sess-wed', order: 2, jp: 2, dayOfWeek: 3 }, // Wed
+    ],
+    updatedAt: '2026-10-19T01:00:00Z',
+  };
+
+  const updatedSlots = resolveEffectiveSubjectSlots({
+    semesterPlanId: 'sp-1',
+    schedule: updatedSched,
+    expectedWeeklyJP: 5,
+    calendar: baseCal,
+    calendarDays: days,
+    schoolDaysPerWeek: 5,
+  });
+
+  assert.equal(updatedSlots.slots.filter(s => s.dayOfWeek === 4).length, 0); // 0 Thursdays
+  assert.equal(updatedSlots.slots.filter(s => s.dayOfWeek === 3).length, 2); // 2 Wednesdays
+  assert.equal(updatedSlots.totalMeetingSlots, 4);
+  assert.equal(updatedSlots.totalJP, 10);
+  console.log('✅ Skenario 12 passed: Perubahan hari mengajar memperbarui slot aktual secara akurat.');
+}
+
+// --- Skenario 13: Penyimpanan Kalender & Reload Antarsemester ---
+console.log('--- Skenario 13: Penyimpanan Kalender & Reload Antarsemester ---');
+{
+  const schedS1: SubjectWeeklySchedule = {
+    semesterPlanId: 'sp-s1',
+    basedOnWeeklyJP: 5,
+    sessions: [{ id: 's1-mon', order: 1, jp: 5, dayOfWeek: 1 }],
+    updatedAt: '2026-10-19T00:00:00Z',
+  };
+
+  const schedS2: SubjectWeeklySchedule = {
+    semesterPlanId: 'sp-s2',
+    basedOnWeeklyJP: 5,
+    sessions: [
+      { id: 's2-tue', order: 1, jp: 3, dayOfWeek: 2 },
+      { id: 's2-fri', order: 2, jp: 2, dayOfWeek: 5 },
+    ],
+    updatedAt: '2026-10-19T00:00:00Z',
+  };
+
+  const calS1: AcademicCalendar = { ...baseCal, id: 'cal-s1', academicSettingId: 'sp-s1' };
+  const calS2: AcademicCalendar = { ...baseCal, id: 'cal-s2', academicSettingId: 'sp-s2', startDate: '2027-01-11', endDate: '2027-01-24' };
+
+  const daysS1 = createTwoWeekCalendarDays('2026-10-19');
+  const daysS2 = createTwoWeekCalendarDays('2027-01-11');
+
+  const capS1 = resolvePlannedMeetingCapacity({
+    schedule: schedS1,
+    expectedWeeklyJP: 5,
+    calendarConfirmed: true,
+    effectiveWeekSlots: 2,
+    calendar: calS1,
+    calendarDays: daysS1,
+    semesterPlanId: 'sp-s1',
+  });
+
+  const capS2 = resolvePlannedMeetingCapacity({
+    schedule: schedS2,
+    expectedWeeklyJP: 5,
+    calendarConfirmed: true,
+    effectiveWeekSlots: 2,
+    calendar: calS2,
+    calendarDays: daysS2,
+    semesterPlanId: 'sp-s2',
+  });
+
+  assert.equal(capS1.totalMeetingCapacity, 2);
+  assert.equal(capS2.totalMeetingCapacity, 4);
+  assert.equal(capS1.capacitySource, 'ACTUAL_SLOTS');
+  assert.equal(capS2.capacitySource, 'ACTUAL_SLOTS');
+  console.log('✅ Skenario 13 passed: Penyimpanan kalender & reload antarsemester terverifikasi.');
+}
+
 console.log('===========================================================');
-console.log('🎉 ALL 10 V20 REGRESSION SCENARIOS PASSED WITH 100% SUCCESS!');
+console.log('🎉 ALL 13 V20/V21 REGRESSION SCENARIOS PASSED WITH 100% SUCCESS!');
 console.log('===========================================================');
+

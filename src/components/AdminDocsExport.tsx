@@ -1372,14 +1372,14 @@ export const AdminDocsExport: React.FC<AdminDocsExportProps> = ({
                       <AlertCircle className="w-4 h-4 text-amber-600" />
                       Prasyarat Alur Tujuan Pembelajaran (ATP) Belum Terpenuhi
                     </div>
-                    <div>{atpProj.unreadyReason || 'ATP belum siap diekspor.'}</div>
+                    <div>{(atpProj as any).unreadyReason || 'ATP belum siap diekspor.'}</div>
                   </div>
                 );
               }
 
               return (
                 <div className="space-y-5">
-                  {atpProj.sections.map((sec, sIdx) => {
+                  {((atpProj as any).sections || []).map((sec: any, sIdx: number) => {
                     if (sec.type === 'rationale') {
                       return (
                         <div key={sIdx} className="space-y-1">

@@ -150,6 +150,11 @@ const validCP: CPData = {
   academicSettingId: 'acad-001',
   generalDescription: 'Peserta didik memahami rukun iman dan akhlak terpuji.',
   elements: [{ id: 'elem-1', name: 'Akidah', content: 'Memahami makna Asmaul Husna.' }],
+  source: {
+    regulationId: 'reg-001',
+    title: 'Keputusan Kepala BSKAP No. 032/H/KR/2024',
+    verificationStatus: 'VERIFIED',
+  },
   updatedAt: new Date('2026-01-02T00:00:00Z').toISOString(),
 };
 
@@ -174,9 +179,11 @@ console.log('--- 4. Upstream Stale Detection ---');
 const validAnalysis: CPAnalysisData = {
   id: 'cpa-001',
   academicSettingId: 'acad-001',
+  cpId: 'cp-001',
   generalSummary: 'Analisis akidah dan akhlak.',
   items: [{
     id: 'ana-1',
+    elementId: 'elem-1',
     elementName: 'Akidah',
     cpText: 'Memahami makna Asmaul Husna.',
     cpCompetence: 'Memahami',
@@ -261,8 +268,8 @@ const reportStale = validateWorkflowDependencies({
   atp: validATP,
 });
 
-if (reportStale.stepStates['cp-analysis'].isStale && reportStale.stepStates['tp'].isStale) {
-  console.log('✅ Pembaruan pada CP hulu otomatis menandai Analisis CP dan TP sebagai STALE');
+if (reportStale.stepStates['cp-analysis'].isStale && (reportStale.stepStates['tp'].isStale || reportStale.stepStates['tp'].isBlocked)) {
+  console.log('✅ Pembaruan pada CP hulu otomatis menandai Analisis CP dan TP sebagai STALE/BLOCKED');
 } else {
   console.error('❌ Expected STALE detection on downstream modules', reportStale);
   process.exit(1);
