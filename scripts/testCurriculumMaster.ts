@@ -268,8 +268,8 @@ async function runCurriculumMasterTests() {
     grade: 'Kelas 10',
     subject: 'Fisika',
   });
-  assert(jpSMA.isOfficial === true, 'Fisika SMA Kelas 10 terverifikasi resmi');
-  assert(jpSMA.intrakurikulerAnnualJP === 72, 'Fisika SMA Kelas 10 adalah 72 JP intra tahunan');
+  assert(jpSMA.isOfficial === false, 'Fisika SMA Kelas 10 memerlukan audit pembagian kelompok IPA; tabel nasional tidak menetapkan JP cabang');
+  assert(jpSMA.intrakurikulerAnnualJP === 72, 'Nilai cabang Fisika legacy dipertahankan tanpa dipromosikan menjadi alokasi resmi');
 
   // TEST 9: Master Capaian Pembelajaran (CP)
   console.log('\n--- 9. Master Capaian Pembelajaran (CP) ---');

@@ -5,9 +5,10 @@ import { CurriculumStructureRule } from '../types';
  * KELAS 10 SAMPAI KELAS 12
  *
  * Regulasi Rujukan:
- * - Permendikbudristek No. 12 Tahun 2024 (Lampiran IV: Struktur Kurikulum SMA)
+ * - Permendikbudristek No. 12 Tahun 2024 (Lampiran II Tabel 7-9)
  * - Permendikdasmen No. 13 Tahun 2025 (Pembaruan Mapel Pilihan Coding dan AI)
  * - Permendikbud No. 36 Tahun 2018 (Struktur Kurikulum 2013 SMA)
+ * Audit angka/sumber: V21-JP-2026-10-31; lihat docs/jp-regulation-matrix-v21.csv.
  */
 export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
   {
@@ -30,11 +31,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -63,11 +64,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -96,11 +97,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -129,11 +130,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -162,11 +163,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -195,11 +196,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -229,11 +230,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -263,18 +264,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 10 (Alokasi 54 JP/tahun, setara 1.5 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-bindo",
@@ -296,11 +297,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -329,11 +330,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -362,18 +363,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Fisika SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-kimia",
@@ -395,18 +396,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Kimia SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-biologi",
@@ -428,18 +429,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Biologi SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-sosiologi",
@@ -461,18 +462,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Sosiologi SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-ekonomi",
@@ -494,18 +495,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Ekonomi SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-geografi",
@@ -527,18 +528,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Geografi SMA Kelas 10 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sma-10-bing",
@@ -548,30 +549,30 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "E",
     subjectCode: "BING",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
+    intrakurikulerAnnualJP: 108,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 2,
+    derivedWeeklyJP: 3,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 10 (2 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 7; 108 JP intra + 0 JP koko = 108 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-10-pjok",
@@ -593,11 +594,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -615,8 +616,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "INFORMATIKA",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 108,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
     derivedWeeklyJP: 2,
@@ -626,18 +627,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Informatika SMA Kelas 10 (2 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 7; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-10-seni_rupa",
@@ -663,11 +664,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -700,11 +701,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -737,11 +738,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -774,11 +775,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -807,11 +808,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "attachment": "Lampiran II",
+          "table": "Tabel 7",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -840,11 +841,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -873,11 +874,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -906,11 +907,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -939,11 +940,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -972,11 +973,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1005,11 +1006,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1039,11 +1040,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1072,11 +1073,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1105,11 +1106,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1127,8 +1128,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "BING",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 108,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
     derivedWeeklyJP: 3,
@@ -1138,18 +1139,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 11 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 8; 108 JP intra + 0 JP koko = 108 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-11-pjok",
@@ -1171,11 +1172,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1192,30 +1193,30 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "F",
     subjectCode: "SEJARAH",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 108,
+    intrakurikulerAnnualJP: 54,
+    kokurikulerAnnualJP: 18,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 2,
+    derivedWeeklyJP: 1.5,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 11 (2 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 8; 54 JP intra + 18 JP koko = 72 JP/tahun; ekuivalen 1.5 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-11-seni_rupa",
@@ -1241,11 +1242,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1278,11 +1279,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1315,11 +1316,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1352,11 +1353,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1385,11 +1386,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1422,11 +1423,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1459,11 +1460,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1496,11 +1497,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1533,11 +1534,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1570,11 +1571,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1607,11 +1608,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1644,11 +1645,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1681,11 +1682,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1718,11 +1719,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1755,11 +1756,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1792,11 +1793,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -1817,30 +1818,30 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroupRequired: true,
     minSelections: 4,
     maxSelections: 5,
-    intrakurikulerAnnualJP: 180,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 0,
-    totalAnnualJP: 180,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 5,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "attachment": "Lampiran II",
+          "table": "Tabel 8",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Mapel Pilihan Prakarya dan Kewirausahaan SMA Kelas 11 (5 JP/minggu, pilihan 4-5)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-12-pai",
@@ -1862,11 +1863,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -1895,11 +1896,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -1928,11 +1929,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -1961,11 +1962,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -1994,11 +1995,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2027,11 +2028,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2061,11 +2062,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2094,11 +2095,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2127,11 +2128,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2149,8 +2150,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "BING",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 96,
-    kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
     derivedWeeklyJP: 3,
@@ -2160,18 +2161,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 12 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 9; 96 JP intra + 0 JP koko = 96 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-12-pjok",
@@ -2193,11 +2194,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2214,30 +2215,30 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "F",
     subjectCode: "SEJARAH",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 64,
-    kokurikulerAnnualJP: 32,
-    totalAnnualJP: 96,
+    intrakurikulerAnnualJP: 48,
+    kokurikulerAnnualJP: 16,
+    totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 2,
+    derivedWeeklyJP: 1.5,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 12 (2 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 9; 48 JP intra + 16 JP koko = 64 JP/tahun; ekuivalen 1.5 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-sma-12-seni_rupa",
@@ -2263,11 +2264,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2300,11 +2301,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2337,11 +2338,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2374,11 +2375,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2407,11 +2408,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2444,11 +2445,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2481,11 +2482,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2518,11 +2519,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2555,11 +2556,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2592,11 +2593,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2629,11 +2630,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2666,11 +2667,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2703,11 +2704,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2740,11 +2741,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2777,11 +2778,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2814,11 +2815,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -2839,30 +2840,30 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroupRequired: true,
     minSelections: 4,
     maxSelections: 5,
-    intrakurikulerAnnualJP: 160,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 0,
-    totalAnnualJP: 160,
+    totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 5,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "attachment": "Lampiran II",
+          "table": "Tabel 9",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Mapel Pilihan Prakarya dan Kewirausahaan SMA Kelas 12 (5 JP/minggu, pilihan 4-5)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 9; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-pai",
@@ -2885,20 +2886,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -2928,20 +2920,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -2971,20 +2954,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3014,20 +2988,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3057,20 +3022,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3100,20 +3056,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3130,13 +3077,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "E",
     subjectCode: "PANCASILA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3144,27 +3090,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Pancasila SMA Kelas 10 TA 2025/2026 (Alokasi 54 JP/tahun, setara 1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-sejarah",
@@ -3188,27 +3125,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 10 TA 2025/2026 (Alokasi 54 JP/tahun, setara 1.5 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-bindo",
@@ -3231,20 +3159,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3274,20 +3193,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3317,27 +3227,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Fisika SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-kimia",
@@ -3360,27 +3261,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Kimia SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-biologi",
@@ -3403,27 +3295,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Biologi SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-sosiologi",
@@ -3446,27 +3329,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Sosiologi SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-ekonomi",
@@ -3489,27 +3363,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Ekonomi SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-geografi",
@@ -3532,27 +3397,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Geografi SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tabel menetapkan kelompok IPA 216/108/324 dan IPS 288/144/432; pembagian cabang tidak ditetapkan nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sma-10-bing",
@@ -3562,12 +3418,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "E",
     subjectCode: "BING",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
+    intrakurikulerAnnualJP: 108,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 2,
+    derivedWeeklyJP: 3,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3575,27 +3431,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 108 JP intra + 0 JP koko = 108 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-pjok",
@@ -3618,20 +3465,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3649,8 +3487,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "INFORMATIKA",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 108,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
     derivedWeeklyJP: 2,
@@ -3661,27 +3499,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Informatika SMA Kelas 10 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-seni_rupa",
@@ -3694,13 +3523,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3708,27 +3536,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 10 (SENI_RUPA) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-seni_musik",
@@ -3741,13 +3560,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3755,27 +3573,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 10 (SENI_MUSIK) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-seni_tari",
@@ -3788,13 +3597,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3802,27 +3610,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 10 (SENI_TARI) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-seni_teater",
@@ -3835,13 +3634,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3849,27 +3647,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 10 (SENI_TEATER) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 8; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-10-local-content",
@@ -3892,20 +3681,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 10"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3934,12 +3714,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "section": "Pasal 32A & Lampiran II Struktur Kurikulum SMA/MA",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA Kelas X",
-          "note": "Alokasi Koding dan Kecerdasan Artifisial Kelas 10 SMA (2 JP/minggu, 72 JP/tahun)"
+          "table": "Tabel 8",
+          "section": "SMA Kelas 10"
         }
       }
     ],
@@ -3969,20 +3748,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4012,20 +3782,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4055,20 +3816,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4098,20 +3850,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4141,20 +3884,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4184,20 +3918,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4214,13 +3939,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "F",
     subjectCode: "PANCASILA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4228,27 +3952,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Pancasila SMA Kelas 11 TA 2025/2026 (Alokasi 54 JP/tahun, setara 1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-bindo",
@@ -4271,20 +3986,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4314,20 +4020,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4345,8 +4042,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "BING",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 108,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
     derivedWeeklyJP: 3,
@@ -4357,27 +4054,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 11 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 108 JP intra + 0 JP koko = 108 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-pjok",
@@ -4400,20 +4088,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4431,8 +4110,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "SEJARAH",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 72,
-    kokurikulerAnnualJP: 36,
-    totalAnnualJP: 108,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
     derivedWeeklyJP: 2,
@@ -4443,27 +4122,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 11 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-seni_rupa",
@@ -4476,13 +4146,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4490,27 +4159,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 11 (SENI_RUPA) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-seni_musik",
@@ -4523,13 +4183,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4537,27 +4196,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 11 (SENI_MUSIK) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-seni_tari",
@@ -4570,13 +4220,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4584,27 +4233,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 11 (SENI_TARI) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-seni_teater",
@@ -4617,13 +4257,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 54,
-    kokurikulerAnnualJP: 18,
+    intrakurikulerAnnualJP: 72,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4631,27 +4270,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 11 (SENI_TEATER) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-local-content",
@@ -4674,20 +4304,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4721,20 +4342,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4768,20 +4380,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4815,20 +4418,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4862,20 +4456,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4909,20 +4494,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -4956,20 +4532,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5003,20 +4570,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5050,20 +4608,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5097,20 +4646,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5144,20 +4684,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5191,20 +4722,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
@@ -5225,12 +4747,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroupRequired: true,
     minSelections: 4,
     maxSelections: 5,
-    intrakurikulerAnnualJP: 180,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 0,
-    totalAnnualJP: 180,
+    totalAnnualJP: 72,
     referenceWeeksPerYear: 36,
     minutesPerJP: 45,
-    derivedWeeklyJP: 5,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5238,27 +4760,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 11"
+          "table": "Tabel 9",
+          "section": "SMA Kelas 11"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Mapel Pilihan Prakarya dan Kewirausahaan SMA Kelas 11 TA 2025/2026 (5 JP/minggu, pilihan 4-5)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 9; 72 JP intra + 0 JP koko = 72 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-11-coding-ai",
@@ -5303,20 +4816,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5346,20 +4850,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5389,20 +4884,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5432,20 +4918,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5475,20 +4952,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5518,20 +4986,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5548,13 +5007,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "F",
     subjectCode: "PANCASILA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 48,
-    kokurikulerAnnualJP: 16,
+    intrakurikulerAnnualJP: 64,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5562,27 +5020,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Pancasila SMA Kelas 12 TA 2025/2026 (Alokasi 48 JP/tahun, setara 1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-bindo",
@@ -5605,20 +5054,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5648,20 +5088,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5679,8 +5110,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "BING",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 96,
-    kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
     derivedWeeklyJP: 3,
@@ -5691,27 +5122,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SMA Kelas 12 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 96 JP intra + 0 JP koko = 96 JP/tahun; ekuivalen 3 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-pjok",
@@ -5734,20 +5156,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -5765,8 +5178,8 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     subjectCode: "SEJARAH",
     subjectType: "REQUIRED",
     intrakurikulerAnnualJP: 64,
-    kokurikulerAnnualJP: 32,
-    totalAnnualJP: 96,
+    kokurikulerAnnualJP: 0,
+    totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
     derivedWeeklyJP: 2,
@@ -5777,27 +5190,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Sejarah SMA Kelas 12 TA 2025/2026 (2 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-seni_rupa",
@@ -5810,13 +5214,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 48,
-    kokurikulerAnnualJP: 16,
+    intrakurikulerAnnualJP: 64,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5824,27 +5227,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 12 (SENI_RUPA) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-seni_musik",
@@ -5857,13 +5251,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 48,
-    kokurikulerAnnualJP: 16,
+    intrakurikulerAnnualJP: 64,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5871,27 +5264,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 12 (SENI_MUSIK) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-seni_tari",
@@ -5904,13 +5288,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 48,
-    kokurikulerAnnualJP: 16,
+    intrakurikulerAnnualJP: 64,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5918,27 +5301,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 12 (SENI_TARI) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-seni_teater",
@@ -5951,13 +5325,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroup: "SENI_PRAKARYA",
     selectionGroupRequired: true,
     minSelections: 1,
-    intrakurikulerAnnualJP: 48,
-    kokurikulerAnnualJP: 16,
+    intrakurikulerAnnualJP: 64,
+    kokurikulerAnnualJP: 0,
     totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 1.5,
-    allocationMode: "ANNUAL",
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -5965,27 +5338,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Seni SMA Kelas 12 (SENI_TEATER) - Pilihan cabang kelompok Seni & Prakarya TA 2025/2026 (1.5 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-local-content",
@@ -6008,20 +5372,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6055,20 +5410,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6102,20 +5448,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6149,20 +5486,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6196,20 +5524,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6243,20 +5562,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6290,20 +5600,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6337,20 +5638,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6384,20 +5676,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6431,20 +5714,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6478,20 +5752,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6525,20 +5790,11 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
@@ -6559,12 +5815,12 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     selectionGroupRequired: true,
     minSelections: 4,
     maxSelections: 5,
-    intrakurikulerAnnualJP: 160,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 0,
-    totalAnnualJP: 160,
+    totalAnnualJP: 64,
     referenceWeeksPerYear: 32,
     minutesPerJP: 45,
-    derivedWeeklyJP: 5,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -6572,27 +5828,18 @@ export const SMA_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran IV",
-          "table": "Alokasi Waktu Mata Pelajaran SMA/MA",
-          "section": "Kelas 12"
+          "table": "Tabel 10",
+          "section": "SMA Kelas 12"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Mapel Pilihan Prakarya dan Kewirausahaan SMA Kelas 12 TA 2025/2026 (5 JP/minggu, pilihan 4-5)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 10; 64 JP intra + 0 JP koko = 64 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sma-12-coding-ai",

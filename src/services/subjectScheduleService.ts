@@ -92,7 +92,7 @@ export function validateSubjectWeeklySchedule(
     };
   }
 
-  if (expectedWeeklyJP === null || expectedWeeklyJP <= 0) {
+  if (expectedWeeklyJP === null || !Number.isFinite(expectedWeeklyJP) || expectedWeeklyJP <= 0) {
     errors.push('JP mingguan canonical belum ditentukan atau bernilai 0.');
     return {
       isValid: false,

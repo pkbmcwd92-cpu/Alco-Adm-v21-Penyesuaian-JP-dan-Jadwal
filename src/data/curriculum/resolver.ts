@@ -71,6 +71,7 @@ export function parseAcademicYear(academicYear?: string): ParsedAcademicYear | n
   if (matchSlash) {
     const startYear = parseInt(matchSlash[1], 10);
     const endYear = parseInt(matchSlash[2], 10);
+    if (endYear !== startYear + 1) return null;
     return {
       startYear,
       endYear,
@@ -331,6 +332,7 @@ export function resolveCurriculumContext(
   const hasValidActualWeeks =
     schoolWeeksPerYear != null &&
     typeof schoolWeeksPerYear === 'number' &&
+    Number.isFinite(schoolWeeksPerYear) &&
     schoolWeeksPerYear > 0;
 
   const allocationMode =
@@ -342,12 +344,13 @@ export function resolveCurriculumContext(
   let actualAvailableAnnualJP: number | null = null;
   let resolvedProvenance: 'CALENDAR' | 'MANUAL_VALIDATED' | undefined = undefined;
 
-  if (params.actualScheduledAnnualJP != null && typeof params.actualScheduledAnnualJP === 'number') {
+  if (typeof params.actualScheduledAnnualJP === 'number' && Number.isFinite(params.actualScheduledAnnualJP) && params.actualScheduledAnnualJP >= 0) {
     actualAvailableAnnualJP = params.actualScheduledAnnualJP;
     resolvedProvenance = actualWeeksProvenance || 'MANUAL_VALIDATED';
   } else if (
     params.actualWeeklyJP != null &&
     typeof params.actualWeeklyJP === 'number' &&
+    Number.isFinite(params.actualWeeklyJP) && params.actualWeeklyJP > 0 &&
     params.weeklyJPSource !== 'REFERENCE_EQUIVALENT' &&
     hasValidActualWeeks
   ) {

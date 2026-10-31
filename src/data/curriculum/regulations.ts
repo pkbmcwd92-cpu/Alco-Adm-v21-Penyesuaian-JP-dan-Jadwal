@@ -49,9 +49,9 @@ export const OFFICIAL_REGULATION_SOURCES: RegulationSource[] = [
     year: 2025,
     type: 'REGULATION',
     authority: 'Kementerian Pendidikan Dasar dan Menengah RI',
-    legalEffectiveDate: '2025-07-11',
+    legalEffectiveDate: '2025-07-15',
     implementationFromAcademicYear: '2025/2026',
-    effectiveFrom: '2025-07-11',
+    effectiveFrom: '2025-07-15',
     sourceUrl: 'https://kemendikdasmen.go.id/download/file/1400',
     notes:
       'Mengatur pembaruan implementasi Kurikulum Merdeka mulai Tahun Ajaran 2025/2026 dan penambahan Mata Pelajaran Pilihan Koding dan Kecerdasan Artifisial (Coding dan AI) untuk jenjang SD, SMP, dan SMA.',

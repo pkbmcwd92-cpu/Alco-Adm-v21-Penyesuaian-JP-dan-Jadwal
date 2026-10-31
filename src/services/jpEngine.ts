@@ -155,7 +155,7 @@ export function getSubjectJP(query: SubjectJPQuery): SubjectJPResult {
         isOfficial: rule.verificationStatus === 'VERIFIED',
         verificationStatus: rule.verificationStatus === 'VERIFIED' ? 'VERIFIED' : 'UNVERIFIED',
         statusLabel: rule.verificationStatus === 'VERIFIED' ? 'Terverifikasi Resmi' : 'Belum diverifikasi',
-        sourceType: 'OFFICIAL',
+        sourceType: rule.verificationStatus === 'VERIFIED' ? 'OFFICIAL' : 'UNVERIFIED',
         regulation: mainReg?.title || 'Permendikbudristek No. 12 Tahun 2024',
         regulationYear: mainReg?.year || 2024,
         source: mainReg?.authority || 'BSKAP Kemendikdasmen RI',
@@ -163,7 +163,9 @@ export function getSubjectJP(query: SubjectJPQuery): SubjectJPResult {
         effectiveFrom: rule.effectiveFrom,
         curriculumType: rule.curriculumType,
         matchedRule: matchedLegacyRule,
-        explanation: `Alokasi intrakurikuler resmi: ${rule.derivedWeeklyJP} JP/minggu (${rule.intrakurikulerAnnualJP} JP/tahun${rule.kokurikulerAnnualJP ? `, Kokurikuler/P5: ${rule.kokurikulerAnnualJP} JP/tahun` : ''}) berdasarkan ${mainReg?.title || 'Regulasi Resmi'}.`,
+        explanation: rule.verificationStatus === 'VERIFIED'
+          ? `Alokasi intrakurikuler resmi: ${rule.derivedWeeklyJP} JP/minggu (${rule.intrakurikulerAnnualJP} JP/tahun${rule.kokurikulerAnnualJP ? `, Kokurikuler/P5: ${rule.kokurikulerAnnualJP} JP/tahun` : ''}) berdasarkan ${mainReg?.title || 'Regulasi Resmi'}.`
+          : rule.notes || 'Alokasi JP memerlukan audit manual sebelum digunakan sebagai acuan resmi.',
       };
     }
   }

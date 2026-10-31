@@ -5,9 +5,10 @@ import { CurriculumStructureRule } from '../types';
  * KELAS 7 SAMPAI KELAS 9
  *
  * Regulasi Rujukan:
- * - Permendikbudristek No. 12 Tahun 2024 (Lampiran III: Struktur Kurikulum SMP)
+ * - Permendikbudristek No. 12 Tahun 2024 (Lampiran II Tabel 5-6)
  * - Permendikdasmen No. 13 Tahun 2025 (Pembaruan Mapel Pilihan Coding dan AI)
  * - Permendikbud No. 35 Tahun 2018 (Struktur Kurikulum 2013 SMP)
+ * Audit angka/sumber: V21-JP-2026-10-31; lihat docs/jp-regulation-matrix-v21.csv.
  */
 export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
   {
@@ -18,30 +19,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-pak",
@@ -51,30 +52,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-pkat",
@@ -84,30 +85,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-phindu",
@@ -117,30 +118,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-pbuddha",
@@ -150,30 +151,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-pkhonghucu",
@@ -183,30 +184,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-7-pancasila",
@@ -228,11 +229,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -261,11 +262,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -294,11 +295,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -327,11 +328,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -360,11 +361,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -393,11 +394,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -426,11 +427,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -459,11 +460,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -495,11 +496,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -531,11 +532,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -567,11 +568,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -603,11 +604,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -639,11 +640,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -672,11 +673,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -693,30 +694,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-pak",
@@ -726,30 +727,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-pkat",
@@ -759,30 +760,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-phindu",
@@ -792,30 +793,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-pbuddha",
@@ -825,30 +826,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-pkhonghucu",
@@ -858,30 +859,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 5; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-8-pancasila",
@@ -903,11 +904,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -936,11 +937,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -969,11 +970,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1002,11 +1003,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1035,11 +1036,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1068,11 +1069,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1101,11 +1102,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1134,11 +1135,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1170,11 +1171,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1206,11 +1207,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1242,11 +1243,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1278,11 +1279,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1314,11 +1315,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1347,11 +1348,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "attachment": "Lampiran II",
+          "table": "Tabel 5",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -1368,30 +1369,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-pak",
@@ -1401,30 +1402,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-pkat",
@@ -1434,30 +1435,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-phindu",
@@ -1467,30 +1468,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-pbuddha",
@@ -1500,30 +1501,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-pkhonghucu",
@@ -1533,30 +1534,30 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024"
     ],
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 (3 JP/minggu)",
+    notes: "Audit JP V21 2026-10-31: Permen 12/2024, Lampiran II Tabel 6; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km-smp-9-pancasila",
@@ -1578,11 +1579,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1611,11 +1612,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1644,11 +1645,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1677,11 +1678,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1710,11 +1711,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1743,11 +1744,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1776,11 +1777,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1809,11 +1810,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1845,11 +1846,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1881,11 +1882,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1917,11 +1918,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1953,11 +1954,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -1989,11 +1990,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -2022,11 +2023,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "attachment": "Lampiran II",
+          "table": "Tabel 6",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -2043,12 +2044,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2056,27 +2057,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-pak",
@@ -2086,12 +2078,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2099,27 +2091,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-pkat",
@@ -2129,12 +2112,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2142,27 +2125,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-phindu",
@@ -2172,12 +2146,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2185,27 +2159,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-pbuddha",
@@ -2215,12 +2180,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2228,27 +2193,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-pkhonghucu",
@@ -2258,12 +2214,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2271,27 +2227,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 7 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-7-pancasila",
@@ -2314,20 +2261,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2357,20 +2295,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2400,20 +2329,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2443,20 +2363,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2486,20 +2397,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2529,20 +2431,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2572,20 +2465,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2615,20 +2499,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2661,20 +2536,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2707,20 +2573,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2753,20 +2610,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2799,20 +2647,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2845,20 +2684,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2888,20 +2718,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 7"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],
@@ -2918,12 +2739,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2931,27 +2752,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-pak",
@@ -2961,12 +2773,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -2974,27 +2786,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-pkat",
@@ -3004,12 +2807,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3017,27 +2820,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-phindu",
@@ -3047,12 +2841,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3060,27 +2854,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-pbuddha",
@@ -3090,12 +2875,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3103,27 +2888,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-pkhonghucu",
@@ -3133,12 +2909,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 108,
+    intrakurikulerAnnualJP: 72,
     kokurikulerAnnualJP: 36,
-    totalAnnualJP: 144,
+    totalAnnualJP: 108,
     referenceWeeksPerYear: 36,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3146,27 +2922,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 8 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 6; 72 JP intra + 36 JP koko = 108 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-8-pancasila",
@@ -3189,20 +2956,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3232,20 +2990,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3275,20 +3024,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3318,20 +3058,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3361,20 +3092,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3404,20 +3126,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3447,20 +3160,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3490,20 +3194,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3536,20 +3231,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3582,20 +3268,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3628,20 +3305,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3674,20 +3342,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3720,20 +3379,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3763,20 +3413,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 8"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 8"
         }
       }
     ],
@@ -3793,12 +3434,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAI",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3806,27 +3447,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-pak",
@@ -3836,12 +3468,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PAK",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3849,27 +3481,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-pkat",
@@ -3879,12 +3502,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKAT",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3892,27 +3515,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-phindu",
@@ -3922,12 +3536,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PHINDU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3935,27 +3549,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-pbuddha",
@@ -3965,12 +3570,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PBUDDHA",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3978,27 +3583,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-pkhonghucu",
@@ -4008,12 +3604,12 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "D",
     subjectCode: "PKHONGHUCU",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 96,
+    intrakurikulerAnnualJP: 64,
     kokurikulerAnnualJP: 32,
-    totalAnnualJP: 128,
+    totalAnnualJP: 96,
     referenceWeeksPerYear: 32,
     minutesPerJP: 40,
-    derivedWeeklyJP: 3,
+    derivedWeeklyJP: 2,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4021,27 +3617,18 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Pendidikan Agama dan Budi Pekerti SMP Kelas 9 TA 2025/2026 (3 JP/minggu intrakurikuler + 1 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 7; 64 JP intra + 32 JP koko = 96 JP/tahun; ekuivalen 2 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-smp-9-pancasila",
@@ -4064,20 +3651,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4107,20 +3685,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4150,20 +3719,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4193,20 +3753,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4236,20 +3787,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4279,20 +3821,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4322,20 +3855,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4365,20 +3889,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4411,20 +3926,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4457,20 +3963,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4503,20 +4000,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4549,20 +4037,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4595,20 +4074,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4638,20 +4108,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran III",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs",
-          "section": "Kelas 9"
+          "table": "Tabel 7",
+          "section": "SMP Kelas 9"
         }
       }
     ],
@@ -4680,12 +4141,11 @@ export const SMP_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "section": "Pasal 32A & Lampiran II Struktur Kurikulum SMP/MTs",
-          "table": "Alokasi Waktu Mata Pelajaran SMP/MTs Kelas VII",
-          "note": "Alokasi Koding dan Kecerdasan Artifisial Kelas 7 SMP (2 JP/minggu, 72 JP/tahun)"
+          "table": "Tabel 6",
+          "section": "SMP Kelas 7"
         }
       }
     ],

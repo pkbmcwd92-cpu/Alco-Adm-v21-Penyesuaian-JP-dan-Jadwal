@@ -18,7 +18,8 @@ export function resolveSemesterJPFromValues(
       : null;
 
   const explicitVal = semesterSetting?.actualScheduledWeeklyJP;
-  if (typeof explicitVal === 'number' && Number.isFinite(explicitVal) && explicitVal > 0) {
+  if (typeof explicitVal === 'number' && Number.isFinite(explicitVal) && explicitVal > 0 &&
+      (Number.isInteger(explicitVal) || semesterSetting?.source !== 'DEFAULT_ANNUAL')) {
     const isOverride = semesterSetting?.source === 'SEMESTER_OVERRIDE' || defaultAnnualWeeklyJP === null || explicitVal !== defaultAnnualWeeklyJP;
     return {
       weeklyJP: explicitVal,
@@ -28,6 +29,18 @@ export function resolveSemesterJPFromValues(
       explanation: isOverride
         ? `Penyesuaian Semester: ${explicitVal} JP/pekan (Default Data Pembelajaran: ${defaultAnnualWeeklyJP ?? '-'} JP/pekan)`
         : `Default dari Data Pembelajaran: ${explicitVal} JP/pekan`,
+    };
+  }
+
+  // An annual equivalent such as 54 / 36 = 1.5 is not a school session pattern.
+  // Preserve the reference, but require an explicit school setting before scheduling.
+  if (defaultAnnualWeeklyJP !== null && !Number.isInteger(defaultAnnualWeeklyJP)) {
+    return {
+      weeklyJP: null,
+      source: 'UNRESOLVED',
+      isOverride: false,
+      defaultAnnualWeeklyJP,
+      explanation: 'Alokasi tahunan memerlukan pola JP sekolah yang eksplisit; ekuivalen mingguan pecahan bukan durasi sesi.',
     };
   }
 

@@ -1,4 +1,5 @@
 import { CurriculumStructureRule } from '../types';
+// Audit angka/sumber: V21-JP-2026-10-31; lihat docs/jp-regulation-matrix-v21.csv.
 
 /**
  * STRUKTUR KURIKULUM RESMI JENJANG SEKOLAH DASAR (SD / MI)
@@ -30,11 +31,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -63,11 +64,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -96,11 +97,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -129,11 +130,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -162,11 +163,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -195,11 +196,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -228,11 +229,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -261,11 +262,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -294,11 +295,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -327,11 +328,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -363,11 +364,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -399,11 +400,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -435,11 +436,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -471,11 +472,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -504,18 +505,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SD Kelas 1 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tidak tercantum pada tabel kelas I/II; perlu dasar sekolah, bukan JP nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sd-1-local-content",
@@ -537,11 +538,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -570,11 +571,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -603,11 +604,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -636,11 +637,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -669,11 +670,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -702,11 +703,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -735,11 +736,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -768,11 +769,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -801,11 +802,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -834,11 +835,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -867,11 +868,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -903,11 +904,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -939,11 +940,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -975,11 +976,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -1011,11 +1012,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -1044,18 +1045,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
     effectiveFrom: "2024-03-26",
     effectiveUntil: "2025-06-30",
-    verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SD Kelas 2 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tidak tercantum pada tabel kelas I/II; perlu dasar sekolah, bukan JP nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km-sd-2-local-content",
@@ -1077,11 +1078,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -1110,11 +1111,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1143,11 +1144,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1176,11 +1177,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1209,11 +1210,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1242,11 +1243,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1275,11 +1276,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1308,11 +1309,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1341,11 +1342,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1374,11 +1375,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1407,11 +1408,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1440,11 +1441,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1476,11 +1477,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1512,11 +1513,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1548,11 +1549,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1584,11 +1585,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1617,11 +1618,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1650,11 +1651,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -1683,11 +1684,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1716,11 +1717,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1749,11 +1750,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1782,11 +1783,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1815,11 +1816,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1848,11 +1849,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1881,11 +1882,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1914,11 +1915,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1947,11 +1948,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -1980,11 +1981,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2013,11 +2014,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2049,11 +2050,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2085,11 +2086,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2121,11 +2122,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2157,11 +2158,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2190,11 +2191,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2223,11 +2224,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -2256,11 +2257,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2289,11 +2290,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2322,11 +2323,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2355,11 +2356,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2388,11 +2389,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2421,11 +2422,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2454,11 +2455,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2487,11 +2488,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2520,11 +2521,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2553,11 +2554,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2586,11 +2587,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2622,11 +2623,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2658,11 +2659,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2694,11 +2695,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2730,11 +2731,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2763,11 +2764,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2796,11 +2797,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 3",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -2829,11 +2830,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -2862,11 +2863,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -2895,11 +2896,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -2928,11 +2929,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -2961,11 +2962,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -2994,11 +2995,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3027,11 +3028,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3060,11 +3061,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3093,11 +3094,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3126,11 +3127,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3159,11 +3160,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3195,11 +3196,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3231,11 +3232,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3267,11 +3268,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3303,11 +3304,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3336,11 +3337,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3369,11 +3370,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
+        "sourceUrl": "https://jdih.kemendikdasmen.go.id/sjdih/siperpu/dokumen/salinan/salinan_SALINAN%20PERMENDIKBUDRISTEK%20NOMOR%2012%20TAHUN%202024..pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 4",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -3403,20 +3404,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3446,20 +3438,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3489,20 +3472,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3532,20 +3506,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3575,20 +3540,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3618,20 +3574,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3661,20 +3608,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3691,12 +3629,12 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "A",
     subjectCode: "BINDO",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 216,
-    kokurikulerAnnualJP: 72,
+    intrakurikulerAnnualJP: 252,
+    kokurikulerAnnualJP: 36,
     totalAnnualJP: 288,
     referenceWeeksPerYear: 36,
     minutesPerJP: 35,
-    derivedWeeklyJP: 6,
+    derivedWeeklyJP: 7,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -3704,27 +3642,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Indonesia SD Kelas 1 TA 2025/2026 (6 JP/minggu intrakurikuler + 2 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 1; 252 JP intra + 36 JP koko = 288 JP/tahun; ekuivalen 7 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sd-1-mat",
@@ -3747,20 +3676,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3790,20 +3710,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3836,20 +3747,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3882,20 +3784,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3928,20 +3821,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -3974,20 +3858,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -4017,27 +3892,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SD Kelas 1 TA 2025/2026 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tidak tercantum pada tabel kelas I/II; perlu dasar sekolah, bukan JP nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sd-1-local-content",
@@ -4060,20 +3926,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 1"
+          "table": "Tabel 1",
+          "section": "SD Kelas 1"
         }
       }
     ],
@@ -4103,20 +3960,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4146,20 +3994,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4189,20 +4028,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4232,20 +4062,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4275,20 +4096,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4318,20 +4130,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4361,20 +4164,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4391,12 +4185,12 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     phase: "A",
     subjectCode: "BINDO",
     subjectType: "REQUIRED",
-    intrakurikulerAnnualJP: 252,
-    kokurikulerAnnualJP: 72,
+    intrakurikulerAnnualJP: 288,
+    kokurikulerAnnualJP: 36,
     totalAnnualJP: 324,
     referenceWeeksPerYear: 36,
     minutesPerJP: 35,
-    derivedWeeklyJP: 7,
+    derivedWeeklyJP: 8,
     regulationIds: [
       "REG-PERMENDIKBUDRISTEK-12-2024",
       "REG-PERMENDIKDASMEN-13-2025"
@@ -4404,27 +4198,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "VERIFIED",
-    notes: "Bahasa Indonesia SD Kelas 2 TA 2025/2026 (7 JP/minggu intrakurikuler + 2 JP Kokurikuler)",
+    notes: "Audit JP V21 2026-10-31: Permen 13/2025, Lampiran II Tabel 2; 288 JP intra + 36 JP koko = 324 JP/tahun; ekuivalen 8 JP/minggu, bukan batas sesi.",
   },
   {
     id: "km25-sd-2-mat",
@@ -4447,20 +4232,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4490,20 +4266,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4536,20 +4303,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4582,20 +4340,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4628,20 +4377,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4674,20 +4414,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4717,27 +4448,18 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
-    verificationStatus: "VERIFIED",
-    notes: "Bahasa Inggris SD Kelas 2 TA 2025/2026 (2 JP/minggu)",
+    verificationStatus: "UNVERIFIED",
+    notes: "AUDIT MANUAL V21: Tidak tercantum pada tabel kelas I/II; perlu dasar sekolah, bukan JP nasional. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sd-2-local-content",
@@ -4760,20 +4482,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 2"
+          "table": "Tabel 2",
+          "section": "SD Kelas 2"
         }
       }
     ],
@@ -4803,20 +4516,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -4846,20 +4550,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -4889,20 +4584,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -4932,20 +4618,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -4975,20 +4652,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5018,20 +4686,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5061,20 +4720,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5104,20 +4754,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5147,20 +4788,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5190,20 +4822,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5233,20 +4856,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5279,20 +4893,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5325,20 +4930,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5371,20 +4967,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5417,20 +5004,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5460,20 +5038,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5503,20 +5072,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 3"
+          "table": "Tabel 3",
+          "section": "SD Kelas 3"
         }
       }
     ],
@@ -5546,20 +5106,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5589,20 +5140,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5632,20 +5174,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5675,20 +5208,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5718,20 +5242,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5761,20 +5276,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5804,20 +5310,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5847,20 +5344,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5890,20 +5378,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5933,20 +5412,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -5976,20 +5446,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6022,20 +5483,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6068,20 +5520,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6114,20 +5557,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6160,20 +5594,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6203,20 +5628,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6246,20 +5662,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 4"
+          "table": "Tabel 3",
+          "section": "SD Kelas 4"
         }
       }
     ],
@@ -6289,20 +5696,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6332,20 +5730,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6375,20 +5764,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6418,20 +5798,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6461,20 +5832,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6504,20 +5866,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6547,20 +5900,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6590,20 +5934,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6633,20 +5968,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6676,20 +6002,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6719,20 +6036,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6765,20 +6073,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6811,20 +6110,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6857,20 +6147,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6903,20 +6184,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6946,20 +6218,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -6989,20 +6252,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 5"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -7032,20 +6286,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7075,20 +6320,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7118,20 +6354,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7161,20 +6388,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7204,20 +6422,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7247,20 +6456,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7290,20 +6490,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7333,20 +6524,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7376,20 +6558,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7419,20 +6592,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7462,20 +6626,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7508,20 +6663,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7554,20 +6700,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7600,20 +6737,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7646,20 +6774,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7689,20 +6808,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7732,20 +6842,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
-        }
-      },
-      {
-        "regulationId": "REG-PERMENDIKBUDRISTEK-12-2024",
-        "sourceUrl": "https://jdih.kemdikbud.go.id/detail_peraturan?main=3299",
-        "locator": {
-          "attachment": "Lampiran II",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI",
-          "section": "Kelas 6"
+          "table": "Tabel 5",
+          "section": "SD Kelas 6"
         }
       }
     ],
@@ -7774,12 +6875,11 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     evidence: [
       {
         "regulationId": "REG-PERMENDIKDASMEN-13-2025",
-        "sourceUrl": "https://jdih.kemdikdasmen.go.id/detail_peraturan?main=13-2025",
+        "sourceUrl": "https://peraturan.go.id/filespengundangan/Permendikdasmen-no-13-tahun-2025.pdf",
         "locator": {
           "attachment": "Lampiran II",
-          "section": "Pasal 32A & Lampiran II Struktur Kurikulum SD/MI",
-          "table": "Alokasi Waktu Mata Pelajaran SD/MI Kelas V",
-          "note": "Alokasi Koding dan Kecerdasan Artifisial Kelas 5 SD (2 JP/minggu, 72 JP/tahun)"
+          "table": "Tabel 4",
+          "section": "SD Kelas 5"
         }
       }
     ],
@@ -7808,7 +6908,7 @@ export const SD_STRUCTURE_RULES: CurriculumStructureRule[] = [
     effectiveFrom: "2025-07-01",
     implementationFromAcademicYear: "2025/2026",
     verificationStatus: "UNVERIFIED",
-    notes: "Koding dan Kecerdasan Artifisial belum diverifikasi implementasinya untuk SD Kelas 4 pada TA 2025/2026 (status UNVERIFIED)",
+    notes: "AUDIT MANUAL V21: Tabel 3 kelas III-IV tidak mencantumkan Koding; tabel pilihan dimulai kelas V. Angka lama dipertahankan untuk kompatibilitas, belum terverifikasi sebagai alokasi nasional.",
   },
   {
     id: "km25-sd-6-coding-ai",
