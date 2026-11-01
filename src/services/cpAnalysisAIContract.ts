@@ -58,7 +58,8 @@ export function validateAnalysisAI(payload: unknown, elements: CPElem[], targets
   }
   for(const issue of issues)issue.category=['MU_GROUNDING_REVIEW','CP_COVERAGE_REVIEW','MU_INVALID'].includes(issue.code)?'quality':issue.code==='RESPONSE_INVALID'?'technical':'structure';
   const keys=new Set<string>();const unique=issues.filter(issue=>{const key=JSON.stringify([issue.elementId,issue.itemId,issue.rowIndex,issue.field,issue.code,issue.clauseIndex]);if(keys.has(key))return false;keys.add(key);return true;});
-  return {items,issues:unique,valid:unique.length===0};
+  const hasStructuralIssues = unique.some(i=>i.category==='technical'||i.category==='structure');
+  return {items,issues:unique,valid:!hasStructuralIssues};
 }
 
 export function getUnderstandingTargets(items: CPAnalysisItem[], elements: CPElem[]): UnderstandingTarget[] {

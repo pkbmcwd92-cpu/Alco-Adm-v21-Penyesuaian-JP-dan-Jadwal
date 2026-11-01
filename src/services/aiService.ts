@@ -581,6 +581,9 @@ export async function analyzeCPWithAI(params: {
       trace=sanitizeCP4Trace(body?.trace,requestId) || trace;
       const code = ['AI_ABORTED','AI_DUPLICATE_REQUEST','AI_REQUEST_BUSY','AI_NOT_CONFIGURED','AI_PROVIDER_ERROR','AI_TIMEOUT','CP_ELEMENTS_REQUIRED','RETRY_TARGET_INVALID','RESPONSE_INVALID'].includes(body?.code) ? body.code : 'AI_API_ERROR';
       const error=failure(code, ['provider','request','transport','response','validation','apply','backoff','aborted'].includes(body?.stage)?body.stage:'response');
+      if(typeof body?.error === 'string' && body.error.trim()) {
+        error.message = body.error.trim();
+      }
       const reported=safeResponseInfo(body?.responseInfo);
       error.responseInfo=reported?{...reported,httpStatus:res.status}:{source:'endpoint',httpStatus:res.status,mime,reason:mime==='html'?'HTML':'HTTP_ERROR',gatewayIntercepted:!isExpressBackend&&mime==='html'};
       throw error;
@@ -599,7 +602,7 @@ export async function analyzeCPWithAI(params: {
         validation.issues.push({elementId:params.elements.find(e=>e.id===issue.elementId)?.id || '',field:issue.code==='CP_COVERAGE_REVIEW'?'coverage':'items',code:issue.code,clauseIndex:Number.isInteger(issue.clauseIndex)?issue.clauseIndex:undefined,category:issue.code==='CP_COVERAGE_REVIEW'?'quality':'structure'});
       }
     }
-    validation.valid=validation.issues.length===0;
+    validation.valid=!validation.issues.some(i=>i.category==='technical'||i.category==='structure');
     check();
     return {generalSummary:typeof payload?.generalSummary==='string'?payload.generalSummary:'', items:validation.items,
       engine:body?.engine==='gemini'?'gemini':'pedagogical_engine',validation,trace:{...trace,elapsedMs:Date.now()-started}};
@@ -613,7 +616,13 @@ export async function analyzeCPWithAI(params: {
   });
   try { return await Promise.race([Promise.resolve().then(request),interrupted]); }
   catch(error) {
-    if(error instanceof CP4ResponseError){const invalid=failure(error.info.phase==='health'?'BACKEND_UNAVAILABLE':'RESPONSE_INVALID',error.info.phase==='health'?'transport':'response');invalid.responseInfo=error.info;throw invalid;}
+    if(error instanceof CP4ResponseError){
+      const code = error.info.phase === 'health' ? 'BACKEND_UNAVAILABLE' : 'RESPONSE_INVALID';
+      const stage = error.info.phase === 'health' ? 'transport' : 'response';
+      const invalid = failure(code, stage);
+      invalid.responseInfo = error.info;
+      throw invalid;
+    }
     if(error instanceof CPAnalysisAIError){
       if(!backendReady && ['AI_TIMEOUT','AI_ABORTED'].includes(error.code))error.responseInfo={source:'endpoint',phase:'health',reason:error.code==='AI_TIMEOUT'?'TIMEOUT':'ABORTED'};
       throw error;

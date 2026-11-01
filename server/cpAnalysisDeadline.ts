@@ -107,16 +107,16 @@ export async function serveCP4Analysis(req:Request,res:Response, apiKey:string|n
         trace=outcome.trace;return outcome.payload;
       } catch(error) {if(error instanceof CP4DeadlineError || (error instanceof CP4ResponseError && error.trace))trace=error.trace!;throw error;}
     }:undefined,true);
-    if(controller.signal.aborted || res.destroyed)return;
+    if(controller.signal.aborted || res.destroyed || res.writableEnded || res.headersSent)return;
     trace.lastStage=result.body.stage==='provider'?'provider':'validation';
     trace.elapsedMs=Date.now()-started;
-    if(typeof res.setHeader==='function')res.setHeader('X-CP4-Elapsed-Ms', String(trace.elapsedMs));
+    if(typeof res.setHeader==='function' && !res.headersSent)res.setHeader('X-CP4-Elapsed-Ms', String(trace.elapsedMs));
     if(deadlineAt<=Date.now() && result.status===200)throw new CP4DeadlineError('AI_TIMEOUT',{...trace,timeoutSource:'server'});
     return res.status(result.status).json({service:CP4_BACKEND_SERVICE,requestId,...result.body,trace});
   } catch(error) {
-    if(controller.signal.aborted || res.destroyed)return;
+    if(controller.signal.aborted || res.destroyed || res.writableEnded || res.headersSent)return;
     const elapsedMs = Date.now() - started;
-    if(typeof res.setHeader==='function')res.setHeader('X-CP4-Elapsed-Ms', String(elapsedMs));
+    if(typeof res.setHeader==='function' && !res.headersSent)res.setHeader('X-CP4-Elapsed-Ms', String(elapsedMs));
     if(error instanceof CP4ResponseError)return res.status(502).json({service:CP4_BACKEND_SERVICE,requestId,code:'RESPONSE_INVALID',stage:'response',responseInfo:error.info,trace:{...trace,lastStage:'response',elapsedMs}});
     if(error instanceof CP4DeadlineError) {
       const lastAttempt = error.trace.attempts[error.trace.attempts.length - 1];

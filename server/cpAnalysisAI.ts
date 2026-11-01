@@ -41,7 +41,8 @@ export async function handleCPAnalysisAI(input:any, generate?: (request:ReturnTy
     const payload = generate ? await generate(buildCPAnalysisRequest(input)) : fallbackAnalyzeCP(input);
     const validation=validateAnalysisAI(payload,elements,targets,repairs);
     if(generate && !targets.length && !repairs.length) {
-      validation.issues.push(...cp4Coverage(validation.items,elements));validation.valid=validation.issues.length===0;
+      validation.issues.push(...cp4Coverage(validation.items,elements));
+      validation.valid=!validation.issues.some(i=>i.category==='technical'||i.category==='structure');
     }
     return {status:200,body:{success:validation.valid,data:{generalSummary:typeof (payload as any)?.generalSummary==='string'?(payload as any).generalSummary:'',items:validation.items},validation,engine:generate?'gemini':'pedagogical_engine'}};
   } catch(error) {
