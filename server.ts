@@ -49,6 +49,19 @@ const PORT = (!isNaN(envPort) && envPort > 0) ? envPort : 3000;
 
 app.use(express.json({ limit: '10mb' }));
 
+// Logging middleware for Express /api routes to track Request ID, duration, and response Content-Type
+app.use('/api', (req, res, next) => {
+  const reqId = (req.headers['x-cp4-request-id'] as string) || (req.headers['x-request-id'] as string) || '-';
+  const startMs = Date.now();
+  console.info(`[Express API IN] ${req.method} ${req.originalUrl} | ReqID: ${reqId} | Content-Type: ${req.headers['content-type'] || '-'}`);
+  res.on('finish', () => {
+    const duration = Date.now() - startMs;
+    const resMime = res.getHeader('content-type') || '-';
+    console.info(`[Express API OUT] ${req.method} ${req.originalUrl} | ReqID: ${reqId} | Status: ${res.statusCode} | Content-Type: ${resMime} | Duration: ${duration}ms`);
+  });
+  next();
+});
+
 // Resolver for Gemini API Key: Request X-Gemini-API-Key -> fallback process.env.GEMINI_API_KEY -> null
 function resolveApiKey(req: express.Request): string | null {
   const headerVal = req.headers['x-gemini-api-key'];
@@ -549,6 +562,22 @@ app.post('/api/ai/analyze-cp', async (req, res) => {
     return createAIClient(apiKey).models.generateContent({model:attempt.model,contents:request.contents,
       config:{...request.config,abortSignal:attempt.signal,httpOptions:{timeout:attempt.timeoutMs,retryOptions:{attempts:1}}}});
   } : undefined);
+});
+
+// Diagnostic lightweight POST endpoint to verify POST routing and Express handling without calling Gemini
+app.post('/api/ai/analyze-cp-ping', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  const reqId = (req.headers['x-cp4-request-id'] as string) || 'ping-test';
+  res.setHeader('X-CP4-Request-ID', reqId);
+  res.setHeader('X-CP4-Service', CP4_BACKEND_SERVICE);
+  res.json({
+    status: 'ok',
+    diagnostic: 'express_post_handler_reached',
+    service: CP4_BACKEND_SERVICE,
+    requestId: reqId,
+    receivedBodyKeys: req.body && typeof req.body === 'object' ? Object.keys(req.body) : [],
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Runtime validator for AI TP response
@@ -4109,9 +4138,35 @@ Berikan evaluasi kualitas untuk butir-butir soal dan instrumen tersebut dalam fo
   }
 });
 
+// Explicit Express Error Handler for /api routes - guarantees JSON response on any unhandled error or exception
+app.use('/api', (err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  const reqId = (req.headers['x-cp4-request-id'] as string) || '-';
+  console.error(`[Express API Error] ${req.method} ${req.originalUrl} | ReqID: ${reqId}:`, err);
+  if (res.headersSent) {
+    return;
+  }
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-store');
+  const statusCode = typeof err?.status === 'number' && err.status >= 400 && err.status <= 599
+    ? err.status
+    : typeof err?.statusCode === 'number' && err.statusCode >= 400 && err.statusCode <= 599
+    ? err.statusCode
+    : 500;
+  return res.status(statusCode).json({
+    service: CP4_BACKEND_SERVICE,
+    requestId: reqId !== '-' ? reqId : undefined,
+    code: err?.code || 'INTERNAL_SERVER_ERROR',
+    stage: 'server',
+    error: err?.message || 'Terjadi kesalahan internal pada server API Express.',
+  });
+});
+
 // Final /api 404 handler - must return JSON and never fall through to Vite static HTML fallback
 app.all('/api/*', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-store');
   res.status(404).json({
+    service: CP4_BACKEND_SERVICE,
     error: 'Unknown API route',
     path: req.path
   });
