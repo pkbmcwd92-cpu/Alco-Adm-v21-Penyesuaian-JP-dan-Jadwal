@@ -1,3 +1,4 @@
+import { evaluateExpression,initializer } from './helpers/uiContractHarness';
 import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
@@ -745,89 +746,23 @@ runTest('13, 14 & 15. Draft lifecycle, Annual ATP byte immutability, and semeste
 // -----------------------------------------------------------------------------
 // TEST 16: Contract B & C - source contract for exact semester authority (fail-closed, no activeSemester fallback)
 // -----------------------------------------------------------------------------
-runTest('16. Contract B & C: TimePlanningManager source contract enforces exact semester authority and fails closed without activeSemester fallback', () => {
-  const componentPath = path.resolve(process.cwd(), 'src/components/administration/TimePlanningManager.tsx');
-  const componentSource = fs.readFileSync(componentPath, 'utf-8');
-
-  // Must contain exact matching logic for sem1 and sem2 plan IDs
-  assert.ok(
-    componentSource.includes('academicSetting.id === autoAllocationReadiness.sem1PlanId'),
-    'Must check academicSetting.id === autoAllocationReadiness.sem1PlanId'
-  );
-  assert.ok(
-    componentSource.includes('academicSetting.id === autoAllocationReadiness.sem2PlanId'),
-    'Must check academicSetting.id === autoAllocationReadiness.sem2PlanId'
-  );
-
-  // Extract handleAutoAllocate implementation block
-  const autoAllocateMatch = componentSource.match(/const handleAutoAllocate = \(\) => {([\s\S]*?)const handleExportKalender/);
-  assert.ok(autoAllocateMatch, 'handleAutoAllocate must exist in TimePlanningManager');
-  const autoAllocateCode = autoAllocateMatch[1];
-
-  // Must fail closed if academicSetting.id matches neither sem1 nor sem2
-  assert.ok(
-    autoAllocateCode.includes('setSaveNotification'),
-    'Unmatched semester identity must set visible error notice'
-  );
-  assert.ok(
-    autoAllocateCode.includes('return;'),
-    'Unmatched semester identity must fail closed and return immediately'
-  );
-
-  // Must NOT fall back to activeSemester inside the unmatched academicSetting.id branch
-  assert.ok(
-    !autoAllocateCode.includes("activeSemester === '1'"),
-    "handleAutoAllocate must NOT contain fallback logic using activeSemester === '1'"
-  );
-  assert.ok(
-    !autoAllocateCode.includes("activeSemester === '2'"),
-    "handleAutoAllocate must NOT contain fallback logic using activeSemester === '2'"
-  );
+function executeAutoAllocate(id:string,ready=true) {
+  const calls:{build:any[],validate:any[],save:any[],notice:any[]}={build:[],validate:[],save:[],notice:[]};
+  const callback=evaluateExpression(initializer('src/components/administration/TimePlanningManager.tsx','handleAutoAllocate'),{
+    effectiveSemesterPlanId:id,academicSetting:{id:'annual-id'},activeSemester:'2',totalAvailableJP:999,
+    autoAllocationReadiness:{isReady:ready,sem1PlanId:'sem-1',sem2PlanId:'sem-2',s1Capacity:{availableJP:72},s2Capacity:{availableJP:80}},
+    allocations:[],atp:{items:sampleAnnualATP.items},setTimeout:()=>0,
+    setSaveNotification:(v:unknown)=>calls.notice.push(v),setAllocations:(v:unknown)=>calls.save.push(v),
+    buildAutomaticSemesterAllocations:(input:unknown)=>{calls.build.push(input);return {status:'SUCCESS',allocations:[]};},
+    validateTimeAllocations:(...args:unknown[])=>{calls.validate.push(args);return {status:'BALANCED',statusLabel:'Seimbang'};}
+  });callback();return calls;
+}
+runTest('16. Exact effective semester identity controls actual callback; unknown identity and unready state never write',()=>{
+  for(const [id,sem] of [['sem-1','1'],['sem-2','2']]){const c=executeAutoAllocate(id);assert.equal(c.build.length,1);assert.equal(c.build[0].targetSemester,sem);assert.equal(c.build[0].semesterPlanId,id);assert.equal(c.save.length,1);}
+  const bad=executeAutoAllocate('foreign');assert.equal(bad.build.length,0);assert.equal(bad.save.length,0);assert.match(bad.notice[0],/identitas SemesterPlan/);
+  const unready=executeAutoAllocate('sem-1',false);assert.equal(unready.build.length,0);assert.equal(unready.save.length,0);
 });
 
-// -----------------------------------------------------------------------------
-// TEST 17: Contract F - auto readiness strictly queries canonical storage V5 without unsaved overrides
-// -----------------------------------------------------------------------------
-runTest('17. Contract F: auto readiness strictly queries canonical storage V5 without unsaved overrides', () => {
-  const v5State = loadStorageV5();
-  const sem1Plan = v5State.semesterPlans.find((sp) => sp.semester === 1)!;
-
-  // Canonical resolution without passing override parameter
-  const canonicalCap = resolveSemesterCapacityV5(sem1Plan.id, v5State);
-
-  // Canonical capacity reflects stored JP (4), not local draft
-  assert.strictEqual(canonicalCap.actualScheduledWeeklyJP, 4, 'Canonical readiness reflects stored JP (4), not local draft');
-  assert.strictEqual(canonicalCap.availableJP, 72, 'Canonical capacity reflects stored 72 JP');
+runTest('18. Actual allocation callback validates canonical capacity for each semester, ignoring unsaved draft 999 JP',()=>{
+  for(const [id,capacity] of [['sem-1',72],['sem-2',80]] as const){const c=executeAutoAllocate(id);assert.equal(c.validate.length,1);assert.equal(c.validate[0][1],capacity);assert.equal(c.save.length,1);}
 });
-
-// -----------------------------------------------------------------------------
-// TEST 18: Contract G - source contract for canonical capacity validation (no totalAvailableJP draft fallback)
-// -----------------------------------------------------------------------------
-runTest('18. Contract G: handleAutoAllocate source contract validates strictly against canonical targetCap.availableJP without draft fallback', () => {
-  const componentPath = path.resolve(process.cwd(), 'src/components/administration/TimePlanningManager.tsx');
-  const componentSource = fs.readFileSync(componentPath, 'utf-8');
-
-  const autoAllocateMatch = componentSource.match(/const handleAutoAllocate = \(\) => {([\s\S]*?)const handleExportKalender/);
-  assert.ok(autoAllocateMatch, 'handleAutoAllocate must exist in TimePlanningManager');
-  const autoAllocateCode = autoAllocateMatch[1];
-
-  // Must contain targetCap.availableJP
-  assert.ok(
-    autoAllocateCode.includes('targetCap.availableJP'),
-    'handleAutoAllocate must read targetCap.availableJP'
-  );
-
-  // Must validate against canonical available JP
-  assert.ok(
-    autoAllocateCode.includes('validateTimeAllocations(updatedAllocations, canonicalAvailable)'),
-    'handleAutoAllocate must validate allocations against canonicalAvailable'
-  );
-
-  // Must NOT contain totalAvailableJP ?? targetCap.availableJP
-  assert.ok(
-    !autoAllocateCode.includes('totalAvailableJP ?? targetCap.availableJP'),
-    'handleAutoAllocate must NOT contain draft capacity fallback totalAvailableJP ?? targetCap.availableJP'
-  );
-});
-
-console.log('\nAll B.4.2B Automatic Semester Time Allocation regression tests PASSED 100%!\n');

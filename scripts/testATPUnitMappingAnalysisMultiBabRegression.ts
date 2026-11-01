@@ -15,9 +15,9 @@ const mockTPData: TPData = {
   workflowStatus: 'SIAP',
   needsReview: false,
   items: [
-    { id: 'TP1', code: 'E1-01', statement: 'Memahami bilangan cacah sampai 1000', competence: 'Memahami', contentScope: 'Bilangan' },
-    { id: 'TP2', code: 'E1-02', statement: 'Melakukan operasi hitung bilangan', competence: 'Menghitung', contentScope: 'Operasi Bilangan' },
-    { id: 'TP3', code: 'E1-03', statement: 'Memahami pecahan sederhana', competence: 'Memahami', contentScope: 'Pecahan' },
+    {order: 1, id: 'TP1', code: 'E1-01', statement: 'Memahami bilangan cacah sampai 1000', competence: 'Memahami', contentScope: 'Bilangan' },
+    {order: 2, id: 'TP2', code: 'E1-02', statement: 'Melakukan operasi hitung bilangan', competence: 'Menghitung', contentScope: 'Operasi Bilangan' },
+    {order: 3, id: 'TP3', code: 'E1-03', statement: 'Memahami pecahan sederhana', competence: 'Memahami', contentScope: 'Pecahan' },
   ],
   updatedAt: '2026-01-01T00:00:00Z',
 };
@@ -39,7 +39,7 @@ const mockATPData: ATPData = {
       linkedTpIds: ['TP1', 'TP2', 'TP3'],
       focus: 'Operasi hitung dan pecahan',
       jp: 8,
-      semester: 'GANJIL',
+      semester: 1,
     },
   ],
   updatedAt: '2026-01-01T00:00:00Z',
@@ -393,8 +393,8 @@ console.log('Testing Case N: Reject TP belonging to another ATP...');
   const customATPData: ATPData = {
     ...mockATPData,
     items: [
-      { id: 'atp-1', stepNumber: 1, linkedTpIds: ['TP1'], focus: 'Bilangan', jp: 4, semester: 'GANJIL' },
-      { id: 'atp-2', stepNumber: 2, linkedTpIds: ['TP2'], focus: 'Operasi', jp: 4, semester: 'GANJIL' },
+      { id: 'atp-1', stepNumber: 1, linkedTpIds: ['TP1'], focus: 'Bilangan', jp: 4, semester: 1 },
+      { id: 'atp-2', stepNumber: 2, linkedTpIds: ['TP2'], focus: 'Operasi', jp: 4, semester: 1 },
     ],
   };
   const rawResult = {

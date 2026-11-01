@@ -1,3 +1,4 @@
+import type { DocumentGenerationContext } from '../src/services/documentEngine/types';
 import assert from 'node:assert/strict';
 import JSZip from 'jszip';
 import { generateATP } from '../src/services/documentEngine/generators/atpGenerator';
@@ -15,13 +16,13 @@ function createMockContext(opts?: {
   teacherName?: string;
   principalName?: string;
   numAtpItems?: number;
-}) {
+}):DocumentGenerationContext {
   const sem = opts?.semester || '1';
   const year = sem === '1' ? 2026 : 2027;
   const month = sem === '1' ? '10' : '01';
   const itemCount = opts?.numAtpItems ?? 4;
 
-  const tpItems = Array.from({ length: itemCount }, (_, i) => ({
+  const tpItems = Array.from({ length: itemCount }, (_, i) => ({competence: 'Memahami',contentScope:'Informatika',
     id: `tp-${i + 1}`,
     code: `TP.${i + 1}`,
     statement: `Mampu memahami dan mempraktikkan konsep pembelajaran tahap ${i + 1}`,
@@ -33,7 +34,7 @@ function createMockContext(opts?: {
     stepNumber: i + 1,
     focus: `Fokus unit pembelajaran bertahap ${i + 1}`,
     linkedTpIds: [`tp-${i + 1}`],
-    semester: i < 2 ? 1 : 2,
+    semester: (i < 2 ? 1 : 2) as 1|2,
     unitTitle: i < 2 ? 'Bab 1 Pembelajaran Terpadu' : 'Bab 2 Pembelajaran Lanjutan',
     jp: 3,
   }));
@@ -113,31 +114,32 @@ function createMockContext(opts?: {
     { unitId: 'unit-2', meetings: [meetings[2], meetings[3]] },
   ];
 
-  const schedules = [
+  const schedules:NonNullable<DocumentGenerationContext['learningMeetingSchedules']> = [
     {
       semesterPlanId: 'sem-1',
       semester: 1,
       schedule: {
+        id:'fixture-schedule',unresolvedMeetingIds:[],basedOnMappingUpdatedAt:stamp,basedOnUnitExecutionPlanUpdatedAt:stamp,basedOnSubjectWeeklyScheduleUpdatedAt:stamp,basedOnCalendarUpdatedAt:stamp,basedOnWeeklyJP:3,updatedAt:stamp,
         semesterPlanId: 'sem-1',
         status: 'COMPLETE',
         entries: [
           {
-            meetingId: 'meet-1',
+            meetingId: 'meet-1',sessionId:'session-meet-1',sourceSlotId:'subject-slot:sem-1:session-meet-1:2026-10-12',
             semesterPlanId: 'sem-1',
             unitId: 'unit-1',
             date: '2026-10-12',
             jp: 3,
-            mode: 'MANUAL',
+            mode: 'MANUAL_OVERRIDE',
             dayOfWeek: 1,
             weekIndex: 1,
           },
           {
-            meetingId: 'meet-2',
+            meetingId: 'meet-2',sessionId:'session-meet-2',sourceSlotId:'subject-slot:sem-1:session-meet-2:2026-10-19',
             semesterPlanId: 'sem-1',
             unitId: 'unit-1',
             date: '2026-10-19',
             jp: 3,
-            mode: 'MANUAL',
+            mode: 'MANUAL_OVERRIDE',
             dayOfWeek: 1,
             weekIndex: 2,
           },
@@ -148,26 +150,27 @@ function createMockContext(opts?: {
       semesterPlanId: 'sem-2',
       semester: 2,
       schedule: {
+        id:'fixture-schedule',unresolvedMeetingIds:[],basedOnMappingUpdatedAt:stamp,basedOnUnitExecutionPlanUpdatedAt:stamp,basedOnSubjectWeeklyScheduleUpdatedAt:stamp,basedOnCalendarUpdatedAt:stamp,basedOnWeeklyJP:3,updatedAt:stamp,
         semesterPlanId: 'sem-2',
         status: 'COMPLETE',
         entries: [
           {
-            meetingId: 'meet-3',
+            meetingId: 'meet-3',sessionId:'session-meet-3',sourceSlotId:'subject-slot:sem-2:session-meet-3:2027-01-11',
             semesterPlanId: 'sem-2',
             unitId: 'unit-2',
             date: '2027-01-11',
             jp: 3,
-            mode: 'MANUAL',
+            mode: 'MANUAL_OVERRIDE',
             dayOfWeek: 1,
             weekIndex: 1,
           },
           {
-            meetingId: 'meet-4',
+            meetingId: 'meet-4',sessionId:'session-meet-4',sourceSlotId:'subject-slot:sem-2:session-meet-4:2027-01-18',
             semesterPlanId: 'sem-2',
             unitId: 'unit-2',
             date: '2027-01-18',
             jp: 3,
-            mode: 'MANUAL',
+            mode: 'MANUAL_OVERRIDE',
             dayOfWeek: 1,
             weekIndex: 2,
           },
@@ -180,14 +183,14 @@ function createMockContext(opts?: {
     id: `d-${i + 1}`,
     academicCalendarId: `cal-${sem}`,
     date: `${year}-${month}-${String(i + 1).padStart(2, '0')}`,
-    status: 'EFFECTIVE_LEARNING',
+    status: 'EFFECTIVE_LEARNING' as const,
   }));
 
   return {
     school: {
       id: 'school-1',
       name: opts?.schoolName || 'SMP Negeri 1 Pembelajaran',
-      npsn: '20109988',
+      npsn: '20109988', village:'Desa',province:'Jawa Barat',createdAt:stamp,updatedAt:stamp,
       address: 'Jl. Merdeka Belajar No. 10',
       district: 'Kecamatan Cerdas',
       regency: 'Kabupaten Maju',
@@ -197,7 +200,7 @@ function createMockContext(opts?: {
     profile: {
       id: 'teacher-1',
       name: opts?.teacherName || 'Ibu Guru Hebat, S.Pd.',
-      nip: '198502022010012002',
+      nip: '198502022010012002',status:'PNS',defaultSubject:'Informatika',defaultLevel:'SMP',schoolId:'school-1',createdAt:stamp,updatedAt:stamp,
     },
     academicSetting: {
       id: `sem-${sem}`,
@@ -205,7 +208,7 @@ function createMockContext(opts?: {
       subject: 'Informatika',
       grade: 'Kelas 7',
       phase: 'D',
-      semester: sem,
+      semester: sem==='1'?'1 (Ganjil)':'2 (Genap)', updatedAt:stamp,
       academicYear: '2026/2027',
       curriculum: 'Kurikulum Merdeka',
       curriculumType: 'KURIKULUM_MERDEKA',
@@ -242,7 +245,7 @@ function createMockContext(opts?: {
       updatedAt: stamp,
     },
     atpUnitMapping: {
-      id: `mapping-${sem}`,
+      id: `mapping-${sem}`,atpId:`atp-${sem}`,
       academicSettingId: `sem-${sem}`,
       units,
       updatedAt: stamp,
@@ -252,8 +255,8 @@ function createMockContext(opts?: {
       academicSettingId: `sem-${sem}`,
       mappingId: `mapping-${sem}`,
       units: executionUnits,
-      semesterPlacement: { mode: 'CONTIGUOUS_BOUNDARY', semester1LastUnitId: 'unit-1' },
-      basedOnMappingUpdatedAt: stamp,
+      semesterPlacement: { updatedAt:stamp,mode: 'CONTIGUOUS_BOUNDARY', semester1LastUnitId: 'unit-1' },
+      basedOnMappingUpdatedAt: stamp,updatedAt:stamp,
     },
     learningMeetingSchedules: schedules,
     calendar: {
@@ -261,7 +264,7 @@ function createMockContext(opts?: {
       academicSettingId: `sem-${sem}`,
       startDate: `${year}-${month}-01`,
       endDate: `${year}-${month}-31`,
-      schoolDaysPerWeek: 5,
+      schoolDaysPerWeek: 5,academicYear:'2026/2027',semester:sem==='1'?'1 (Ganjil)':'2 (Genap)',updatedAt:stamp,
       workflowStatus: 'CONFIRMED',
     },
     calendarDays,
@@ -272,7 +275,7 @@ function createMockContext(opts?: {
     },
     zipAnnualSource: {
       yearPlan: {
-        id: 'year-1',
+        id: 'year-1',level:'SMP',createdAt:stamp,updatedAt:stamp,
         profileId: 'teacher-1',
         schoolId: 'school-1',
         academicYear: '2026/2027',
@@ -283,7 +286,7 @@ function createMockContext(opts?: {
       semesterPlans: [1, 2].map((n) => ({
         id: `sem-${n}`,
         yearPlanId: 'year-1',
-        semester: n,
+        semester: n as 1|2,createdAt:stamp,
         updatedAt: stamp,
       })),
       semesterJPSettings: [1, 2].map((n) => ({
@@ -303,7 +306,7 @@ function createMockContext(opts?: {
               academicSettingId: `sem-${n}`,
               startDate: n === 1 ? '2026-10-01' : '2027-01-01',
               endDate: n === 1 ? '2026-10-31' : '2027-01-31',
-              schoolDaysPerWeek: 5,
+              schoolDaysPerWeek: 5,academicYear:'2026/2027',semester:sem==='1'?'1 (Ganjil)':'2 (Genap)',updatedAt:stamp,
               workflowStatus: 'CONFIRMED',
             },
             days: Array.from({ length: 31 }, (_, i) => ({

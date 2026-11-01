@@ -1,3 +1,4 @@
+import { withCP4Health } from './fixtures/cp4BackendHealth';
 import assert from 'node:assert';
 import {
   createInitialStorageV5,
@@ -147,7 +148,7 @@ async function runAll() {
         { id: 'el-bilangan', code: 'E1', name: 'Bilangan', content: 'Peserta didik dapat memahami konsep pecahan.' },
         { id: 'el-aljabar', code: 'E2', name: 'Aljabar', content: 'Peserta didik dapat menyelesaikan pola kalimat matematika.' },
       ],
-      source: {
+      source: {retrievedAt: '2026-01-01T00:00:00Z',
         title: 'Keputusan BSKAP 046/2025',
         institution: 'BSKAP',
         documentYear: '2025',
@@ -273,7 +274,7 @@ async function runAll() {
       stepNumber: 1,
       tpId: 'tp-item-101',
       linkedTpIds: ['tp-item-101'],
-      focus: 'Pecahan Senilai',
+      focus: 'Memahami konsep pecahan senilai dengan gambar konkret',
       tpCode: 'E1-PCH-01',
       tpStatement: 'Peserta didik mampu memahami konsep pecahan senilai dengan gambar konkret.',
       materialScope: 'Pecahan Senilai',
@@ -285,7 +286,7 @@ async function runAll() {
       stepNumber: 2,
       tpId: 'tp-item-102',
       linkedTpIds: ['tp-item-102'],
-      focus: 'Pola Gambar',
+      focus: 'Mengidentifikasi pola gambar secara berulang',
       tpCode: 'E2-ALJ-01',
       tpStatement: 'Peserta didik mampu mengidentifikasi pola gambar secara berulang.',
       materialScope: 'Pola Gambar',
@@ -344,7 +345,7 @@ async function runAll() {
 
     const cpaVal = validateCPAnalysisDataWorkflow(reloaded.cpAnalysis, reloaded.cp);
     const tpVal = validateTPDataWorkflow(reloaded.tp, reloaded.cp, reloaded.cpAnalysis, academicSetting);
-    const atpVal = validateATPDataWorkflow(reloaded.atp, reloaded.tp, academicSetting);
+    const atpVal = validateATPDataWorkflow(reloaded.atp, reloaded.tp, academicSetting, reloaded.cp, reloaded.cpAnalysis);
 
     assert.strictEqual(cpaVal.isSiap, true, 'Reloaded CP Analysis must be SIAP');
     assert.strictEqual(tpVal.isSiap, true, 'Reloaded TP must be SIAP');
@@ -478,123 +479,17 @@ async function runAll() {
   // ===========================================================
   // TEST SUITE D: TRANSPORT & BYOK PRIORITY
   // ===========================================================
-  await runTest('Scenario D (Transport): Server Fallback 200 + Local BYOK -> Retries and Uses Gemini', async () => {
-    const originalFetch = global.fetch;
-    let fetchCalls = 0;
-    let secondCallHeaders: Headers | null = null;
-
-    saveGeminiApiKey('AIzaSyTestUserKey123');
-
-    global.fetch = async (url, init) => {
-      fetchCalls++;
-      if (fetchCalls === 1) {
-        // Request 1: Without BYOK header, server returned 200 with pedagogical_engine fallback
-        return {
-          ok: true,
-          status: 200,
-          headers: { get: () => 'application/json' },
-          clone: () => ({
-            json: async () => ({
-              success: true,
-              engine: 'pedagogical_engine',
-              data: { generalSummary: 'Fallback', items: [] },
-            }),
-          }),
-          json: async () => ({
-            success: true,
-            engine: 'pedagogical_engine',
-            data: { generalSummary: 'Fallback', items: [] },
-          }),
-        } as any;
-      }
-
-      // Request 2: Retry with user key -> server succeeds with Gemini
-      secondCallHeaders = new Headers(init?.headers);
-      return {
-        ok: true,
-        status: 200,
-        headers: { get: () => 'application/json' },
-        json: async () => ({
-          success: true,
-          engine: 'gemini',
-          data: {
-            generalSummary: 'Gemini Summary',
-            items: [
-              {
-                elementName: 'Bilangan',
-                scopeCode: 'PCH',
-                cpCompetence: 'Memahami',
-                materialScope: 'Pecahan Senilai',
-              },
-            ],
-          },
-        }),
-      } as any;
-    };
-
+  for(const local of [true,false])await runTest('Scenario D: CP4 selects '+(local?'local BYOK':'server-or-none')+' once and rejects AI_NOT_CONFIGURED without fallback or modal retry',async()=>{
+    const original=global.fetch;let calls=0;let key:string|null=null;
+    if(local)saveGeminiApiKey('AIzaSyTestUserKey123');else removeGeminiApiKey();
+    global.fetch=withCP4Health(async(_url,init)=>{
+      calls++;key=new Headers(init?.headers).get('x-gemini-api-key');
+      return new Response(JSON.stringify({code:'AI_NOT_CONFIGURED',stage:'provider'}),{status:503,headers:{'Content-Type':'application/json'}});
+    });
     try {
-      const res = await analyzeCPWithAI({
-        cpText: 'CP Text',
-        elements: [],
-        subject: 'Matematika',
-        grade: 'Kelas 4',
-        phase: 'Fase B',
-        curriculum: 'Kurikulum Merdeka',
-      });
-
-      assert.strictEqual(fetchCalls, 2, 'Must have made 2 fetch calls (server-first then retry with BYOK)');
-      assert.strictEqual(secondCallHeaders?.get('x-gemini-api-key'), 'AIzaSyTestUserKey123', 'Second call must include user key');
-      assert.strictEqual(res.engine, 'gemini', 'Must use Gemini result from retry');
-      assert.strictEqual(res.generalSummary, 'Gemini Summary');
-    } finally {
-      removeGeminiApiKey();
-      global.fetch = originalFetch;
-    }
-  });
-
-  await runTest('Scenario D (Transport): Without Local BYOK -> Uses Pedagogical Engine Without Prompting Modal', async () => {
-    const originalFetch = global.fetch;
-    let fetchCalls = 0;
-
-    removeGeminiApiKey();
-
-    global.fetch = async () => {
-      fetchCalls++;
-      return {
-        ok: true,
-        status: 200,
-        headers: { get: () => 'application/json' },
-        clone: () => ({
-          json: async () => ({
-            success: true,
-            engine: 'pedagogical_engine',
-            data: { generalSummary: 'Fallback Summary', items: [] },
-          }),
-        }),
-        json: async () => ({
-          success: true,
-          engine: 'pedagogical_engine',
-          data: { generalSummary: 'Fallback Summary', items: [] },
-        }),
-      } as any;
-    };
-
-    try {
-      const res = await analyzeCPWithAI({
-        cpText: 'CP Text',
-        elements: [],
-        subject: 'Matematika',
-        grade: 'Kelas 4',
-        phase: 'Fase B',
-        curriculum: 'Kurikulum Merdeka',
-      });
-
-      assert.strictEqual(fetchCalls, 1, 'Must only make 1 fetch call when local BYOK is absent');
-      assert.strictEqual(res.engine, 'pedagogical_engine', 'Must use pedagogical engine');
-      assert.strictEqual(res.generalSummary, 'Fallback Summary');
-    } finally {
-      global.fetch = originalFetch;
-    }
+      await assert.rejects(()=>analyzeCPWithAI({cpText:'',elements:[{id:'e1',code:'E1',name:'Bilangan',content:'Peserta didik memahami pecahan senilai.'}],subject:'Matematika',grade:'Kelas 4',phase:'Fase B',curriculum:'Kurikulum Merdeka'}),(error:any)=>error.code==='AI_NOT_CONFIGURED');
+      assert.equal(calls,1);assert.equal(key,local?'AIzaSyTestUserKey123':null);
+    } finally {removeGeminiApiKey();global.fetch=original;}
   });
 
   // ===========================================================
@@ -739,7 +634,7 @@ async function runAll() {
 
     // Case 1: Valid individual relevance & aggregate coverage
     const validTPs = [
-      {
+      {order: 1,
         id: 'tp-1',
         code: 'E1-SB-01',
         competence: 'Mengenali',
@@ -747,7 +642,7 @@ async function runAll() {
         statement: 'Peserta didik mampu mengenali strategi mencari bantuan kepada orang dewasa terpercaya.',
         cpAnalysisItemIds: ['ana-1'],
       },
-      {
+      {order: 2,
         id: 'tp-2',
         code: 'E1-LOK-01',
         competence: 'Mempraktikkan',
@@ -755,7 +650,7 @@ async function runAll() {
         statement: 'Peserta didik mempraktikkan gerak lokomotor.',
         cpAnalysisItemIds: ['ana-2'],
       },
-      {
+      {order: 3,
         id: 'tp-3',
         code: 'E1-NLOK-01',
         competence: 'Mempraktikkan',
@@ -763,7 +658,7 @@ async function runAll() {
         statement: 'Peserta didik mempraktikkan gerak non-lokomotor.',
         cpAnalysisItemIds: ['ana-2'],
       },
-      {
+      {order: 4,
         id: 'tp-4',
         code: 'E1-MAN-01',
         competence: 'Mempraktikkan',
@@ -778,7 +673,7 @@ async function runAll() {
 
     // Case 2: Individual relevance failure (TP points to ana-1 but content is lokomotor)
     const invalidIndividualTPs = [
-      {
+      {order: 5,
         id: 'tp-invalid',
         code: 'E1-SB-01',
         competence: 'Mempraktikkan',
@@ -792,7 +687,7 @@ async function runAll() {
 
     // Case 3: Aggregate coverage failure (ana-2 missing manipulatif chunk)
     const missingAggregateTPs = [
-      {
+      {order: 6,
         id: 'tp-2',
         code: 'E1-LOK-01',
         competence: 'Mempraktikkan',
@@ -800,7 +695,7 @@ async function runAll() {
         statement: 'Peserta didik mempraktikkan gerak lokomotor.',
         cpAnalysisItemIds: ['ana-2'],
       },
-      {
+      {order: 7,
         id: 'tp-3',
         code: 'E1-NLOK-01',
         competence: 'Mempraktikkan',
@@ -821,7 +716,7 @@ async function runAll() {
       }
     ];
     const fix1InvalidTP = [
-      {
+      {order: 8,
         id: 'tp-f1-bad',
         code: 'E1-LOK-01',
         competence: 'Menjelaskan',
@@ -834,7 +729,7 @@ async function runAll() {
     assert.strictEqual(checkFix1Fail.isValid, false, 'Competence mismatch with KKO not stopword must fail');
 
     const fix1ValidTP = [
-      {
+      {order: 9,
         id: 'tp-f1-good',
         code: 'E1-LOK-01',
         competence: 'Mempraktikkan',
@@ -855,7 +750,7 @@ async function runAll() {
       }
     ];
     const fix2InvalidTP = [
-      {
+      {order: 10,
         id: 'tp-f2-bad',
         code: 'E1-SB-01',
         competence: 'Mempraktikkan',
@@ -868,7 +763,7 @@ async function runAll() {
     assert.strictEqual(checkFix2Fail.isValid, false, 'Semantic mismatch using cpAnalysisId fallback must fail');
 
     const fix2ValidTP = [
-      {
+      {order: 11,
         id: 'tp-f2-good',
         code: 'E1-SB-01',
         competence: 'Mengenali',

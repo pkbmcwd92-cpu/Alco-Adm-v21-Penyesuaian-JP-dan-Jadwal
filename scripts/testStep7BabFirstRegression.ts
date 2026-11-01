@@ -12,7 +12,7 @@ import type { ATPData, TPData, ATPUnitMappingData } from '../src/types';
 const labels = ['Berjalan dan berlari', 'Memutar dan mengayun tubuh', 'Menangkap dan melempar bola',
   'Latihan kekuatan otot', 'Senam irama berpasangan', 'Makanan bergizi seimbang'];
 const tp: TPData = { id: 'tp', academicSettingId: 'year', updatedAt: '2026-10-18', workflowStatus: 'SIAP',
-  items: labels.map((label, i) => ({ id: 't'+(i+1), code: 'TP-'+(i+1), statement: 'Mempraktikkan '+label, competence: 'Mempraktikkan', contentScope: label })) };
+  items: labels.map((label, i) => ({order: 1, id: 't'+(i+1), code: 'TP-'+(i+1), statement: 'Mempraktikkan '+label, competence: 'Mempraktikkan', contentScope: label })) };
 const atp: ATPData = { id: 'atp', academicSettingId: 'year', tpId: tp.id, updatedAt: tp.updatedAt, workflowStatus: 'SIAP',
   items: [['t1','t3'], ['t2'], ['t4','t5'], ['t6']].map((linkedTpIds, i) => ({ id: 'a'+(i+1), stepNumber: i+1, focus: 'Fokus pedagogis '+(i+1), linkedTpIds })) };
 function freeze(value: any): void { Object.freeze(value); for (const child of Object.values(value)) if (child && typeof child === 'object') freeze(child); }

@@ -240,7 +240,7 @@ runTest('9. CP element tanpa ID -> CP tidak SIAP (PERLU_DILENGKAPI)', () => {
       { id: '', name: 'Elemen 1', content: 'Uraian elemen 1' },
       { id: 'elem-2', name: 'Elemen 2', content: 'Uraian elemen 2' },
     ],
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const val = validateCPDataWorkflow(invalidCP);
   assert.strictEqual(val.isSiap, false, 'CP dengan element tanpa ID tidak boleh SIAP');
@@ -255,7 +255,7 @@ runTest('10. duplicate CP element ID -> CP tidak SIAP (PERLU_DILENGKAPI)', () =>
       { id: 'dup-id', name: 'Elemen 1', content: 'Uraian elemen 1' },
       { id: 'dup-id', name: 'Elemen 2', content: 'Uraian elemen 2' },
     ],
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const val = validateCPDataWorkflow(dupCP);
   assert.strictEqual(val.isSiap, false, 'CP dengan duplicate element ID tidak boleh SIAP');
@@ -266,7 +266,7 @@ runTest('10. duplicate CP element ID -> CP tidak SIAP (PERLU_DILENGKAPI)', () =>
 runTest('11. AnalysisItem tanpa elementId -> tidak SIAP', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -301,7 +301,7 @@ runTest('11. AnalysisItem tanpa elementId -> tidak SIAP', () => {
 runTest('12. AnalysisItem memakai unknown elementId -> tidak SIAP', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -336,7 +336,7 @@ runTest('12. AnalysisItem memakai unknown elementId -> tidak SIAP', () => {
 runTest('13. CP punya E1 + E2 tetapi Analysis hanya mencakup E1 -> tidak SIAP', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -363,7 +363,7 @@ runTest('13. CP punya E1 + E2 tetapi Analysis hanya mencakup E1 -> tidak SIAP', 
 runTest('14. E1 mempunyai 2 AnalysisItem dan E2 mempunyai 1 -> valid/SIAP jika field lain lengkap', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -409,7 +409,7 @@ runTest('14. E1 mempunyai 2 AnalysisItem dan E2 mempunyai 1 -> valid/SIAP jika f
 runTest('15. cpAnalysis.cpId !== cp.id -> tidak SIAP', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -444,7 +444,7 @@ runTest('15. cpAnalysis.cpId !== cp.id -> tidak SIAP', () => {
 runTest('16. basedOnCpUpdatedAt hilang ketika CP mempunyai updatedAt -> tidak SIAP', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -545,7 +545,7 @@ runTest('20. /api/ai/analyze-cp tidak menggunakan positional validElements[idx] 
 runTest('21. Mismatch elementName terhadap elemen CP canonical -> ditolak validator (PERLU_DILENGKAPI)', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -582,7 +582,7 @@ runTest('21. Mismatch elementName terhadap elemen CP canonical -> ditolak valida
 runTest('22. Mismatch cpText terhadap elemen CP canonical -> ditolak validator (PERLU_DILENGKAPI)', () => {
   const validCP: CPData = {
     ...sampleCP,
-    source: { title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
+    source: {retrievedAt: '2026-01-01T00:00:00Z', title: 'Kep BSKAP', institution: 'BSKAP', documentYear: '2025', verificationStatus: 'verified' },
   };
   const cpa: CPAnalysisData = {
     id: 'cpa-test',
@@ -785,7 +785,6 @@ runTest('31. handleSaveCPAnalysis does not rebase basedOnCpUpdatedAt uncondition
   );
   assert.ok(
     appSource.includes('basedOnCpUpdatedAt:\n') || appSource.includes('basedOnCpUpdatedAt:'),
-    true,
     'handleSaveCPAnalysis must specify basedOnCpUpdatedAt with fallback logic'
   );
   assert.ok(

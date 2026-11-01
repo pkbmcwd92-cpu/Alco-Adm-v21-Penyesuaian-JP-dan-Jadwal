@@ -124,6 +124,8 @@ assert(!msgNoActive.includes('rancangan sebelumnya'), 'Jika activePlan null, tid
 assert(msgNoActive === 'Draf AI tidak berhasil dibuat. Koneksi gagal', 'Format pesan netral harus sesuai');
 
 const dummyPlan: LearningPlan = {
+  assessmentPlan:{initial:[],formative:[],summative:[]},
+  academicSettingId: 'setting-1', sourceType: 'MANUAL', tpIds: [], atpItemIds: [], objectives: [], allocatedJP: 0,
   id: 'lp-existing',
   curriculumType: 'KURIKULUM_MERDEKA',
   title: 'Modul 1',
@@ -269,6 +271,7 @@ const scopeUnit: LearningPlanScopeUnit = {
   unitId: 'unit-101',
   title: 'Bab 1',
   type: 'CANONICAL_UNIT',
+  linkedAtpItemIds: [],
   jp: 4,
   linkedTpIds: ['tp-1'],
 };
@@ -286,6 +289,7 @@ const nonMatchingScope: LearningPlanScopeUnit = {
   unitId: 'unit-999',
   title: 'Bab 9',
   type: 'CANONICAL_UNIT',
+  linkedAtpItemIds: [],
   jp: 4,
   linkedTpIds: ['tp-9'],
 };
@@ -294,16 +298,13 @@ assert(hasAssociatedPlan(nonMatchingScope, existingPlans) === false, 'Scope tanp
 // Test 12: KKTP readiness logic tetap tidak berubah
 console.log('Test 12: KKTP readiness check');
 const kktpCriteriaReady: AssessmentCriterion[] = [
-  {
+  {indicators: [], levels: [],
     id: 'crit-1',
     tpId: 'tp-1',
-    curriculumType: 'KURIKULUM_MERDEKA',
-    title: 'Kriteria 1',
     description: 'Deskripsi',
-    approach: 'RUBRIK',
-    intervals: [],
+    approach: 'rubrik',
+    academicSettingId: 'setting-1',
     workflowStatus: 'SIAP',
-    createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   },
 ];

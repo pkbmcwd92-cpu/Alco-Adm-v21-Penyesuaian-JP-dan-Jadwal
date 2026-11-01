@@ -55,7 +55,8 @@
     "test:assessment-meeting-linkage": "tsx scripts/testAssessmentMeetingLinkageRegression.ts",
     "test:ai-learning-plan-assessment-recovery": "tsx scripts/testAILearningPlanAssessmentRecoveryRegression.ts",
     "test:empty-unit-materials": "tsx scripts/testEmptyUnitMaterialsMappingRegression.ts",
-    "test:mapping-apply": "tsx scripts/testATPUnitMappingActionApplyRegression.ts"
+    "test:mapping-apply": "tsx scripts/testATPUnitMappingActionApplyRegression.ts",
+    "ci:tests": "node scripts/runCIGroup.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -115,7 +115,10 @@ export function buildPromesProjection(context: DocumentGenerationContext): Prome
     : timeAllocations;
 
   // Actual Weekly JP Source using shared canonical resolver
-  const resolvedSemesterJP = resolveSemesterJPFromValues(semesterJPSetting, annualJPReference);
+  const hasMismatchedSemesterJP = Boolean(semesterJPSetting && semesterJPSetting.semesterPlanId !== activeSettingPlanId);
+  const resolvedSemesterJP = hasMismatchedSemesterJP
+    ? resolveSemesterJPFromValues()
+    : resolveSemesterJPFromValues(semesterJPSetting, annualJPReference);
   let actualScheduledWeeklyJP: number | null = resolvedSemesterJP.weeklyJP;
   if (isK13 && !actualScheduledWeeklyJP) {
     actualScheduledWeeklyJP = academicSetting?.subjectWeeklyJP || academicSetting?.totalHoursPerWeek || null;
@@ -159,7 +162,10 @@ export function buildPromesProjection(context: DocumentGenerationContext): Prome
   let unreadyReason: string | undefined = undefined;
 
   if (documentMode !== 'blank') {
-    if (!hasCalendar || !isCalendarConfirmed) {
+    if (hasMismatchedSemesterJP) {
+      isReady = false;
+      unreadyReason = 'Pengaturan JP bukan milik SemesterPlan aktif. Pilih pengaturan semester yang sesuai.';
+    } else if (!hasCalendar || !isCalendarConfirmed) {
       isReady = false;
       unreadyReason = 'Program Semester belum dapat dibuat karena kalender pendidikan semester aktif belum dikonfirmasi.';
     } else if (availableJP === null) {

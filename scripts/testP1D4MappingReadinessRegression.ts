@@ -15,6 +15,7 @@ function assert(condition: boolean, message: string, details?: any) {
 console.log('Running P1-D4 Mapping Readiness Gate Regression Tests...');
 
 const mockSetting: AcademicSetting = {
+  profileId: 'profile-1', curriculum: 'Kurikulum Merdeka', phase: 'D', updatedAt: '2025-01-01T00:00:00Z',
   id: 'setting-1',
   academicYear: '2025/2026',
   semester: '1 (Ganjil)',
@@ -28,7 +29,7 @@ const mockTP: TPData = {
   academicSettingId: 'setting-1',
   workflowStatus: 'SIAP',
   items: [
-    {
+    {order: 1,
       id: 'tp-item-1',
       code: 'E1-MAT-01',
       statement: 'Memahami bilangan bulat',
@@ -51,19 +52,19 @@ const mockATP: ATPData = {
   updatedAt: '2025-01-01T00:00:00Z',
 };
 
-const validMapping: ATPUnitMappingData = {
+const validMapping: ATPUnitMappingData = {atpId: 'atp-1',
   id: 'map-1',
   academicSettingId: 'setting-1',
   basedOnAtpUpdatedAt: '2025-01-01T00:00:00Z',
   basedOnTpUpdatedAt: '2025-01-01T00:00:00Z',
   units: [
-    {
+    {order: 2,
       id: 'unit-1',
       title: 'Bab 1 Bilangan',
       linkedAtpItemIds: ['atp-item-1'],
       linkedTpIds: ['tp-item-1'],
       materials: [
-        {
+        {order: 3,
           id: 'mat-1',
           title: 'Materi Bilangan Bulat',
           linkedAtpItemIds: ['atp-item-1'],
@@ -77,7 +78,7 @@ const validMapping: ATPUnitMappingData = {
 
 // 1. Mapping kosong -> canProceed=false
 {
-  const mapping: ATPUnitMappingData = { id: 'm1', academicSettingId: 'setting-1', units: [] };
+  const mapping: ATPUnitMappingData = {atpId: 'atp-1', updatedAt: '2025-01-01T00:00:00Z', id: 'm1', academicSettingId: 'setting-1', units: [] };
   const res = resolveATPUnitMappingReadiness(mapping, mockATP, mockTP, mockSetting);
   assert(res.canProceed === false, 'Mapping kosong cannot proceed');
 }
@@ -98,7 +99,7 @@ const validMapping: ATPUnitMappingData = {
 
 // 4. Mapping valid belum lengkap -> canSaveDraft=true, canProceed=false
 {
-  const mapping: ATPUnitMappingData = { ...validMapping, units: [{ id: 'u1', title: 'Bab 1', linkedAtpItemIds: [], linkedTpIds: [], materials: [] }] };
+  const mapping: ATPUnitMappingData = { ...validMapping, units: [{order: 4, id: 'u1', title: 'Bab 1', linkedAtpItemIds: [], linkedTpIds: [], materials: [] }] };
   const res = resolveATPUnitMappingReadiness(mapping, mockATP, mockTP, mockSetting);
   assert(res.canSaveDraft === true, 'Incomplete valid mapping can save draft');
   assert(res.canProceed === false, 'Incomplete mapping cannot proceed');
@@ -141,7 +142,7 @@ const validMapping: ATPUnitMappingData = {
 
 // 10. Referensi ATP/TP fiktif -> canSaveDraft=false
 {
-  const mapping: ATPUnitMappingData = { ...validMapping, units: [{ id: 'u1', title: 'Bab 1', linkedAtpItemIds: ['fictional-atp'], linkedTpIds: ['fictional-tp'], materials: [] }] };
+  const mapping: ATPUnitMappingData = { ...validMapping, units: [{order: 5, id: 'u1', title: 'Bab 1', linkedAtpItemIds: ['fictional-atp'], linkedTpIds: ['fictional-tp'], materials: [] }] };
   const res = resolveATPUnitMappingReadiness(mapping, mockATP, mockTP, mockSetting);
   assert(res.canSaveDraft === false, 'Fictional reference blocks save draft');
 }
@@ -181,7 +182,7 @@ const validMapping: ATPUnitMappingData = {
 // 13. Keputusan resolver berdasarkan konteks data realistis
 {
   const savedMapping: ATPUnitMappingData = { ...validMapping, units: validMapping.units };
-  const draftMapping: ATPUnitMappingData = { ...validMapping, units: [...validMapping.units, {id: 'new-u', title: 'New', linkedAtpItemIds: [], linkedTpIds: [], materials: []}] };
+  const draftMapping: ATPUnitMappingData = { ...validMapping, units: [...validMapping.units, {order: 6,id: 'new-u', title: 'New', linkedAtpItemIds: [], linkedTpIds: [], materials: []}] };
   
   const resSaved = resolveATPUnitMappingReadiness(savedMapping, mockATP, mockTP, mockSetting);
   const resDraft = resolveATPUnitMappingReadiness(draftMapping, mockATP, mockTP, mockSetting);
@@ -196,7 +197,7 @@ const validMapping: ATPUnitMappingData = {
     ...validMapping, 
     units: [
       validMapping.units[0],
-      { id: 'u2', title: 'Bab 2', linkedAtpItemIds: ['atp-item-1'], linkedTpIds: ['tp-item-1'], materials: [] }
+      {order: 7, id: 'u2', title: 'Bab 2', linkedAtpItemIds: ['atp-item-1'], linkedTpIds: ['tp-item-1'], materials: [] }
     ] 
   };
   const res = resolveATPUnitMappingReadiness(mapping, mockATP, mockTP, mockSetting);

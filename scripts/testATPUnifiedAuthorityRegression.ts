@@ -35,19 +35,22 @@ const mockAcademicSetting: AcademicSetting = {
 
 const mockCP: CPData = {
   id: 'cp-001',
+  source:{title:'Fixture CP manual untuk pengujian',institution:'Fixture',retrievedAt:'2026-01-01T00:00:00Z',verificationStatus:'UNVERIFIED'},
   academicSettingId: 'acad-001',
   generalDescription: 'Peserta didik dapat memahami bilangan cacah dan pecahan sederhana.',
-  elements: [{ id: 'elem-1', name: 'Bilangan', content: 'Memahami bilangan cacah.' }],
+  elements: [{ id: 'elem-1', name: 'Bilangan', content: 'Memahami bilangan cacah.' }, {id:'elem-2',name:'Pecahan',content:'Memahami pecahan senilai.'}],
   updatedAt: '2026-01-01T00:00:00Z',
 };
 
 const mockCPAnalysis: CPAnalysisData = {
   id: 'cpa-001',
+  cpId:'cp-001',
   academicSettingId: 'acad-001',
   generalSummary: 'Analisis bilangan cacah.',
   items: [
     {
       id: 'ana-001',
+      scopeCode:'BLG',meaningfulUnderstanding:'Memahami bilangan cacah berkaitan dengan nilai bilangan cacah.',
       elementId: 'elem-1',
       elementName: 'Bilangan',
       cpText: 'Memahami bilangan cacah.',
@@ -58,8 +61,9 @@ const mockCPAnalysis: CPAnalysisData = {
     },
     {
       id: 'ana-002',
-      elementId: 'elem-1',
-      elementName: 'Bilangan',
+      scopeCode:'PCH',meaningfulUnderstanding:'Memahami pecahan senilai berkaitan dengan kesamaan nilai pecahan.',
+      elementId: 'elem-2',
+      elementName: 'Pecahan',
       cpText: 'Memahami pecahan senilai.',
       cpCompetence: 'Memahami',
       materialScope: 'Pecahan Senilai',
@@ -120,7 +124,7 @@ const validATPItems: ATPItem[] = [
     id: 'atp-item-1',
     stepNumber: 1,
     linkedTpIds: ['tp-001'],
-    focus: 'Penguasaan Bilangan Cacah',
+    focus: 'Memahami bilangan cacah sampai 10.000',
     tpCode: 'E1-BLG-01',
     tpStatement: mockTPItems[0].statement,
   },
@@ -128,7 +132,7 @@ const validATPItems: ATPItem[] = [
     id: 'atp-item-2',
     stepNumber: 2,
     linkedTpIds: ['tp-002'],
-    focus: 'Penguasaan Pecahan Senilai',
+    focus: 'Memahami konsep pecahan senilai',
     tpCode: 'E1-BLG-02',
     tpStatement: mockTPItems[1].statement,
   },
@@ -249,15 +253,15 @@ const mockProfile: TeacherProfile = {
   id: 'prof-001',
   name: 'Budi Santoso',
   nip: '19850101',
-  email: 'budi@guru.id',
-  phone: '08123456789',
+  status: 'PNS', schoolId: 'sch-001',
+  createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z',
   defaultSubject: 'Matematika',
   defaultLevel: 'SD',
-  defaultGrade: 'Kelas 4',
 };
 const mockSchool: SchoolData = {
   id: 'sch-001',
-  profileId: 'prof-001',
+  village: 'Merdeka', district: 'Merdeka', regency: 'Merdeka', province: 'Jawa Barat',
+  principalName: 'Kepala Sekolah', principalNip: '', createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z',
   name: 'SD Negeri 1 Merdeka',
   npsn: '12345678',
   address: 'Jl. Pendidikan No. 1',

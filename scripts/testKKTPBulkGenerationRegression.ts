@@ -15,10 +15,8 @@ console.log('--- STARTING REGRESSION TESTS FOR KKTP BULK GENERATION ---');
 
 const mockSetting: AcademicSetting = {
   id: 'setting-001',
-  schoolId: 'sch-001',
-  workspaceId: 'ws-001',
+  profileId: 'prof-001', curriculum: 'Kurikulum Merdeka', semester: '1 (Ganjil)', level: 'SD',
   academicYear: '2026/2027',
-  subjectCode: 'Matematika',
   subject: 'Matematika',
   grade: 'Kelas 4',
   phase: 'B',
@@ -26,7 +24,7 @@ const mockSetting: AcademicSetting = {
   updatedAt: '2026-10-08T00:00:00.000Z',
 };
 
-function createMockTP(count: number, workflowStatus = 'SIAP', needsReview = false): TPData {
+function createMockTP(count: number, workflowStatus: TPData['workflowStatus'] = 'SIAP', needsReview = false): TPData {
   const items: TPItem[] = Array.from({ length: count }, (_, i) => ({
     id: `tp-item-${i + 1}`,
     code: `TP-0${i + 1}`,
@@ -90,7 +88,7 @@ for (let i = 0; i < res1.newCriteria.length; i++) {
 // 3. POSITIVE: final merge mempertahankan existing criteria
 // ==========================================
 console.log('Test 3: Final merge mempertahankan existing criteria');
-const existing1: AssessmentCriterion = {
+const existing1: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-exist-1',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-1',
@@ -116,7 +114,7 @@ assert(res3.missingCount === 3, 'missingCount harus 3');
 // 4. PRESERVE: existing SIAP tidak berubah
 // ==========================================
 console.log('Test 4: Existing SIAP tidak berubah');
-const existingSiap: AssessmentCriterion = {
+const existingSiap: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-siap-1',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-1',
@@ -143,7 +141,7 @@ assert(foundSiap?.description === 'KKTP SIAP Konfirmasi Guru', 'description haru
 // 5. PRESERVE: existing PERLU_DILENGKAPI tidak berubah
 // ==========================================
 console.log('Test 5: Existing PERLU_DILENGKAPI tidak berubah');
-const existingPerlu: AssessmentCriterion = {
+const existingPerlu: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-perlu-2',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-2',
@@ -170,7 +168,7 @@ assert(foundPerlu?.reviewReason === 'Indikator belum lengkap', 'reviewReason har
 // 6. PRESERVE: existing DRAFT TEACHER tidak berubah
 // ==========================================
 console.log('Test 6: Existing DRAFT TEACHER tidak berubah');
-const existingDraftTeacher: AssessmentCriterion = {
+const existingDraftTeacher: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-teacher-3',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-3',
@@ -195,7 +193,7 @@ assert(foundTeacher?.description === 'Draft Mandiri Oleh Guru', 'description har
 // 7. PRESERVE: existing AI_EDITED_BY_TEACHER tidak berubah
 // ==========================================
 console.log('Test 7: Existing AI_EDITED_BY_TEACHER tidak berubah');
-const existingAiEdited: AssessmentCriterion = {
+const existingAiEdited: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-edited-4',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-4',
@@ -220,7 +218,7 @@ assert(foundEdited?.description === 'AI Rekomendasi Diedit Guru', 'description h
 // 8. PRESERVE: existing AI DRAFT pada bulk tidak di-generate ulang
 // ==========================================
 console.log('Test 8: Existing AI DRAFT pada bulk tidak di-generate ulang');
-const existingAiDraft: AssessmentCriterion = {
+const existingAiDraft: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-ai-draft-1',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-1',
@@ -247,7 +245,7 @@ assert(res8.missingCount === 3, 'Hanya TP yang belum ada yang digenerate');
 // ==========================================
 console.log('Test 9: 5 TP: 2 existing, 3 missing -> 3 new criteria');
 const tp5 = createMockTP(5);
-const existingCritA: AssessmentCriterion = {
+const existingCritA: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-a',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-1',
@@ -259,7 +257,7 @@ const existingCritA: AssessmentCriterion = {
   needsReview: false,
   updatedAt: '2026-10-07T00:00:00.000Z',
 };
-const existingCritB: AssessmentCriterion = {
+const existingCritB: AssessmentCriterion = {indicators: [], levels: [],
   id: 'crit-b',
   academicSettingId: mockSetting.id,
   tpId: 'tp-item-3',
@@ -292,7 +290,7 @@ assert(!newTpIds.includes('tp-item-3'), 'Tidak boleh generate tp-item-3');
 // 10. NO-OP: semua TP sudah punya criterion -> generated count 0
 // ==========================================
 console.log('Test 10: Semua TP sudah punya criterion -> missingCount 0');
-const allExisting: AssessmentCriterion[] = tp4.items.map((item, idx) => ({
+const allExisting: AssessmentCriterion[] = tp4.items.map((item, idx) => ({indicators: [], levels: [],
   id: `crit-all-${idx + 1}`,
   academicSettingId: mockSetting.id,
   tpId: item.id,
@@ -356,7 +354,7 @@ assert(res12.newCriteria.length === 0, 'newCriteria harus kosong');
 // ==========================================
 console.log('Test 13: Per-TP generation safety - protection check');
 assert(
-  isCriterionProtectedFromAIOverwrite({
+  isCriterionProtectedFromAIOverwrite({indicators: [], levels: [],
     id: 'c1',
     academicSettingId: 's1',
     tpId: 't1',
@@ -372,7 +370,7 @@ assert(
 );
 
 assert(
-  isCriterionProtectedFromAIOverwrite({
+  isCriterionProtectedFromAIOverwrite({indicators: [], levels: [],
     id: 'c2',
     academicSettingId: 's1',
     tpId: 't1',
@@ -388,7 +386,7 @@ assert(
 );
 
 assert(
-  isCriterionProtectedFromAIOverwrite({
+  isCriterionProtectedFromAIOverwrite({indicators: [], levels: [],
     id: 'c3',
     academicSettingId: 's1',
     tpId: 't1',
@@ -404,7 +402,7 @@ assert(
 );
 
 assert(
-  isCriterionProtectedFromAIOverwrite({
+  isCriterionProtectedFromAIOverwrite({indicators: [], levels: [],
     id: 'c4',
     academicSettingId: 's1',
     tpId: 't1',

@@ -7,7 +7,8 @@ import {
   learningPlanResponseSchema,
 } from '../server';
 import { normalizeAIAssessmentPlan } from '../src/services/learningPlanService';
-import { LearningPlan, LearningPlanScopeUnit } from '../src/types';
+import { LearningPlan } from '../src/types';
+import type { LearningPlanScopeUnit } from '../src/services/learningPlanService';
 
 async function runRegressionSuite() {
   console.log('=== RUNNING AI LEARNING PLAN ASSESSMENT RECOVERY REGRESSION SUITE ===\n');

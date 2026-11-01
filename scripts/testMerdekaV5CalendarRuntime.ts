@@ -1,4 +1,5 @@
 import assert from 'node:assert';
+import { inputForState, initializer, evaluateExpression } from './helpers/uiContractHarness';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -122,8 +123,12 @@ runTest('3. Search criteria states initialize from school.regency and school.pro
 // -----------------------------------------------------------------------------
 runTest('4. Online search input for Province is free-text and does not depend on static availableProvinces dropdown', () => {
   assert.ok(
-    tpmSource.includes('<input\n                    type="text"\n                    value={searchProvince}'),
-    'TimePlanningManager must render searchProvince as free-text input'
+    (()=>{
+      const events:string[]=[];
+      const input=inputForState('src/components/administration/TimePlanningManager.tsx','searchProvince',{searchProvince:'',setSearchProvince:(s:string)=>events.push(s),setSelectedProvince:(s:string)=>events.push(s)});
+      assert.equal(input.props.type,'text');input.props.onChange({target:{value:'Provinsi Uji'}});assert.deepEqual(events,['Provinsi Uji','Provinsi Uji']);return true;
+    })(),
+    'Province input must accept and propagate arbitrary free text'
   );
   assert.ok(
     !tpmSource.includes('availableProvinces.map'),
@@ -539,8 +544,12 @@ runTest('16. AdministrationHub badge does not fabricate 18 Mg when calendar is m
 // -----------------------------------------------------------------------------
 runTest('17. schoolDaysPerWeek defaults to null when unconfigured without silent 5-day assumption', () => {
   assert.ok(
-    tpmSource.includes('calendar?.schoolDaysPerWeek === 5 || calendar?.schoolDaysPerWeek === 6\n      ? calendar.schoolDaysPerWeek\n      : null') ||
-      tpmSource.includes('? calendar.schoolDaysPerWeek\n      : null'),
+    (()=>{
+      const expression=initializer('src/components/administration/TimePlanningManager.tsx','[schoolDaysPerWeek, setSchoolDaysPerWeek]');
+      for(const [calendar,expected] of [[undefined,null],[{schoolDaysPerWeek:4},null],[{schoolDaysPerWeek:5},5],[{schoolDaysPerWeek:6},6]] as const)
+        assert.equal(evaluateExpression(expression,{calendar,useState:(initial:unknown)=>initial}),expected);
+      return true;
+    })(),
     'schoolDaysPerWeek must default to null when unconfigured'
   );
 });

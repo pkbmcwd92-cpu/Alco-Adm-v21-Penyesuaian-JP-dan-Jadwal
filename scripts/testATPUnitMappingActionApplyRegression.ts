@@ -11,8 +11,7 @@ const mockAtp: ATPData = {
   id: 'atp-mat-7',
   academicSettingId: 'setting-smp-7',
   updatedAt: '2026-10-16T00:00:00Z',
-  workflowStatus: 'FINAL' as any,
-  isSiap: true,
+  workflowStatus: 'SIAP',
   items: [
     {
       id: 'atp-item-1',

@@ -19,6 +19,14 @@ import {
 } from '../src/services/storageV5';
 import { getRuntimeContextV5 } from '../src/services/runtimeV5';
 import { CPData, CPAnalysisData, TPData, ATPData, WorkflowStepId } from '../src/types';
+import React from 'react';
+import { WorkflowStepper } from '../src/components/WorkflowStepper';
+import { SemesterSelector } from '../src/components/SemesterSelector';
+import { validateWorkflowDependencies } from '../src/services/workflowEngine';
+import { resolveATPUnitMappingReadiness } from '../src/services/atpMappingReadinessService';
+import { isK13 } from '../src/services/curriculumRouter';
+import { createReadyV21WorkflowFixture } from './fixtures/v21ReadyWorkflowFixture';
+import { appCallback, jsxCallback, byId, nodeText, nodes } from './helpers/uiContractHarness';
 
 console.log('=== RUNNING AUDIT: MERDEKA V5 SEMESTER NAVIGATION (B.3A) ===\n');
 
@@ -233,539 +241,131 @@ saveATPV5(yearPlanA.id, atpA);
 
 setActiveYearPlanV5(yearPlanA.id);
 
-const appPath = path.resolve(process.cwd(), 'src/App.tsx');
-const appSource = fs.readFileSync(appPath, 'utf-8');
-
-const stepperPath = path.resolve(process.cwd(), 'src/components/WorkflowStepper.tsx');
-const stepperSource = fs.readFileSync(stepperPath, 'utf-8');
-
-const typesPath = path.resolve(process.cwd(), 'src/types/index.ts');
-const typesSource = fs.readFileSync(typesPath, 'utf-8');
-
-const semesterSelectorPath = path.resolve(process.cwd(), 'src/components/SemesterSelector.tsx');
-const semesterSelectorSource = fs.readFileSync(semesterSelectorPath, 'utf-8');
-
-const adminHubPath = path.resolve(process.cwd(), 'src/components/administration/AdministrationHub.tsx');
-const adminHubSource = fs.readFileSync(adminHubPath, 'utf-8');
-
-// -----------------------------------------------------------------------------
-// TEST 1: WorkflowStepId contains 'semester'
-// -----------------------------------------------------------------------------
-runTest("1. WorkflowStepId type union contains 'semester'", () => {
-  assert.ok(
-    typesSource.includes("| 'semester'"),
-    "WorkflowStepId in src/types/index.ts must include | 'semester'"
-  );
+// Runtime authority, isolation and legacy data preservation (no source-text assertions).
+runTest('Fresh annual context never auto-selects Semester 1',()=>{
+  assert.equal(getRuntimeContextV5().activeSemesterPlan,undefined);
+  assert.equal(getRuntimeContextV5().semesterPlansForActiveYear.length,2);
+});
+const annualBefore=JSON.stringify(getRuntimeContextV5().annualData);
+for(const semester of [semester1A,semester2A])runTest('Storage selects actual semester '+semester.semester,()=>{
+  setActiveSemesterPlanV5(semester.id);assert.equal(getRuntimeContextV5().activeSemesterPlan?.id,semester.id);
+  assert.equal(JSON.stringify(getRuntimeContextV5().annualData),annualBefore);
+});
+runTest('Switching YearPlan clears incompatible semester and retains V3 sentinel',()=>{
+  setActiveYearPlanV5(yearPlanB.id);assert.equal(getRuntimeContextV5().activeSemesterPlan,undefined);
+  assert.equal(mockStorage.getItem(V3_STORAGE_KEY),v3Sentinel);
 });
 
-// -----------------------------------------------------------------------------
-// TEST 2: Merdeka Stepper Order: 06 ATP -> 07 SEMESTER -> 08 ADMINISTRASI
-// -----------------------------------------------------------------------------
-runTest('2. Merdeka Stepper step order is 06 ATP -> 07 SEMESTER -> 08 ADMINISTRASI', () => {
-  const merdekaBlockMatch = stepperSource.match(/isMerdekaActive\s*\?\s*\[([\s\S]*?)\]\s*:/);
-  assert.ok(merdekaBlockMatch, 'isMerdekaActive steps array must exist in WorkflowStepper');
-  const merdekaBlock = merdekaBlockMatch[1];
-
-  const atpIdx = merdekaBlock.indexOf("id: 'atp'");
-  const semesterIdx = merdekaBlock.indexOf("id: 'semester'");
-  const adminIdx = merdekaBlock.indexOf("id: 'admin'");
-
-  assert.ok(atpIdx !== -1, 'atp step must be defined in Merdeka steps');
-  assert.ok(semesterIdx !== -1, 'semester step must be defined in Merdeka steps');
-  assert.ok(adminIdx !== -1, 'admin step must be defined in Merdeka steps');
-
-  assert.ok(atpIdx < semesterIdx, 'ATP step must come before SEMESTER step');
-  assert.ok(semesterIdx < adminIdx, 'SEMESTER step must come before ADMINISTRASI step');
-
-  assert.ok(
-    merdekaBlock.includes("title: 'SEMESTER'"),
-    'WorkflowStepper must define title: SEMESTER'
-  );
-  assert.ok(
-    merdekaBlock.includes("sub: 'Pilih Semester Aktif'"),
-    'WorkflowStepper must define sub: Pilih Semester Aktif'
-  );
-  assert.ok(
-    merdekaBlock.includes("num: '07'"),
-    'SEMESTER step must have num: 07'
-  );
-  assert.ok(
-    merdekaBlock.includes("num: '08'"),
-    'ADMINISTRASI step in Merdeka must have num: 08'
-  );
+const ready=createReadyV21WorkflowFixture();
+ready.activeProfileId=ready.profiles[0].id;ready.activeYearPlanId=ready.yearPlans[0].id;ready.activeWorkspaceId=ready.workspaces[0].id;ready.activeSemesterPlanId=undefined;
+function context(state=ready) {
+  const annual=(key:string)=>(state.annualData as any)[key][0]?.value;
+  return {profile:state.profiles[0],school:state.schools[0],academicSetting:{...state.yearPlans[0],id:state.yearPlans[0].id,semester:'' as const,phase:state.yearPlans[0].phase||'A',curriculum:'Kurikulum Merdeka'},
+    cp:annual('cp'),cpAnalysis:annual('cpAnalysis'),tp:annual('tp'),atp:annual('atp'),atpUnitMapping:annual('atpUnitMappings'),unitExecutionPlan:annual('unitExecutionPlans')};
+}
+saveStorageV5(ready);const ctx=context();
+const order:WorkflowStepId[]=['atp','atp-mapping','annual-planning','semester','admin'];
+runTest('Rendered V21 workflow has exactly ATP 06 → Pemetaan 07 → Tahunan 08 → Semester 09 → Administrasi 10',()=>{
+  const selected:string[]=[];
+  const tree=WorkflowStepper({...ctx,currentStep:'atp',onSelectStep:s=>selected.push(s)});
+  const buttons=nodes(tree,n=>n.type==='button');
+  assert.deepEqual(buttons.slice(-5).map(b=>b.props.id),order.map(s=>'btn-step-'+s));
+  order.forEach((step,index)=>{
+    const button=byId(tree,'btn-step-'+step);assert.match(nodeText(button),new RegExp('^'+String(index+6).padStart(2,'0')+'\\b'));
+    if(!button.props.disabled){button.props.onClick();assert.equal(selected.at(-1),step);}
+  });
 });
-
-// -----------------------------------------------------------------------------
-// TEST 3: ATP onNextStep transitions to 'semester'
-// -----------------------------------------------------------------------------
-runTest("3. ATP onNextStep in App.tsx transitions to setCurrentStep('semester')", () => {
-  const atpBlockMatch = appSource.match(/\{currentStep === 'atp' && \([\s\S]*?<\/>|\{currentStep === 'atp' && \([\s\S]*?\)\}/);
-  assert.ok(atpBlockMatch, 'ATPManager render block must exist in App.tsx');
-  const atpBlock = atpBlockMatch[0];
-
-  assert.ok(
-    atpBlock.includes("onNextStep={() => setCurrentStep('semester')}"),
-    "ATP onNextStep must call setCurrentStep('semester')"
-  );
-  assert.ok(
-    !atpBlock.includes("onNextStep={() => setCurrentStep('admin')}"),
-    "ATP onNextStep must not navigate directly to 'admin'"
-  );
+for(const [component,attribute,destination] of [
+  ['ATPManager','onNextStep','atp-mapping'],['ATPUnitMappingManager','onBackToATP','atp'],
+  ['AnnualPlanningManager','onNextStep','semester'],['AnnualPlanningManager','onBackToMapping','atp-mapping'],
+  ['SemesterSelector','onNextStep','admin'],['SemesterSelector','onBackToATP','annual-planning'],
+])runTest(component+'.'+attribute+' executes actual App wiring to '+destination,()=>{
+  let actual='';jsxCallback(component,attribute,{setCurrentStep:(s:string)=>actual=s})();assert.equal(actual,destination);
 });
-
-// -----------------------------------------------------------------------------
-// TEST 4: App imports and uses setActiveSemesterPlanV5
-// -----------------------------------------------------------------------------
-runTest('4. App.tsx imports and uses setActiveSemesterPlanV5', () => {
-  assert.ok(
-    appSource.includes('setActiveSemesterPlanV5,'),
-    'App.tsx must import setActiveSemesterPlanV5 from storageV5'
-  );
-  assert.ok(
-    appSource.includes('setActiveSemesterPlanV5(semesterPlanId)'),
-    'App.tsx must invoke setActiveSemesterPlanV5 with selected semesterPlanId'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 5: App consumes semesterPlansForActiveYear & activeSemesterPlan from Runtime V5
-// -----------------------------------------------------------------------------
-runTest('5. App.tsx consumes semesterPlansForActiveYear and activeSemesterPlan directly from runtimeContext', () => {
-  assert.ok(
-    appSource.includes('semesterPlansForActiveYear,'),
-    'App.tsx must destructure semesterPlansForActiveYear from runtimeContext'
-  );
-  assert.ok(
-    appSource.includes('activeSemesterPlan,'),
-    'App.tsx must destructure activeSemesterPlan from runtimeContext'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 6: Selection handler calls setActiveSemesterPlanV5 and refreshV5
-// -----------------------------------------------------------------------------
-runTest('6. handleSelectSemester calls setActiveSemesterPlanV5 followed by refreshV5', () => {
-  const handlerMatch = appSource.match(/const handleSelectSemester = \(([\s\S]*?)\n  \};/);
-  assert.ok(handlerMatch, 'handleSelectSemester function must exist in App.tsx');
-  const handlerBody = handlerMatch[0];
-
-  assert.ok(
-    handlerBody.includes('setActiveSemesterPlanV5(semesterPlanId)'),
-    'handleSelectSemester must call setActiveSemesterPlanV5(semesterPlanId)'
-  );
-  assert.ok(
-    handlerBody.includes('refreshV5()'),
-    'handleSelectSemester must call refreshV5()'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 7: SemesterSelector Component Structure & Contract
-// -----------------------------------------------------------------------------
-runTest('7. SemesterSelector accepts SemesterPlan[] and renders actual records', () => {
-  assert.ok(
-    semesterSelectorSource.includes('semesterPlans: SemesterPlan[]'),
-    'SemesterSelectorProps must accept semesterPlans: SemesterPlan[]'
-  );
-  assert.ok(
-    semesterSelectorSource.includes('activeSemesterPlan?: SemesterPlan'),
-    'SemesterSelectorProps must accept activeSemesterPlan?: SemesterPlan'
-  );
-  assert.ok(
-    semesterSelectorSource.includes('onSelectSemester: (semesterPlanId: string) => void'),
-    'SemesterSelectorProps must define onSelectSemester callback'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 8: No Local Semester Authority / Fake State
-// -----------------------------------------------------------------------------
-runTest('8. SemesterSelector has no local useState for active semester selection', () => {
-  assert.ok(
-    !semesterSelectorSource.includes('useState<string>'),
-    'SemesterSelector must not maintain an independent local selectedId state'
-  );
-  assert.ok(
-    !semesterSelectorSource.includes('useState<number>'),
-    'SemesterSelector must not maintain an independent local semester state'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 9: No Auto-Selection of Semester 1
-// -----------------------------------------------------------------------------
-runTest('9. Runtime Context initial state has activeSemesterPlan === undefined (no auto-selection)', () => {
-  const state = loadStorageV5();
-  // Ensure activeSemesterPlanId is not pre-selected
-  assert.strictEqual(state.activeSemesterPlanId, undefined);
-
-  const runtime = getRuntimeContextV5();
-  assert.strictEqual(
-    runtime.activeSemesterPlan,
-    undefined,
-    'Fresh runtime must not auto-select Semester 1'
-  );
-  assert.strictEqual(runtime.semesterPlansForActiveYear.length, 2);
-});
-
-// -----------------------------------------------------------------------------
-// TEST 10: Continue Button Requires Selected SemesterPlan
-// -----------------------------------------------------------------------------
-runTest('10. Continue button in SemesterSelector is disabled when no semester is active', () => {
-  assert.ok(
-    semesterSelectorSource.includes('disabled={!isSelectedValid}'),
-    'Continue button must be disabled when isSelectedValid is false'
-  );
-  assert.ok(
-    semesterSelectorSource.includes('const isSelectedValid ='),
-    'SemesterSelector must compute isSelectedValid based on activeSemesterPlan and semesterPlans'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 11: Annual Context Remains Free of Semester Mutation
-// -----------------------------------------------------------------------------
-runTest("11. transitionalAcademicSetting and transitionalActiveContext keep semester: ''", () => {
-  assert.ok(
-    appSource.includes("semester: '', // Strictly empty for annual workflow"),
-    "transitionalAcademicSetting and transitionalActiveContext must maintain semester: ''"
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 12: Selecting Semester 1 Resolves activeSemesterPlan.semester === 1
-// -----------------------------------------------------------------------------
-runTest('12. Selecting Semester 1 via Storage V5 updates activeSemesterPlan to Semester 1', () => {
-  setActiveSemesterPlanV5(semester1A.id);
-  const runtime = getRuntimeContextV5();
-
-  assert.ok(runtime.activeSemesterPlan, 'activeSemesterPlan must be defined after selection');
-  assert.strictEqual(runtime.activeSemesterPlan.id, semester1A.id);
-  assert.strictEqual(runtime.activeSemesterPlan.semester, 1);
-});
-
-// -----------------------------------------------------------------------------
-// TEST 13: Selecting Semester 2 Resolves activeSemesterPlan.semester === 2
-// -----------------------------------------------------------------------------
-runTest('13. Selecting Semester 2 via Storage V5 updates activeSemesterPlan to Semester 2', () => {
-  setActiveSemesterPlanV5(semester2A.id);
-  const runtime = getRuntimeContextV5();
-
-  assert.ok(runtime.activeSemesterPlan, 'activeSemesterPlan must be defined after selection');
-  assert.strictEqual(runtime.activeSemesterPlan.id, semester2A.id);
-  assert.strictEqual(runtime.activeSemesterPlan.semester, 2);
-});
-
-// -----------------------------------------------------------------------------
-// TEST 14: Semester Switching Does Not Mutate Parent YearPlan
-// -----------------------------------------------------------------------------
-runTest('14. Switching semester selection does not mutate YearPlan attributes', () => {
-  const stateBefore = loadStorageV5();
-  const ypBefore = stateBefore.yearPlans.find((yp) => yp.id === yearPlanA.id)!;
-
-  setActiveSemesterPlanV5(semester1A.id);
-  setActiveSemesterPlanV5(semester2A.id);
-
-  const stateAfter = loadStorageV5();
-  const ypAfter = stateAfter.yearPlans.find((yp) => yp.id === yearPlanA.id)!;
-
-  assert.strictEqual(ypBefore.academicYear, ypAfter.academicYear);
-  assert.strictEqual(ypBefore.grade, ypAfter.grade);
-  assert.strictEqual(ypBefore.subject, ypAfter.subject);
-  assert.strictEqual((ypAfter as any).semester, undefined, 'YearPlan must not acquire a semester field');
-});
-
-// -----------------------------------------------------------------------------
-// TEST 15: Semester Selection Does Not Mutate Annual Data (CP, CP Analysis, TP, ATP)
-// -----------------------------------------------------------------------------
-runTest('15. Semester selection preserves annual CP, CP Analysis, TP, ATP data intact', () => {
-  const runtime = getRuntimeContextV5();
-
-  assert.ok(runtime.annualData?.cp, 'CP must remain present');
-  assert.strictEqual(runtime.annualData.cp.id, cpA.id);
-
-  assert.ok(runtime.annualData?.cpAnalysis, 'CP Analysis must remain present');
-  assert.strictEqual(runtime.annualData.cpAnalysis.id, analysisA.id);
-
-  assert.ok(runtime.annualData?.tp, 'TP must remain present');
-  assert.strictEqual(runtime.annualData.tp.id, tpA.id);
-
-  assert.ok(runtime.annualData?.atp, 'ATP must remain present');
-  assert.strictEqual(runtime.annualData.atp.id, atpA.id);
-});
-
-// -----------------------------------------------------------------------------
-// TEST 16: Switching YearPlan Clears Incompatible Active SemesterPlan
-// -----------------------------------------------------------------------------
-runTest('16. Switching YearPlan clears incompatible activeSemesterPlan from previous YearPlan', () => {
-  // Set Semester 2 under YearPlan A active
-  setActiveSemesterPlanV5(semester2A.id);
-  let runtime = getRuntimeContextV5();
-  assert.strictEqual(runtime.activeSemesterPlan?.id, semester2A.id);
-
-  // Switch to YearPlan B
-  setActiveYearPlanV5(yearPlanB.id);
-  runtime = getRuntimeContextV5();
-
-  assert.strictEqual(runtime.activeYearPlan?.id, yearPlanB.id);
-  assert.strictEqual(
-    runtime.activeSemesterPlan,
-    undefined,
-    'Switching to YearPlan B must clear activeSemesterPlan from YearPlan A'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 17: V3 Sentinel Remains Completely Untouched
-// -----------------------------------------------------------------------------
-runTest('17. V3 Storage Sentinel remains byte-identical throughout semester operations', () => {
-  const currentV3 = mockStorage.getItem(V3_STORAGE_KEY);
-  assert.strictEqual(currentV3, v3Sentinel, 'V3 sentinel must remain untouched');
-});
-
-// -----------------------------------------------------------------------------
-// TEST 18: Academic Calendar & Time Allocation Activated in B.4.1 & B.4.2, Other Handlers Remain Unactivated
-// -----------------------------------------------------------------------------
-runTest('18. Academic Calendar & Time Allocation persistence are activated, remaining B.4 save handlers remain no-op', () => {
-  assert.ok(
-    appSource.includes('saveAcademicCalendarV5(activeSemesterPlan.id,'),
-    'handleSaveCalendar must call saveAcademicCalendarV5 in B.4.1'
-  );
-  assert.ok(
-    appSource.includes('saveTimeAllocationV5(activeSemesterPlan.id, allocations);') &&
-      appSource.includes('refreshV5();'),
-    'handleSaveTimeAllocations must call saveTimeAllocationV5 scoped to activeSemesterPlan.id followed by refreshV5()'
-  );
-  assert.ok(
-    appSource.includes('const handleSaveStudents = (stdList: any[]) => {};'),
-    'handleSaveStudents must remain no-op'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 19: Semester Step Incomplete Semantics in WorkflowEngine
-// -----------------------------------------------------------------------------
-runTest('19. WorkflowEngine defines semester step as READY but isComplete: false until explicit selection', () => {
-  const workflowEnginePath = path.resolve(process.cwd(), 'src/services/workflowEngine.ts');
-  const workflowEngineSource = fs.readFileSync(workflowEnginePath, 'utf-8');
-
-  const semesterStepMatch = workflowEngineSource.match(/stepStates\.semester\s*=\s*\{([\s\S]*?)\};/);
-  assert.ok(semesterStepMatch, 'stepStates.semester definition must exist in workflowEngine.ts');
-  const semesterStepBody = semesterStepMatch[1];
-
-  assert.ok(
-    semesterStepBody.includes("status: isATPComplete ? 'READY' : 'BLOCKED'"),
-    "Semester step must define status: isATPComplete ? 'READY' : 'BLOCKED'"
-  );
-  assert.ok(
-    semesterStepBody.includes('isComplete: false'),
-    'Semester step must define isComplete: false (ATP completion does not imply semester selection completion)'
-  );
-  assert.ok(
-    !semesterStepBody.includes('isComplete: isATPComplete'),
-    'Semester step must reject isComplete: isATPComplete'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 20: App Derives isActiveSemesterValid from activeSemesterPlan & semesterPlansForActiveYear
-// -----------------------------------------------------------------------------
-runTest('20. App.tsx derives isActiveSemesterValid without local authority or independent state', () => {
-  assert.ok(
-    appSource.includes('const isActiveSemesterValid ='),
-    'App.tsx must define isActiveSemesterValid'
-  );
-  assert.ok(
-    appSource.includes('semesterPlansForActiveYear.some('),
-    'App.tsx must check that activeSemesterPlan is in semesterPlansForActiveYear'
-  );
-  assert.ok(
-    !appSource.includes('useState<string>("semester-') &&
-      !appSource.includes('useState<string | null>(null)') &&
-      !appSource.includes('useState<SemesterPlan>'),
-    'App.tsx must not maintain an independent useState for semester authority'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 21: semesterAcademicSetting Compatibility Projection Semantics
-// -----------------------------------------------------------------------------
-runTest('21. App.tsx creates semesterAcademicSetting compatibility projection without fake JP', () => {
-  assert.ok(
-    appSource.includes('const semesterAcademicSetting = useMemo<AcademicSetting | undefined>('),
-    'App.tsx must define semesterAcademicSetting via useMemo'
-  );
-  assert.ok(
-    appSource.includes("activeSemesterPlan.semester === 1\n          ? '1 (Ganjil)'\n          : '2 (Genap)'") ||
-      appSource.includes("activeSemesterPlan.semester === 1 ? '1 (Ganjil)' : '2 (Genap)'"),
-    'semesterAcademicSetting must project semester number to 1 (Ganjil) / 2 (Genap)'
-  );
-  assert.ok(
-    appSource.includes('id: activeSemesterPlan.id,'),
-    'semesterAcademicSetting must use activeSemesterPlan.id as its canonical ID'
-  );
-  assert.ok(
-    !appSource.includes('subjectWeeklyJP:') && !appSource.includes('totalHoursPerWeek:'),
-    'semesterAcademicSetting must not invent fake weekly JP or defaults'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 22: WorkflowStepper Receives activeSemesterPlan & Enforces Merdeka Gate
-// -----------------------------------------------------------------------------
-runTest('22. WorkflowStepper receives activeSemesterPlan and gates Merdeka Semester & Admin steps', () => {
-  assert.ok(
-    stepperSource.includes('activeSemesterPlan?: SemesterPlan;'),
-    'WorkflowStepperProps must include activeSemesterPlan?: SemesterPlan'
-  );
-  assert.ok(
-    stepperSource.includes('const hasSelectedSemester = !!activeSemesterPlan;'),
-    'WorkflowStepper must compute hasSelectedSemester based on activeSemesterPlan'
-  );
-
-  const merdekaBlockMatch = stepperSource.match(/isMerdekaActive\s*\?\s*\[([\s\S]*?)\]\s*:/);
-  assert.ok(merdekaBlockMatch, 'isMerdekaActive steps array must exist');
-  const merdekaBlock = merdekaBlockMatch[1];
-
-  // Semester step in Stepper
-  assert.ok(
-    merdekaBlock.includes("status: hasSelectedSemester ? 'COMPLETE' : stepStates.semester.status"),
-    "Semester step in Stepper must be COMPLETE when hasSelectedSemester is true"
-  );
-  assert.ok(
-    merdekaBlock.includes('isComplete: hasSelectedSemester ? true : stepStates.semester.isComplete'),
-    'Semester step in Stepper must be isComplete: true only when selected'
-  );
-
-  // Admin step in Stepper
-  assert.ok(
-    merdekaBlock.includes("status: !hasSelectedSemester ? 'BLOCKED' : 'READY'"),
-    "Admin step in Stepper must be BLOCKED when no semester is selected and READY when selected"
-  );
-  assert.ok(
-    merdekaBlock.includes('isLocked: !hasSelectedSemester'),
-    'Admin step must be locked when no semester is selected'
-  );
-  assert.ok(
-    merdekaBlock.includes("lockReason: !hasSelectedSemester ? 'Pilih semester aktif terlebih dahulu' : undefined"),
-    "Admin step lockReason must state 'Pilih semester aktif terlebih dahulu'"
-  );
-  assert.ok(
-    merdekaBlock.includes('isComplete: false'),
-    'Admin step must NOT claim isComplete: true merely from ATP'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 23: App.tsx Passes activeSemesterPlan to WorkflowStepper
-// -----------------------------------------------------------------------------
-runTest('23. App.tsx passes activeSemesterPlan and handleSelectStep guard to WorkflowStepper', () => {
-  assert.ok(
-    appSource.includes('activeSemesterPlan={activeSemesterPlan}'),
-    'App.tsx must pass activeSemesterPlan to WorkflowStepper'
-  );
-  assert.ok(
-    appSource.includes('onSelectStep={handleSelectStep}'),
-    'App.tsx must pass guarded handleSelectStep to WorkflowStepper'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 24: Direct Navigation Guard in App.tsx
-// -----------------------------------------------------------------------------
-runTest("24. handleSelectStep intercepts 'admin' when semester is invalid and routes to 'semester'", () => {
-  const handlerMatch = appSource.match(/const handleSelectStep = \(([\s\S]*?)\n  \};/);
-  assert.ok(handlerMatch, 'handleSelectStep function must exist in App.tsx');
-  const handlerBody = handlerMatch[0];
-
-  assert.ok(
-    handlerBody.includes("if (isMerdeka && step === 'admin' && !isActiveSemesterValid)"),
-    "handleSelectStep must check if Merdeka, step === 'admin', and !isActiveSemesterValid"
-  );
-  assert.ok(
-    handlerBody.includes("setCurrentStep('semester')"),
-    "handleSelectStep must redirect to 'semester'"
-  );
-  assert.ok(
-    handlerBody.includes('Pilih Semester 1 atau Semester 2 terlebih dahulu sebelum membuka Administrasi.'),
-    'handleSelectStep must show clear warning notice'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 25: AdministrationHub Input Projection for Merdeka
-// -----------------------------------------------------------------------------
-runTest('25. Merdeka AdministrationHub receives semesterAcademicSetting and is not rendered if undefined', () => {
-  assert.ok(
-    appSource.includes('const effectiveAdminAcademicSetting = isK13(transitionalAcademicSetting)'),
-    'App.tsx must derive effectiveAdminAcademicSetting based on curriculum'
-  );
-  assert.ok(
-    appSource.includes("{currentStep === 'admin' && effectiveAdminAcademicSetting && ("),
-    "App.tsx must gate AdministrationHub render with effectiveAdminAcademicSetting"
-  );
-  assert.ok(
-    appSource.includes('academicSetting={effectiveAdminAcademicSetting}'),
-    'AdministrationHub must receive effectiveAdminAcademicSetting'
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 26: AdministrationHub Back Navigation to Semester for Merdeka
-// -----------------------------------------------------------------------------
-runTest("26. AdministrationHub back button navigates to 'semester' with label (07) for Merdeka", () => {
-  assert.ok(
-    adminHubSource.includes("onClick={() => onBackToStep(isK13Active ? 'k13-tujuan' : 'semester')}"),
-    "AdministrationHub back button must call onBackToStep('semester') for Merdeka"
-  );
-  assert.ok(
-    adminHubSource.includes("{isK13Active ? '← Kembali ke Tujuan & IPK (05)' : '← Kembali ke Pilih Semester (07)'}"),
-    "AdministrationHub back button label must be '← Kembali ke Pilih Semester (07)' for Merdeka"
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 27: K13 Back Navigation Remains Preserved
-// -----------------------------------------------------------------------------
-runTest("27. K13 back button navigates to 'k13-tujuan' with label (05)", () => {
-  assert.ok(
-    adminHubSource.includes("'k13-tujuan'"),
-    "AdministrationHub back button must keep 'k13-tujuan' for K13"
-  );
-  assert.ok(
-    adminHubSource.includes("'← Kembali ke Tujuan & IPK (05)'"),
-    "AdministrationHub back button must keep '← Kembali ke Tujuan & IPK (05)' for K13"
-  );
-});
-
-// -----------------------------------------------------------------------------
-// TEST 28: Full B.4 Save Handlers Inactivity Verification
-// -----------------------------------------------------------------------------
-runTest('28. All B.4 downstream save handlers in App.tsx remain strictly no-op', () => {
-  const noOpHandlers = [
-    'handleSaveCalendar',
-    'handleSaveTimeAllocations',
-    'handleSaveStudents',
-    'handleSaveAttendance',
-    'handleSaveCriteria',
-    'handleSaveAssessment',
-    'handleDeleteAssessment',
-    'handleSaveAssessmentPlan',
-    'handleDeleteAssessmentPlan',
-    'handleSaveAssessmentPackage',
-    'handleDeleteAssessmentPackage',
-    'handleSaveRemedials',
-    'handleSaveEnrichments',
-    'handleSaveLearningPlan',
-    'handleDeleteLearningPlan',
-  ];
-
-  for (const handler of noOpHandlers) {
-    assert.ok(
-      appSource.includes(`const ${handler} = `),
-      `App.tsx must define ${handler}`
-    );
+runTest('Pemetaan → Tahunan uses real readiness; invalid/dangling mapping cannot proceed',()=>{
+  for(const mapping of [ctx.atpUnitMapping,{...ctx.atpUnitMapping,units:[]}]) {
+    let step='';const notices:any[]=[];
+    const enter=appCallback('handleEnterAnnualPlanning',{isK13,resolveATPUnitMappingReadiness,transitionalAcademicSetting:ctx.academicSetting,
+      activeATPUnitMapping:mapping,activeATP:ctx.atp,activeTP:ctx.tp,setCurrentStep:(s:string)=>step=s,setAppNotice:(n:any)=>notices.push(n)});
+    jsxCallback('ATPUnitMappingManager','onNextStep',{handleEnterAnnualPlanning:enter})();
+    assert.equal(step,mapping.units.length?'annual-planning':'atp-mapping');
+    assert.equal(notices.length,mapping.units.length?0:1);
   }
 });
-
-console.log(`\nAll ${totalTests} Merdeka V5 Semester Navigation audit tests PASSED successfully!\n`);
+runTest('Missing/stale annual dependencies block Semester and Admin even with a selected semester',()=>{
+  for(const change of ['missing','stale']) {
+    const state=structuredClone(ready);
+    if(change==='missing')state.annualData.atpUnitMappings=[];
+    else state.annualData.atpUnitMappings[0].value.basedOnAtpUpdatedAt='2000-01-01T00:00:00Z';
+    saveStorageV5(state);const invalid=context(state);const report=validateWorkflowDependencies(invalid);
+    assert(report.stepStates.semester.isBlocked);assert(report.stepStates.admin.isBlocked);
+    const tree=WorkflowStepper({...invalid,currentStep:'atp',activeSemesterPlan:state.semesterPlans[0],onSelectStep:()=>assert.fail('blocked click')});
+    assert(byId(tree,'btn-step-semester').props.disabled);assert(byId(tree,'btn-step-admin').props.disabled);
+  }
+  saveStorageV5(ready);
+});
+runTest('Semester completion requires explicit valid selection; annual readiness alone does not complete it',()=>{
+  const report=validateWorkflowDependencies(ctx);
+  assert.equal(report.stepStates['annual-planning'].isComplete,true,JSON.stringify(report.stepStates['annual-planning']));
+  assert.equal(report.stepStates.semester.status,'READY');assert.equal(report.stepStates.semester.isComplete,false);
+  const tree=WorkflowStepper({...ctx,currentStep:'semester',onSelectStep:()=>{}});
+  assert.equal(byId(tree,'btn-step-admin').props.disabled,true);
+});
+runTest('SemesterSelector renders real records, rejects foreign selection, and continues/backtracks correctly',()=>{
+  const selected:string[]=[];let next=0,back=0;
+  const props={semesterPlans:ready.semesterPlans,onSelectSemester:(id:string)=>selected.push(id),onNextStep:()=>next++,onBackToATP:()=>back++};
+  for(const activeSemesterPlan of [undefined,{...ready.semesterPlans[0],id:'foreign-semester'}]) {
+    const tree=SemesterSelector({...props,activeSemesterPlan});assert(byId(tree,'btn-next-to-admin-from-semester').props.disabled);
+  }
+  const tree=SemesterSelector({...props,activeSemesterPlan:ready.semesterPlans[1]});
+  assert.equal(byId(tree,'btn-next-to-admin-from-semester').props.disabled,false);
+  const choice=nodes(tree,n=>n.type==='button'&&nodeText(n).includes(ready.semesterPlans[0].id))[0];assert(choice);choice.props.onClick();
+  assert.deepEqual(selected,[ready.semesterPlans[0].id]);byId(tree,'btn-next-to-admin-from-semester').props.onClick();assert.equal(next,1);
+  assert.match(nodeText(byId(tree,'btn-back-to-atp')),/Perencanaan Tahunan \(08\)/);byId(tree,'btn-back-to-atp').props.onClick();assert.equal(back,1);
+});
+runTest('App selects semester using V5 authority, refreshes only after success, and reports invalid IDs',()=>{
+  let refreshed=0;const notices:any[]=[];
+  const select=appCallback('handleSelectSemester',{setActiveSemesterPlanV5,refreshV5:()=>refreshed++,setAppNotice:(n:any)=>notices.push(n)});
+  select(ready.semesterPlans[1].id);assert.equal(getRuntimeContextV5().activeSemesterPlan?.id,ready.semesterPlans[1].id);assert.equal(refreshed,1);
+  select('missing');assert.equal(refreshed,1);assert.equal(notices.length,1);
+});
+runTest('App admin navigation rejects missing semester for Merdeka but preserves K13 route',()=>{
+  for(const curriculumType of ['KURIKULUM_MERDEKA','K13']) {
+    let step='';const notices:any[]=[];let annual=0;
+    const select=appCallback('handleSelectStep',{isK13,transitionalAcademicSetting:{...ctx.academicSetting,curriculumType,curriculum:curriculumType==='K13'?'Kurikulum 2013':'Kurikulum Merdeka'},isActiveSemesterValid:false,
+      handleEnterAnnualPlanning:()=>annual++,setCurrentStep:(s:string)=>step=s,setAppNotice:(n:any)=>notices.push(n)});
+    select('admin');assert.equal(step,curriculumType==='K13'?'admin':'semester');assert.equal(notices.length,curriculumType==='K13'?0:1);
+    select('annual-planning');assert.equal(annual,1);
+  }
+});
+// Formerly no-op handlers are now real scoped persistence. Verify writes, guards,
+// refresh order and errors by executing each callback, not searching its source.
+for(const [name,writer,annual] of [
+  ['handleSaveStudents','saveRosterV5',false],['handleSaveCriteria','saveAssessmentCriteriaV5',false],
+  ['handleSaveRemedials','saveRemedialV5',false],['handleSaveEnrichments','saveEnrichmentV5',false],
+  ['handleSaveATPUnitMapping','saveATPUnitMappingV5',true],['handleSaveUnitExecutionPlan','saveUnitExecutionPlanV5',true],
+] as const)runTest(name+' writes the canonical scope; missing scope/error never refreshes',()=>{
+  for(const mode of ['ok','missing','error']) {
+    const events:any[]=[];const payload=annual?{id:'fixture'}:[];const notices:any[]=[];
+    const callback=appCallback(name,{activeYearPlan:mode==='missing'?undefined:ready.yearPlans[0],activeSemesterPlan:mode==='missing'?undefined:ready.semesterPlans[0],
+      [writer]:(...args:unknown[])=>{if(mode==='error')throw Error('fixture failure');events.push(['save',...args]);},
+      refreshV5:()=>events.push(['refresh']),setAppNotice:(n:any)=>notices.push(n)});
+    const result=callback(payload);
+    if(mode==='ok')assert.deepEqual(events,[['save',annual?ready.yearPlans[0].id:ready.semesterPlans[0].id,payload],['refresh']]);
+    else {assert.deepEqual(events,[]);assert.equal(notices.length,1);}
+    if(annual)assert.equal(result,mode==='ok');
+  }
+});
+runTest('Attendance/grade upserts replace only their target records; assessment deletion keeps unrelated results',()=>{
+  const runtimeContext={semesterData:{attendance:{sessions:[{id:'s1'},{id:'s2'}],records:[{id:'r1',sessionId:'s1'},{id:'r2',sessionId:'s2'}]},grade:{assessments:[{id:'a1'},{id:'a2'}],results:[{id:'g1',assessmentId:'a1'},{id:'g2',assessmentId:'a2'}]}}};
+  for(const [name,writer,args,expected] of [
+    ['handleSaveAttendance','saveAttendanceV5',[{id:'s1',edited:true},[{id:'new',sessionId:'s1'}]],{sessions:[{id:'s1',edited:true},{id:'s2'}],records:[{id:'r2',sessionId:'s2'},{id:'new',sessionId:'s1'}]}],
+    ['handleSaveAssessment','saveGradeV5',[{id:'a1',edited:true},[{id:'new',assessmentId:'a1'}]],{assessments:[{id:'a1',edited:true},{id:'a2'}],results:[{id:'g2',assessmentId:'a2'},{id:'new',assessmentId:'a1'}]}],
+    ['handleDeleteAssessment','saveGradeV5',['a1'],{assessments:[{id:'a2'}],results:[{id:'g2',assessmentId:'a2'}]}],
+  ] as const) {
+    let writes=0;const before=JSON.stringify(runtimeContext);
+    appCallback(name,{runtimeContext,activeSemesterPlan:ready.semesterPlans[0],[writer]:(id:string,data:unknown)=>{writes++;assert.equal(id,ready.semesterPlans[0].id);assert.deepEqual(data,expected);},refreshV5:()=>{},setAppNotice:()=>assert.fail('unexpected save error')})(...args);
+    assert.equal(writes,1);assert.equal(JSON.stringify(runtimeContext),before);
+  }
+});
+console.log(`PASS ${passedTests}/${totalTests}: V21 five-stage navigation, dependency gates, actual UI handlers, scoped persistence, runtime isolation and V3 preservation.`);

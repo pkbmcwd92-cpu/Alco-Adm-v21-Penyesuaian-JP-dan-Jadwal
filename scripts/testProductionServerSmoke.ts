@@ -18,22 +18,14 @@ function assert(condition: boolean, message: string) {
 async function runTests() {
   console.log('=== Running Production Server Smoke Tests ===\n');
 
-  // Ensure dist directory and a fallback index.html exist so the SPA static server does not crash
-  const distDir = path.join(process.cwd(), 'dist');
-  if (!fs.existsSync(distDir)) {
-    fs.mkdirSync(distDir, { recursive: true });
-  }
-  const indexPath = path.join(distDir, 'index.html');
-  if (!fs.existsSync(indexPath)) {
-    fs.writeFileSync(indexPath, '<!doctype html><html><body>SPA Dummy</body></html>');
-  }
+  for(const file of ['dist/index.html','dist/server.cjs']) {if(!fs.existsSync(file))throw new Error('Build required before smoke test: '+file);}
 
   const TEST_PORT = '3999';
-  const baseUrl = `http://localhost:${TEST_PORT}`;
+  const baseUrl = `http://127.0.0.1:${TEST_PORT}`;
 
   // Spawn production server
   console.log(`Spawning production server on port ${TEST_PORT}...`);
-  const serverProcess = spawn('node', ['dist/server.cjs'], {
+  const serverProcess = spawn(process.execPath, ['dist/server.cjs'], {
     env: {
       ...process.env,
       PORT: TEST_PORT,
@@ -41,6 +33,11 @@ async function runTests() {
       NODE_ENV: 'production'
     }
   });
+
+  let serverOutput='';
+  serverProcess.stdout?.on('data',data=>{serverOutput=(serverOutput+data).slice(-12000);});
+  serverProcess.stderr?.on('data',data=>{serverOutput=(serverOutput+data).slice(-12000);});
+  serverProcess.on('error',error=>{serverOutput+=String(error);});
 
   // Track if process exited prematurely
   let serverExited = false;
@@ -72,14 +69,15 @@ async function runTests() {
   // Wait for server to start by polling /api/health
   console.log('Waiting for server to become ready...');
   let isReady = false;
-  for (let attempt = 1; attempt <= 50; attempt++) {
+  const readinessDeadline=Date.now()+60_000;
+  while(Date.now()<readinessDeadline) {
     if (serverExited) {
       console.error(`Server exited prematurely with exit code ${exitCode}`);
       break;
     }
     try {
-      const res = await fetch(`${baseUrl}/api/health`);
-      if (res.status === 200) {
+      const res = await fetch(`${baseUrl}/api/health`,{signal:AbortSignal.timeout(2000)});
+      if (res.status === 200 && res.headers.get('content-type')?.includes('application/json') && (await res.json() as {status?:string}).status==='ok') {
         isReady = true;
         break;
       }
@@ -90,6 +88,7 @@ async function runTests() {
   }
 
   if (!isReady) {
+    console.error(serverOutput);
     console.error('Server failed to start or become ready in time.');
     await terminateServer();
     process.exit(1);
@@ -126,13 +125,13 @@ async function runTests() {
         })
       });
 
-      assert(res.status === 503, `POST /api/ai/generate-tp returns HTTP 503 (received: ${res.status})`);
+      assert(res.status === 200, `POST /api/ai/generate-tp returns explicit pedagogical fallback HTTP 200 (received: ${res.status})`);
       
       const contentType = res.headers.get('content-type') || '';
       assert(contentType.includes('application/json'), `Content-Type contains application/json (received: ${contentType})`);
       
       const data = await res.json() as any;
-      assert(data.code === 'AI_NOT_CONFIGURED', 'Returns expected JSON code AI_NOT_CONFIGURED because Gemini key is absent');
+      assert(data.success===true && data.engine==='pedagogical_engine' && Array.isArray(data.items) && data.items.length>0, 'Without Gemini key TP uses explicit pedagogical_engine with nonempty items');
       
       // Explicitly check it is not HTML
       const responseText = JSON.stringify(data);

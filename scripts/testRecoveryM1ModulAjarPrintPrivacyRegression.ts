@@ -2,9 +2,11 @@ import {
   createEmptyLearningPlan,
   createAIDraftLearningPlan,
   validateLearningPlan,
+  validateLearningPlanForModulAjar,
   confirmLearningPlan,
 } from '../src/services/learningPlanService';
 import { generateModulAjar } from '../src/services/documentEngine/generators/modulAjarGenerator';
+import { withCanonicalLearningPlanContext } from './fixtures/canonicalLearningPlanContext';
 import { formatDocumentDate } from '../src/services/documentDateService';
 import {
   CANONICAL_GRADUATE_PROFILE_DIMENSIONS,
@@ -12,6 +14,7 @@ import {
   validateGraduateProfileDimensions,
 } from '../src/constants/graduateProfileDimensions';
 import { APP_BUILD_ID } from '../src/config/buildInfo';
+import { evaluateExpression,initializer } from './helpers/uiContractHarness';
 import { AcademicSetting, TPData, ATPData, LearningPlan, SchoolData, TeacherProfile } from '../src/types';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -33,7 +36,8 @@ async function runM111RegressionSuite() {
 
   // 1. Build ID verification
   console.log('--- Check 1: Build ID ---');
-  assert(APP_BUILD_ID === 'M1.1.1-20260923-1', `Build ID must be M1.1.1-20260923-1 (Actual: ${APP_BUILD_ID})`);
+  const buildExpression=initializer('src/config/buildInfo.ts','APP_BUILD_ID');
+  assert(APP_BUILD_ID === 'runtime-unknown' && evaluateExpression(buildExpression,{__APP_BUILD_ID__:'test-build-sha'})==='test-build-sha', 'Build ID uses injected build metadata; plain Node runtime explicitly reports unknown');
 
   const mockSchool: SchoolData = {
     id: 's-m1',
@@ -153,7 +157,7 @@ async function runM111RegressionSuite() {
     updatedAt: new Date().toISOString(),
   };
 
-  const incompleteVal = validateLearningPlan(incompleteSiapPlan, {
+  const incompleteVal = validateLearningPlanForModulAjar(incompleteSiapPlan, {
     academicSetting: mockSetting,
     tp: mockTpData,
     atp: mockAtpData,
@@ -165,7 +169,7 @@ async function runM111RegressionSuite() {
       incompleteVal.finalizationErrors.some((e) => e.includes('Dimensi Profil Lulusan')) &&
       incompleteVal.finalizationErrors.some((e) => e.includes('Sarana')) &&
       incompleteVal.finalizationErrors.some((e) => e.includes('Model/praktik')),
-    'validateLearningPlan must block SIAP when print-readiness fields are missing',
+    'Modul Ajar readiness must reject all missing print fields',
     incompleteVal.finalizationErrors.join(' | ')
   );
 
@@ -314,6 +318,8 @@ async function runM111RegressionSuite() {
   const completeSiapPlan: LearningPlan = {
     ...incompleteSiapPlan,
     id: 'lp-complete',
+    allocatedJP:3,
+    learningSteps:{opening:[{id:'o',description:'Apersepsi algoritma',durationMinutes:10}],core:[{id:'c',description:'Menyusun diagram alir',durationMinutes:100}],closing:[{id:'e',description:'Refleksi hasil',durationMinutes:10}]},
     initialCompetency: 'Murid diharapkan telah mengenal konsep instruksi berurutan dalam kehidupan sehari-hari.',
     graduateProfileDimensions: ['Penalaran Kritis', 'Kemandirian'],
     resources: [
@@ -325,7 +331,7 @@ async function runM111RegressionSuite() {
     triggerQuestions: ['Bagaimana komputer dapat mengikuti instruksi dengan tepat?'],
   };
 
-  const completeVal = validateLearningPlan(completeSiapPlan, {
+  const completeVal = validateLearningPlanForModulAjar(completeSiapPlan, {
     academicSetting: mockSetting,
     tp: mockTpData,
     atp: mockAtpData,
@@ -340,7 +346,7 @@ async function runM111RegressionSuite() {
   // Check 5: DOCX Generation produces valid file
   console.log('\n--- Check 5: DOCX Export Output ---');
 
-  const docxResult = await generateModulAjar({
+  const docxResult = await generateModulAjar(withCanonicalLearningPlanContext({
     school: mockSchool,
     profile: mockProfile,
     academicSetting: mockSetting,
@@ -349,7 +355,7 @@ async function runM111RegressionSuite() {
     atp: mockAtpData,
     documentDate: '2030-01-15',
     skipDownload: true,
-  });
+  }));
 
   assert(
     docxResult.success &&

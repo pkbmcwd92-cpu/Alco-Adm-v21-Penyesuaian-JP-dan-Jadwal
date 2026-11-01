@@ -150,7 +150,7 @@ const validCP: CPData = {
   academicSettingId: 'acad-001',
   generalDescription: 'Peserta didik memahami rukun iman dan akhlak terpuji.',
   elements: [{ id: 'elem-1', name: 'Akidah', content: 'Memahami makna Asmaul Husna.' }],
-  source: {
+  source: {retrievedAt: '2026-01-01T00:00:00Z', institution: 'Fixture school',
     regulationId: 'reg-001',
     title: 'Keputusan Kepala BSKAP No. 032/H/KR/2024',
     verificationStatus: 'VERIFIED',

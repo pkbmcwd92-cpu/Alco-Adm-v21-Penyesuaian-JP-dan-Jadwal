@@ -10,10 +10,10 @@ import type { TPData, ATPData, ATPUnitMappingData } from '../src/types';
 const labels = ['Gerak melempar; menangkap; memukul bola', 'Kebersihan diri; kesehatan',
   'Keselamatan saat bermain', 'non-lokomotor di tempat'];
 const tp: TPData = { id: 'tp-pjok', academicSettingId: 'year', updatedAt: '2026-10-18', items: [
-  { id: 'manip', code: 'TP1', statement: 'Mengombinasikan keterampilan manipulatif dengan variasi arah dan kekuatan.', contentScope: 'Pola manipulatif' },
-  { id: 'sehat', code: 'TP2', statement: 'Membiasakan perawatan tubuh dan perilaku hidup sehat.', contentScope: 'Perawatan tubuh' },
-  { id: 'aman', code: 'TP3', statement: 'Mengenali risiko cedera dan meminta bantuan orang dewasa tepercaya.', contentScope: 'Pencegahan bahaya' },
-  { id: 'non', code: 'TP4', statement: 'Mempraktikkan gerak non-lokomotor dengan kendali tubuh.', contentScope: 'Keseimbangan postural' },
+  {order: 1, competence: 'Memahami', id: 'manip', code: 'TP1', statement: 'Mengombinasikan keterampilan manipulatif dengan variasi arah dan kekuatan.', contentScope: 'Pola manipulatif' },
+  {order: 2, competence: 'Memahami', id: 'sehat', code: 'TP2', statement: 'Membiasakan perawatan tubuh dan perilaku hidup sehat.', contentScope: 'Perawatan tubuh' },
+  {order: 3, competence: 'Memahami', id: 'aman', code: 'TP3', statement: 'Mengenali risiko cedera dan meminta bantuan orang dewasa tepercaya.', contentScope: 'Pencegahan bahaya' },
+  {order: 4, competence: 'Memahami', id: 'non', code: 'TP4', statement: 'Mempraktikkan gerak non-lokomotor dengan kendali tubuh.', contentScope: 'Keseimbangan postural' },
 ] };
 const atp: ATPData = { id: 'atp-pjok', academicSettingId: 'year', updatedAt: tp.updatedAt,
   items: tp.items.map((item, index) => ({ id: 'a'+index, stepNumber: index+1, focus: 'Fokus pedagogis '+index, linkedTpIds: [item.id] })) };

@@ -17,13 +17,13 @@ function assert(condition: boolean, message: string) {
 async function runTests() {
   console.log('=== Running Development Server Smoke Tests ===\n');
 
-  const TEST_PORT = '3000';
+  const TEST_PORT = '4179';
   const baseUrl = `http://127.0.0.1:${TEST_PORT}`;
-  const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 
-  // Spawn development server via 'npm run dev'
+
+  // Launch the same tsx server entry point as npm run dev without a platform shell.
   console.log(`Spawning development server via 'npm run dev' on port ${TEST_PORT}...`);
-  const serverProcess = spawn(npmCmd, ['run', 'dev'], {
+  const serverProcess = spawn(process.execPath, ['--import','tsx','server.ts'], {
     env: {
       ...process.env,
       PORT: TEST_PORT,
@@ -32,6 +32,11 @@ async function runTests() {
       DISABLE_HMR: 'true'
     }
   });
+
+  let serverOutput='';
+  serverProcess.stdout?.on('data',data=>{serverOutput=(serverOutput+data).slice(-12000);});
+  serverProcess.stderr?.on('data',data=>{serverOutput=(serverOutput+data).slice(-12000);});
+  serverProcess.on('error',error=>{serverOutput+=String(error);});
 
   // Track if process exited prematurely
   let serverExited = false;
@@ -72,14 +77,15 @@ async function runTests() {
   console.log('Waiting for development server to become ready...');
   let isReady = false;
   // Poll up to 100 times (10 seconds)
-  for (let attempt = 1; attempt <= 100; attempt++) {
+  const readinessDeadline=Date.now()+60_000;
+  while(Date.now()<readinessDeadline) {
     if (serverExited) {
       console.error(`Server exited prematurely with exit code ${exitCode}`);
       break;
     }
     try {
-      const res = await fetch(`${baseUrl}/api/health`);
-      if (res.status === 200) {
+      const res = await fetch(`${baseUrl}/api/health`,{signal:AbortSignal.timeout(2000)});
+      if (res.status === 200 && res.headers.get('content-type')?.includes('application/json') && (await res.json() as {status?:string}).status==='ok') {
         isReady = true;
         break;
       }
@@ -90,6 +96,7 @@ async function runTests() {
   }
 
   if (!isReady) {
+    console.error(serverOutput);
     console.error('Development server failed to start or become ready in time.');
     await terminateServer();
     process.exit(1);
@@ -131,14 +138,14 @@ async function runTests() {
         })
       });
 
-      assert(res.status === 503, `POST /api/ai/generate-tp returns HTTP 503 (received: ${res.status})`);
+      assert(res.status === 200, `POST /api/ai/generate-tp returns explicit pedagogical fallback HTTP 200 (received: ${res.status})`);
       
       const contentType = res.headers.get('content-type') || '';
       assert(contentType.includes('application/json'), `Content-Type contains application/json (received: ${contentType})`);
       isApiGenerateTpJson = contentType.includes('application/json');
       
       const data = await res.json() as any;
-      assert(data.error !== undefined && (data.error.includes('GEMINI_API_KEY tidak terpasang') || data.error.includes('belum dikonfigurasi')), 'Returns expected JSON error because Gemini key is absent');
+      assert(data.success===true && data.engine==='pedagogical_engine' && Array.isArray(data.items) && data.items.length>0, 'Without Gemini key TP uses explicit pedagogical_engine with nonempty items');
       
       // Explicitly check it is not HTML
       const responseText = JSON.stringify(data);

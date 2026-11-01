@@ -17,7 +17,9 @@ import {
 } from '../src/components/administration/LearningPlanManager';
 import { generateAutoDraftPlansFromCanonicalContext, validateAssessmentPlan } from '../src/services/assessmentPlanService';
 import { resolveScheduledLearningMeetings } from '../src/services/scheduledLearningMeetingProjectionService';
-import { buildModulAjarProjection } from '../src/services/documentEngine/modulAjarProjection';
+import { buildModulAjarProjection as buildCurrentModulAjarProjection } from '../src/services/documentEngine/modulAjarProjection';
+import { withCanonicalLearningPlanContext } from './fixtures/canonicalLearningPlanContext';
+const buildModulAjarProjection=(context:Parameters<typeof buildCurrentModulAjarProjection>[0])=>{const p=buildCurrentModulAjarProjection(withCanonicalLearningPlanContext(context));if(!p.isReady)console.log('Projection diagnostic:',p.error);return p;};
 import { generateModulAjar } from '../src/services/documentEngine/generators/modulAjarGenerator';
 import { generatePdfDocument } from '../src/services/documentEngine/renderers/pdf/pdfDocGenerators';
 import { validateDocumentRequirements } from '../src/services/documentEngine';
@@ -243,9 +245,9 @@ async function runRegressionSuite() {
     learningModel: 'Pembelajaran Kontekstual',
     p3Dimensions: ['Bernalar Kritis'],
     learningSteps: {
-      opening: [{ id: 's1', description: 'Apersepsi' }],
-      core: [{ id: 's2', description: 'Latihan Logika' }],
-      closing: [{ id: 's3', description: 'Refleksi' }],
+      opening: [{ id: 's1', description: 'Apersepsi', durationMinutes: 10 }],
+      core: [{ id: 's2', description: 'Latihan Logika', durationMinutes: 220 }],
+      closing: [{ id: 's3', description: 'Refleksi', durationMinutes: 10 }],
     },
     learningExperiences: [
       { id: 'e1', phase: 'UNDERSTAND', description: 'Mengamati contoh algoritma sederhana', durationMinutes: 20 },

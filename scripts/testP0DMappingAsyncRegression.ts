@@ -1,7 +1,7 @@
 import assert from 'node:assert';
 import { runGuardedAnalysis } from '../src/services/atpAsyncGuard';
 import { computeMappingFingerprint } from '../src/services/atpMappingActionApplyService';
-import type { ATPData, TPData, ATPUnitMapping } from '../types';
+import type { ATPData, TPData, ATPUnitMapping } from '../src/types';
 
 console.log('=== RUNNING P0-D ASYNC SAFETY REGRESSION TESTS ===');
 
@@ -15,13 +15,14 @@ const mockAtp: ATPData = {
 };
 
 const mockTp: TPData = {
+  academicSettingId:'set-1',
   id: 'tp-1',
   updatedAt: '2026-01-01',
   items: [],
 };
 
 const mockUnits: ATPUnitMapping[] = [
-  { id: 'u-1', title: 'Bab 1', order: 1, materials: [], linkedAtpItemIds: [] }
+  { id: 'u-1', title: 'Bab 1', order: 1, materials: [], linkedTpIds: [], linkedAtpItemIds: [] }
 ];
 
 async function runTests() {
@@ -98,7 +99,7 @@ async function runTests() {
       tpGetter: () => currentTp,
       expectedFingerprint: fp,
       fetchFn: async () => {
-        currentUnits = [{ id: 'u-2', title: 'Bab Baru', order: 1, materials: [], linkedAtpItemIds: [] }];
+        currentUnits = [{ id: 'u-2', title: 'Bab Baru', order: 1, materials: [], linkedTpIds: [], linkedAtpItemIds: [] }];
         return { analysis: 'result' };
       },
     });

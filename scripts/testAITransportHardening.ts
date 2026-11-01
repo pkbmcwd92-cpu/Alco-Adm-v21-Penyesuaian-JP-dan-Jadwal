@@ -601,7 +601,7 @@ async function runTests() {
 
     // Pedagogical Fallback Case
     const fallbackEngine = 'pedagogical_engine';
-    const isFallbackGemini = fallbackEngine === 'gemini';
+    const isFallbackGemini = ((engine: string) => engine === 'gemini')(fallbackEngine);
     const tpCandidateFallback = {
       generatedBy: isFallbackGemini ? 'AI' : undefined,
       generationEngine: fallbackEngine,
