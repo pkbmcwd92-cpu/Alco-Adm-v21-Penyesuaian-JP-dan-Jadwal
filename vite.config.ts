@@ -37,7 +37,7 @@ export default defineConfig(() => {
           skipWaiting: false,
           clientsClaim: true,
           globIgnores: ['**/build-info.json'],
-          navigateFallbackDenylist: [/\/build-info\.json$/],
+          navigateFallbackDenylist: [/^\/api\//, /\/build-info\.json$/],
           maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
         },
         manifest: {
