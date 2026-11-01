@@ -1,5 +1,11 @@
 import { CurriculumPhase, CurriculumRuleEvidence, SchoolLevel, VerificationStatus } from '../types';
 
+export interface CPSourceFigure {
+  id: string; elementNumber: string; pdfPage: number; assetPath: string;
+  sha256: string; pdfImageName: string; width: number; height: number;
+  transcription: string; alt: string;
+}
+
 export interface CPElement {
   id?: string;
   number?: string;
@@ -24,5 +30,5 @@ export interface MasterCPEntry {
   effectiveUntil?: string | null;
   verificationStatus: VerificationStatus;
   notes?: string;
-  sourceReview?: { schemaVersion: string; status: string; regulation: string; attachment: string; file: string; pdfSha256: string; section: string; subjectName: string; grades: number[]; pages: { awal: number; akhir_terdeteksi: number }; extractedText: string; recordStatus: string };
+  sourceReview?: { schemaVersion: string; status: string; regulation: string; attachment: string; file: string; pdfSha256: string; section: string; subjectName: string; grades: number[]; pages: { awal: number; akhir_terdeteksi: number }; extractedText: string; recordStatus: string; figures?: CPSourceFigure[] };
 }

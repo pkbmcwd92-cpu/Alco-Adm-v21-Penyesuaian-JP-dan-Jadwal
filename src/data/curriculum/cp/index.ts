@@ -1,5 +1,6 @@
 import { CurriculumPhase, SchoolLevel } from '../types';
 import { MasterCPEntry } from './types';
+import { getCPSourceAuditIssue } from './sourceAudit';
 import { SD_CP_ENTRIES } from './sd';
 import { SMP_CP_ENTRIES } from './smp';
 import { SMA_CP_ENTRIES } from './sma';
@@ -148,13 +149,16 @@ export function resolveCPContext(
     baseCandidates = baseCandidates.filter((cp) => cp.level === levelFilter);
   }
 
+  const auditedIssue = baseCandidates.map(getCPSourceAuditIssue).find(Boolean);
+  baseCandidates = baseCandidates.filter(cp => !getCPSourceAuditIssue(cp));
+
   if (baseCandidates.length === 0) {
     return {
       cp: null,
       entry: null,
       status: 'UNRESOLVED',
       candidates: [],
-      reason: `Tidak ditemukan Capaian Pembelajaran untuk mata pelajaran ${code} pada Fase ${phase}.`,
+      reason: auditedIssue || `Tidak ditemukan Capaian Pembelajaran untuk mata pelajaran ${code} pada Fase ${phase}.`,
     };
   }
 

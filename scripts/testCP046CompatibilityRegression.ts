@@ -7,20 +7,22 @@ import * as current from '../src/data/curriculum/cp';
 import * as subjects from '../src/data/curriculum/subjects';
 import { SUBJECT_OPTIONS } from '../src/data/curriculumDefaults';
 import { cpSourceRepository } from '../src/services/cpSourceRepository';
+import { getRegulationSource } from '../src/data/curriculum/regulations';
 import { validateCPDataWorkflow } from '../src/services/cpWorkflowService';
 import { createInitialStorageV5, saveStorageV5, loadStorageV5 } from '../src/services/storageV5';
 
 // Execute the actual main modules, rather than a manually maintained expected snapshot.
-const base = execFileSync('git', ['rev-parse', 'origin/main'], {encoding:'utf8'}).trim();
+const base = execFileSync('git', ['rev-parse', process.env.CP_COMPAT_BASE || 'origin/main'], {encoding:'utf8'}).trim();
 const gitSource = (file:string) => execFileSync('git', ['show', `${base}:${file}`], {encoding:'utf8', maxBuffer: 8e6});
 const cache = new Map<string, any>();
 function execute(source:string, requireModule:(name:string)=>any, bindings:Record<string,unknown> = {}) {
-  const js = ts.transpileModule(source, {compilerOptions:{module:ts.ModuleKind.CommonJS, target:ts.ScriptTarget.ES2022}}).outputText;
+  const js = ts.transpileModule(source, {compilerOptions:{module:ts.ModuleKind.CommonJS, target:ts.ScriptTarget.ES2022, esModuleInterop:true}}).outputText;
   const module = {exports:{} as any};
   new Function('require','module','exports',...Object.keys(bindings),js)(requireModule,module,module.exports,...Object.values(bindings));
   return module.exports;
 }
 function baseline(file:string):any {
+  if(file.endsWith('.json')) return JSON.parse(gitSource(file));
   if(file === 'src/types/index.ts') {
     const source=gitSource(file);
     const ast=ts.createSourceFile(file,source,ts.ScriptTarget.Latest,true);
@@ -31,7 +33,7 @@ function baseline(file:string):any {
   const value = execute(gitSource(file), name => {
     assert(name.startsWith('.'), `Unexpected baseline dependency: ${name}`);
     const stem = path.posix.normalize(path.posix.join(path.posix.dirname(file), name));
-    return baseline(['src/types','src/data/curriculum/cp'].includes(stem) ? `${stem}/index.ts` : `${stem}.ts`);
+    return baseline(stem.endsWith('.json') ? stem : ['src/types','src/data/curriculum/cp'].includes(stem) ? `${stem}/index.ts` : `${stem}.ts`);
   });
   cache.set(file,value); return value;
 }
@@ -68,13 +70,28 @@ try {
     for(const name of [entry.subjectCode,subject?.name,...(subject?.aliases||[])].filter(Boolean)) {
       for(const academicYear of ['2024/2025','2025/2026','2026/2027','invalid','']) {
         const context = {subject:name,phase:entry.phase,level:entry.level,academicYear};
-        assert.deepEqual(current.resolveCPContext({...context,subjectInput:name}),old.resolveCPContext({...context,subjectInput:name}));
-        assert.deepEqual(cpSourceRepository.searchWithDiagnostics(context),oldRepository.searchWithDiagnostics(context));
+        const actual=current.resolveCPContext({...context,subjectInput:name});
+        const previous=old.resolveCPContext({...context,subjectInput:name});
+        if(entry.id==='cp-sd-fase-b-coding-ai') {
+          assert.equal(actual.status,'UNRESOLVED');
+          assert.equal(cpSourceRepository.searchWithDiagnostics(context).status,'UNRESOLVED');
+        } else {
+          assert.deepEqual(actual,previous);
+          const expected=oldRepository.searchWithDiagnostics(context);
+          // Only the proven title, issuer and official document URL for 020/2026
+          // change. Historical CP wording/status/identity remains byte-equivalent.
+          for(const result of expected.results)if(result.sourceMeta.regulationId==='DEC-BKPDM-020-2026') {
+            const regulation=getRegulationSource('DEC-BKPDM-020-2026')!;
+            result.title=regulation.title;result.institution=regulation.authority;result.url=regulation.sourceUrl;
+            result.sourceMeta.title=regulation.title;result.sourceMeta.institution=regulation.authority;result.sourceMeta.url=regulation.sourceUrl;
+          }
+          assert.deepEqual(cpSourceRepository.searchWithDiagnostics(context),expected);
+        }
         contexts++;
       }
     }
   }
-  console.log(`PASS: main ${base}: historical registry, legacy/fuzzy subjects, options and ${contexts} resolver/search contexts identical.`);
+  console.log(`PASS: baseline ${base}: historical registry/subjects/options and ${contexts} contexts; only audited Coding B exclusion and proven 020 metadata differ.`);
 
   const mainManager = gitSource('src/components/CPManager.tsx');
   const manager = readFileSync('src/components/CPManager.tsx','utf8');
@@ -96,7 +113,6 @@ try {
   for(const description of ['Teacher text','']) for(const approved of [true,false]) {
     const before=apply(mainManager,historical,description,approved), after=apply(manager,historical,description,approved);
     assert.deepEqual(after.calls,before.calls,'Legacy confirmation, saved identity and metadata must match main');
-    delete after.draft.PendingReviewedSource;
     assert.deepEqual(after.draft,before.draft);
   }
   const state = createInitialStorageV5();

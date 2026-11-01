@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CPSourceFigures } from './CPSourceFigures';
 import {
   FileSpreadsheet,
   Sparkles,
@@ -329,6 +330,7 @@ export const CPManager: React.FC<CPManagerProps> = ({
 
       {/* CP Editor Form */}
       <div className="space-y-5">
+        <CPSourceFigures source={source} />
         {/* General CP Textarea */}
         <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
@@ -555,6 +557,7 @@ export const CPManager: React.FC<CPManagerProps> = ({
                         </div>
 
                         {/* Snippet preview */}
+                        <CPSourceFigures source={item.sourceMeta} />
                         <p className="text-xs text-slate-600 line-clamp-2 italic bg-white p-2.5 rounded-xl border border-slate-200/80">
                           "{item.generalDescription}"
                         </p>

@@ -1023,12 +1023,12 @@ async function runCurriculumMasterTests() {
   assert(reg020?.year === 2026, 'Tahun regulasi 020/2026 adalah 2026');
   assert(reg020?.type === 'OFFICIAL_DECISION', 'Tipe regulasi adalah OFFICIAL_DECISION');
   assert(
-    reg020?.sourceUrl.startsWith('https://kurikulum.kemdikbud.go.id/'),
+    reg020?.sourceUrl === 'https://kurikulum.kemendikdasmen.go.id/service/download.php?kategori=rujukan&id=142',
     'URL regulasi 020/2026 berasal dari domain resmi portal Kurikulum Kemendikdasmen'
   );
   assert(
-    reg020?.legalEffectiveDate === null,
-    'legalEffectiveDate 020/2026 tidak ditebak (bernilai null karena belum terbukti di naskah hukum)'
+    reg020?.legalEffectiveDate === '2026-06-11',
+    'legalEffectiveDate 020/2026 sesuai diktum KEDUA dan tanggal penetapan pada PDF resmi halaman 3'
   );
   assert(
     reg020?.implementationFromAcademicYear === '2026/2027',

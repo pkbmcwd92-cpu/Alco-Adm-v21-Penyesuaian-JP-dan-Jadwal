@@ -1,3 +1,4 @@
+import { assertAppCPAnalysisSaveContract } from './helpers/appCPAnalysisSaveContract';
 import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -373,31 +374,7 @@ runTest('9. App source wires handleSaveCP -> saveCPV5 and refreshV5', () => {
   );
 });
 
-runTest('10. handleSaveCPAnalysis remains uncoupled/no-op in this task', () => {
-  const appPath = path.resolve(process.cwd(), 'src/App.tsx');
-  const appSource = fs.readFileSync(appPath, 'utf-8');
-
-  assert.ok(
-    appSource.includes('const handleSaveCPAnalysis = (analysis: CPAnalysisData) => {'),
-    'App.tsx must define handleSaveCPAnalysis'
-  );
-
-  // Extract handleSaveCPAnalysis body
-  const match = appSource.match(/const handleSaveCPAnalysis = \(analysis: CPAnalysisData\) => \{([\s\S]*?)\};/);
-  assert.ok(match, 'handleSaveCPAnalysis function must exist in App.tsx');
-  const body = match[1];
-
-  assert.strictEqual(
-    body.includes('saveCPAnalysisV5'),
-    false,
-    'handleSaveCPAnalysis must NOT call saveCPAnalysisV5 in this task'
-  );
-  assert.strictEqual(
-    body.includes('saveStorageV5'),
-    false,
-    'handleSaveCPAnalysis must NOT modify storage in this task'
-  );
-});
+runTest('10. App CP Analysis save follows the canonical guarded boolean contract', assertAppCPAnalysisSaveContract);
 
 console.log(`\n========================================`);
 console.log(`MERDEKA V5 ANNUAL CP RUNTIME: ALL ${passedTests}/${totalTests} TESTS PASSED`);

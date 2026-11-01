@@ -1,3 +1,4 @@
+import { assertAppCPAnalysisSaveContract } from './helpers/appCPAnalysisSaveContract';
 import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -417,46 +418,7 @@ runTest('11. V3 sentinel unchanged byte-for-byte', () => {
   );
 });
 
-runTest('12. App source wires handleSaveCPAnalysis -> saveCPAnalysisV5 -> refreshV5', () => {
-  const appPath = path.resolve(process.cwd(), 'src/App.tsx');
-  const appSource = fs.readFileSync(appPath, 'utf-8');
-
-  // Verify saveCPAnalysisV5 is imported from ./services/storageV5
-  assert.ok(
-    /import\s*\{[^}]*saveCPAnalysisV5[^}]*\}\s*from\s*['"]\.\/services\/storageV5['"]/.test(appSource),
-    'App.tsx must import saveCPAnalysisV5 from ./services/storageV5'
-  );
-
-  const startIndex = appSource.indexOf('const handleSaveCPAnalysis = (analysis: CPAnalysisData) => {');
-  assert.ok(startIndex !== -1, 'handleSaveCPAnalysis function must be defined in App.tsx');
-  const endIndex = appSource.indexOf('const handleSaveTP =', startIndex);
-  const body = appSource.slice(startIndex, endIndex !== -1 ? endIndex : startIndex + 1000);
-
-  assert.ok(
-    body.includes('saveCPAnalysisV5(activeYearPlan.id,'),
-    'handleSaveCPAnalysis must call saveCPAnalysisV5'
-  );
-  assert.ok(
-    body.includes('refreshV5()'),
-    'handleSaveCPAnalysis must call refreshV5()'
-  );
-  assert.ok(
-    body.includes('`cpanalysis-${activeYearPlan.id}`'),
-    'handleSaveCPAnalysis must normalize id to cpanalysis-${activeYearPlan.id}'
-  );
-  assert.ok(
-    body.includes('academicSettingId: activeYearPlan.id'),
-    'handleSaveCPAnalysis must set academicSettingId to activeYearPlan.id'
-  );
-  assert.ok(
-    body.includes('cpId: persistedCP.id'),
-    'handleSaveCPAnalysis must set cpId to active persisted CP id'
-  );
-  assert.ok(
-    body.includes('basedOnCpUpdatedAt:') && body.includes('persistedCP.updatedAt'),
-    'handleSaveCPAnalysis must handle basedOnCpUpdatedAt with fallback logic'
-  );
-});
+runTest('12. App CP Analysis save follows the canonical guarded boolean contract', assertAppCPAnalysisSaveContract);
 
 console.log(`\n========================================`);
 console.log(`MERDEKA V5 CP ANALYSIS RUNTIME: ALL ${passedTests}/${totalTests} TESTS PASSED`);

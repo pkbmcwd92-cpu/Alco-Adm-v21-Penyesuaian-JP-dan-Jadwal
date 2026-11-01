@@ -10,6 +10,7 @@ import { validateCP4Input } from '../src/services/cpAnalysisDraft';
 import { separateElementLabel } from '../src/data/curriculum/cp/review046Adapter';
 import { createInitialStorageV5, saveStorageV5, loadStorageV5 } from '../src/services/storageV5';
 import source from '../src/data/curriculum/cp/sources/cp-sd-bskap-046-2025-source-matched.json';
+import supplement from '../src/data/curriculum/cp/sources/cp-sd-bskap-046-2025-visual-supplement.json';
 import quarantine from '../docs/cp046-sd-v21-quarantine.json';
 import baseline from '../docs/cp046-sd-v21-baseline.json';
 
@@ -17,14 +18,14 @@ const hash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).d
 assert.equal(hash(ALL_MASTER_CP_ENTRIES),baseline.historicalHash,'Historical registry unchanged');
 assert.equal(hash(REVIEW_CP046_ENTRIES.filter(e=>e.level!=='SD')),baseline.secondaryReviewHash,'SMP/SMA untouched');
 const originalEntries=[...ALL_MASTER_CP_ENTRIES,...REVIEW_CP046_ENTRIES.filter(e=>e.level!=='SD')];
-const resolutions=originalEntries.flatMap(e=>['2024/2025','2025/2026','2026/2027'].map(academicYear=>{
+const resolutions=originalEntries.filter(e=>e.id!=='cp-sd-fase-b-coding-ai').flatMap(e=>['2024/2025','2025/2026','2026/2027'].map(academicYear=>{
   const q={subjectCode:e.subjectCode,phase:e.phase,level:e.level,academicYear,sourceSet:e.sourceReview?'review046':undefined};
   const r=resolveCPContext(q as any);return {q,status:r.status,id:r.cp?.id};
 }));
-assert.equal(hash(resolutions),baseline.resolutionsHash,'Every original resolver outcome remains identical');
-assert.equal(SD_REVIEW_CP_ENTRIES.length,36);
+assert.equal(hash(resolutions),baseline.resolutionsExcludingAuditedCodingBHash,'Every original resolver outcome except the audited invalid Coding B remains identical');
+assert.equal(SD_REVIEW_CP_ENTRIES.length,37);
 assert.equal(quarantine.records.length,2);
-const candidates=[...source.records,...quarantine.records];
+const candidates=[...source.records,...supplement.records,...quarantine.records.filter(r=>!supplement.records.some(s=>s.id===r.id))];
 assert.equal(candidates.length,38);
 assert.equal(new Set([...ALL_MASTER_CP_ENTRIES,...REVIEW_CP046_ENTRIES].map(e=>e.id)).size,ALL_MASTER_CP_ENTRIES.length+REVIEW_CP046_ENTRIES.length);
 const storage=new Map<string,string>();
@@ -33,7 +34,7 @@ const state=createInitialStorageV5(); const stamp='2026-11-01T00:00:00Z';
 state.schools=[{id:'s',name:'School',npsn:'',address:'',village:'',district:'',regency:'',province:'',principalName:'',principalNip:'',createdAt:stamp,updatedAt:stamp}];
 state.profiles=[{id:'p',schoolId:'s',name:'Teacher',nip:'',status:'PNS',defaultSubject:'MAT',defaultLevel:'SD',createdAt:stamp,updatedAt:stamp}];
 for(const record of candidates) {
-  const integrated=source.records.some(r=>r.id===record.id);
+  const integrated=SD_REVIEW_CP_ENTRIES.some(r=>r.id===record.id);
   const entry=SD_REVIEW_CP_ENTRIES.find(e=>e.id===record.id);
   assert.equal(Boolean(entry),integrated,record.id);
   assert.equal(findCP046Subject(record.mata_pelajaran)?.code,entry?.subjectCode??record.mata_pelajaran);
@@ -51,7 +52,11 @@ for(const record of candidates) {
       for(let i=0;i<record.elemen.length;i++) {
         const e=result.elements[i],raw=record.elemen[i];assert.equal(e.name,raw.nama);assert.equal(e.sourceNumber,raw.nomor);
         assert.equal(e.subelements?.length,raw.subelemen.length);assert(e.content.trim());
-        if(!raw.subelemen.length) assert.equal(e.content,separateElementLabel(raw.nama,raw.teks));
+        if(!raw.subelemen.length) {
+          const figure=entry!.sourceReview?.figures?.find(f=>f.elementNumber===raw.nomor);
+          const expected=separateElementLabel(raw.nama,raw.teks);
+          assert.equal(e.content,figure?expected.replace('Contoh:','Contoh:\n'+figure.transcription+'\n'):expected);
+        }
         raw.subelemen.forEach((child,j)=>assert.equal(e.subelements![j].content,separateElementLabel(child.nama,child.teks)));
       }
       const saved={id:'teacher-'+record.id,academicSettingId:record.id,generalDescription:result.generalDescription,elements:result.elements,source:result.sourceMeta,updatedAt:stamp};
@@ -97,5 +102,5 @@ assert.equal(JSON.stringify(loaded.annualData.cp),teacherSnapshot);
 for(const record of source.records)cpSourceRepository.searchSourceChoices({level:'SD',subject:record.mata_pelajaran,phase:record.fase,academicYear:'2025/2026'});
 assert.equal(JSON.stringify(loadStorageV5().annualData.cp),teacherSnapshot);
 assert.equal(hash(ALL_MASTER_CP_ENTRIES),baseline.historicalHash);
-console.log('PASS 38 individual candidates; SD catalog × A-C × three years; original resolver snapshots; 36 hierarchical CP V5 persistence and teacher-edit preservation.');
+console.log('PASS 38 individual candidates; 37 integrated / BING C quarantined; SD catalog × A-C × three years; original resolver snapshots except audited Coding B; 37 CP V5 persistence and teacher-edit preservation.');
 
