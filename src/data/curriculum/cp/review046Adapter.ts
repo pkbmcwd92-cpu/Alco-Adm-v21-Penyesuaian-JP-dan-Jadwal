@@ -16,6 +16,7 @@ export const CP046_SUBJECT_CODES: Record<string, string> = {
   "IV.2": "MAT_LANJUT",
   "V.1": "BING",
   "V.2": "BING_LANJUT",
+  "VI": "IPAS",
   "VII": "IPA",
   "VIII": "FISIKA",
   "IX": "KIMIA",
@@ -66,13 +67,15 @@ function adaptElement(el: ReviewElement): CPElement & { id: string } {
 export function adaptCP046Review(document: ReviewDocument, level: SchoolLevel): MasterCPEntry[] {
   return document.records.map(record => {
     const code = CP046_SUBJECT_CODES[record.kode_bagian];
-    if (!code || !(level === 'SMP' ? record.fase === 'D' : ['E', 'F'].includes(record.fase))) throw new Error('Invalid CP046 identity: ' + record.id);
+    if (!code || !(level === 'SD' ? ['A', 'B', 'C'].includes(record.fase) : level === 'SMP' ? record.fase === 'D' : level === 'SMA' && ['E', 'F'].includes(record.fase))) throw new Error('Invalid CP046 identity: ' + record.id);
     return { id: record.id, subjectCode: code, phase: record.fase as CurriculumPhase, level,
       generalDescription: '', elements: record.elemen.map(adaptElement),
       regulationSourceId: 'DEC-BSKAP-046-2025', implementationFromAcademicYear: '2025/2026',
       implementationUntilAcademicYear: isReligionSubject(code) ? '2025/2026' : null,
-      verificationStatus: 'UNVERIFIED',
-      notes: 'REVIEW: ' + document.status + '. Agama dibatasi sesuai registry 020/2026; masa implementasi perlu review dokumen keputusan.',
+      verificationStatus: level === 'SD' && record.status_verifikasi === 'VERIFIED_SOURCE_MATCH' ? 'VERIFIED' : 'UNVERIFIED',
+      notes: level === 'SD' && record.status_verifikasi === 'VERIFIED_SOURCE_MATCH'
+        ? 'Teks, elemen/subelemen, fase dan halaman dicocokkan terhadap PDF sumber. ' + document.status + '. Agama dibatasi sesuai registry 020/2026; pilih sumber secara eksplisit tanpa mengganti CP guru tersimpan.'
+        : 'REVIEW: ' + document.status + '. Agama dibatasi sesuai registry 020/2026; masa implementasi perlu review dokumen keputusan.',
       sourceReview: { schemaVersion: document.schema_version, status: document.status, regulation: document.sumber.regulasi,
         attachment: document.sumber.lampiran, file: document.sumber.file, pdfSha256: document.sumber.sha256_pdf,
         section: record.kode_bagian, subjectName: record.mata_pelajaran, grades: [...record.kelas],

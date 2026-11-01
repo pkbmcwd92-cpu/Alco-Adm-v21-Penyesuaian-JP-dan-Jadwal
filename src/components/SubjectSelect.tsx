@@ -18,7 +18,7 @@ export const SubjectSelect: React.FC<Props> = ({id,value,onChange,required,class
       {options.map(s=>{
         const cp=getSubjectCPAvailability(s.code,context);
         const label=cp.status==='RESOLVED'?'CP tersedia'+(cp.sources.some(source=>source.verificationStatus==='UNVERIFIED')?' / REVIEW':'')
-          :cp.status==='NOT_APPLICABLE'?'KI/KD':'katalog — cek kelas/tahun';
+          :cp.status==='NOT_APPLICABLE'?'KI/KD':cp.status==='UNRESOLVED'?'UNRESOLVED — CP manual':cp.status==='AMBIGUOUS'?'AMBIGUOUS — tinjau sumber / CP manual':'katalog — cek kelas/tahun';
         return <option key={s.code} value={s.code}>{s.name} — {label}</option>;
       })}
       <option value="__custom__">Mapel khusus / muatan lokal / lainnya…</option>

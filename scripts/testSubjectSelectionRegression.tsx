@@ -53,7 +53,10 @@ for(const [level,phase,grade] of [['SD','A','Kelas 2'],['SD','B','Kelas 4'],['SD
         const r=resolveCPContext({subjectCode:subject.code,phase:phase as any,level:level as any,academicYear,sourceSet:sourceSet==='review046'?'review046':undefined});
         return r.status==='RESOLVED'&&r.cp?.subjectCode===subject.code;
       });
-      assert.equal(choices.some(s=>s.code===subject.code),expected,level+phase+academicYear+subject.code);
+      if(level==='SD') {
+        assert.equal(getSubjectCPAvailability(subject.code,context).status==='RESOLVED',expected,level+phase+academicYear+subject.code);
+        if(expected)assert(choices.some(s=>s.code===subject.code));
+      } else assert.equal(choices.some(s=>s.code===subject.code),expected,level+phase+academicYear+subject.code);
     }
   }
 }
@@ -68,7 +71,7 @@ const entry=ALL_MASTER_CP_ENTRIES.find(e=>e.id===original.sources[0].id)!;
 try {
   ALL_MASTER_CP_ENTRIES.push({...entry,id:entry.id+'-ambiguity-fixture'});
   assert.equal(getSubjectCPAvailability('PJOK',cpContext).status,'AMBIGUOUS');
-  assert(!getSubjectChoices(cpContext).some(s=>s.code==='PJOK'));
+  assert(getSubjectChoices(cpContext).some(s=>s.code==='PJOK'),'Valid subject remains available for manual CP; ambiguous source remains blocked');
   assert(subjectCPLabel(getSubjectCPAvailability('PJOK',cpContext)).includes('AMBIGUOUS'));
 } finally {ALL_MASTER_CP_ENTRIES.pop();}
 const dualContext={level:'SMP',phase:'D',academicYear:'2025/2026'};
@@ -106,7 +109,7 @@ custom.props.onChange({target:{value:'Bahasa Daerah Setempat'}});assert.equal(va
 tree=SubjectSelect(props());find(tree,'select').props.onChange({target:{value:'BINDO'}});assert.equal(value,'Bahasa Indonesia');assert.equal(manual,false);
 const changeCount=changes;
 let unavailable=SubjectSelect({...props(),level:'SD',phase:'A',academicYear:'2024/2025',value:'PJOK'});
-assert.equal(find(unavailable,'select').props.value,'__retained__');assert(renderToStaticMarkup(unavailable).includes('UNRESOLVED'));assert(renderToStaticMarkup(unavailable).includes('Jalur CP manual'));
+assert.equal(find(unavailable,'select').props.value,'PJOK');assert(renderToStaticMarkup(unavailable).includes('UNRESOLVED'));assert(renderToStaticMarkup(unavailable).includes('CP manual'));
 const available=SubjectSelect({...props(),level:'SD',phase:'A',academicYear:'2025/2026',value:'PJOK'});
 assert.equal(find(available,'select').props.value,'PJOK');assert(renderToStaticMarkup(available).includes('VERIFIED'));assert.equal(changes,changeCount);
 const pending=SubjectSelect({...props(),value:'MTK'});assert(!renderToStaticMarkup(pending).includes('CP tersedia'));

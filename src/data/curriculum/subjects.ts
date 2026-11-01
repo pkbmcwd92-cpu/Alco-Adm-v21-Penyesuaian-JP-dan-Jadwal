@@ -354,7 +354,7 @@ export function isReligionSubject(subjectCode?: string): boolean {
 
 /** Additional identities are scoped to explicit CP046 source selection; legacy lookup is unchanged. */
 export const CP046_SUBJECTS: CurriculumSubject[] = [
-  ...CURRICULUM_SUBJECTS.filter(subject => !['PRAKARYA', 'BAHASA_ASING_LAIN', 'LOCAL_CONTENT', 'IPAS'].includes(subject.code)),
+  ...CURRICULUM_SUBJECTS.filter(subject => !['PRAKARYA', 'BAHASA_ASING_LAIN', 'LOCAL_CONTENT'].includes(subject.code)),
   { code: 'SEJARAH_LANJUT', name: 'Sejarah Tingkat Lanjut', aliases: [] },
   { code: 'PRAKARYA_BUDI_DAYA', name: 'Prakarya Budi Daya', aliases: [] },
   { code: 'PRAKARYA_KERAJINAN', name: 'Prakarya Kerajinan', aliases: [] },

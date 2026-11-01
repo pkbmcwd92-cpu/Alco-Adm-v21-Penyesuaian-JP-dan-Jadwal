@@ -7,7 +7,8 @@ import { findSubjectByNameOrAlias, findSubjectByCode, findCP046Subject } from '.
 
 import { SMP_REVIEW_CP_ENTRIES } from './smp';
 import { SMA_REVIEW_CP_ENTRIES } from './sma';
-export const REVIEW_CP046_ENTRIES: MasterCPEntry[] = [...SMP_REVIEW_CP_ENTRIES, ...SMA_REVIEW_CP_ENTRIES];
+import { SD_REVIEW_CP_ENTRIES } from './sd046';
+export const REVIEW_CP046_ENTRIES: MasterCPEntry[] = [...SD_REVIEW_CP_ENTRIES, ...SMP_REVIEW_CP_ENTRIES, ...SMA_REVIEW_CP_ENTRIES];
 
 export * from './types';
 export { SD_CP_ENTRIES } from './sd';

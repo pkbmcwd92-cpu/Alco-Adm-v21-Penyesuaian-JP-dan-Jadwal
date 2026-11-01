@@ -1,5 +1,5 @@
 import { ALL_MASTER_CP_ENTRIES, REVIEW_CP046_ENTRIES, resolveCPContext, parseAcademicYearStart, type MasterCPEntry } from '../data/curriculum/cp';
-import { GRADE_PHASE_MAP, getPhaseFromGrade } from '../data/curriculumDefaults';
+import { GRADE_PHASE_MAP, getPhaseFromGrade, SUBJECT_OPTIONS } from '../data/curriculumDefaults';
 import type { CurriculumPhase, SchoolLevel } from '../data/curriculum/types';
 import { CURRICULUM_SUBJECTS, CP046_SUBJECTS, findCP046Subject, findSubjectByCode, findSubjectByNameOrAlias, normalizeSubjectString } from '../data/curriculum/subjects';
 import type { CurriculumSubject } from '../data/curriculum/types';
@@ -44,6 +44,14 @@ function catalog(context:SubjectSelectionContext):CurriculumSubject[] {
   const pool=context.sourceSet==='review046'?REVIEW_CP046_ENTRIES:context.sourceSet==='historical'?ALL_MASTER_CP_ENTRIES:allEntries;
   const codes=new Set(pool.filter(e=>e.level===context.level&&e.verificationStatus!=='SUPERSEDED'
     &&(state.status==='NOT_APPLICABLE'||!state.phase||e.phase===state.phase)).map(e=>e.subjectCode));
+  // A valid SD subject remains selectable even when its built-in CP is missing,
+  // expired, quarantined or ambiguous. CP availability is a separate diagnostic.
+  if(context.level==='SD') {
+    for(const entry of allEntries)if(entry.level==='SD')codes.add(entry.subjectCode);
+    for(const name of SUBJECT_OPTIONS.SD) {
+      const subject=resolveSelectionSubject(name); if(subject) codes.add(subject.code);
+    }
+  }
   return master.filter(s=>codes.has(s.code));
 }
 
@@ -72,12 +80,12 @@ export function getSubjectChoices(context:SubjectSelectionContext):CurriculumSub
   const state=contextState(context);
   if(state.status==='UNRESOLVED')return [];
   const candidates=catalog(context);
-  return state.status==='RESOLVED'?candidates.filter(s=>getSubjectCPAvailability(s.code,context).status==='RESOLVED'):candidates;
+  return state.status==='RESOLVED'&&context.level!=='SD'?candidates.filter(s=>getSubjectCPAvailability(s.code,context).status==='RESOLVED'):candidates;
 }
 
 export function subjectCPLabel(availability:SubjectCPAvailability):string {
   if(availability.status!=='RESOLVED')return availability.reason;
-  const labels=availability.sources.map(s=>(s.sourceSet==='review046'?'046/2025 REVIEW':'Bawaan/historis')+' / '+s.verificationStatus+' ['+s.regulationSourceId+']');
+  const labels=availability.sources.map(s=>(s.sourceSet==='review046'?(s.verificationStatus==='VERIFIED'?'046/2025':'046/2025 REVIEW'):'Bawaan/historis')+' / '+s.verificationStatus+' ['+s.regulationSourceId+']');
   const ambiguous=availability.blockedSources.filter(s=>s.status==='AMBIGUOUS').map(s=>' Sumber '+(s.sourceSet==='review046'?'046/2025 REVIEW':'historis')+' ambigu dan tidak dapat dipilih.').join('');
   return labels.join('; ')+'. Pilih sumber di Step 3.'+ambiguous;
 }

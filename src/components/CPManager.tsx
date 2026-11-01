@@ -520,15 +520,15 @@ export const CPManager: React.FC<CPManagerProps> = ({
                               {isVerified ? (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">
                                   <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                                  <span>Sumber Resmi Terverifikasi</span>
+                                  <span>Sumber Resmi Terverifikasi (VERIFIED)</span>
                                 </span>
                               ) : (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-amber-100 text-amber-800">
                                   <AlertTriangle className="w-3 h-3 text-amber-600" />
-                                  <span>{itemVerStatus === 'VERSION_CONFLICT' ? 'Konflik Versi Sumber' : 'Sumber Belum Terverifikasi'}</span>
+                                  <span>{itemVerStatus === 'VERSION_CONFLICT' ? 'Konflik Versi Sumber' : 'Sumber Belum Terverifikasi (UNVERIFIED)'}</span>
                                 </span>
                               )}
-                              {item.sourceMeta.sourceReview && <span className="text-xs font-semibold text-amber-800">Tambahan CP 046/2025 • REVIEW</span>}
+                              {item.sourceMeta.sourceReview && <span className="text-xs font-semibold text-amber-800">Tambahan CP 046/2025 • {isVerified ? 'VERIFIED' : 'REVIEW / UNVERIFIED'}</span>}
                               <span className="text-xs font-mono font-bold text-slate-700">
                                 {item.phase} ({item.grade})
                               </span>
