@@ -398,7 +398,7 @@ export function validateWorkflowDependencies(
     const cpAnalysisValidation = validateCPAnalysisDataWorkflow(cpAnalysis, cp);
     const isAnalysisCanonicalSiap = cpAnalysisValidation.isSiap;
     const isAnalysisStale =
-      isCPComplete &&
+      !!cpAnalysis?.items?.length &&
       (isUpstreamStale(cp?.updatedAt, cpAnalysis?.basedOnCpUpdatedAt) || Boolean(cpAnalysis?.needsReview));
     const analysisItems = cpAnalysis?.items || [];
 
@@ -419,7 +419,7 @@ export function validateWorkflowDependencies(
       reason: !isCPComplete
         ? 'Memerlukan Capaian Pembelajaran (CP) yang berstatus SIAP terlebih dahulu'
         : isAnalysisStale
-        ? 'Data CP telah diperbarui, analisis CP perlu diselaraskan'
+        ? cpAnalysis?.reviewReason || 'CP berubah setelah referensi Analisis CP; tinjau terhadap CP aktif.'
         : !isAnalysisCanonicalSiap && analysisItems.length > 0 && cpAnalysisValidation.issues[0]
         ? cpAnalysisValidation.issues[0]
         : undefined,
@@ -449,7 +449,6 @@ export function validateWorkflowDependencies(
     const isAnalysisReadyForTP = isCPComplete && isAnalysisCanonicalSiap && !isAnalysisStale;
     const isTPBlocked = !isAnalysisReadyForTP;
     const isTPStale =
-      !isTPBlocked &&
       tpItems.length > 0 &&
       (isUpstreamStale(cpAnalysis?.updatedAt, tp?.basedOnAnalysisUpdatedAt) ||
         isUpstreamStale(cp?.updatedAt, tp?.basedOnCpUpdatedAt) ||
@@ -480,7 +479,7 @@ export function validateWorkflowDependencies(
             ? `Analisis CP belum lengkap: ${cpAnalysisValidation.issues[0]}`
             : 'Memerlukan Analisis CP yang lengkap dan siap terlebih dahulu sebagai rujukan resmi TP')
         : isTPStale
-        ? 'Analisis CP atau CP induk telah diperbarui, daftar TP perlu diselaraskan'
+        ? tp?.reviewReason || 'Referensi Analisis CP atau CP pada TP sudah lama; daftar TP perlu diselaraskan.'
         : !isTPDataValid && tpItems.length > 0 && tpValidation?.issues?.[0]
         ? tpValidation.issues[0]
         : undefined,
@@ -520,9 +519,9 @@ export function validateWorkflowDependencies(
     const atpItems = atp?.items || [];
     const isATPBlocked = !isTPDataValid || isTPBlocked || isTPStale;
 
-    const isATPStale = isTPDataValid && (
+    const isATPStale = atpItems.length > 0 && (
       isUpstreamStale(tp?.updatedAt, atp?.basedOnTpUpdatedAt) ||
-      Boolean(atp?.needsReview)
+      Boolean(atp?.needsReview) || isTPStale
     );
 
     const atpValidation = !isATPBlocked && atp && atpItems.length > 0
@@ -580,7 +579,7 @@ export function validateWorkflowDependencies(
             ? `TP acuan belum siap: ${tpValidation.issues[0]}`
             : 'Memerlukan daftar Tujuan Pembelajaran (TP) yang siap terlebih dahulu')
         : isATPStale
-        ? 'Daftar TP telah diperbarui, alur ATP perlu ditinjau'
+        ? atp?.reviewReason || 'Referensi TP pada ATP sudah lama atau TP perlu ditinjau; selaraskan ATP.'
         : !isATPComplete && atpItems.length > 0 && atpValidation?.issues?.[0]
         ? atpValidation.issues[0]
         : undefined,

@@ -79,6 +79,7 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
   const validationReport = validateWorkflowDependencies({
     profile,
     school,
+    workspace,
     academicSetting,
     cp,
     cpAnalysis,
@@ -415,6 +416,8 @@ export const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
             <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
             <span>
               <strong>Pemberitahuan Penyelarasan Alur:</strong> Terdapat perubahan pada data hulu (upstream). Modul bertanda <strong>Perlu Ditinjau</strong> disarankan untuk dicek atau diselaraskan ulang.
+              <ul>{steps.filter(step=>step.isStale).map(step=><li key={step.id}>{step.num} {step.title}: {validationReport.issues.find(issue=>issue.module===step.id && issue.code.startsWith('STALE_'))?.message || stepStates[step.id].reason}</li>)}{validationReport.kktpState?.isStale && <li>KKTP: referensi TP berubah atau kriteria memerlukan peninjauan.</li>}</ul>
+              <ul>{steps.filter(step=>step.isStale).map(step=><li key={step.id}>{step.num} {step.title}: {stepStates[step.id].reason || validationReport.issues.find(issue=>issue.module===step.id)?.message}</li>)}{validationReport.kktpState?.isStale && <li>KKTP: referensi TP berubah atau kriteria memerlukan peninjauan.</li>}</ul>
             </span>
           </div>
         </div>

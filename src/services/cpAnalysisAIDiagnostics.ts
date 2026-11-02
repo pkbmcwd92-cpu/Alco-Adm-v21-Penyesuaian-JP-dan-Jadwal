@@ -1,5 +1,5 @@
 import { APP_BUILD_ID, APP_BUILD_SHA } from '../config/buildInfo';
-import { explainAnalysisIssue, type AnalysisIssue } from './cpAnalysisAIContract';
+import { cp4IssueCategory, explainAnalysisIssue, type AnalysisIssue } from './cpAnalysisAIContract';
 import { findSubjectByCode, findSubjectByNameOrAlias } from '../data/curriculum/subjects';
 import { sanitizeCP4Trace, type CP4Trace } from './cpAnalysisRun';
 import { safeResponseInfo, type CP4ResponseInfo } from './cpAnalysisResponse';
@@ -34,7 +34,7 @@ export function createCPAnalysisDiagnosis(context:{subject?:string;phase?:string
   const subject=findSubjectByCode(context.subject || '') || findSubjectByNameOrAlias(context.subject || '');
   return {time:new Date().toISOString(),build:`${APP_BUILD_ID} ${APP_BUILD_SHA || ''}`.trim(),step:'04 — Analisis CP',subject:subject?.name || '[mapel tidak dikenal]',phase:/^(?:Fase\s*)?[A-F]$/i.test(context.phase || '')?safe(context.phase):'[fase tidak dikenal]',grade:/^(?:Kelas\s*)?\d{1,2}(?:\s*[-/]\s*\d{1,2})?$/i.test(context.grade || '')?safe(context.grade):'[kelas tidak dikenal]',
     code:messages[code]?code:'AI_API_ERROR',stage:['request','provider','transport','response','validation','apply','save','backoff','aborted'].includes(stage)?stage:'transport',elementCount:count,trace:sanitizeCP4Trace(trace),responseInfo:safeResponseInfo(responseInfo),
-    issues:issues.map(i=>({elementId:safeIssueId(i.elementId),itemId:i.itemId?safeIssueId(i.itemId):undefined,field:safe(i.field),code:safe(i.code),category:['technical','structure','quality'].includes(i.category || '')?i.category:'technical',rowIndex:i.rowIndex,clauseIndex:i.clauseIndex})),message:messages[code] || messages.AI_API_ERROR};
+    issues:issues.map(i=>({elementId:safeIssueId(i.elementId),itemId:i.itemId?safeIssueId(i.itemId):undefined,field:safe(i.field),code:safe(i.code),category:['technical','structure','quality'].includes(i.category || '')?i.category:cp4IssueCategory(i.code),rowIndex:i.rowIndex,clauseIndex:i.clauseIndex})),message:messages[code] || messages.AI_API_ERROR};
 }
 export function formatCPAnalysisDiagnosis(d:CPAnalysisDiagnosis):string {
   const t=sanitizeCP4Trace(d.trace);

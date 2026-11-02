@@ -1,5 +1,5 @@
 import { withCP4Health } from './fixtures/cp4BackendHealth';
-import { validateCP4Input,planCP4Repair,stageCP4Proposal,applyCP4Proposal } from '../src/services/cpAnalysisDraft';
+import { inspectCP4Draft,validateCP4Input,planCP4Repair,stageCP4Proposal,applyCP4Proposal } from '../src/services/cpAnalysisDraft';
 import { newCP4RequestId, initialCP4Trace } from '../src/services/cpAnalysisRun';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -119,7 +119,7 @@ function handler(name:string,bindings:Record<string,any>) {
 function harness(rows:CPAnalysisItem[], answer:()=>Promise<any>) {
   const state:any={proposal:null,diagnoses:[],saved:[],items:rows,summary:'Manual summary'};
   const bindings:any={items:rows,approvedSuggestions:new Set(),aiProposal:null,generalSummary:'Manual summary',isAnalyzing:false,cp:{id:'cp-stable',generalDescription:'',elements,updatedAt:'2026-01-01'},cpAnalysis:{id:'analysis-stable',workspaceId:'workspace-stable',items:rows,needsReview:true,reviewReason:'Keep review',basedOnCpUpdatedAt:'2025-01-01'},
-    context:input,academicSetting:{id:'year-stable'},activeAIRequest:{current:null},validateCP4Input,planCP4Repair,stageCP4Proposal,applyCP4Proposal,newCP4RequestId,initialCP4Trace,requestVersion:{current:0},latestItems:{current:rows},analyzeCPWithAI:answer,
+    reviewedSnapshot:'',context:input,academicSetting:{id:'year-stable'},activeAIRequest:{current:null},inspectCP4Draft,validateCP4Input,planCP4Repair,stageCP4Proposal,applyCP4Proposal,newCP4RequestId,initialCP4Trace,requestVersion:{current:0},latestItems:{current:rows},analyzeCPWithAI:answer,
     validateAnalysisAI,getUnderstandingTargets,createUnderstandingPatches,applyUnderstandingPatches,createInitialAnalysisDraft,CPAnalysisAIError,
     setAIProposal:(value:any)=>state.proposal=value,setItems:(value:any)=>state.items=value,reportAIError:(...args:any[])=>state.diagnoses.push(args),
     onSaveCPAnalysis:(value:any)=>state.saved.push(value)};

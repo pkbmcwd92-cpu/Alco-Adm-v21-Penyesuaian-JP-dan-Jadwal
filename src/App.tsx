@@ -803,7 +803,12 @@ export function App() {
           persistedCP.updatedAt,
       };
 
+      const previous=runtimeContext.annualData?.cpAnalysis;
+      const substance=(value:CPAnalysisData)=>JSON.stringify({...value,updatedAt:undefined,generatedBy:undefined,provenance:undefined,generationEngine:undefined});
+      if(previous && substance(previous)===substance(canonicalAnalysis)) canonicalAnalysis.updatedAt=previous.updatedAt;
       saveCPAnalysisV5(activeYearPlan.id, canonicalAnalysis);
+      const reread=loadStorageV5().annualData.cpAnalysis.find(entry=>entry.yearPlanId===activeYearPlan.id)?.value;
+      if(!reread || JSON.stringify(reread.items)!==JSON.stringify(canonicalAnalysis.items) || reread.workflowStatus!==canonicalAnalysis.workflowStatus) throw new Error('Analisis belum terbaca kembali sesuai hasil simpan.');
       refreshV5();
       return true;
     } catch (err: any) {
@@ -1667,6 +1672,7 @@ export function App() {
 
           {currentStep === 'cp-analysis' && (
             <CPAnalysisManager
+              key={activeYearPlan?.id+':'+activeProfile.id}
               cpAnalysis={activeCPAnalysis}
               cp={activeCP}
               context={transitionalActiveContext}

@@ -1,4 +1,4 @@
-import { cp4ElementStatuses, validateCP4Input, planCP4Repair, stageCP4Proposal, applyCP4Proposal, mergeCP4Structure, type CP4Proposal } from '../services/cpAnalysisDraft';
+import { inspectCP4Draft, cp4ElementStatuses, validateCP4Input, planCP4Repair, stageCP4Proposal, applyCP4Proposal, mergeCP4Structure, type CP4Proposal } from '../services/cpAnalysisDraft';
 import { newCP4RequestId, initialCP4Trace, type CP4Trace } from '../services/cpAnalysisRun';
 import { validateAnalysisAI, explainAnalysisIssue, validateStep4Understanding, type UnderstandingTarget } from '../services/cpAnalysisAIContract';
 import { CPAnalysisAIError, createCPAnalysisDiagnosis, formatCPAnalysisDiagnosis, copyCPAnalysisDiagnosis, type CPAnalysisDiagnosis } from '../services/cpAnalysisAIDiagnostics';
@@ -100,6 +100,7 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
   onNextStep,
   onBackToCP,
 }) => {
+  const [reviewedSnapshot,setReviewedSnapshot]=useState('');
   const [items, setItems] = useState<CPAnalysisItem[]>(() => getInitialCPAnalysisItems(cpAnalysis));
   const [generalSummary, setGeneralSummary] = useState(
     cpAnalysis?.generalSummary || ''
@@ -332,15 +333,16 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
     cp
   );
 
-  const understandingIssues=validateStep4Understanding(items,cp.elements || []);
+  const understandingIssues=inspectCP4Draft(items,cp.elements || [],cp).filter(issue=>issue.category!=='quality');
   const validation={...baseValidation,isSiap:baseValidation.isSiap && !understandingIssues.length,
-    issues:[...baseValidation.issues,...understandingIssues.map(issue=>issue.elementId+' / kolom 3: '+issue.code)]};
+    issues:[...baseValidation.issues,...understandingIssues.map(issue=>issue.elementId+' / '+(issue.itemId || '')+' / '+issue.field+': '+explainAnalysisIssue(issue.code))]};
 
   const handleSave = (): boolean => {
     const nextGeneratedBy =
       aiDraftEngine==='gemini' ? ((Array.isArray(cpAnalysis?.items) && cpAnalysis.items.length) ? 'AI_EDITED_BY_TEACHER' : 'AI') : cpAnalysis?.generatedBy === 'AI' ? 'AI_EDITED_BY_TEACHER' : cpAnalysis?.generatedBy || 'TEACHER';
 
-    const shouldKeepReview = Boolean(cpAnalysis?.needsReview || isCPOutdated);
+    const reviewConfirmed=reviewedSnapshot===JSON.stringify([cp,items]);
+    const shouldKeepReview = Boolean(cpAnalysis?.needsReview || isCPOutdated) && !reviewConfirmed;
 
     const candidate: CPAnalysisData = {
       ...cpAnalysis,
@@ -362,18 +364,19 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
         ? cpAnalysis?.reviewReason || (isCPOutdated ? 'Teks CP telah diperbarui sejak analisis ini dibuat. Mohon sesuaikan analisis.' : undefined)
         : undefined,
       basedOnCpUpdatedAt:
-        cpAnalysis?.basedOnCpUpdatedAt ||
+        (reviewConfirmed ? cp.updatedAt : cpAnalysis?.basedOnCpUpdatedAt) ||
         cp.updatedAt ||
         new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
 
     const candidateValidation = validateCPAnalysisDataWorkflow(candidate, cp);
-    const fieldIssues=validateStep4Understanding(candidate.items,cp.elements || []);
+    const fieldIssues=inspectCP4Draft(candidate.items,cp.elements || [],cp).filter(i=>i.category!=='quality');
     const ready=candidateValidation.isSiap && !fieldIssues.length;
 
     const updated: CPAnalysisData = {
       ...candidate,
+      ...(!ready && (cpAnalysis?.needsReview || isCPOutdated) ? {needsReview:true,reviewReason:cpAnalysis?.reviewReason || 'Analisis terhadap CP aktif belum valid.',basedOnCpUpdatedAt:cpAnalysis?.basedOnCpUpdatedAt} : {}),
       workflowStatus: ready ? 'SIAP' : 'PERLU_DILENGKAPI',
     };
 
@@ -420,10 +423,10 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
       run.trace=res.trace || run.trace;
       if(snapshot!==JSON.stringify(latestItems.current)){reportAIError('DRAFT_CHANGED','apply');return;}
       const checked=res.validation || validateAnalysisAI(res,scoped,[],plan.targets);
-      if(checked.issues.length)reportAIError('VALIDATION_FAILED','validation',checked.issues);
+      if(!checked.valid)reportAIError('VALIDATION_FAILED','validation',checked.issues);
       if(!checked.items.length)return;
       const proposal=stageCP4Proposal(items,plan.items,checked,cp.elements,mode,previous?.summary || res.generalSummary || '',plan.targets,cp);
-      if(proposal.issues.length)reportAIError('VALIDATION_FAILED','validation',proposal.issues);
+      if(proposal.issues.some(i=>i.category!=='quality'))reportAIError('VALIDATION_FAILED','validation',proposal.issues);
       if(previous)proposal.suggestions=[...previous.suggestions.filter(old=>!proposal.suggestions.some(next=>next.itemId===old.itemId&&next.field===old.field)),...proposal.suggestions];
       setAIProposal({...proposal,engine:res.engine || 'pedagogical_engine'});setApprovedSuggestions(new Set());
     } catch(error) {
@@ -440,6 +443,8 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
     if(JSON.stringify(next)===JSON.stringify(items)){setAIProposal(null);setNotificationToast('Tidak ada perubahan yang disetujui. Data dan metadata lama dipertahankan.');return;}
     setItems(next);if(!generalSummary.trim())setGeneralSummary(aiProposal.summary);
     setAIDraftEngine(aiProposal.engine);setHasUnsavedChanges(true);setIsReviewStale(true);setAIProposal(null);
+    const blockers=inspectCP4Draft(next,cp.elements,cp).filter(i=>i.category!=='quality');
+    if(blockers.length)reportAIError('VALIDATION_FAILED','apply',blockers);else {setAnalysisError(null);setAIDiagnosis(null);}
     setNotificationToast('Hasil diterapkan ke draft. Periksa lalu Simpan Analisis; data tersimpan belum berubah.');
   };
 
@@ -605,6 +610,7 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
         </div>
       )}
 
+      {validation.issues.length>0 && <div role="status" className="p-3 border rounded bg-amber-50"><strong>Belum siap dilanjutkan</strong><ul>{validation.issues.map((issue,index)=><li key={index}>{issue}</li>)}</ul></div>}
       <CP4ElementProgress rows={cp4ElementStatuses(aiProposal?.items || items,cp.elements || [],aiDiagnosis?.issues.filter(i=>i.category==='technical').map(i=>i.elementId) || [],cp)} busy={isAnalyzing} activeIds={activeAIRequest.current?.elementIds} onRepair={id=>executeAIAnalysis(undefined,'repair',id)} />
       {isAnalyzing && <button type="button" onClick={()=>activeAIRequest.current?.controller.abort()} className="rounded border px-3 py-2 text-sm">Batalkan Analisis AI</button>}
       {analysisError && (
@@ -626,6 +632,7 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
       {aiProposal && <div className="p-4 border rounded-xl space-y-3 bg-purple-50">
         <p className="font-bold">Tinjau Hasil AI — belum disimpan</p>
         {aiProposal.items.map(item=><div key={item.id}><strong>{item.elementName} / {item.id}</strong><p>1. {item.cpCompetence}</p><p>2. {item.materialScope}</p><p>3. {item.meaningfulUnderstanding || '(Belum lengkap)'}</p><p>4. {item.suggestedTp}</p></div>)}
+        {aiProposal.issues.filter(i=>i.category==='quality').map((issue,index)=><p key={'quality-'+index}>Temuan kualitas · {issue.elementId} / {issue.itemId || ''} / {issue.field}: {explainAnalysisIssue(issue.code)}</p>)}
         {aiProposal.suggestions.map(suggestion=>{const key=suggestion.itemId+':'+suggestion.field;return <label key={key} className="block border rounded p-2"><input type="checkbox" checked={approvedSuggestions.has(key)} onChange={event=>setApprovedSuggestions(old=>{const next=new Set(old);event.target.checked?next.add(key):next.delete(key);return next;})} /> Setujui penggantian {suggestion.field} — {suggestion.itemId}<p>Sebelum: {suggestion.before}</p><p>Usulan: {suggestion.after}</p></label>;})}
         <p className="text-xs">Kolom kosong dapat dilengkapi. Nilai terisi hanya diganti bila Anda mencentang persetujuan khusus di atas. Simpan tetap terpisah.</p>
         <button type="button" disabled={isAnalyzing} onClick={handleApplyAIProposal} className="rounded bg-purple-700 text-white px-3 py-2">Terapkan ke Draft</button>
@@ -890,6 +897,7 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
         );
       })()}
 
+      {needsReview && <label className="block p-3 border rounded"><input type="checkbox" checked={reviewedSnapshot===JSON.stringify([cp,items])} onChange={event=>setReviewedSnapshot(event.target.checked?JSON.stringify([cp,items]):'')} /> Saya telah meninjau seluruh analisis terhadap CP aktif. Validasi wajib tetap dijalankan saat menyimpan.</label>}
       {needsReview && (
         <div className="p-4 bg-amber-50 border border-amber-300 rounded-2xl flex items-start gap-3 text-xs text-amber-900 shadow-xs">
           <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
@@ -905,7 +913,7 @@ export const CPAnalysisManager: React.FC<CPAnalysisManagerProps> = ({
       {showSavedToast && (
         <div className="p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl flex items-center gap-2 text-xs font-semibold shadow-xs">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-          Data Analisis CP berhasil disimpan ke workspace!
+          {cpAnalysis?.workflowStatus==='SIAP' && !cpAnalysis.needsReview ? 'Analisis tersimpan dan SIAP dilanjutkan ke Step 05.' : 'Draft tersimpan. Lengkapi blocker sebelum melanjutkan ke Step 05.'}
         </div>
       )}
 

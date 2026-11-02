@@ -1,6 +1,6 @@
 import type { CPElem, CPAnalysisItem, CPData } from '../types';
 import { reviewCPAnalysisSemantic } from './cpAnalysisSemanticReviewService';
-import { CP4_FIELDS, type CP4Field, type CP4RepairTarget, understandingIssue, type AnalysisIssue, type AnalysisAIValidation } from './cpAnalysisAIContract';
+import { cp4IssueCategory, isCP4Placeholder, CP4_FIELDS, type CP4Field, type CP4RepairTarget, understandingIssue, type AnalysisIssue, type AnalysisAIValidation } from './cpAnalysisAIContract';
 export { CP4_FIELDS, type CP4Field, type CP4RepairTarget } from './cpAnalysisAIContract';
 export type CP4Issue=AnalysisIssue & {category?:'technical'|'structure'|'quality';rowIndex?:number;clauseIndex?:number};
 export interface CP4Suggestion {itemId:string;elementId:string;field:CP4Field;before:string;after:string}
@@ -15,7 +15,7 @@ export function validateCP4Input(elements:unknown):CP4Issue[] {
   return issues;
 }
 export function classifyCP4Issue(issue:AnalysisIssue):CP4Issue {
-  return {...issue,category:['MU_GROUNDING_REVIEW','CP_COVERAGE_REVIEW','MU_INVALID'].includes(issue.code)?'quality':issue.code==='RESPONSE_INVALID'?'technical':'structure'};
+  return {...issue,category:cp4IssueCategory(issue.code)};
 }
 export function cp4Clauses(element:CPElem):string[] {return element.content.split(/;\s*|[.!?]\s+(?=[A-ZÀ-Ž])/).map(s=>s.replace(/[.;]\s*$/,'').trim()).filter(Boolean);}
 const tokens=(s:string)=>s.toLowerCase().match(/[a-zà-ž]{4,}/g)?.filter(w=>!['peserta','didik','murid','mampu','untuk','dengan','yang','dalam','serta','pada','secara'].includes(w)) || [];
@@ -34,9 +34,9 @@ export function inspectCP4Draft(items:CPAnalysisItem[],elements:CPElem[],cp?:CPD
   const issues:CP4Issue[]=[];const ids=new Set<string>();
   for(const item of items) {
     const e=elements.find(e=>e.id===item.elementId);
-    if(!e||ids.has(item.id)){issues.push({elementId:item.elementId || '',itemId:item.id,field:'elementId',code:'CANONICAL_REFERENCE_INVALID',category:'structure'});continue;}
-    ids.add(item.id);
-    for(const field of CP4_FIELDS)if(typeof item[field]!=='string'||!item[field]?.trim())issues.push({elementId:e.id,itemId:item.id,field,code:field==='meaningfulUnderstanding'?'MU_EMPTY':'FIELD_EMPTY',category:'structure'});
+    if(!e||!item.id?.trim()||ids.has(item.id.trim())){issues.push({elementId:item.elementId || '',itemId:item.id,field:'elementId',code:'CANONICAL_REFERENCE_INVALID',category:'structure'});continue;}
+    ids.add(item.id.trim());
+    for(const field of CP4_FIELDS)if(isCP4Placeholder(item[field]))issues.push({elementId:e.id,itemId:item.id,field,code:field==='meaningfulUnderstanding'?'MU_EMPTY':'FIELD_EMPTY',category:'structure'});
     if(item.meaningfulUnderstanding?.trim()) {const code=understandingIssue(item.meaningfulUnderstanding,e);if(code)issues.push(classifyCP4Issue({elementId:e.id,itemId:item.id,field:'meaningfulUnderstanding',code}));}
   }
   for(const e of elements)if(!items.some(i=>i.elementId===e.id))issues.push({elementId:e.id,field:'items',code:'ELEMENT_MISSING',category:'structure'});
@@ -68,7 +68,14 @@ export function planCP4Repair(items:CPAnalysisItem[],elements:CPElem[],mode:'ful
     if(onlyElementId&&e.id!==onlyElementId)continue;
     const existing=items.filter(i=>i.elementId===e.id);
     const missing=issues.filter(i=>i.elementId===e.id&&i.code==='CP_COVERAGE_REVIEW');
-    if(!existing.length||missing.length) {
+    // Coverage uses lexical hints; paraphrases must repair existing rows, not add rows.
+    if(existing.length && missing.length) {
+      for(const item of existing) {
+        const target=targets.find(t=>t.itemId===item.id);
+        if(!target)targets.push(targetFor(item,[...CP4_FIELDS],cp4Clauses(e)[missing.find(issue=>issue.clauseIndex!==undefined)?.clauseIndex || 0]));
+      }
+    }
+    if(!existing.length) {
       for(const issue of missing.length?missing:[{clauseIndex:0}]) {
         const clause=cp4Clauses(e)[issue.clauseIndex || 0];
         const blank=targets.find(t=>t.elementId===e.id&&!t.clauseText&&CP4_FIELDS.every(f=>!t[f].trim()));

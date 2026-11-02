@@ -11,6 +11,10 @@ export interface AnalysisAIRow {
   meaningfulUnderstanding: string; suggestedTp: string;
 }
 export interface AnalysisAIValidation { items: AnalysisAIRow[]; issues: AnalysisIssue[]; valid: boolean }
+export function cp4IssueCategory(code:string): 'technical'|'structure'|'quality' {
+  return ['MU_GROUNDING_REVIEW','CP_COVERAGE_REVIEW','PEDAGOGY_REVIEW'].includes(code)?'quality':code==='RESPONSE_INVALID'?'technical':'structure';
+}
+export const isCP4Placeholder=(value:unknown)=>typeof value!=='string'||!value.trim()||/^(?:-|n\/?a|null|undefined|belum|tidak ada|contoh|lorem ipsum)\.?$/i.test(value.trim());
 const text = (value: unknown) => typeof value === 'string' ? value.trim() : '';
 const tokens = (value: string) => value.toLowerCase().match(/[a-zà-ž]{4,}/g)?.filter(word => !['peserta','didik','murid','memahami','pemahaman','bermakna','dalam','untuk','dengan','serta','yang','dapat','mampu','secara','pada','bahwa','menjadi','mereka'].includes(word)) || [];
 const relationalWords=new Set(['membantu','berkaitan','saling','hubungan','konsep','menunjukkan','terkait','keterkaitan','mendasari','menghubungkan','berarti','memungkinkan','penting','sehingga','antara','terhadap','bukan','hanya','lebih','juga','merupakan','mendukung','berdasarkan','melibatkan','melalui','tersebut','tentang','suatu']);
@@ -21,6 +25,7 @@ export function understandingIssue(value: unknown, element: Pick<CPElem,'content
   if(value.trim().length < 20 || /^(?:-|n\/?a|null|undefined|belum|tidak ada|contoh|lorem ipsum)\.?$/i.test(value.trim())) return 'MU_INVALID';
   if(value.toLowerCase().replace(/[\s.]+/g,'')===(element.content || '').toLowerCase().replace(/[\s.]+/g,'')) return 'MU_INVALID';
   const source = new Set(tokens(element.content || ''));
+  for(const word of tokens(value)) if([...source].some(base=>word.replace(/nya$/,'')===base.replace(/nya$/,''))) source.add(word);
   const overlap = new Set(tokens(value).filter(word => source.has(word)));
   if(!source.size || overlap.size < Math.min(2,source.size)) return 'MU_GROUNDING_REVIEW';
   // Unknown content terms require review; overlap alone must not admit a new topic.
@@ -47,16 +52,19 @@ export function validateAnalysisAI(payload: unknown, elements: CPElem[], targets
       scopeCode:text(input.scopeCode),meaningfulUnderstanding:text(input.meaningfulUnderstanding),suggestedTp:text(input.suggestedTp)};
     if(repair)for(const field of CP4_FIELDS)row[field]=repair.fields.includes(field)?text(input[field]):repair[field];
     if(!targets.length) for(const field of (repair?.fields || ['cpCompetence','materialScope','suggestedTp']) as typeof CP4_FIELDS[number][]) {
-      if(!row[field]) issues.push({elementId,itemId:itemId||undefined,rowIndex,field,code:field==='meaningfulUnderstanding'?'MU_EMPTY':'FIELD_EMPTY'});
+      if(isCP4Placeholder(row[field])) issues.push({elementId,itemId:itemId||undefined,rowIndex,field,code:field==='meaningfulUnderstanding'?'MU_EMPTY':'FIELD_EMPTY'});
     }
     const code=(!repair || repair.fields.includes('meaningfulUnderstanding'))?understandingIssue(input.meaningfulUnderstanding,element):null;
     if(code) issues.push({elementId,itemId:itemId||undefined,rowIndex,field:'meaningfulUnderstanding',code});
+    if(!targets.length && !repairTargets.length && items.some(previous=>JSON.stringify([previous.elementId,...CP4_FIELDS.map(f=>previous[f].trim().toLowerCase())])===JSON.stringify([row.elementId,...CP4_FIELDS.map(f=>row[f].trim().toLowerCase())]))) {
+      issues.push({elementId,itemId:itemId||undefined,rowIndex,field:'items',code:'DUPLICATE_TARGET'});continue;
+    }
     items.push(row);
   }
   for(const target of repairTargets.length ? repairTargets : targets.length ? targets : elements.map(e=>({elementId:e.id,itemId:''}))) {
     if(!seen.has(targets.length || repairTargets.length ? target.itemId : target.elementId)) issues.push({elementId:target.elementId,itemId:target.itemId||undefined,field:'items',code:'ELEMENT_MISSING'});
   }
-  for(const issue of issues)issue.category=['MU_GROUNDING_REVIEW','CP_COVERAGE_REVIEW','MU_INVALID'].includes(issue.code)?'quality':issue.code==='RESPONSE_INVALID'?'technical':'structure';
+  for(const issue of issues)issue.category=cp4IssueCategory(issue.code);
   const keys=new Set<string>();const unique=issues.filter(issue=>{const key=JSON.stringify([issue.elementId,issue.itemId,issue.rowIndex,issue.field,issue.code,issue.clauseIndex]);if(keys.has(key))return false;keys.add(key);return true;});
   const hasStructuralIssues = unique.some(i=>i.category==='technical'||i.category==='structure');
   return {items,issues:unique,valid:!hasStructuralIssues};
@@ -107,7 +115,7 @@ export function createInitialAnalysisDraft(result: AnalysisAIValidation, element
     return (matching.length ? matching : [{elementId:element.id,cpCompetence:'',materialScope:'',scopeCode:'',meaningfulUnderstanding:'',suggestedTp:''}]).map((row,index)=>({
       id:`ana-ai-${element.id}-${index+1}`,elementId:element.id,elementName:element.name,cpText:element.content || '',
       cpCompetence:row.cpCompetence,materialScope:row.materialScope,scopeCode:row.scopeCode,
-      meaningfulUnderstanding:understandingIssue(row.meaningfulUnderstanding,element)?'':row.meaningfulUnderstanding,suggestedTp:row.suggestedTp,order:0,
+      meaningfulUnderstanding:understandingIssue(row.meaningfulUnderstanding,element)&&understandingIssue(row.meaningfulUnderstanding,element)!=='MU_GROUNDING_REVIEW'?'':row.meaningfulUnderstanding,suggestedTp:row.suggestedTp,order:0,
     }));
   });
   return rows.map((row,index)=>({...row,order:index+1}));

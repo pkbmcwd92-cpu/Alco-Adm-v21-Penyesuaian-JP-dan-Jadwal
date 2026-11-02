@@ -19,8 +19,8 @@ export function assertAppCPAnalysisSaveContract() {
   for(const missing of ['year','cp','none','error'] as const) {
     const writes:Array<{year:string;value:any}>=[],notices:any[]=[];let refreshed=0;
     const save=(year:string,value:any)=>{if(missing==='error')throw Error('fixture save failure');writes.push({year,value});};
-    const callback=new Function('runtimeContext','activeYearPlan','saveCPAnalysisV5','refreshV5','setAppNotice',compiled)(
-      {annualData:{cp:missing==='cp'?undefined:cp}},missing==='year'?undefined:{id:'active-year'},save,()=>refreshed++,(notice:any)=>notices.push(notice));
+    const callback=new Function('runtimeContext','activeYearPlan','saveCPAnalysisV5','refreshV5','setAppNotice','loadStorageV5',compiled)(
+      {annualData:{cp:missing==='cp'?undefined:cp}},missing==='year'?undefined:{id:'active-year'},save,()=>refreshed++,(notice:any)=>notices.push(notice),()=>({annualData:{cpAnalysis:writes.map(write=>({yearPlanId:write.year,value:write.value})).slice(-1)}}));
     const result=callback(input);
     assert.equal(result,missing==='none','boolean save outcome: '+missing);
     assert.equal(refreshed,missing==='none'?1:0);assert.equal(writes.length,missing==='none'?1:0);
