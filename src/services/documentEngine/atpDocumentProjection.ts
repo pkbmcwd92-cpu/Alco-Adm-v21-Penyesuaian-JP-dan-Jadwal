@@ -27,12 +27,12 @@ export function buildATPDocumentProjection(context: DocumentGenerationContext): 
     })),
   };
   const { cp, tp, atp } = context;
-  if (!cp || !tp?.items?.length || !atp?.items?.length) return invalid('CP, TP canonical, dan ATP harus tersedia untuk ekspor ATP.');
+  if (!cp || !tp?.items?.length || !atp?.items?.length) return invalid('Data CP, TP, dan ATP harus lengkap untuk ekspor dokumen ATP.');
   const cpReferenceLines = [
     ...(cp.generalDescription?.trim() ? [cp.generalDescription.trim()] : []),
     ...(cp.elements || []).map(element => [element.name?.trim(), element.content?.trim()].filter(Boolean).join(': ')).filter(Boolean),
   ];
-  if (!cpReferenceLines.length) return invalid('CP / Elemen Rujukan canonical belum tersedia.');
+  if (!cpReferenceLines.length) return invalid('Capaian Pembelajaran / Elemen rujukan belum tersedia.');
   // CP elements are references for the document, not guessed joins through TP text or legacy ATP caches.
   const tpById = new Map<string, typeof tp.items>();
   for (const item of tp.items) tpById.set(item.id, [...(tpById.get(item.id) || []), item]);
@@ -40,21 +40,21 @@ export function buildATPDocumentProjection(context: DocumentGenerationContext): 
   const seenSteps = new Set<number>();
   const rows: ATPDocumentRow[] = [];
   for (const item of atp.items) {
-    if (typeof item.id !== 'string' || !item.id.trim() || seenItems.has(item.id)) return invalid('ID langkah ATP kosong atau duplikat.');
+    if (typeof item.id !== 'string' || !item.id.trim() || seenItems.has(item.id)) return invalid('Langkah ATP belum valid.');
     seenItems.add(item.id);
-    if (!Number.isInteger(item.stepNumber) || item.stepNumber < 1 || seenSteps.has(item.stepNumber)) return invalid('stepNumber ATP tidak valid atau ambigu.');
+    if (!Number.isInteger(item.stepNumber) || item.stepNumber < 1 || seenSteps.has(item.stepNumber)) return invalid('Urutan tahap ATP tidak valid.');
     seenSteps.add(item.stepNumber);
-    if (typeof item.focus !== 'string' || !item.focus.trim()) return invalid('Fokus canonical tahap ATP ' + item.stepNumber + ' belum tersedia.');
+    if (typeof item.focus !== 'string' || !item.focus.trim()) return invalid('Fokus pembelajaran tahap ATP ' + item.stepNumber + ' belum terisi.');
     if (!Array.isArray(item.linkedTpIds) || !item.linkedTpIds.length ||
         item.linkedTpIds.some(id => typeof id !== 'string' || !id.trim()) || new Set(item.linkedTpIds).size !== item.linkedTpIds.length) {
-      return invalid('linkedTpIds tahap ATP ' + item.stepNumber + ' kosong atau duplikat; ekspor memerlukan ID TP canonical exact.');
+      return invalid('Tujuan Pembelajaran pada tahap ATP ' + item.stepNumber + ' belum dipilih.');
     }
     const resolvedTPs: ATPDocumentRow['resolvedTPs'] = [];
     for (const id of item.linkedTpIds) {
       const matches = tpById.get(id) || [];
-      if (matches.length !== 1) return invalid('TP canonical "' + id + '" pada tahap ' + item.stepNumber + ' tidak ditemukan atau ambigu.');
+      if (matches.length !== 1) return invalid('Tujuan Pembelajaran pada tahap ' + item.stepNumber + ' tidak ditemukan.');
       const objective = matches[0];
-      if (!objective.code?.trim() || !objective.statement?.trim()) return invalid('Kode/pernyataan TP canonical "' + id + '" belum lengkap.');
+      if (!objective.code?.trim() || !objective.statement?.trim()) return invalid('Kode atau rumusan Tujuan Pembelajaran pada tahap ' + item.stepNumber + ' belum lengkap.');
       resolvedTPs.push({ id: objective.id, code: objective.code.trim(), statement: objective.statement.trim() });
     }
     rows.push({

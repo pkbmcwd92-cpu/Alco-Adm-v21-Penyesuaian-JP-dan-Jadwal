@@ -72,7 +72,7 @@ export async function generatePROTA(context: DocumentGenerationContext): Promise
       ['Alokasi Semester 1', `: ${isBlankMode ? '—' : `${projection.semester1AllocatedJP} JP`}`],
       ['Alokasi Semester 2', `: ${isBlankMode ? '—' : `${projection.semester2AllocatedJP} JP`}`],
       ['Total Alokasi Tahunan', `: ${isBlankMode ? '—' : `${projection.totalAllocatedJP} JP`}`],
-      ['Acuan Intrakurikuler Tahunan', `: ${projection.officialAnnualJP !== null ? `${projection.officialAnnualJP} JP` : 'Belum Diverifikasi'}`],
+      ['Acuan Intrakurikuler Tahunan', `: ${projection.officialAnnualJP !== null ? `${projection.officialAnnualJP} JP` : '—'}`],
       ['Selisih terhadap Acuan JP', `: ${projection.remainingAnnualJP !== null ? `${projection.remainingAnnualJP} JP` : '—'}`],
     );
     if (projection.referenceWeeklyEquivalentJP !== null) {
@@ -100,11 +100,18 @@ export async function generatePROTA(context: DocumentGenerationContext): Promise
         createProseParagraph(sklText)
       );
     }
-  } else if (context.cp?.generalDescription) {
-    docChildren.push(
-      createSectionHeading('A. Capaian Pembelajaran (CP) Fase', 1),
-      createProseParagraph(context.cp.generalDescription, { italics: true })
-    );
+  } else {
+    const cpGeneral = context.cp?.generalDescription?.trim()
+      ? context.cp.generalDescription.trim()
+      : (context.cp?.elements && context.cp.elements.length > 0)
+      ? 'Capaian Pembelajaran pada fase ini dirinci melalui elemen-elemen berikut.'
+      : '';
+    if (cpGeneral) {
+      docChildren.push(
+        createSectionHeading('A. Capaian Pembelajaran (CP) Fase', 1),
+        createProseParagraph(cpGeneral, { italics: true })
+      );
+    }
   }
 
   // 4. Tabel Pemetaan Program Tahunan

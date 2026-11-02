@@ -51,13 +51,17 @@ export async function generateCP(
   }
 
   // 4. Deskripsi Capaian Pembelajaran Fase
+  const generalCpText = isBlankMode
+    ? '........................................................................................................................................................................................................................................................................................'
+    : cp?.generalDescription?.trim()
+    ? cp.generalDescription.trim()
+    : (cp?.elements && cp.elements.length > 0)
+    ? 'Capaian Pembelajaran pada fase ini dirinci melalui elemen-elemen berikut.'
+    : '-';
+
   docChildren.push(
     createSectionHeading('A. Deskripsi Capaian Pembelajaran Fase', 1),
-    createProseParagraph(
-      isBlankMode
-        ? '........................................................................................................................................................................................................................................................................................'
-        : cp?.generalDescription || 'Capaian Pembelajaran umum belum diisi.'
-    ),
+    createProseParagraph(generalCpText),
     new Paragraph({ spacing: { after: 140 } })
   );
 

@@ -176,11 +176,17 @@ export async function generatePdfDocument(
         level: 1,
       });
 
+      const cpGeneralText = isBlankMode
+        ? '........................................................................................................................................................................................................................................................................................'
+        : cp?.generalDescription?.trim()
+        ? cp.generalDescription.trim()
+        : (cp?.elements && cp.elements.length > 0)
+        ? 'Capaian Pembelajaran pada fase ini dirinci melalui elemen-elemen berikut.'
+        : '-';
+
       sections.push({
         type: 'paragraph',
-        text: isBlankMode
-          ? '........................................................................................................................................................................................................................................................................................'
-          : cp?.generalDescription || 'Teks capaian pembelajaran belum diisi.',
+        text: cpGeneralText,
         align: 'justify',
       });
 
@@ -198,14 +204,14 @@ export async function generatePdfDocument(
             elem.name || '—',
             elem.content || '—',
           ])
-        : [[1, 'Semua Elemen', cp?.generalDescription || 'Capaian Pembelajaran belum diisi']];
+        : [[1, 'Semua Elemen', cp?.generalDescription || '-']];
 
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 12, align: 'center' },
-          { header: 'Elemen', dataKey: 'elem', width: 45 },
-          { header: 'Capaian Pembelajaran Elemen', dataKey: 'content', width: 130 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Elemen', dataKey: 'elem', width: 32 },
+          { header: 'Capaian Pembelajaran Elemen', dataKey: 'content', width: 115 },
         ],
         rows,
       });
@@ -223,11 +229,17 @@ export async function generatePdfDocument(
         level: 1,
       });
 
+      const cpAnalysisGeneralText = isBlankMode
+        ? '................................................................................................................................................................................................................................'
+        : cp?.generalDescription?.trim()
+        ? cp.generalDescription.trim()
+        : (cp?.elements && cp.elements.length > 0)
+        ? 'Capaian Pembelajaran pada fase ini dirinci melalui elemen-elemen berikut.'
+        : '-';
+
       sections.push({
         type: 'paragraph',
-        text: isBlankMode
-          ? '................................................................................................................................................................................................................................'
-          : cp?.generalDescription || 'Capaian pembelajaran umum menjadi fondasi penurunan kompetensi dan materi.',
+        text: cpAnalysisGeneralText,
         align: 'justify',
       });
 
@@ -255,17 +267,17 @@ export async function generatePdfDocument(
             it.statement || '—',
             (it.p3Dimensions || []).join(', ') || '-',
           ])
-        : [[1, '—', '—', '—', 'Belum ada data analisis CP ke Tujuan Pembelajaran', '—']];
+        : [[1, '—', '—', '—', '-', '—']];
 
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Elemen CP', dataKey: 'elem', width: 28 },
-          { header: 'Kompetensi (KKO)', dataKey: 'comp', width: 28 },
-          { header: 'Lingkup Materi', dataKey: 'mat', width: 34 },
-          { header: 'Rumusan Tujuan Pembelajaran (TP)', dataKey: 'tp', width: 55 },
-          { header: 'Dimensi P3', dataKey: 'p3', width: 32 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Elemen CP', dataKey: 'elem', width: 24 },
+          { header: 'Kompetensi (KKO)', dataKey: 'comp', width: 24 },
+          { header: 'Lingkup Materi', dataKey: 'mat', width: 27 },
+          { header: 'Rumusan Tujuan Pembelajaran (TP)', dataKey: 'tp', width: 48 },
+          { header: 'Dimensi P3', dataKey: 'p3', width: 24 },
         ],
         rows,
       });
@@ -299,16 +311,16 @@ export async function generatePdfDocument(
             it.contentScope || '-',
             (it.p3Dimensions || []).join(', ') || '-',
           ])
-        : [[1, '—', 'Belum ada data Tujuan Pembelajaran', '—', '—']];
+        : [[1, '—', '-', '—', '—']];
 
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Kode TP', dataKey: 'code', width: 22, align: 'center' },
-          { header: 'Pernyataan Tujuan Pembelajaran', dataKey: 'statement', width: 85 },
-          { header: 'Lingkup Materi', dataKey: 'mat', width: 40 },
-          { header: 'Dimensi Profil Lulusan', dataKey: 'p3', width: 30 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Kode TP', dataKey: 'code', width: 17, align: 'center' },
+          { header: 'Pernyataan Tujuan Pembelajaran', dataKey: 'statement', width: 68 },
+          { header: 'Lingkup Materi', dataKey: 'mat', width: 34 },
+          { header: 'Dimensi Profil Lulusan', dataKey: 'p3', width: 28 },
         ],
         rows,
       });
@@ -468,12 +480,12 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'Unit / Bab', dataKey: 'unit', width: 45 },
-          { header: 'TP dalam ATP', dataKey: 'tpChain', width: 50 },
-          { header: 'ATP Langkah', dataKey: 'step', width: 28, align: 'center' },
+          { header: 'Unit / Bab', dataKey: 'unit', width: 44 },
+          { header: 'TP dalam ATP', dataKey: 'tpChain', width: 48 },
+          { header: 'ATP Langkah', dataKey: 'step', width: 26, align: 'center' },
           { header: 'Lingkup Materi', dataKey: 'mat', width: 75 },
           { header: 'Minggu', dataKey: 'week', width: 35, align: 'center' },
-          { header: 'JP', dataKey: 'jp', width: 25, align: 'center' },
+          { header: 'JP', dataKey: 'jp', width: 24, align: 'center' },
         ],
         rows,
       });
@@ -527,11 +539,11 @@ export async function generatePdfDocument(
         sections.push({
           type: 'table',
           columns: [
-            { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-            { header: 'Kompetensi Dasar (KD)', dataKey: 'code', width: 22, align: 'center' },
-            { header: 'Materi Pokok & Kegiatan Pembelajaran', dataKey: 'materi', width: 110 },
-            { header: 'Alokasi JP', dataKey: 'jp', width: 18, align: 'center' },
-            { header: 'Semester', dataKey: 'sem', width: 22, align: 'center' },
+            { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+            { header: 'Kompetensi Dasar (KD)', dataKey: 'code', width: 20, align: 'center' },
+            { header: 'Materi Pokok & Kegiatan Pembelajaran', dataKey: 'materi', width: 94 },
+            { header: 'Alokasi JP', dataKey: 'jp', width: 16, align: 'center' },
+            { header: 'Semester', dataKey: 'sem', width: 17, align: 'center' },
           ],
           rows,
         });
@@ -601,12 +613,12 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Kode / Jenis', dataKey: 'code', width: 22, align: 'center' },
-          { header: 'Tujuan Pembelajaran / Kegiatan', dataKey: 'tp', width: 65 },
-          { header: 'Lingkup Materi', dataKey: 'mat', width: 45 },
-          { header: 'Alokasi JP', dataKey: 'jp', width: 18, align: 'center' },
-          { header: 'Semester', dataKey: 'sem', width: 22, align: 'center' },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Kode / Jenis', dataKey: 'code', width: 17, align: 'center' },
+          { header: 'Tujuan Pembelajaran / Kegiatan', dataKey: 'tp', width: 56 },
+          { header: 'Lingkup Materi', dataKey: 'mat', width: 38 },
+          { header: 'Alokasi JP', dataKey: 'jp', width: 16, align: 'center' },
+          { header: 'Semester', dataKey: 'sem', width: 20, align: 'center' },
         ],
         rows,
       });
@@ -616,10 +628,15 @@ export async function generatePdfDocument(
           `• Alokasi Semester 1: ${projection.semester1AllocatedJP} JP`,
           `• Alokasi Semester 2: ${projection.semester2AllocatedJP} JP`,
           `• Total Alokasi Tahunan: ${projection.totalAllocatedJP} JP`,
-          `• Acuan Intrakurikuler Tahunan: ${projection.officialAnnualJP !== null ? `${projection.officialAnnualJP} JP` : 'Belum Diverifikasi'}`,
+          `• Acuan Intrakurikuler Tahunan: ${projection.officialAnnualJP !== null ? `${projection.officialAnnualJP} JP` : '—'}`,
           `• Selisih terhadap Acuan JP: ${projection.remainingAnnualJP !== null ? `${projection.remainingAnnualJP} JP` : '—'}`,
-          `• Kapasitas kalender tahunan: ${projection.availableAnnualJP ?? 'belum tersedia'} JP; sisa/defisit kapasitas: ${projection.unallocatedAnnualJP ?? 'belum tersedia'} JP`,
         ];
+        if (projection.availableAnnualJP !== null && projection.availableAnnualJP !== undefined) {
+          lines.push(`• Target Alokasi Waktu Tahunan: ${projection.availableAnnualJP} JP`);
+        }
+        if (projection.unallocatedAnnualJP !== null && projection.unallocatedAnnualJP !== undefined) {
+          lines.push(`• Selisih Alokasi terhadap Target: ${projection.unallocatedAnnualJP} JP`);
+        }
         if (projection.referenceWeeklyEquivalentJP !== null) {
           lines.push(`• Referensi Ekuivalen JP per Minggu: ${projection.referenceWeeklyEquivalentJP} JP / Minggu`);
         }
@@ -654,12 +671,12 @@ export async function generatePdfDocument(
       const weeklyJpText =
         projection.actualScheduledWeeklyJP !== null
           ? `${projection.actualScheduledWeeklyJP} JP / Minggu`
-          : 'Input Manual Diperlukan';
+          : '-';
 
       const weeksText =
         projection.effectiveWeeksEquivalent !== null
           ? `${projection.effectiveWeeksEquivalent} Minggu (${projection.effectiveLearningDays || 0} Hari Efektif)`
-          : 'Data kalender belum dikonfigurasi pada sistem';
+          : '-';
 
       const availableJpText =
         projection.availableJP !== null ? `${projection.availableJP} JP` : '-';
@@ -667,7 +684,7 @@ export async function generatePdfDocument(
       extraIdentityRows = [
         ['Alokasi Intrakurikuler per Minggu', `: ${weeklyJpText}`],
         ['Minggu Efektif Semester', `: ${weeksText}`],
-        ['Total Kapasitas JP Tersedia', `: ${availableJpText}`],
+        ['Alokasi JP Semester', `: ${availableJpText}`],
       ];
 
       sections.push({
@@ -741,7 +758,7 @@ export async function generatePdfDocument(
 
       const alokasiWaktuStr = typeof projection.resolvedAllocatedJP === 'number' && projection.resolvedAllocatedJP > 0
         ? `${projection.resolvedAllocatedJP} JP`
-        : 'Belum Ditetapkan';
+        : '-';
 
       const infoUmumLines: string[] = [];
       if (isBlankMode) {
@@ -874,11 +891,11 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Kode TP', dataKey: 'code', width: 22, align: 'center' },
-          { header: 'Tujuan Pembelajaran', dataKey: 'tp', width: 65 },
-          { header: 'Pendekatan', dataKey: 'app', width: 30 },
-          { header: 'Kriteria & Rubrik Ketercapaian', dataKey: 'crit', width: 60 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Kode TP', dataKey: 'code', width: 18, align: 'center' },
+          { header: 'Tujuan Pembelajaran', dataKey: 'tp', width: 58 },
+          { header: 'Pendekatan', dataKey: 'app', width: 26 },
+          { header: 'Kriteria & Rubrik Ketercapaian', dataKey: 'crit', width: 45 },
         ],
         rows,
       });
@@ -907,10 +924,10 @@ export async function generatePdfDocument(
             const avgScore = hasResults
               ? Math.round(studentResults.reduce((acc, curr) => acc + curr.score, 0) / studentResults.length)
               : null;
-            const tp1Score = studentResults[0]?.score ?? (avgScore !== null ? avgScore : '-');
-            const tp2Score = studentResults[1]?.score ?? (avgScore !== null ? avgScore : '-');
-            const tp3Score = studentResults[2]?.score ?? (avgScore !== null ? avgScore : '-');
-            const sasScore = studentResults[3]?.score ?? (avgScore !== null ? avgScore : '-');
+            const tp1Score = studentResults[0]?.score !== undefined ? studentResults[0].score : '-';
+            const tp2Score = studentResults[1]?.score !== undefined ? studentResults[1].score : '-';
+            const tp3Score = studentResults[2]?.score !== undefined ? studentResults[2].score : '-';
+            const sasScore = studentResults[3]?.score !== undefined ? studentResults[3].score : '-';
 
             return [
               idx + 1,
@@ -922,23 +939,23 @@ export async function generatePdfDocument(
               tp3Score,
               sasScore,
               avgScore !== null ? avgScore : '-',
-              avgScore !== null ? (avgScore >= 75 ? 'Tercapai' : 'Perlu Bimbingan') : 'Belum Ada Nilai',
+              avgScore !== null ? (avgScore >= 75 ? 'Tercapai' : 'Perlu Bimbingan') : '-',
             ];
           });
 
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 12, align: 'center' },
-          { header: 'NISN', dataKey: 'nisn', width: 28, align: 'center' },
-          { header: 'Nama Peserta Didik', dataKey: 'name', width: 70 },
-          { header: 'L/P', dataKey: 'jk', width: 14, align: 'center' },
-          { header: 'TP 1', dataKey: 'tp1', width: 18, align: 'center' },
-          { header: 'TP 2', dataKey: 'tp2', width: 18, align: 'center' },
-          { header: 'TP 3', dataKey: 'tp3', width: 18, align: 'center' },
-          { header: 'SAS', dataKey: 'sas', width: 18, align: 'center' },
-          { header: 'Nilai Akhir', dataKey: 'na', width: 25, align: 'center' },
-          { header: 'Capaian Kompetensi', dataKey: 'cap', width: 45 },
+          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
+          { header: 'NISN', dataKey: 'nisn', width: 26, align: 'center' },
+          { header: 'Nama Peserta Didik', dataKey: 'name', width: 64 },
+          { header: 'L/P', dataKey: 'jk', width: 12, align: 'center' },
+          { header: 'TP 1', dataKey: 'tp1', width: 17, align: 'center' },
+          { header: 'TP 2', dataKey: 'tp2', width: 17, align: 'center' },
+          { header: 'TP 3', dataKey: 'tp3', width: 17, align: 'center' },
+          { header: 'SAS', dataKey: 'sas', width: 17, align: 'center' },
+          { header: 'Nilai Akhir', dataKey: 'na', width: 24, align: 'center' },
+          { header: 'Capaian Kompetensi', dataKey: 'cap', width: 48 },
         ],
         rows,
       });
@@ -987,26 +1004,26 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
+          { header: 'No', dataKey: 'no', width: 9, align: 'center' },
           { header: 'NISN', dataKey: 'nisn', width: 24, align: 'center' },
           { header: 'Nama Peserta Didik', dataKey: 'name', width: 60 },
-          { header: 'L/P', dataKey: 'jk', width: 12, align: 'center' },
-          { header: 'P1', dataKey: 'p1', width: 10, align: 'center' },
-          { header: 'P2', dataKey: 'p2', width: 10, align: 'center' },
-          { header: 'P3', dataKey: 'p3', width: 10, align: 'center' },
-          { header: 'P4', dataKey: 'p4', width: 10, align: 'center' },
-          { header: 'P5', dataKey: 'p5', width: 10, align: 'center' },
-          { header: 'P6', dataKey: 'p6', width: 10, align: 'center' },
-          { header: 'P7', dataKey: 'p7', width: 10, align: 'center' },
-          { header: 'P8', dataKey: 'p8', width: 10, align: 'center' },
-          { header: 'P9', dataKey: 'p9', width: 10, align: 'center' },
-          { header: 'P10', dataKey: 'p10', width: 10, align: 'center' },
-          { header: 'P11', dataKey: 'p11', width: 10, align: 'center' },
-          { header: 'P12', dataKey: 'p12', width: 10, align: 'center' },
-          { header: 'S', dataKey: 's', width: 9, align: 'center' },
-          { header: 'I', dataKey: 'i', width: 9, align: 'center' },
-          { header: 'A', dataKey: 'a', width: 9, align: 'center' },
-          { header: '%', dataKey: 'pct', width: 14, align: 'center' },
+          { header: 'L/P', dataKey: 'jk', width: 11, align: 'center' },
+          { header: 'P1', dataKey: 'p1', width: 9, align: 'center' },
+          { header: 'P2', dataKey: 'p2', width: 9, align: 'center' },
+          { header: 'P3', dataKey: 'p3', width: 9, align: 'center' },
+          { header: 'P4', dataKey: 'p4', width: 9, align: 'center' },
+          { header: 'P5', dataKey: 'p5', width: 9, align: 'center' },
+          { header: 'P6', dataKey: 'p6', width: 9, align: 'center' },
+          { header: 'P7', dataKey: 'p7', width: 9, align: 'center' },
+          { header: 'P8', dataKey: 'p8', width: 9, align: 'center' },
+          { header: 'P9', dataKey: 'p9', width: 9, align: 'center' },
+          { header: 'P10', dataKey: 'p10', width: 9, align: 'center' },
+          { header: 'P11', dataKey: 'p11', width: 9, align: 'center' },
+          { header: 'P12', dataKey: 'p12', width: 9, align: 'center' },
+          { header: 'S', dataKey: 's', width: 8, align: 'center' },
+          { header: 'I', dataKey: 'i', width: 8, align: 'center' },
+          { header: 'A', dataKey: 'a', width: 8, align: 'center' },
+          { header: '%', dataKey: 'pct', width: 16, align: 'center' },
         ],
         rows,
       });
@@ -1041,10 +1058,10 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 12, align: 'center' },
-          { header: 'Tanggal', dataKey: 'date', width: 35 },
-          { header: 'Status Agenda', dataKey: 'status', width: 45 },
-          { header: 'Uraian Kegiatan / Agenda Sekolah', dataKey: 'notes', width: 95 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Tanggal', dataKey: 'date', width: 28 },
+          { header: 'Status Agenda', dataKey: 'status', width: 34 },
+          { header: 'Uraian Kegiatan / Agenda Sekolah', dataKey: 'notes', width: 85 },
         ],
         rows,
       });
@@ -1083,12 +1100,12 @@ export async function generatePdfDocument(
         sections.push({
           type: 'table',
           columns: [
-            { header: 'No', dataKey: 'no', width: 12, align: 'center' },
-            { header: 'Kode KD', dataKey: 'code', width: 22, align: 'center' },
-            { header: 'Lingkup Materi / Topik', dataKey: 'topic', width: 70 },
-            { header: 'Alokasi Pekan', dataKey: 'wks', width: 25, align: 'center' },
-            { header: 'Jam Pelajaran', dataKey: 'jp', width: 25, align: 'center' },
-            { header: 'Distribusi Waktu Mengajar', dataKey: 'dist', width: 35 },
+            { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+            { header: 'Kode KD', dataKey: 'code', width: 20, align: 'center' },
+            { header: 'Lingkup Materi / Topik', dataKey: 'topic', width: 60 },
+            { header: 'Alokasi Pekan', dataKey: 'wks', width: 20, align: 'center' },
+            { header: 'Jam Pelajaran', dataKey: 'jp', width: 18, align: 'center' },
+            { header: 'Distribusi Waktu Mengajar', dataKey: 'dist', width: 29 },
           ],
           rows,
         });
@@ -1155,11 +1172,11 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Unit/Bab / Pertemuan', dataKey: 'meeting', width: 45 },
-          { header: 'Materi Pembelajaran', dataKey: 'mat', width: 65 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Unit/Bab / Pertemuan', dataKey: 'meeting', width: 42 },
+          { header: 'Materi Pembelajaran', dataKey: 'mat', width: 58 },
           { header: 'Alokasi JP', dataKey: 'jp', width: 18, align: 'center' },
-          { header: 'Tanggal / Pekan', dataKey: 'dateWeek', width: 35, align: 'center' },
+          { header: 'Tanggal / Pekan', dataKey: 'dateWeek', width: 29, align: 'center' },
         ],
         rows,
       });
@@ -1202,28 +1219,28 @@ export async function generatePdfDocument(
             const matchingTp = (tp?.items || []).find((t) => t.id === r.tpId);
             return [
               idx + 1,
-              student?.name || 'Peserta Didik',
-              matchingTp?.code || 'TP',
-              r.reason || '< KKM / Perlu Bimbingan',
+              student?.name || '-',
+              matchingTp?.code || '-',
+              r.reason || 'Perlu Bimbingan',
               r.intervention || 'Bimbingan Khusus / Penugasan Terbimbing',
-              r.reassessmentScore || (r.status === 'completed' ? 78 : '-'),
+              r.reassessmentScore != null ? r.reassessmentScore : '-',
               r.status === 'completed' ? 'Tuntas' : 'Berjalan',
             ];
           })
         : [
-            [1, 'Belum ada data remedial', '—', '—', '—', '—', '—'],
+            [1, '—', '—', 'Belum ada data remedial', '—', '—', '—'],
           ];
 
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Nama Siswa', dataKey: 'name', width: 45 },
-          { header: 'Kode TP', dataKey: 'code', width: 20, align: 'center' },
-          { header: 'Kondisi Awal', dataKey: 'init', width: 25, align: 'center' },
-          { header: 'Bentuk Kegiatan Tindak Lanjut', dataKey: 'act', width: 45 },
-          { header: 'Nilai Akhir', dataKey: 'fin', width: 20, align: 'center' },
-          { header: 'Keterangan', dataKey: 'stat', width: 22, align: 'center' },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Nama Siswa', dataKey: 'name', width: 38 },
+          { header: 'Kode TP', dataKey: 'code', width: 16, align: 'center' },
+          { header: 'Kondisi Awal', dataKey: 'init', width: 24, align: 'center' },
+          { header: 'Bentuk Kegiatan Tindak Lanjut', dataKey: 'act', width: 38 },
+          { header: 'Nilai Akhir', dataKey: 'fin', width: 15, align: 'center' },
+          { header: 'Keterangan', dataKey: 'stat', width: 16, align: 'center' },
         ],
         rows,
       });
@@ -1256,12 +1273,12 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Domain SKL', dataKey: 'skl', width: 30 },
-          { header: 'Kode KI', dataKey: 'ki', width: 20, align: 'center' },
-          { header: 'Kode KD', dataKey: 'kd', width: 22, align: 'center' },
-          { header: 'Indikator Pencapaian (IPK)', dataKey: 'ipk', width: 75 },
-          { header: 'Lingkup Materi', dataKey: 'mat', width: 35 },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Domain SKL', dataKey: 'skl', width: 24 },
+          { header: 'Kode KI', dataKey: 'ki', width: 16, align: 'center' },
+          { header: 'Kode KD', dataKey: 'kd', width: 18, align: 'center' },
+          { header: 'Indikator Pencapaian (IPK)', dataKey: 'ipk', width: 61 },
+          { header: 'Lingkup Materi', dataKey: 'mat', width: 28 },
         ],
         rows,
       });
@@ -1296,13 +1313,13 @@ export async function generatePdfDocument(
       sections.push({
         type: 'table',
         columns: [
-          { header: 'No', dataKey: 'no', width: 10, align: 'center' },
-          { header: 'Kode KD', dataKey: 'kd', width: 22, align: 'center' },
-          { header: 'Indikator Pencapaian Kompetensi', dataKey: 'ind', width: 75 },
-          { header: 'Kompleksitas', dataKey: 'c1', width: 22, align: 'center' },
-          { header: 'Daya Dukung', dataKey: 'c2', width: 22, align: 'center' },
-          { header: 'Intake Siswa', dataKey: 'c3', width: 22, align: 'center' },
-          { header: 'Nilai KKM', dataKey: 'kkm', width: 20, align: 'center' },
+          { header: 'No', dataKey: 'no', width: 8, align: 'center' },
+          { header: 'Kode KD', dataKey: 'kd', width: 18, align: 'center' },
+          { header: 'Indikator Pencapaian Kompetensi', dataKey: 'ind', width: 61 },
+          { header: 'Kompleksitas', dataKey: 'c1', width: 17, align: 'center' },
+          { header: 'Daya Dukung', dataKey: 'c2', width: 17, align: 'center' },
+          { header: 'Intake Siswa', dataKey: 'c3', width: 17, align: 'center' },
+          { header: 'Nilai KKM', dataKey: 'kkm', width: 17, align: 'center' },
         ],
         rows,
       });

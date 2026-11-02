@@ -45,8 +45,8 @@ export async function generateKalenderAkademik(context: DocumentGenerationContex
   docChildren.push(
     createIdentityMetadataTable(school, profile, academicSetting, [
       ['Rentang Waktu Semester', `: ${calendar?.startDate || '-'} s/d ${calendar?.endDate || '-'}`],
-      ['Hari Sekolah / Minggu', `: ${calendar?.schoolDaysPerWeek ? `${calendar.schoolDaysPerWeek} Hari Kerja` : 'Belum diatur'}`],
-      ['Beban Jam Pelajaran (JP)', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : 'Input Manual Diperlukan'}`],
+      ['Hari Sekolah / Minggu', `: ${calendar?.schoolDaysPerWeek ? `${calendar.schoolDaysPerWeek} Hari Kerja` : '-'}`],
+      ['Beban Jam Pelajaran (JP)', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '-'}`],
     ])
   );
   docChildren.push(new Paragraph({ spacing: { after: 180 } }));
@@ -96,7 +96,7 @@ export async function generateKalenderAkademik(context: DocumentGenerationContex
         children: [
           createTableDataCell('2', 10, AlignmentType.CENTER),
           createTableDataCell('Hari Sekolah per Minggu', 60),
-          createTableDataCell(`${calendar?.schoolDaysPerWeek ? `${calendar.schoolDaysPerWeek} Hari` : 'Belum diatur'}`, 30, AlignmentType.CENTER),
+          createTableDataCell(`${calendar?.schoolDaysPerWeek ? `${calendar.schoolDaysPerWeek} Hari` : '-'}`, 30, AlignmentType.CENTER),
         ],
       }),
       new TableRow({
@@ -117,7 +117,7 @@ export async function generateKalenderAkademik(context: DocumentGenerationContex
         children: [
           createTableDataCell('5', 10, AlignmentType.CENTER),
           createTableDataCell('Total Alokasi Waktu Mata Pelajaran', 60),
-          createTableDataCell(availableJPCount !== null ? `${availableJPCount} JP / Semester` : 'Belum Diverifikasi', 30, AlignmentType.CENTER),
+          createTableDataCell(availableJPCount !== null ? `${availableJPCount} JP / Semester` : '-', 30, AlignmentType.CENTER),
         ],
       }),
       new TableRow({

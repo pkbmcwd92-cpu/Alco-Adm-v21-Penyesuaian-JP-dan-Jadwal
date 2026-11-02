@@ -24,9 +24,9 @@ export const semesterZipFolder = (semester: 1 | 2) => semester === 1 ? 'Semester
 /** Keep spaces, punctuation and Unicode names; replace only filesystem-invalid characters. */
 export function administrationZipRoot(context: DocumentGenerationContext): string {
   const safe = (value: string) => value.replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_');
-  const grade = context.academicSetting.grade || 'Kelas';
-  const label = (/^\d+$/.test(grade) ? `Kelas_${grade}` : grade) + (context.academicSetting.classSection?.trim() ? ` (${context.academicSetting.classSection.trim()})` : '');
-  return [label, context.academicSetting.subject || 'Mapel', context.profile.name || 'Guru'].map(safe).join('_');
+  const grade = context.academicSetting?.grade || 'Kelas';
+  const label = (/^\d+$/.test(grade) ? `Kelas_${grade}` : grade) + (context.academicSetting?.classSection?.trim() ? ` (${context.academicSetting.classSection.trim()})` : '');
+  return [label, context.academicSetting?.subject || 'Mapel', context.profile?.name || 'Guru'].map(safe).join('_');
 }
 
 /** No storage reads or semester-label fallback: each context owns persisted SemesterPlan data. */
@@ -37,7 +37,7 @@ export function resolveAnnualZipContexts(base: DocumentGenerationContext): {
 } {
   const source = base.zipAnnualSource;
   if (!source) {
-    const semester = base.academicSetting.semester?.startsWith('1') ? 1 : base.academicSetting.semester?.startsWith('2') ? 2 : undefined;
+    const semester = base.academicSetting?.semester?.startsWith('1') ? 1 : base.academicSetting?.semester?.startsWith('2') ? 2 : undefined;
     return { annual: { ...base, snapshot: undefined, skipDownload: true },
       semesters: semester ? [{ semester, context: { ...base, snapshot: undefined, skipDownload: true } }] : [],
       issues: ['Context canonical tahun ajaran lengkap belum tersedia; semester lain tidak direkayasa.'] };

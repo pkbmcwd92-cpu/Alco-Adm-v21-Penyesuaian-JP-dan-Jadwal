@@ -48,10 +48,16 @@ export async function generateAnalisisCpTp(
   );
 
   // 4. Deskripsi CP Rujukan
-  if (cp?.generalDescription) {
+  const generalCpDesc = cp?.generalDescription?.trim()
+    ? cp.generalDescription.trim()
+    : (cp?.elements && cp.elements.length > 0)
+    ? 'Capaian Pembelajaran pada fase ini dirinci melalui elemen-elemen berikut.'
+    : '';
+
+  if (generalCpDesc) {
     docChildren.push(
       createSectionHeading('B. Capaian Pembelajaran (CP) Fase & Mata Pelajaran', 1),
-      createProseParagraph(cp.generalDescription, { italics: true })
+      createProseParagraph(generalCpDesc, { italics: true })
     );
   }
 
@@ -76,10 +82,26 @@ export async function generateAnalisisCpTp(
   const tableDataRows: TableRow[] = [];
   const cpElements = cp?.elements || [];
   const tpItems = tp?.items || [];
+  const isBlankMode = context.documentMode === 'blank';
 
   let rowIndex = 1;
 
-  if (cpElements.length > 0) {
+  if (isBlankMode) {
+    for (let i = 1; i <= 10; i++) {
+      tableDataRows.push(
+        new TableRow({
+          children: [
+            createTableDataCell(String(i), 5, AlignmentType.CENTER),
+            createTableDataCell('....................', 16),
+            createTableDataCell('........................................', 25),
+            createTableDataCell('....................', 16),
+            createTableDataCell('....................', 16),
+            createTableDataCell('........................................', 22),
+          ],
+        })
+      );
+    }
+  } else if (cpElements.length > 0) {
     cpElements.forEach((elem) => {
       // Find TP items that relate to this element
       const matchingTPs = tpItems.filter(
@@ -102,8 +124,8 @@ export async function generateAnalisisCpTp(
                 createTableDataCell(String(rowIndex++), 5, AlignmentType.CENTER),
                 createTableDataCell(isFirstInElem ? elem.name : `↳ (${elem.name})`, 16, AlignmentType.LEFT, isFirstInElem),
                 createTableDataCell(isFirstInElem ? elem.content : '— s.d.a —', 25, AlignmentType.LEFT),
-                createTableDataCell(matchedTP.competence || 'Mengidentifikasi, Menganalisis', 16, AlignmentType.LEFT),
-                createTableDataCell(matchedTP.contentScope || 'Materi Pokok Esensial', 16, AlignmentType.LEFT),
+                createTableDataCell(matchedTP.competence || '-', 16, AlignmentType.LEFT),
+                createTableDataCell(matchedTP.contentScope || '-', 16, AlignmentType.LEFT),
                 createTableDataCell(
                   `${matchedTP.code ? `[${matchedTP.code}] ` : ''}${matchedTP.statement}${p3Tag}`,
                   22,
@@ -121,9 +143,9 @@ export async function generateAnalisisCpTp(
               createTableDataCell(String(rowIndex++), 5, AlignmentType.CENTER),
               createTableDataCell(elem.name, 16, AlignmentType.LEFT, true),
               createTableDataCell(elem.content, 25, AlignmentType.LEFT),
-              createTableDataCell('Memahami, Menganalisis, Mengaplikasikan', 16, AlignmentType.LEFT),
-              createTableDataCell('Materi Inti Sesuai Elemen', 16, AlignmentType.LEFT),
-              createTableDataCell('Rumusan TP diturunkan dari kompetensi & materi elemen terkait.', 22, AlignmentType.LEFT),
+              createTableDataCell('-', 16, AlignmentType.CENTER),
+              createTableDataCell('-', 16, AlignmentType.CENTER),
+              createTableDataCell('-', 22, AlignmentType.CENTER),
             ],
           })
         );
@@ -141,10 +163,10 @@ export async function generateAnalisisCpTp(
         new TableRow({
           children: [
             createTableDataCell(String(rowIndex++), 5, AlignmentType.CENTER),
-            createTableDataCell(item.elementName || 'Umum / Terpadu', 16, AlignmentType.LEFT),
-            createTableDataCell(cp?.generalDescription || 'Capaian Pembelajaran Terpadu Fase', 25, AlignmentType.LEFT),
-            createTableDataCell(item.competence || 'Memahami, Mengaplikasikan', 16, AlignmentType.LEFT),
-            createTableDataCell(item.contentScope || 'Lingkup Materi', 16, AlignmentType.LEFT),
+            createTableDataCell(item.elementName || '-', 16, AlignmentType.LEFT),
+            createTableDataCell(cp?.generalDescription || '-', 25, AlignmentType.LEFT),
+            createTableDataCell(item.competence || '-', 16, AlignmentType.LEFT),
+            createTableDataCell(item.contentScope || '-', 16, AlignmentType.LEFT),
             createTableDataCell(
               `${item.code ? `[${item.code}] ` : ''}${item.statement}${p3Tag}`,
               22,
@@ -155,16 +177,15 @@ export async function generateAnalisisCpTp(
       );
     });
   } else {
-    // Fallback row if draft
     tableDataRows.push(
       new TableRow({
         children: [
           createTableDataCell('1', 5, AlignmentType.CENTER),
-          createTableDataCell('Elemen CP', 16, AlignmentType.LEFT),
-          createTableDataCell(cp?.generalDescription || 'Capaian Pembelajaran Fase', 25, AlignmentType.LEFT),
-          createTableDataCell('Kompetensi Utama (KKO)', 16, AlignmentType.LEFT),
-          createTableDataCell('Lingkup Materi Esensial', 16, AlignmentType.LEFT),
-          createTableDataCell('Tujuan Pembelajaran (TP) yang dirumuskan', 22, AlignmentType.LEFT),
+          createTableDataCell('-', 16, AlignmentType.CENTER),
+          createTableDataCell(cp?.generalDescription || '-', 25, AlignmentType.LEFT),
+          createTableDataCell('-', 16, AlignmentType.CENTER),
+          createTableDataCell('-', 16, AlignmentType.CENTER),
+          createTableDataCell('-', 22, AlignmentType.CENTER),
         ],
       })
     );

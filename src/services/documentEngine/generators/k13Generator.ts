@@ -45,15 +45,29 @@ export async function generateAnalisisK13(context: DocumentGenerationContext): P
     }),
   ];
 
-  if (items.length === 0) {
+  if (context.documentMode === 'blank') {
+    for (let i = 1; i <= 10; i++) {
+      rows.push(
+        new TableRow({
+          children: [
+            createTableDataCell(String(i), 6, AlignmentType.CENTER),
+            createTableDataCell('....................', 20),
+            createTableDataCell('....................', 20),
+            createTableDataCell('....................', 24),
+            createTableDataCell('........................................', 30),
+          ],
+        })
+      );
+    }
+  } else if (items.length === 0) {
     rows.push(
       new TableRow({
         children: [
-          createTableDataCell('1', 6, AlignmentType.CENTER),
-          createTableDataCell('Memiliki perilaku yang mencerminkan sikap orang beriman, berakhlak mulia, dan percaya diri.', 20),
-          createTableDataCell('KI-3 (Pengetahuan) & KI-4 (Keterampilan) memahami pengetahuan faktual dan konseptual.', 20),
-          createTableDataCell('3.1 Memahami variasi pola gerak dasar lokomotor, non-lokomotor, dan manipulatif.', 24),
-          createTableDataCell('3.1.1 Menjelaskan konsep pola gerak dasar secara tepat.\n4.1.1 Mempraktikkan gerak dasar.', 30),
+          createTableDataCell('-', 6, AlignmentType.CENTER),
+          createTableDataCell('-', 20, AlignmentType.CENTER),
+          createTableDataCell('-', 20, AlignmentType.CENTER),
+          createTableDataCell('Belum ada data analisis KD', 24),
+          createTableDataCell('-', 30, AlignmentType.CENTER),
         ],
       })
     );

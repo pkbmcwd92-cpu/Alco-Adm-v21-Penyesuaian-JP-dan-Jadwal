@@ -106,10 +106,17 @@ export async function generateDaftarNilai(context: DocumentGenerationContext): P
         })
         .map((r) => r.score);
 
-      const avgFormatif = formatifScores.length > 0 ? Math.round(formatifScores.reduce((a, b) => a + b, 0) / formatifScores.length) : 80;
-      const avgSumatifLM = sumatifLMScores.length > 0 ? Math.round(sumatifLMScores.reduce((a, b) => a + b, 0) / sumatifLMScores.length) : 82;
-      const valSAS = sumatifSAS.length > 0 ? sumatifSAS[0] : 84;
-      const finalGrade = Math.round((avgFormatif + avgSumatifLM * 2 + valSAS * 2) / 5);
+      const avgFormatif = formatifScores.length > 0 ? Math.round(formatifScores.reduce((a, b) => a + b, 0) / formatifScores.length) : null;
+      const avgSumatifLM = sumatifLMScores.length > 0 ? Math.round(sumatifLMScores.reduce((a, b) => a + b, 0) / sumatifLMScores.length) : null;
+      const valSAS = sumatifSAS.length > 0 ? sumatifSAS[0] : null;
+
+      let finalGrade: number | null = null;
+      if (avgFormatif !== null && avgSumatifLM !== null && valSAS !== null) {
+        finalGrade = Math.round((avgFormatif + avgSumatifLM * 2 + valSAS * 2) / 5);
+      } else if (avgFormatif !== null || avgSumatifLM !== null || valSAS !== null) {
+        const availableVals = [avgFormatif, avgSumatifLM, valSAS].filter((v): v is number => v !== null);
+        finalGrade = Math.round(availableVals.reduce((a, b) => a + b, 0) / availableVals.length);
+      }
 
       tableRows.push(
         new TableRow({
@@ -117,10 +124,10 @@ export async function generateDaftarNilai(context: DocumentGenerationContext): P
             createTableDataCell((index + 1).toString(), 6, AlignmentType.CENTER),
             createTableDataCell(std.nisn || '-', 14, AlignmentType.CENTER),
             createTableDataCell(std.name, 32),
-            createTableDataCell(avgFormatif.toString(), 12, AlignmentType.CENTER),
-            createTableDataCell(avgSumatifLM.toString(), 12, AlignmentType.CENTER),
-            createTableDataCell(valSAS.toString(), 12, AlignmentType.CENTER),
-            createTableDataCell(finalGrade.toString(), 12, AlignmentType.CENTER),
+            createTableDataCell(avgFormatif !== null ? avgFormatif.toString() : '-', 12, AlignmentType.CENTER),
+            createTableDataCell(avgSumatifLM !== null ? avgSumatifLM.toString() : '-', 12, AlignmentType.CENTER),
+            createTableDataCell(valSAS !== null ? valSAS.toString() : '-', 12, AlignmentType.CENTER),
+            createTableDataCell(finalGrade !== null ? finalGrade.toString() : '-', 12, AlignmentType.CENTER),
           ],
         })
       );

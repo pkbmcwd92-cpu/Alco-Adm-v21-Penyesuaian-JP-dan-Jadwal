@@ -40,13 +40,13 @@ export function buildPromesPresentation(projection: PromesProjection, blank = fa
   const status = remainingJP === null ? '-' : remainingJP < 0 ? 'OVER_ALLOCATED' : remainingJP > 0 ? 'UNDER_ALLOCATED' : 'BALANCED';
   const summaryRows = [
     ['-', '-', 'TOTAL JP SEMESTER', '-', blank ? '-' : `${totalJP} JP`, '-', ...monthlyTotals.map(total => blank ? '-' : String(total))],
-    ['-', '-', 'KAPASITAS JP TERSEDIA', '-', blank || projection.availableJP === null ? '-' : `${projection.availableJP} JP`, '-', ...months.map(() => '-')],
-    ['-', '-', 'SISA / DEFISIT JP', '-', blank || remainingJP === null ? '-' : `${remainingJP} JP`, '-', ...months.map(() => '-')],
+    ['-', '-', 'ALOKASI JP SEMESTER', '-', blank || projection.availableJP === null ? '-' : `${projection.availableJP} JP`, '-', ...months.map(() => '-')],
+    ['-', '-', 'SELISIH ALOKASI JP', '-', blank || remainingJP === null ? '-' : `${remainingJP} JP`, '-', ...months.map(() => '-')],
   ].map(row => isK13 ? row.filter((_, index) => index !== 3) : row);
   const notes = [
     'Angka pada kolom bulan menunjukkan Jam Pelajaran (JP) intrakurikuler tatap muka yang telah dijadwalkan guru.',
     'Item tanpa alokasi bulan diberi tanda strip (-) yang berarti belum dijadwalkan pada kalender aktif.',
-    'Sisa / defisit bernilai negatif menunjukkan alokasi melebihi kapasitas JP tersedia.',
+    'Selisih bertanda negatif menunjukkan alokasi melebihi target alokasi JP semester.',
   ].join('\n');
   return { headers, widths, alignments, rows, summaryRows, notes, totalJP, monthlyTotals, remainingJP, status };
 }

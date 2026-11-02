@@ -52,12 +52,12 @@ export async function generatePROMES(context: DocumentGenerationContext): Promis
   const weeklyJpText =
     projection.actualScheduledWeeklyJP !== null
       ? `${projection.actualScheduledWeeklyJP} JP / Minggu`
-      : 'Input Manual Diperlukan';
+      : '-';
 
   const weeksText =
     projection.effectiveWeeksEquivalent !== null
       ? `${projection.effectiveWeeksEquivalent} Minggu (${projection.effectiveLearningDays || 0} Hari Efektif)`
-      : 'Data kalender belum dikonfigurasi pada sistem';
+      : '-';
 
   const availableJpText =
     projection.availableJP !== null ? `${projection.availableJP} JP` : '-';
@@ -66,7 +66,7 @@ export async function generatePROMES(context: DocumentGenerationContext): Promis
     createIdentityMetadataTable(school, profile, academicSetting, [
       ['Alokasi Intrakurikuler per Minggu', `: ${weeklyJpText}`],
       ['Minggu Efektif Semester', `: ${weeksText}`],
-      ['Total Kapasitas JP Tersedia', `: ${availableJpText}`],
+      ['Alokasi JP Semester', `: ${availableJpText}`],
     ])
   );
   docChildren.push(new Paragraph({ spacing: { after: 180 } }));

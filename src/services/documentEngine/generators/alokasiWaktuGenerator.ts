@@ -123,7 +123,7 @@ export async function generateAlokasiWaktu(context: DocumentGenerationContext): 
     docChildren.push(
       createIdentityMetadataTable(school, profile, academicSetting, [
         ['Tahun Ajaran / Semester', `: ${academicSetting.academicYear || '-'} / ${academicSetting.semester || '-'}`],
-        ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : 'Input Manual Diperlukan'}`],
+        ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '-'}`],
         ['Total Alokasi Pembelajaran Terdata', `: ${totalAllocatedJP} Jam Pelajaran (JP)`],
         ['Dasar Regulasi Struktur', `: ${officialRule.regulation || 'Struktur Kustom Guru'}`],
       ])
@@ -132,10 +132,10 @@ export async function generateAlokasiWaktu(context: DocumentGenerationContext): 
     docChildren.push(
       createIdentityMetadataTable(school, profile, academicSetting, [
         ['Tahun Ajaran / Semester', `: ${academicSetting.academicYear || '-'} / ${academicSetting.semester || '-'}`],
-        ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : 'Input Manual Diperlukan'}`],
-        ['Kapasitas JP Semester', `: ${projection.availableJP !== null ? `${projection.availableJP} Jam Pelajaran` : 'Belum Ditentukan'}`],
+        ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '-'}`],
+        ['Alokasi JP Semester', `: ${projection.availableJP !== null ? `${projection.availableJP} Jam Pelajaran` : '-'}`],
         ['Total Alokasi Pembelajaran Terdata', `: ${totalAllocatedJP} Jam Pelajaran (JP)`],
-        ['Sisa / Defisit Kapasitas', `: ${projection.remainingJP !== null ? `${projection.remainingJP} JP` : '-'}`],
+        ['Selisih Alokasi JP', `: ${projection.remainingJP !== null ? `${projection.remainingJP} JP` : '-'}`],
         ['Dasar Regulasi Struktur', `: ${officialRule.regulation || 'Struktur Kustom Guru'}`],
       ])
     );

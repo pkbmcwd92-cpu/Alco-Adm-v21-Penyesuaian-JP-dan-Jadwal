@@ -90,7 +90,7 @@ export async function generateDaftarHadir(context: DocumentGenerationContext): P
       const iCount = studentRecords.filter((r) => r.status === 'I').length;
       const aCount = studentRecords.filter((r) => r.status === 'A').length;
       const totalRecorded = studentRecords.length;
-      const pct = totalRecorded > 0 ? Math.round((hCount / totalRecorded) * 100) : 100;
+      const pct = totalRecorded > 0 ? `${Math.round((hCount / totalRecorded) * 100)}%` : '-';
 
       tableRows.push(
         new TableRow({
@@ -103,7 +103,7 @@ export async function generateDaftarHadir(context: DocumentGenerationContext): P
             createTableDataCell(sCount.toString(), 7, AlignmentType.CENTER),
             createTableDataCell(iCount.toString(), 7, AlignmentType.CENTER),
             createTableDataCell(aCount.toString(), 7, AlignmentType.CENTER),
-            createTableDataCell(`${pct}%`, 8, AlignmentType.CENTER),
+            createTableDataCell(pct, 8, AlignmentType.CENTER),
           ],
         })
       );

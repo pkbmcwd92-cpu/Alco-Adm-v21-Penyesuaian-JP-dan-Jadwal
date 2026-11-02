@@ -346,7 +346,7 @@ export async function generateZipBundle(
     itemResults.push(...annualPlan.skipped);
   } else {
     for (const type of targetTypes) {
-      const semester = rawContext.academicSetting.semester?.startsWith('2') ? 2 : 1;
+      const semester = rawContext.academicSetting?.semester?.startsWith('2') ? 2 : 1;
       const folderCategory = isAnnualZipDocument(type) ? 'Administrasi_Umum' : semesterZipFolder(semester);
       folderItemCount[folderCategory] = (folderItemCount[folderCategory] || 0) + 1;
       workItems.push({ type, context: effectiveContextBase, folderCategory, seqNum: folderItemCount[folderCategory] });
@@ -541,10 +541,12 @@ export async function generateZipBundle(
 
   const totalFiles = pdfCount + docxCount;
   if (totalFiles === 0) {
+    const errorDetails = itemResults.map((r) => `${r.type}: ${r.status} (${r.reason})`).join('; ');
     throw new Error(
-      isBlank
+      (isBlank
         ? 'Tidak ada format dokumen kosong yang berhasil dibuat untuk kurikulum saat ini.'
-        : 'Tidak ada dokumen administrasi yang memenuhi syarat kelengkapan data untuk diekspor ke dalam arsip ZIP.'
+        : 'Tidak ada dokumen administrasi yang memenuhi syarat kelengkapan data untuk diekspor ke dalam arsip ZIP.') +
+      (errorDetails ? ` Detail: ${errorDetails}` : '')
     );
   }
 

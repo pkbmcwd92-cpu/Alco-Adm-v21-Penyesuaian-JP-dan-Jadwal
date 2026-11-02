@@ -93,14 +93,15 @@ export async function generateRemedialPengayaan(context: DocumentGenerationConte
   } else {
     remedialList.forEach((r, i) => {
       const std = studentList.find((s) => s.id === r.studentId);
+      const scoreStr = r.reassessmentScore != null ? String(r.reassessmentScore) : '-';
       remRows.push(
         new TableRow({
           children: [
             createTableDataCell((i + 1).toString(), 6, AlignmentType.CENTER),
-            createTableDataCell(std?.name || 'Siswa', 24),
+            createTableDataCell(std?.name || '-', 24),
             createTableDataCell(r.reason || 'Perlu bimbingan konsep inti', 26),
             createTableDataCell(r.intervention || 'Bimbingan khusus perorangan', 24),
-            createTableDataCell(`${r.date || '-'}\nNilai: ${r.reassessmentScore || 78}`, 20, AlignmentType.CENTER),
+            createTableDataCell(`${r.date || '-'}\nNilai: ${scoreStr}`, 20, AlignmentType.CENTER),
           ],
         })
       );
@@ -147,10 +148,10 @@ export async function generateRemedialPengayaan(context: DocumentGenerationConte
       enrRows.push(
         new TableRow({
           children: [
-            createTableDataCell('1', 6, AlignmentType.CENTER),
-            createTableDataCell(studentList[0]?.name || 'Siswa Berprestasi', 26),
-            createTableDataCell('Eksplorasi soal penalaran tinggi (HOTS) & tutor sebaya', 38),
-            createTableDataCell('Terlaksana dengan sangat baik', 30, AlignmentType.CENTER),
+            createTableDataCell('-', 6, AlignmentType.CENTER),
+            createTableDataCell('-', 26, AlignmentType.CENTER),
+            createTableDataCell('Belum ada data kegiatan pengayaan', 38),
+            createTableDataCell('-', 30, AlignmentType.CENTER),
           ],
         })
       );
@@ -161,9 +162,9 @@ export async function generateRemedialPengayaan(context: DocumentGenerationConte
           new TableRow({
             children: [
               createTableDataCell((i + 1).toString(), 6, AlignmentType.CENTER),
-              createTableDataCell(std?.name || 'Siswa', 26),
+              createTableDataCell(std?.name || '-', 26),
               createTableDataCell(e.activity || 'Penugasan studi kasus mandiri', 38),
-              createTableDataCell(`${e.date || '-'}\n${e.result || 'Sangat Baik'}`, 30, AlignmentType.CENTER),
+              createTableDataCell(`${e.date || '-'}\n${e.result || '-'}`, 30, AlignmentType.CENTER),
             ],
           })
         );
