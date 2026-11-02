@@ -15,6 +15,30 @@ function formatAllocatedWeeks(allocations: Record<number, number>): string {
   return ranges.join(', ') || '-';
 }
 
+export function formatAllocationStatusIndonesian(
+  statusOrRemaining: string | number | null | undefined,
+  remainingJP?: number | null
+): string {
+  if (typeof statusOrRemaining === 'number') {
+    if (statusOrRemaining === 0) return 'Alokasi sesuai';
+    if (statusOrRemaining < 0) return 'Alokasi melebihi ketentuan';
+    if (statusOrRemaining > 0) return 'Alokasi belum terpenuhi';
+    return '-';
+  }
+
+  if (remainingJP !== undefined && remainingJP !== null) {
+    if (remainingJP === 0) return 'Alokasi sesuai';
+    if (remainingJP < 0) return 'Alokasi melebihi ketentuan';
+    if (remainingJP > 0) return 'Alokasi belum terpenuhi';
+  }
+
+  if (statusOrRemaining === 'BALANCED') return 'Alokasi sesuai';
+  if (statusOrRemaining === 'OVER_ALLOCATED') return 'Alokasi melebihi ketentuan';
+  if (statusOrRemaining === 'UNDER_ALLOCATED') return 'Alokasi belum terpenuhi';
+
+  return '-';
+}
+
 /** Formatting only: all allocation and semester scope come from buildPromesProjection. */
 export function buildPromesPresentation(projection: PromesProjection, blank = false) {
   const months = projection.monthHeaders.map(month => month.monthName);
@@ -38,6 +62,7 @@ export function buildPromesPresentation(projection: PromesProjection, blank = fa
   const monthlyTotals = months.map(month => sourceRows.reduce((sum, row) => sum + (row.monthlyJP[month] ?? 0), 0));
   const remainingJP = projection.availableJP === null ? null : projection.availableJP - totalJP;
   const status = remainingJP === null ? '-' : remainingJP < 0 ? 'OVER_ALLOCATED' : remainingJP > 0 ? 'UNDER_ALLOCATED' : 'BALANCED';
+  const statusLabel = formatAllocationStatusIndonesian(status, remainingJP);
   const summaryRows = [
     ['-', '-', 'TOTAL JP SEMESTER', '-', blank ? '-' : `${totalJP} JP`, '-', ...monthlyTotals.map(total => blank ? '-' : String(total))],
     ['-', '-', 'ALOKASI JP SEMESTER', '-', blank || projection.availableJP === null ? '-' : `${projection.availableJP} JP`, '-', ...months.map(() => '-')],
@@ -48,5 +73,5 @@ export function buildPromesPresentation(projection: PromesProjection, blank = fa
     'Item tanpa alokasi bulan diberi tanda strip (-) yang berarti belum dijadwalkan pada kalender aktif.',
     'Selisih bertanda negatif menunjukkan alokasi melebihi target alokasi JP semester.',
   ].join('\n');
-  return { headers, widths, alignments, rows, summaryRows, notes, totalJP, monthlyTotals, remainingJP, status };
+  return { headers, widths, alignments, rows, summaryRows, notes, totalJP, monthlyTotals, remainingJP, status, statusLabel };
 }

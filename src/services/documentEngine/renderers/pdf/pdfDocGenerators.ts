@@ -1,5 +1,5 @@
 import { buildJurnalProjection, JURNAL_COLUMNS, JURNAL_WIDTHS, jurnalTableRows } from '../../jurnalProjection';
-import { buildPromesPresentation } from '../../promesPresentation';
+import { buildPromesPresentation, formatAllocationStatusIndonesian } from '../../promesPresentation';
 import { sourceIdentityExportIssue } from '../../sourceIdentityGuard';
 import { importDocumentPolicyIssue } from '../../../administrationImportPolicy';
 import { calendarDayLabel } from '../../calendarPresentation';
@@ -1077,6 +1077,20 @@ export async function generatePdfDocument(
         fileName = `Alokasi_Waktu_${cleanSubject}_${cleanGrade}.pdf`;
 
         const k13Rows = buildK13AlokasiWaktuRows(k13Analysis?.items || [], timeAllocations);
+        const totalAllocatedJP = k13Rows.reduce((sum, r) => sum + r.allocatedJP, 0);
+
+        const weeklyJP =
+          academicSetting?.subjectWeeklyJP ||
+          context.calendar?.jpPerWeek ||
+          academicSetting?.totalHoursPerWeek ||
+          null;
+
+        extraIdentityRows = [
+          ['Tahun Ajaran / Semester', `: ${academicYear} / ${semester}`],
+          ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '-'}`],
+          ['Total Alokasi Pembelajaran Terdata', `: ${totalAllocatedJP} Jam Pelajaran (JP)`],
+        ];
+
         const rows = isBlankMode
           ? Array.from({ length: 15 }, (_, idx) => [
               idx + 1,
@@ -1097,6 +1111,17 @@ export async function generatePdfDocument(
             ])
           : [[1, '—', 'Belum ada analisis KD yang disusun.', '—', '—', '—']];
 
+        if (!isBlankMode && k13Rows.length > 0) {
+          rows.push([
+            'TOTAL',
+            '',
+            'Total Alokasi Waktu Pembelajaran Terjadwal',
+            '-',
+            `${totalAllocatedJP} JP`,
+            '-',
+          ]);
+        }
+
         sections.push({
           type: 'table',
           columns: [
@@ -1109,9 +1134,26 @@ export async function generatePdfDocument(
           ],
           rows,
         });
+
+        if (!isBlankMode) {
+          sections.push({
+            type: 'heading',
+            text: 'Ringkasan Alokasi Waktu Pembelajaran Semester',
+            level: 2,
+          });
+          sections.push({
+            type: 'paragraph',
+            text: [
+              `• Beban JP Intrakurikuler per Minggu: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '—'}`,
+              `• Total Alokasi Pembelajaran Terdata: ${totalAllocatedJP} JP`,
+              `• Keterangan Pelaksanaan: Alokasi terjadwal sesuai silabus KD semester aktif.`,
+            ].join('\n'),
+          });
+        }
         break;
       }
 
+      const projection = buildPromesProjection(context);
       const canonical = resolveMerdekaCanonicalTimeProjection(context);
 
       if (!isBlankMode && !canonical.isReady) {
@@ -1141,6 +1183,24 @@ export async function generatePdfDocument(
         0
       );
 
+      const weeklyJpText =
+        projection.actualScheduledWeeklyJP !== null
+          ? `${projection.actualScheduledWeeklyJP} JP / Minggu`
+          : '-';
+      const availableJpText =
+        projection.availableJP !== null ? `${projection.availableJP} Jam Pelajaran` : '-';
+      const remainingJpText =
+        projection.remainingJP !== null ? `${projection.remainingJP} JP` : '-';
+      const statusDescription = formatAllocationStatusIndonesian(projection.remainingJP);
+
+      extraIdentityRows = [
+        ['Tahun Ajaran / Semester', `: ${academicYear} / ${activeSemesterNum}`],
+        ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJpText}`],
+        ['Alokasi JP Semester', `: ${availableJpText}`],
+        ['Total Alokasi Pembelajaran Terdata', `: ${totalAllocatedJP} Jam Pelajaran (JP)`],
+        ['Selisih Alokasi JP', `: ${remainingJpText} (${statusDescription})`],
+      ];
+
       title = 'Distribusi Alokasi Waktu Pembelajaran';
       subTitle = `${subject} — ${grade} — Semester ${activeSemesterNum} | Total ${totalAllocatedJP} JP`;
       fileName = `Alokasi_Waktu_${cleanSubject}_${cleanGrade}.pdf`;
@@ -1169,6 +1229,16 @@ export async function generatePdfDocument(
           })
         : [[1, '—', 'Belum ada alokasi waktu yang disusun.', '—', '—']];
 
+      if (!isBlankMode && merdekaMeetings.length > 0) {
+        rows.push([
+          'TOTAL',
+          '',
+          'Total Alokasi Waktu Pembelajaran Terjadwal',
+          `${totalAllocatedJP} JP`,
+          '-',
+        ]);
+      }
+
       sections.push({
         type: 'table',
         columns: [
@@ -1180,6 +1250,23 @@ export async function generatePdfDocument(
         ],
         rows,
       });
+
+      if (!isBlankMode) {
+        sections.push({
+          type: 'heading',
+          text: 'Ringkasan Alokasi Waktu Pembelajaran Semester',
+          level: 2,
+        });
+        sections.push({
+          type: 'paragraph',
+          text: [
+            `• Beban JP Intrakurikuler per Minggu: ${weeklyJpText}`,
+            `• Alokasi JP Semester: ${projection.availableJP !== null ? `${projection.availableJP} JP` : '—'}`,
+            `• Total Alokasi Pembelajaran Terdata: ${totalAllocatedJP} JP`,
+            `• Selisih Alokasi JP: ${remainingJpText} (${statusDescription})`,
+          ].join('\n'),
+        });
+      }
       break;
     }
 

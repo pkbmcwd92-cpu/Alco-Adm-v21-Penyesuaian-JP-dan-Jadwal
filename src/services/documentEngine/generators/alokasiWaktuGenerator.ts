@@ -16,10 +16,12 @@ import {
   createTableDataCell,
   createSignoffBlock,
   createSectionHeading,
+  createProseParagraph,
   createDocxSectionProperties,
 } from '../docxStyles';
 import { getSubjectJP } from '../../jpEngine';
 import { buildPromesProjection } from '../promesProjection';
+import { formatAllocationStatusIndonesian } from '../promesPresentation';
 import { buildK13AlokasiWaktuRows } from '../k13AlokasiWaktuHelper';
 import { resolveMerdekaCanonicalTimeProjection } from '../meetingTimeProjection';
 
@@ -135,7 +137,7 @@ export async function generateAlokasiWaktu(context: DocumentGenerationContext): 
         ['Beban JP Intrakurikuler per Minggu', `: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '-'}`],
         ['Alokasi JP Semester', `: ${projection.availableJP !== null ? `${projection.availableJP} Jam Pelajaran` : '-'}`],
         ['Total Alokasi Pembelajaran Terdata', `: ${totalAllocatedJP} Jam Pelajaran (JP)`],
-        ['Selisih Alokasi JP', `: ${projection.remainingJP !== null ? `${projection.remainingJP} JP` : '-'}`],
+        ['Selisih Alokasi JP', `: ${projection.remainingJP !== null ? `${projection.remainingJP} JP (${formatAllocationStatusIndonesian(projection.remainingJP)})` : '-'}`],
         ['Dasar Regulasi Struktur', `: ${officialRule.regulation || 'Struktur Kustom Guru'}`],
       ])
     );
@@ -255,7 +257,7 @@ export async function generateAlokasiWaktu(context: DocumentGenerationContext): 
           createTableHeaderCell('TOTAL', 26, AlignmentType.CENTER),
           createTableHeaderCell('Total Alokasi Waktu Pembelajaran Terjadwal', 38, AlignmentType.LEFT),
           createTableHeaderCell(`${totalAllocatedJP} JP`, 14, AlignmentType.CENTER),
-          createTableHeaderCell(projection.remainingJP === null ? '—' : `${projection.remainingJP} JP`, 14, AlignmentType.CENTER),
+          createTableHeaderCell('-', 14, AlignmentType.CENTER),
         ],
       });
 
@@ -263,6 +265,29 @@ export async function generateAlokasiWaktu(context: DocumentGenerationContext): 
 
   docChildren.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows }));
   docChildren.push(new Paragraph({ spacing: { after: 240 } }));
+
+  // Ringkasan Alokasi Waktu Pembelajaran Semester
+  if (context.documentMode !== 'blank') {
+    const statusDesc = formatAllocationStatusIndonesian(projection.remainingJP);
+    const summaryLines = isK13Curriculum
+      ? [
+          `• Beban JP Intrakurikuler per Minggu: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '—'}`,
+          `• Total Alokasi Pembelajaran Terdata: ${totalAllocatedJP} JP`,
+          `• Keterangan Pelaksanaan: Alokasi terjadwal sesuai silabus KD semester aktif.`,
+        ]
+      : [
+          `• Beban JP Intrakurikuler per Minggu: ${weeklyJP !== null ? `${weeklyJP} JP / Minggu` : '—'}`,
+          `• Alokasi JP Semester: ${projection.availableJP !== null ? `${projection.availableJP} JP` : '—'}`,
+          `• Total Alokasi Pembelajaran Terdata: ${totalAllocatedJP} JP`,
+          `• Selisih Alokasi JP: ${projection.remainingJP !== null ? `${projection.remainingJP} JP` : '—'} (${statusDesc})`,
+        ];
+
+    docChildren.push(
+      createSectionHeading('B. Ringkasan Alokasi Waktu Pembelajaran Semester', 1),
+      createProseParagraph(summaryLines.join('\n'), { firstLineIndent: false }),
+      new Paragraph({ spacing: { after: 240 } })
+    );
+  }
 
   // Signatures
   docChildren.push(...createSignoffBlock(school, profile, context.documentMode === 'blank', context.documentDate));
