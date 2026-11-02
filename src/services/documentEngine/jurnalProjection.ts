@@ -13,10 +13,10 @@ export interface JurnalRow {
   attendance: string;
 }
 export interface JurnalProjection {
-  version: 1; semesterPlanId: string; rows: JurnalRow[]; isReady: boolean; reasons: string[];
+  version: 1; semesterPlanId: string; rows: JurnalRow[]; isReady: boolean; reasons: string[]; warnings: string[];
 }
-export const JURNAL_COLUMNS = ['No', 'Tanggal & JP (Rencana / Realisasi)', 'Tujuan Pembelajaran & ATP', 'Bab & Lingkup Materi', 'Kegiatan (Rencana / Realisasi)', 'Kehadiran', 'Hasil & Kendala', 'Refleksi & Tindak Lanjut'];
-export const JURNAL_WIDTHS = [4, 13, 19, 15, 16, 10, 12, 11];
+export const JURNAL_COLUMNS = ['No', 'Tanggal & JP', 'Materi & Kegiatan', 'Tujuan Pembelajaran (TP)', 'Kehadiran & Catatan', 'Refleksi', 'Tindak Lanjut'];
+export const JURNAL_WIDTHS = [5, 14, 25, 22, 14, 10, 10];
 export function validJournalDate(date: string) {
   return /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(Date.parse(date)) && new Date(date).toISOString().slice(0,10) === date;
 }
@@ -25,7 +25,7 @@ export function validJournalDate(date: string) {
 export function buildJurnalProjection(context: DocumentGenerationContext): JurnalProjection {
   if (context.snapshot?.jurnalProjection) return structuredClone(context.snapshot.jurnalProjection);
   const semesterPlanId = context.academicSetting.id;
-  const result: JurnalProjection = { version: 1, semesterPlanId, rows: [], isReady: false, reasons: [] };
+  const result: JurnalProjection = { version: 1, semesterPlanId, rows: [], isReady: false, reasons: [], warnings: [] };
   if (context.documentMode === 'blank') return { ...result, isReady: true };
   if (context.snapshot) return { ...result, reasons: ['Snapshot lama belum menyimpan isi jurnal per pertemuan. Gunakan format kosong atau buat dokumen baru dari data saat ini.'] };
   const canonical = resolveMerdekaCanonicalTimeProjection({ ...context, learningMeetingSchedules: context.learningMeetingSchedules?.filter(bundle => bundle.semesterPlanId === semesterPlanId) });
@@ -50,9 +50,11 @@ export function buildJurnalProjection(context: DocumentGenerationContext): Jurna
     if (!validJournalDate(row.date) || !Number.isFinite(row.jp) || row.jp <= 0) { result.reasons.push(`Tanggal/JP pertemuan ${row.meetingId} tidak valid.`); continue; }
     const day = (context.calendarDays || []).filter(day => day.date === row.date);
     if (day.length > 1 || day.some(day => normalizeCalendarDayStatus(day.status) !== 'EFFECTIVE_LEARNING')) { result.reasons.push(`Tanggal ${row.date} untuk pertemuan ${row.meetingId} bukan hari pembelajaran atau ambigu; perbarui jadwal.`); continue; }
-    const tps = row.linkedTpIds.map(id => context.tp?.items.find(item => item.id === id));
-    const atps = row.linkedAtpItemIds.map(id => context.atp?.items.find(item => item.id === id));
-    if (tps.some(tp => !tp) || atps.some(atp => !atp)) { result.reasons.push(`Rujukan TP/ATP pertemuan ${row.meetingId} tidak ditemukan.`); continue; }
+    const tps = (row.linkedTpIds || []).map(id => context.tp?.items.find(item => item.id === id)).filter(Boolean);
+    const atps = (row.linkedAtpItemIds || []).map(id => context.atp?.items.find(item => item.id === id)).filter(Boolean);
+    if (row.linkedTpIds?.length && tps.length === 0) {
+      result.warnings.push(`Pertemuan ${row.meetingId} belum memiliki rujukan TP yang tertaut.`);
+    }
     const notes = (context.journalRealizations || []).filter(note => note.semesterPlanId === semesterPlanId && note.meetingId === row.meetingId);
     if (notes.length > 1) result.reasons.push(`Catatan realisasi pertemuan ${row.meetingId} ganda.`);
     const realization = notes.length === 1 ? structuredClone(notes[0]) : undefined;
@@ -81,17 +83,32 @@ export function buildJurnalProjection(context: DocumentGenerationContext): Jurna
   }
   if (!result.rows.length) result.reasons.push('Belum ada pertemuan terjadwal untuk jurnal semester ini.');
   result.reasons = [...new Set(result.reasons)];
+  result.warnings = [...new Set(result.warnings)];
   result.isReady = result.reasons.length === 0 && result.rows.length === expected.length && expected.length > 0;
   return result;
 }
 
 export function jurnalRowCells(row: JurnalRow, index: number): string[] {
   const note = row.realization;
-  return [String(index+1), `Rencana: ${row.plannedDate}\n${row.plannedJP} JP\nRealisasi: ${note?.actualDate || ''}\nJP realisasi: ${note?.actualJP ?? ''}`,
-    `${row.tpLines.join('\n')}\nATP: ${row.atpSteps.map(step => `Tahap ${step}`).join(', ')}`, `${row.unitTitle}\n${row.materialTitles.join('\n')}`,
-    `Rencana: ${row.plannedActivity}\nRealisasi: ${note?.activities || ''}`, row.attendance,
-    `Hasil: ${note?.outcome || ''}\nKendala: ${note?.obstacles || ''}`, '\n\n\n\n'];
+  const tanggalJpText = `Rencana: ${row.plannedDate}\n${row.plannedJP} JP${note?.actualDate ? `\nRealisasi: ${note.actualDate}` : ''}${note?.actualJP != null ? `\nJP riil: ${note.actualJP}` : ''}`;
+  const materiKegiatanText = `${row.unitTitle}\n• Materi: ${row.materialTitles.join(', ') || '-'}\n• Kegiatan: ${row.plannedActivity}${note?.activities ? `\n• Realisasi: ${note.activities}` : ''}`;
+  const tpText = row.tpLines.length > 0 ? row.tpLines.join('\n') : '(TP belum ditautkan)';
+  const kehadiranCatatanText = [
+    row.attendance,
+    note?.outcome ? `Hasil: ${note.outcome}` : '',
+    note?.obstacles ? `Kendala: ${note.obstacles}` : ''
+  ].filter(Boolean).join('\n') || '-';
+
+  return [
+    String(index + 1),
+    tanggalJpText,
+    materiKegiatanText,
+    tpText,
+    kehadiranCatatanText,
+    '\n\n\n', // Refleksi
+    '\n\n\n'  // Tindak Lanjut
+  ];
 }
 export function jurnalTableRows(projection: JurnalProjection, blank = false): string[][] {
-  return blank ? Array.from({ length: 15 }, (_, i) => [String(i+1), ...Array(7).fill('')]) : projection.rows.map(jurnalRowCells);
+  return blank ? Array.from({ length: 15 }, (_, i) => [String(i+1), ...Array(6).fill('')]) : projection.rows.map(jurnalRowCells);
 }
