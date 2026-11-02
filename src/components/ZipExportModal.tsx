@@ -149,7 +149,7 @@ export const ZipExportModal: React.FC<ZipExportModalProps> = ({
       ASESMEN: 'Instrumen & Rubrik Asesmen',
       DAFTAR_HADIR: 'Buku Daftar Hadir Siswa',
       DAFTAR_NILAI: 'Buku Daftar Nilai',
-      JURNAL: 'Jurnal Harian Mengajar',
+      JURNAL: 'Jurnal Harian Pembelajaran',
       REMEDIAL_PENGAYAAN: 'Program Remedial & Pengayaan',
       PEMETAAN_ATP_UNIT: 'Pemetaan ATP & Lingkup Materi per Bab',
       HARI_EFEKTIF: 'Rincian Hari Efektif & Libur',

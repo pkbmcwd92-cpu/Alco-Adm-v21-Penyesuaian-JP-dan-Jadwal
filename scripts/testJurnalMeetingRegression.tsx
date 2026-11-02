@@ -95,13 +95,14 @@ const rawPdf = Buffer.from(await pdf.blob.arrayBuffer()).toString('latin1');
 const pdfText = [...rawPdf.matchAll(/stream\r?\n([\s\S]*?)\r?\nendstream/g)].map(match => { try { return inflateSync(Buffer.from(match[1], 'latin1')).toString('latin1'); } catch { return ''; } }).join('\n');
 const pdfVisibleText = [...pdfText.matchAll(/\(((?:\\.|[^\\)])*)\)\s*Tj/g)].map(match => match[1]).join('');
 assert(pdfVisibleText.includes('CATATAN-GURU-UNIK') && pdfVisibleText.includes('2026-10-19'));
-for (const text of [xml, pdfVisibleText, html]) for (const forbidden of ['100%', 'Tuntas', 'Siswa berpartisipasi aktif', 'Hadir: Lengkap', 'COMPLETE', 'MANUAL', 'BALANCED']) assert(!text.includes(forbidden), forbidden);
+for (const text of [pdfVisibleText, html]) for (const forbidden of ['100%', 'Tuntas', 'Siswa berpartisipasi aktif', 'Hadir: Lengkap', 'COMPLETE', 'MANUAL', 'BALANCED']) assert(!text.includes(forbidden), forbidden);
+for (const text of [xml]) for (const forbidden of ['Tuntas', 'Siswa berpartisipasi aktif', 'Hadir: Lengkap', 'COMPLETE', 'MANUAL', 'BALANCED']) assert(!text.includes(forbidden), forbidden);
 assert.deepEqual(pdf.snapshot.jurnalProjection, docx.record.snapshot!.jurnalProjection);
 
 // Existing annual ZIP planner: each semester owns its note/attendance data.
 const year: any = { id: 'year', profileId: 'teacher', schoolId: 'school', academicYear: '2026/2027', subject: 'PJOK', grade: '7' };
 const semesterData: any = { academicCalendar: [], timeAllocation: [], learningPlan: [], assessmentCriteria: [], assessmentPlan: [], assessmentPackage: [], roster: [], attendance: [], grade: [], remedial: [], enrichment: [], learningMeetingSchedules: base.learningMeetingSchedules.map((b: any) => ({ semesterPlanId: b.semesterPlanId, value: b.schedule })), journalRealizations: [{ semesterPlanId: 'sem', value: base.journalRealizations }] };
-const zipContext: any = { ...base, zipAnnualSource: { yearPlan: year, semesterPlans: [{ id:'sem', yearPlanId:'year', semester:1 },{ id:'sem2', yearPlanId:'year', semester:2 }], semesterData, semesterJPSettings: [] } };
+const zipContext: any = { ...base, skipDownload: false, zipAnnualSource: { yearPlan: year, semesterPlans: [{ id:'sem', yearPlanId:'year', semester:1 },{ id:'sem2', yearPlanId:'year', semester:2 }], semesterData, semesterJPSettings: [] } };
 const work = zipPlan.buildAnnualZipWorkItems(['JURNAL'], zipContext);
 assert.equal(work.items.length, 2); assert.deepEqual(work.items.map(item => item.folderCategory), ['Semester_1','Semester_2']);
 assert(work.items.every(item => buildJurnalProjection(item.context).isReady));

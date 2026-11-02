@@ -191,7 +191,7 @@ export const DOCUMENT_CATALOG: DocumentCatalogItem[] = [
     id: 'JURNAL',
     type: 'JURNAL',
     category: 'Pelaksanaan & Asesmen',
-    title: 'Jurnal Harian Pelaksanaan Pembelajaran',
+    title: 'Jurnal Harian Pembelajaran',
     description: 'Format jurnal operasional mengajar harian, pencatatan aktivitas tatap muka, kehadiran siswa, refleksi pembelajaran, dan tindak lanjut.',
     requiredSources: ['Data Profil & Sekolah', 'Data Akademik', 'Tujuan Pembelajaran (TP) / ATP'],
   },

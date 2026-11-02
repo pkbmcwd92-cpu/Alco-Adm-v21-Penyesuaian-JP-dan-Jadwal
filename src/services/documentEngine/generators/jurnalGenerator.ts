@@ -31,8 +31,8 @@ export async function generateJurnal(context: DocumentGenerationContext): Promis
 
   // 1. Header
   const headerTitle = isBlankMode
-    ? 'JURNAL HARIAN PELAKSANAAN PEMBELAJARAN (FORMAT KOSONG)'
-    : 'JURNAL HARIAN PELAKSANAAN PEMBELAJARAN';
+    ? 'JURNAL HARIAN PEMBELAJARAN (FORMAT KOSONG)'
+    : 'JURNAL HARIAN PEMBELAJARAN';
   docChildren.push(
     ...createDocumentHeader(
       headerTitle,
@@ -98,13 +98,13 @@ export async function generateJurnal(context: DocumentGenerationContext): Promis
   return {
     success: true,
     type: 'JURNAL',
-    title: isBlankMode ? 'Jurnal Harian Pelaksanaan Pembelajaran (Format Kosong)' : 'Jurnal Harian Pelaksanaan Pembelajaran',
+    title: isBlankMode ? 'Jurnal Harian Pembelajaran (Format Kosong)' : 'Jurnal Harian Pembelajaran',
     fileName,
     blob,
     record: {
       id: `doc-jurnal-${Date.now()}`,
       type: 'JURNAL',
-      title: isBlankMode ? 'Jurnal Harian Pelaksanaan Pembelajaran (Format Kosong)' : 'Jurnal Harian Pelaksanaan Pembelajaran',
+      title: isBlankMode ? 'Jurnal Harian Pembelajaran (Format Kosong)' : 'Jurnal Harian Pembelajaran',
       status: 'completed',
       lastGenerated: new Date().toISOString(),
       fileName,

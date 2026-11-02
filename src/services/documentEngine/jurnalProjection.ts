@@ -90,7 +90,7 @@ export function jurnalRowCells(row: JurnalRow, index: number): string[] {
   return [String(index+1), `Rencana: ${row.plannedDate}\n${row.plannedJP} JP\nRealisasi: ${note?.actualDate || ''}\nJP realisasi: ${note?.actualJP ?? ''}`,
     `${row.tpLines.join('\n')}\nATP: ${row.atpSteps.map(step => `Tahap ${step}`).join(', ')}`, `${row.unitTitle}\n${row.materialTitles.join('\n')}`,
     `Rencana: ${row.plannedActivity}\nRealisasi: ${note?.activities || ''}`, row.attendance,
-    `Hasil: ${note?.outcome || ''}\nKendala: ${note?.obstacles || ''}`, `Refleksi: ${note?.reflection || ''}\nTindak lanjut: ${note?.followUp || ''}`];
+    `Hasil: ${note?.outcome || ''}\nKendala: ${note?.obstacles || ''}`, '\n\n\n\n'];
 }
 export function jurnalTableRows(projection: JurnalProjection, blank = false): string[][] {
   return blank ? Array.from({ length: 15 }, (_, i) => [String(i+1), ...Array(7).fill('')]) : projection.rows.map(jurnalRowCells);

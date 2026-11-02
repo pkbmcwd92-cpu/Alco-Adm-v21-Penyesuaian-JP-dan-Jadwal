@@ -1273,7 +1273,7 @@ export async function generatePdfDocument(
     case 'JURNAL': {
       const projection = buildJurnalProjection(context);
       if (!projection.isReady) throw new Error(projection.reasons.join('; ') + ' Gunakan format kosong.');
-      title = isBlankMode ? 'Jurnal Harian Pelaksanaan Pembelajaran (Format Kosong)' : 'Jurnal Harian Pelaksanaan Pembelajaran';
+      title = isBlankMode ? 'Jurnal Harian Pembelajaran (Format Kosong)' : 'Jurnal Harian Pembelajaran';
       subTitle = subject + ' — ' + grade + ' — Semester ' + semester;
       fileName = 'Jurnal_Mengajar_' + cleanSubject + '_' + cleanGrade + '.pdf';
       orientation = 'landscape';
